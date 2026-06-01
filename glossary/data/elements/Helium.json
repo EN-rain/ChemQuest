@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Helium Element",
+	"formula": "He",
+	"components": [
+	  { "symbol": "He", "count": 1 }
+	]
+  },
+  {
+	"name": "Helium Balloon",
+	"formula": "He(g)",
+	"components": [
+	  { "symbol": "He", "count": 1 }
+	]
+  },
+  {
+	"name": "Liquid Helium",
+	"formula": "He(l)",
+	"components": [
+	  { "symbol": "He", "count": 1 }
+	]
+  }
+]

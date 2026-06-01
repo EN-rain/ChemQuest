@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Ruthenium Element",
+	"formula": "Ru",
+	"components": [{ "symbol": "Ru", "count": 1 }]
+  },
+  {
+	"name": "Ruthenium Oxide",
+	"formula": "RuO2",
+	"components": [
+	  { "symbol": "Ru", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Ruthenium Chloride",
+	"formula": "RuCl3",
+	"components": [
+	  { "symbol": "Ru", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

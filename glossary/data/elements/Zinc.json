@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Zinc Element",
+	"formula": "Zn",
+	"components": [{ "symbol": "Zn", "count": 1 }]
+  },
+  {
+	"name": "Zinc Oxide",
+	"formula": "ZnO",
+	"components": [
+	  { "symbol": "Zn", "count": 1 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Zinc Chloride",
+	"formula": "ZnCl2",
+	"components": [
+	  { "symbol": "Zn", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  }
+]

@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cwxa7ban3sfcf"]
+
+[ext_resource type="FontFile" uid="uid://dbn2eqhxy00rr" path="res://assets/Roboto-BoldCondensed.ttf" id="1_u2uo8"]
+
+[resource]
+font = ExtResource("1_u2uo8")
+font_size = 50
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)

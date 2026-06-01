@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Chromium Element",
+	"formula": "Cr",
+	"components": [
+	  { "symbol": "Cr", "count": 1 }
+	]
+  },
+  {
+	"name": "Chromium Oxide",
+	"formula": "Cr2O3",
+	"components": [
+	  { "symbol": "Cr", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Chromium Chloride",
+	"formula": "CrCl3",
+	"components": [
+	  { "symbol": "Cr", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

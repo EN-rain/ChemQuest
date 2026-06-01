@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Tennessine Element",
+	"formula": "Ts",
+	"components": [{ "symbol": "Ts", "count": 1 }]
+  },
+  {
+	"name": "Tennessine Fluoride",
+	"formula": "TsF",
+	"components": [
+	  { "symbol": "Ts", "count": 1 },
+	  { "symbol": "F", "count": 1 }
+	]
+  },
+  {
+	"name": "Tennessine Chloride",
+	"formula": "TsCl",
+	"components": [
+	  { "symbol": "Ts", "count": 1 },
+	  { "symbol": "Cl", "count": 1 }
+	]
+  }
+]

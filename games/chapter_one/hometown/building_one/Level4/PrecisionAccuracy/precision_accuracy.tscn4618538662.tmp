@@ -1,0 +1,637 @@
+[gd_scene load_steps=18 format=3 uid="uid://b3ql76j3sbf0i"]
+
+[ext_resource type="Script" uid="uid://coedcxr1qbxew" path="res://PrecisionAccuracy/pa_manager.gd" id="1_1b7mb"]
+[ext_resource type="Script" uid="uid://74elvaf733p5" path="res://PrecisionAccuracy/wheel.gd" id="2_1b7mb"]
+[ext_resource type="Texture2D" uid="uid://bhlb5pe7x2ycw" path="res://PrecisionAccuracy/target (1).png" id="2_ei45l"]
+[ext_resource type="Texture2D" uid="uid://dtic0826twd85" path="res://PrecisionAccuracy/bullseye.png" id="2_slysd"]
+[ext_resource type="Texture2D" uid="uid://cyvp3cf2iuscr" path="res://Untitled design.png" id="3_4lvjh"]
+[ext_resource type="Texture2D" uid="uid://ccnuphbs40nww" path="res://Untitled design (1).png" id="3_fdqim"]
+[ext_resource type="Script" uid="uid://co4qf3vkfhv82" path="res://PrecisionAccuracy/target_1.gd" id="3_r1hf0"]
+[ext_resource type="Script" uid="uid://c88mjes27s4ta" path="res://PrecisionAccuracy/score_1.gd" id="4_nc61k"]
+[ext_resource type="Script" uid="uid://cgvxn7qngg5tk" path="res://PrecisionAccuracy/target_2.gd" id="6_ei3ri"]
+[ext_resource type="Script" uid="uid://ml4gwd7f2ke4" path="res://PrecisionAccuracy/score_2.gd" id="6_u25yt"]
+[ext_resource type="Script" uid="uid://bjbrnapd0xu63" path="res://PrecisionAccuracy/score_3.gd" id="7_4lvjh"]
+[ext_resource type="Script" uid="uid://2y7evw3pb4ed" path="res://PrecisionAccuracy/target_3.gd" id="7_smnkx"]
+[ext_resource type="Script" uid="uid://hjrtkar1su46" path="res://PrecisionAccuracy/target_4.gd" id="8_2romn"]
+[ext_resource type="Script" uid="uid://cp87p1h1e114o" path="res://PrecisionAccuracy/score_4.gd" id="8_fdqim"]
+[ext_resource type="Script" uid="uid://c1vwq21wlu5sg" path="res://PrecisionAccuracy/score_5.gd" id="9_5e20c"]
+[ext_resource type="Script" uid="uid://dy5w5ehjqck8r" path="res://PrecisionAccuracy/target_5.gd" id="9_scnyl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_slysd"]
+radius = 4.0
+
+[node name="PrecisionAccuracy" type="Node2D"]
+
+[node name="PAManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_1b7mb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 645.0
+metadata/_edit_lock_ = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="UI"]
+unique_name_in_owner = true
+offset_left = 331.0
+offset_top = 15.0
+offset_right = 374.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score"
+
+[node name="Button" type="Button" parent="UI"]
+unique_name_in_owner = true
+offset_left = 480.0
+offset_top = 560.0
+offset_right = 617.0
+offset_bottom = 598.0
+text = "FIRE"
+
+[node name="ResultsPanel" type="Panel" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -471.0
+offset_top = -254.0
+offset_right = 473.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TargetsResult" type="HBoxContainer" parent="UI/ResultsPanel"]
+layout_mode = 0
+offset_right = 3147.0
+offset_bottom = 40.0
+scale = Vector2(0.3, 0.3)
+theme_override_constants/separation = 658
+
+[node name="Control1" type="Control" parent="UI/ResultsPanel/TargetsResult"]
+layout_mode = 2
+
+[node name="TextureRect1" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control1"]
+texture_filter = 1
+layout_mode = 0
+anchor_bottom = 12.8
+offset_left = 3.33332
+offset_right = 515.333
+texture = ExtResource("3_4lvjh")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control1"]
+modulate = Color(0.75, 0.75, 0.75, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 10.5
+offset_left = 46.6667
+offset_top = 46.6667
+offset_right = 466.667
+offset_bottom = 46.6667
+texture = ExtResource("3_fdqim")
+
+[node name="TextureRect3" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control1"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 12.8
+offset_left = 100.0
+offset_top = 103.333
+offset_right = 410.0
+offset_bottom = -98.6667
+texture = ExtResource("3_4lvjh")
+
+[node name="TextureRect4" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control1"]
+modulate = Color(0.75, 0.75, 0.75, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 10.5
+offset_left = 150.0
+offset_top = 156.667
+offset_right = 360.0
+offset_bottom = -53.3335
+texture = ExtResource("3_fdqim")
+
+[node name="TextureRect5" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control1"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 12.8
+offset_left = 193.333
+offset_top = 200.0
+offset_right = 321.333
+offset_bottom = -184.0
+texture = ExtResource("3_4lvjh")
+
+[node name="Control2" type="Control" parent="UI/ResultsPanel/TargetsResult"]
+layout_mode = 2
+
+[node name="TextureRect1" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 3.33332
+offset_top = -1.04904e-05
+offset_right = 515.333
+offset_bottom = 512.0
+texture = ExtResource("3_4lvjh")
+
+[node name="TextureRect2" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control2"]
+modulate = Color(0.75, 0.75, 0.75, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 10.5
+offset_left = 46.6667
+offset_top = 46.6667
+offset_right = 466.667
+offset_bottom = 46.6667
+texture = ExtResource("3_fdqim")
+
+[node name="TextureRect3" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control2"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 12.8
+offset_left = 100.0
+offset_top = 103.333
+offset_right = 410.0
+offset_bottom = -98.6667
+texture = ExtResource("3_4lvjh")
+
+[node name="TextureRect4" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control2"]
+modulate = Color(0.75, 0.75, 0.75, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 10.5
+offset_left = 150.0
+offset_top = 156.667
+offset_right = 360.0
+offset_bottom = -53.3335
+texture = ExtResource("3_fdqim")
+
+[node name="TextureRect5" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control2"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 12.8
+offset_left = 193.333
+offset_top = 200.0
+offset_right = 321.333
+offset_bottom = -184.0
+texture = ExtResource("3_4lvjh")
+
+[node name="Control3" type="Control" parent="UI/ResultsPanel/TargetsResult"]
+layout_mode = 2
+
+[node name="TextureRect1" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 3.33332
+offset_top = -1.04904e-05
+offset_right = 515.333
+offset_bottom = 512.0
+texture = ExtResource("3_4lvjh")
+
+[node name="TextureRect2" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control3"]
+modulate = Color(0.75, 0.75, 0.75, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 10.5
+offset_left = 46.6667
+offset_top = 46.6667
+offset_right = 466.667
+offset_bottom = 46.6667
+texture = ExtResource("3_fdqim")
+
+[node name="TextureRect3" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control3"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 12.8
+offset_left = 100.0
+offset_top = 103.333
+offset_right = 410.0
+offset_bottom = -98.6667
+texture = ExtResource("3_4lvjh")
+
+[node name="TextureRect4" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control3"]
+modulate = Color(0.75, 0.75, 0.75, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 10.5
+offset_left = 150.0
+offset_top = 156.667
+offset_right = 360.0
+offset_bottom = -53.3335
+texture = ExtResource("3_fdqim")
+
+[node name="TextureRect5" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control3"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 12.8
+offset_left = 193.333
+offset_top = 200.0
+offset_right = 321.333
+offset_bottom = -184.0
+texture = ExtResource("3_4lvjh")
+
+[node name="Control4" type="Control" parent="UI/ResultsPanel/TargetsResult"]
+layout_mode = 2
+
+[node name="TextureRect1" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control4"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 3.33332
+offset_top = -1.04904e-05
+offset_right = 515.333
+offset_bottom = 512.0
+texture = ExtResource("3_4lvjh")
+
+[node name="TextureRect2" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control4"]
+modulate = Color(0.75, 0.75, 0.75, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 10.5
+offset_left = 46.6667
+offset_top = 46.6667
+offset_right = 466.667
+offset_bottom = 46.6667
+texture = ExtResource("3_fdqim")
+
+[node name="TextureRect3" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control4"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 12.8
+offset_left = 100.0
+offset_top = 103.333
+offset_right = 410.0
+offset_bottom = -98.6667
+texture = ExtResource("3_4lvjh")
+
+[node name="TextureRect4" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control4"]
+modulate = Color(0.75, 0.75, 0.75, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 10.5
+offset_left = 150.0
+offset_top = 156.667
+offset_right = 360.0
+offset_bottom = -53.3335
+texture = ExtResource("3_fdqim")
+
+[node name="TextureRect5" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control4"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 12.8
+offset_left = 193.333
+offset_top = 200.0
+offset_right = 321.333
+offset_bottom = -184.0
+texture = ExtResource("3_4lvjh")
+
+[node name="Control5" type="Control" parent="UI/ResultsPanel/TargetsResult"]
+layout_mode = 2
+
+[node name="TextureRect1" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control5"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 3.33332
+offset_top = -1.04904e-05
+offset_right = 515.333
+offset_bottom = 512.0
+texture = ExtResource("3_4lvjh")
+
+[node name="TextureRect2" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control5"]
+modulate = Color(0.75, 0.75, 0.75, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 10.5
+offset_left = 46.6667
+offset_top = 46.6667
+offset_right = 466.667
+offset_bottom = 46.6667
+texture = ExtResource("3_fdqim")
+
+[node name="TextureRect3" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control5"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 12.8
+offset_left = 100.0
+offset_top = 103.333
+offset_right = 410.0
+offset_bottom = -98.6667
+texture = ExtResource("3_4lvjh")
+
+[node name="TextureRect4" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control5"]
+modulate = Color(0.75, 0.75, 0.75, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 10.5
+offset_left = 150.0
+offset_top = 156.667
+offset_right = 360.0
+offset_bottom = -53.3335
+texture = ExtResource("3_fdqim")
+
+[node name="TextureRect5" type="TextureRect" parent="UI/ResultsPanel/TargetsResult/Control5"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 12.8
+offset_left = 193.333
+offset_top = 200.0
+offset_right = 321.333
+offset_bottom = -184.0
+texture = ExtResource("3_4lvjh")
+
+[node name="PointsLabel" type="HBoxContainer" parent="UI/ResultsPanel"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 163.0
+offset_right = 933.0
+offset_bottom = 203.0
+theme_override_constants/separation = 140
+
+[node name="Label1" type="Label" parent="UI/ResultsPanel/PointsLabel"]
+layout_mode = 2
+text = "POINTS"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/ResultsPanel/PointsLabel"]
+layout_mode = 2
+text = "POINTS"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="UI/ResultsPanel/PointsLabel"]
+layout_mode = 2
+text = "POINTS"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="UI/ResultsPanel/PointsLabel"]
+layout_mode = 2
+text = "POINTS"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="UI/ResultsPanel/PointsLabel"]
+layout_mode = 2
+text = "POINTS"
+horizontal_alignment = 1
+
+[node name="Precision" type="Button" parent="UI/ResultsPanel"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 356.0
+offset_right = 339.0
+offset_bottom = 409.0
+text = "PRECISION"
+
+[node name="Accuracy" type="Button" parent="UI/ResultsPanel"]
+layout_mode = 0
+offset_left = 531.0
+offset_top = 350.0
+offset_right = 708.0
+offset_bottom = 398.0
+text = "ACCURACY"
+
+[node name="Label" type="Label" parent="UI/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = 38.5
+offset_right = 144.0
+offset_bottom = 69.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "IS THIS ANPRECISION OR ACCURACY"
+
+[node name="Wheel" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(575, 313)
+script = ExtResource("2_1b7mb")
+
+[node name="Center" type="TextureRect" parent="Wheel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Targets" type="Node2D" parent="Wheel"]
+unique_name_in_owner = true
+
+[node name="Target1" type="Node2D" parent="Wheel/Targets"]
+unique_name_in_owner = true
+position = Vector2(6, 71)
+script = ExtResource("3_r1hf0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel/Targets/Target1"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Wheel/Targets/Target1"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target1/Score1"]
+
+[node name="Score2" type="Area2D" parent="Wheel/Targets/Target1"]
+script = ExtResource("6_u25yt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target1/Score2"]
+
+[node name="Score3" type="Area2D" parent="Wheel/Targets/Target1"]
+script = ExtResource("7_4lvjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target1/Score3"]
+
+[node name="Score4" type="Area2D" parent="Wheel/Targets/Target1"]
+script = ExtResource("8_fdqim")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target1/Score4"]
+
+[node name="Score5" type="Area2D" parent="Wheel/Targets/Target1"]
+script = ExtResource("9_5e20c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target1/Score5"]
+
+[node name="Target2" type="Node2D" parent="Wheel/Targets"]
+unique_name_in_owner = true
+position = Vector2(6, 71)
+script = ExtResource("6_ei3ri")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel/Targets/Target2"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Wheel/Targets/Target2"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target2/Score1"]
+
+[node name="Score2" type="Area2D" parent="Wheel/Targets/Target2"]
+script = ExtResource("6_u25yt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target2/Score2"]
+
+[node name="Score3" type="Area2D" parent="Wheel/Targets/Target2"]
+script = ExtResource("7_4lvjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target2/Score3"]
+
+[node name="Score4" type="Area2D" parent="Wheel/Targets/Target2"]
+script = ExtResource("8_fdqim")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target2/Score4"]
+
+[node name="Score5" type="Area2D" parent="Wheel/Targets/Target2"]
+script = ExtResource("9_5e20c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target2/Score5"]
+
+[node name="Target3" type="Node2D" parent="Wheel/Targets"]
+unique_name_in_owner = true
+position = Vector2(6, 71)
+script = ExtResource("7_smnkx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel/Targets/Target3"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Wheel/Targets/Target3"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target3/Score1"]
+
+[node name="Score2" type="Area2D" parent="Wheel/Targets/Target3"]
+script = ExtResource("6_u25yt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target3/Score2"]
+
+[node name="Score3" type="Area2D" parent="Wheel/Targets/Target3"]
+script = ExtResource("7_4lvjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target3/Score3"]
+
+[node name="Score4" type="Area2D" parent="Wheel/Targets/Target3"]
+script = ExtResource("8_fdqim")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target3/Score4"]
+
+[node name="Score5" type="Area2D" parent="Wheel/Targets/Target3"]
+script = ExtResource("9_5e20c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target3/Score5"]
+
+[node name="Target4" type="Node2D" parent="Wheel/Targets"]
+unique_name_in_owner = true
+position = Vector2(6, 71)
+script = ExtResource("8_2romn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel/Targets/Target4"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Wheel/Targets/Target4"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Wheel/Targets/Target4/Score1"]
+
+[node name="Score2" type="Area2D" parent="Wheel/Targets/Target4"]
+script = ExtResource("6_u25yt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target4/Score2"]
+
+[node name="Score3" type="Area2D" parent="Wheel/Targets/Target4"]
+script = ExtResource("7_4lvjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target4/Score3"]
+
+[node name="Score4" type="Area2D" parent="Wheel/Targets/Target4"]
+script = ExtResource("8_fdqim")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target4/Score4"]
+
+[node name="Score5" type="Area2D" parent="Wheel/Targets/Target4"]
+script = ExtResource("9_5e20c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target4/Score5"]
+
+[node name="Target5" type="Node2D" parent="Wheel/Targets"]
+unique_name_in_owner = true
+position = Vector2(6, 71)
+script = ExtResource("9_scnyl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel/Targets/Target5"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Wheel/Targets/Target5"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target5/Score1"]
+
+[node name="Score2" type="Area2D" parent="Wheel/Targets/Target5"]
+script = ExtResource("6_u25yt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target5/Score2"]
+
+[node name="Score3" type="Area2D" parent="Wheel/Targets/Target5"]
+script = ExtResource("7_4lvjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target5/Score3"]
+
+[node name="Score4" type="Area2D" parent="Wheel/Targets/Target5"]
+script = ExtResource("8_fdqim")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target5/Score4"]
+
+[node name="Score5" type="Area2D" parent="Wheel/Targets/Target5"]
+script = ExtResource("9_5e20c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target5/Score5"]
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(-2, -29)
+
+[node name="TextureRect" type="TextureRect" parent="Player"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 556.0
+offset_top = 100.0
+offset_right = 1068.0
+offset_bottom = 612.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ei45l")
+
+[node name="FireZone" type="Area2D" parent="Player"]
+unique_name_in_owner = true
+position = Vector2(-12, -62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/FireZone"]
+position = Vector2(593, 186)
+shape = SubResource("CircleShape2D_slysd")
+
+[connection signal="pressed" from="UI/Button" to="PAManager" method="_on_button_pressed"]

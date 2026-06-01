@@ -1,0 +1,501 @@
+[gd_scene load_steps=30 format=3 uid="uid://cvxd0pbxjgd7s"]
+
+[ext_resource type="Script" uid="uid://bvcjlc4mf8jc4" path="res://games/chapter_one/hometown/building_one/Level1/Lesson3/lesson_3.gd" id="1_1iaa8"]
+[ext_resource type="Script" uid="uid://dnepjw8kly6jh" path="res://games/chapter_one/hometown/building_one/back_panel.gd" id="1_qi8wb"]
+[ext_resource type="FontFile" uid="uid://dbn2eqhxy00rr" path="res://assets/Roboto-BoldCondensed.ttf" id="2_c08j8"]
+[ext_resource type="PackedScene" uid="uid://pc36d0entonh" path="res://games/chapter_one/hometown/building_one/Level1/Lesson3/mixtures.tscn" id="3_kxdpe"]
+[ext_resource type="Texture2D" uid="uid://c1n60p627avhc" path="res://games/chapter_one/hometown/building_one/Level1/imgs/container.png" id="3_n60jn"]
+[ext_resource type="Script" uid="uid://qcsu8dw6te7v" path="res://games/chapter_one/hometown/building_one/Level1/Lesson3/boxes.gd" id="4_fk4dj"]
+[ext_resource type="Script" uid="uid://btaldsw1nvbsf" path="res://games/chapter_one/hometown/building_one/Level1/Lesson3/results_panel.gd" id="4_kwnlp"]
+[ext_resource type="Script" uid="uid://bh2o1pmroefdo" path="res://games/chapter_one/hometown/building_one/Level1/Lesson3/mistakes_panel.gd" id="5_h0axc"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="5_kwnlp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3mpa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1lrt3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_65oo8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xw3df"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mp1gr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hno0i"]
+font = ExtResource("2_c08j8")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1l16b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi8wb"]
+size = Vector2(85.9375, 67.6875)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n60jn"]
+font = ExtResource("5_kwnlp")
+font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kwnlp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n60jn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u4yr4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fchvf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c08j8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_unddk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j0vd7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_56ubk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qs44n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u744s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7huub"]
+
+[node name="Lesson3" type="Node2D"]
+script = ExtResource("1_1iaa8")
+
+[node name="DesignCanvas" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="DesignCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.93333334, 0.93333334, 0.93333334, 1)
+
+[node name="ColorRect" type="ColorRect" parent="DesignCanvas/ColorRect"]
+layout_mode = 0
+offset_right = 1282.0
+offset_bottom = 93.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="BackButton" type="Button" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 0
+offset_right = 173.0
+offset_bottom = 92.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r3mpa")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1lrt3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_65oo8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_xw3df")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mp1gr")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/BackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.5
+offset_top = -33.0
+offset_right = 86.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BACK"
+label_settings = SubResource("LabelSettings_hno0i")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -91.0
+offset_right = 91.0
+offset_bottom = 73.0
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpawnerPanel" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -188.0
+offset_right = 293.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1l16b")
+
+[node name="Boxes" type="Control" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_fk4dj")
+
+[node name="Homogeneous" type="Area2D" parent="CanvasLayer/MarginContainer/Control/Boxes"]
+unique_name_in_owner = true
+position = Vector2(-260, 160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MarginContainer/Control/Boxes/Homogeneous"]
+shape = SubResource("RectangleShape2D_qi8wb")
+
+[node name="Marker2D" type="Marker2D" parent="CanvasLayer/MarginContainer/Control/Boxes/Homogeneous"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/MarginContainer/Control/Boxes/Homogeneous"]
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("3_n60jn")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/Boxes/Homogeneous"]
+offset_left = -74.0
+offset_top = -116.0
+offset_right = 74.0
+offset_bottom = -93.0
+text = "Homogenous"
+horizontal_alignment = 1
+
+[node name="Heterogeneous" type="Area2D" parent="CanvasLayer/MarginContainer/Control/Boxes"]
+unique_name_in_owner = true
+position = Vector2(262, 160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MarginContainer/Control/Boxes/Heterogeneous"]
+shape = SubResource("RectangleShape2D_qi8wb")
+
+[node name="Marker2D" type="Marker2D" parent="CanvasLayer/MarginContainer/Control/Boxes/Heterogeneous"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/MarginContainer/Control/Boxes/Heterogeneous"]
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("3_n60jn")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/Boxes/Heterogeneous"]
+offset_left = -74.0
+offset_top = -116.0
+offset_right = 74.0
+offset_bottom = -93.0
+text = "Heterogenous"
+horizontal_alignment = 1
+
+[node name="FinalizeButton" type="Button" parent="CanvasLayer/MarginContainer/Control/Boxes"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -91.25
+offset_top = 180.0
+offset_right = 91.25
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer/Control/Boxes/FinalizeButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.12156863, 0.16078432, 0.21568628, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/Boxes/FinalizeButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "FINALIZE"
+
+[node name="UndoButton" type="Button" parent="CanvasLayer/MarginContainer/Control/Boxes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.25
+offset_top = 69.0
+offset_right = 91.25
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer/Control/Boxes/UndoButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.12156863, 0.16078432, 0.21568628, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/Boxes/UndoButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "UNDO"
+
+[node name="ResultsPanel" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_kwnlp")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24477637, 0.2447764, 0.24477637, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -189.5
+offset_right = 189.5
+offset_bottom = 125.0
+grow_horizontal = 2
+text = "asasssssssaas"
+label_settings = SubResource("LabelSettings_n60jn")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Retry" type="Button" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 73.0
+offset_top = -148.0
+offset_right = 306.0
+offset_bottom = -81.0
+grow_vertical = 0
+text = "RETRY"
+
+[node name="GoBack" type="Button" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -282.0
+offset_top = -153.0
+offset_right = -49.0
+offset_bottom = -86.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "GO BACK"
+
+[node name="Continue" type="Button" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -119.5
+offset_top = -69.0
+offset_right = 119.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "CONTINUE"
+
+[node name="Correction" type="Button" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 186.0
+offset_right = 508.0
+offset_bottom = 224.0
+text = "SHOW MISTAKES"
+
+[node name="MistakesPanel" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -300.0
+offset_right = 500.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_h0axc")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MarginContainer/Control/MistakesPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/Control/MistakesPanel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 45
+theme_override_constants/v_separation = 80
+columns = 6
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/Control/MistakesPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -619.0
+offset_top = -341.0
+offset_right = 637.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kwnlp")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_n60jn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u4yr4")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_fchvf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_c08j8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_unddk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_j0vd7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_56ubk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qs44n")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_u744s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7huub")
+
+[node name="Mixtures" parent="CanvasLayer/MarginContainer/Control" instance=ExtResource("3_kxdpe")]
+visible = false
+position = Vector2(551, 333)
+
+[node name="BackPanel" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qi8wb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/Control/BackPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Yes" type="Button" parent="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "YES"
+
+[node name="No" type="Button" parent="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "NO"
+
+[node name="FadeSfx" type="ColorRect" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="area_entered" from="CanvasLayer/MarginContainer/Control/Boxes/Homogeneous" to="CanvasLayer/MarginContainer/Control/Boxes" method="_on_homogeneous_area_entered"]
+[connection signal="area_entered" from="CanvasLayer/MarginContainer/Control/Boxes/Heterogeneous" to="CanvasLayer/MarginContainer/Control/Boxes" method="_on_heterogeneous_area_entered"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/Boxes/FinalizeButton" to="CanvasLayer/MarginContainer/Control/Boxes" method="_on_finalize_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/ResultsPanel/Retry" to="CanvasLayer/MarginContainer/Control/ResultsPanel" method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/ResultsPanel/GoBack" to="CanvasLayer/MarginContainer/Control/ResultsPanel" method="_on_go_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/ResultsPanel/Continue" to="CanvasLayer/MarginContainer/Control/ResultsPanel" method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/ResultsPanel/Correction" to="CanvasLayer/MarginContainer/Control/ResultsPanel" method="_on_correction_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/MistakesPanel/Button" to="CanvasLayer/MarginContainer/Control/MistakesPanel" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer/Yes" to="CanvasLayer/MarginContainer/Control/BackPanel" method="_on_yes_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer/No" to="CanvasLayer/MarginContainer/Control/BackPanel" method="_on_no_pressed"]

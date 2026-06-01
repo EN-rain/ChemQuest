@@ -1,0 +1,26 @@
+[
+  {
+	"name": "Barium Element",
+	"formula": "Ba",
+	"components": [
+	  { "symbol": "Ba", "count": 1 }
+	]
+  },
+  {
+	"name": "Barium Sulfate",
+	"formula": "BaSO4",
+	"components": [
+	  { "symbol": "Ba", "count": 1 },
+	  { "symbol": "S", "count": 1 },
+	  { "symbol": "O", "count": 4 }
+	]
+  },
+  {
+	"name": "Barium Chloride",
+	"formula": "BaCl2",
+	"components": [
+	  { "symbol": "Ba", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  }
+]

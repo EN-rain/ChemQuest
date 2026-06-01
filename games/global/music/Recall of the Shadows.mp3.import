@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cobhejepl5wim"
+path="res://.godot/imported/Recall of the Shadows.mp3-e2da55ee9936d137d2b9c44ef9d39f97.mp3str"
+
+[deps]
+
+source_file="res://games/global/music/Recall of the Shadows.mp3"
+dest_files=["res://.godot/imported/Recall of the Shadows.mp3-e2da55ee9936d137d2b9c44ef9d39f97.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

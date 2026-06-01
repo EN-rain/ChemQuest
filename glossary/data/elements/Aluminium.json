@@ -1,0 +1,34 @@
+[
+  {
+	"name": "Aluminum Foil",
+	"formula": "Al",
+	"components": [
+	  { "symbol": "Al", "count": 1 }
+	]
+  },
+  {
+	"name": "Aluminum Oxide",
+	"formula": "Al2O3",
+	"components": [
+	  { "symbol": "Al", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Aluminum Hydroxide",
+	"formula": "Al(OH)3",
+	"components": [
+	  { "symbol": "Al", "count": 1 },
+	  { "symbol": "O", "count": 3 },
+	  { "symbol": "H", "count": 3 }
+	]
+  },
+  {
+	"name": "Aluminum Chloride",
+	"formula": "AlCl3",
+	"components": [
+	  { "symbol": "Al", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

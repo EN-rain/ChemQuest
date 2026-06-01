@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Yttrium Element",
+	"formula": "Y",
+	"components": [{ "symbol": "Y", "count": 1 }]
+  },
+  {
+	"name": "Yttrium Oxide",
+	"formula": "Y2O3",
+	"components": [
+	  { "symbol": "Y", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Yttrium Chloride",
+	"formula": "YCl3",
+	"components": [
+	  { "symbol": "Y", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

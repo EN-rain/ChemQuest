@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Dysprosium Element",
+	"formula": "Dy",
+	"components": [
+	  { "symbol": "Dy", "count": 1 }
+	]
+  },
+  {
+	"name": "Dysprosium Oxide",
+	"formula": "Dy2O3",
+	"components": [
+	  { "symbol": "Dy", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Dysprosium Chloride",
+	"formula": "DyCl3",
+	"components": [
+	  { "symbol": "Dy", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  },
+  {
+	"name": "Dysprosium Fluoride",
+	"formula": "DyF3",
+	"components": [
+	  { "symbol": "Dy", "count": 1 },
+	  { "symbol": "F", "count": 3 }
+	]
+  }
+]

@@ -1,0 +1,31 @@
+[
+  {
+	"name": "Thallium Element",
+	"formula": "Tl",
+	"components": [{ "symbol": "Tl", "count": 1 }]
+  },
+  {
+	"name": "Thallium(I) Oxide",
+	"formula": "Tl2O",
+	"components": [
+	  { "symbol": "Tl", "count": 2 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Thallium(III) Oxide",
+	"formula": "Tl2O3",
+	"components": [
+	  { "symbol": "Tl", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Thallium Chloride",
+	"formula": "TlCl",
+	"components": [
+	  { "symbol": "Tl", "count": 1 },
+	  { "symbol": "Cl", "count": 1 }
+	]
+  }
+]

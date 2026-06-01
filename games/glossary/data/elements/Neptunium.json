@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Neptunium Element",
+	"formula": "Np",
+	"components": [
+	  { "symbol": "Np", "count": 1 }
+	]
+  },
+  {
+	"name": "Neptunium Dioxide",
+	"formula": "NpO2",
+	"components": [
+	  { "symbol": "Np", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Neptunium(V) Oxide",
+	"formula": "Np2O5",
+	"components": [
+	  { "symbol": "Np", "count": 2 },
+	  { "symbol": "O", "count": 5 }
+	]
+  }
+]

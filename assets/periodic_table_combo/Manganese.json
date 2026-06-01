@@ -1,0 +1,34 @@
+[
+  {
+	"name": "Manganese Element",
+	"formula": "Mn",
+	"components": [
+	  { "symbol": "Mn", "count": 1 }
+	]
+  },
+  {
+	"name": "Manganese Dioxide",
+	"formula": "MnO2",
+	"components": [
+	  { "symbol": "Mn", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Potassium Permanganate",
+	"formula": "KMnO4",
+	"components": [
+	  { "symbol": "K", "count": 1 },
+	  { "symbol": "Mn", "count": 1 },
+	  { "symbol": "O", "count": 4 }
+	]
+  },
+  {
+	"name": "Manganese(II) Chloride",
+	"formula": "MnCl2",
+	"components": [
+	  { "symbol": "Mn", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  }
+]

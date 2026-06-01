@@ -1,0 +1,110 @@
+[gd_scene load_steps=5 format=3 uid="uid://coe7d456a5pel"]
+
+[ext_resource type="Script" uid="uid://7no78mc3pifk" path="res://element_info.gd" id="1_km50h"]
+[ext_resource type="Texture2D" uid="uid://1rnxu8lt52qo" path="res://assets/ELinf.png" id="2_77438"]
+[ext_resource type="FontFile" uid="uid://44iffnbrlgyt" path="res://assets/LilitaOne-Regular.ttf" id="3_biura"]
+
+[sub_resource type="Theme" id="Theme_bjf0r"]
+default_font = ExtResource("3_biura")
+default_font_size = 25
+
+[node name="ElementInfo" type="CanvasLayer"]
+script = ExtResource("1_km50h")
+
+[node name="ELinf" type="Sprite2D" parent="."]
+position = Vector2(575, 323.5)
+scale = Vector2(0.7434896, 0.6376953)
+texture = ExtResource("2_77438")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13333334, 0.13333334, 0.13333334, 0.8)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 38.0
+offset_bottom = 37.0
+theme = SubResource("Theme_bjf0r")
+metadata/_edit_use_anchors_ = true
+
+[node name="ElementImage" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 117.0
+offset_right = 684.0
+offset_bottom = 425.0
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Name" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 888.0
+offset_top = 140.0
+offset_right = 987.0
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(0.072842635, 0.072842635, 0.072842635, 1)
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Symbol" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 913.0
+offset_top = 198.0
+offset_right = 988.0
+offset_bottom = 228.0
+theme_override_colors/font_color = Color(0.029506557, 0.029506557, 0.029506557, 1)
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Number" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 835.0
+offset_top = 305.0
+offset_right = 987.0
+offset_bottom = 337.0
+theme_override_colors/font_color = Color(0.09239707, 0.09239706, 0.09239706, 1)
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Mass" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 882.0
+offset_top = 252.0
+offset_right = 987.0
+offset_bottom = 282.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 16.0
+offset_right = 294.5
+offset_bottom = 87.5
+text = "Back
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="CompoundsList" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 122.0
+offset_right = 325.0
+offset_bottom = 574.0

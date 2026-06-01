@@ -1,0 +1,20 @@
+[
+  {
+	"name": "Radon Element",
+	"formula": "Rn",
+	"components": [{ "symbol": "Rn", "count": 1 }]
+  },
+  {
+	"name": "Radon Gas",
+	"formula": "Rn(g)",
+	"components": [{ "symbol": "Rn", "count": 1 }]
+  },
+  {
+	"name": "Radon Hydride",
+	"formula": "RnH2",
+	"components": [
+	  { "symbol": "Rn", "count": 1 },
+	  { "symbol": "H", "count": 2 }
+	]
+  }
+]

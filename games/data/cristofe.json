@@ -1,0 +1,45 @@
+{
+  "intro": [
+	"Greetings, I am Christofe.",
+	"The wizard sent me to guide you further.",
+    "Your next challenge is Density Measurement."
+  ],
+
+  "in_progress": [
+	"Focus on your Density lesson.",
+    "Come back once you've completed it."
+  ],
+
+  "after_density": [
+	"Excellent! You've completed the Density Measurement lesson.",
+	"With each step, you are becoming a true scientist.",
+    "Now, prepare for your next challenge: understanding how matter can change its form!"
+  ],
+
+  "completed": [
+	"You’ve mastered density measurement!",
+    "The wizard will be very proud of you."
+  ],
+
+  "intro_states": [
+	"Ah, there you are again, young scientist.",
+	"This time, we’ll explore how matter dances between its states — solid, liquid, and gas.",
+    "Approach the experiment table and see what surprises await you."
+  ],
+
+  "in_progress_states": [
+	"Remember, patience and observation are key.",
+    "Each state of matter reveals its secrets only to those who look closely."
+  ],
+
+  "after_states": [
+	"Wonderful work! You’ve witnessed the dance of matter itself.",
+	"From ice to water to vapor — a beautiful cycle of transformation.",
+    "The wizard will be thrilled to hear of your progress!"
+  ],
+
+  "completed_states": [
+	"You’ve mastered the lesson on the states of matter.",
+    "Few apprentices grasp it so quickly — you have great potential."
+  ]
+}

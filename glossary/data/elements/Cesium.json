@@ -1,0 +1,26 @@
+[
+  {
+	"name": "Cesium Element",
+	"formula": "Cs",
+	"components": [
+	  { "symbol": "Cs", "count": 1 }
+	]
+  },
+  {
+	"name": "Cesium Chloride",
+	"formula": "CsCl",
+	"components": [
+	  { "symbol": "Cs", "count": 1 },
+	  { "symbol": "Cl", "count": 1 }
+	]
+  },
+  {
+	"name": "Cesium Hydroxide",
+	"formula": "CsOH",
+	"components": [
+	  { "symbol": "Cs", "count": 1 },
+	  { "symbol": "O", "count": 1 },
+	  { "symbol": "H", "count": 1 }
+	]
+  }
+]

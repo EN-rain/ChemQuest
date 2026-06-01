@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Protactinium Element",
+	"formula": "Pa",
+	"components": [
+	  { "symbol": "Pa", "count": 1 }
+	]
+  },
+  {
+	"name": "Protactinium Oxide",
+	"formula": "Pa2O5",
+	"components": [
+	  { "symbol": "Pa", "count": 2 },
+	  { "symbol": "O", "count": 5 }
+	]
+  },
+  {
+	"name": "Protactinium Chloride",
+	"formula": "PaCl5",
+	"components": [
+	  { "symbol": "Pa", "count": 1 },
+	  { "symbol": "Cl", "count": 5 }
+	]
+  }
+]

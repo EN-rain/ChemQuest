@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Selenium Element",
+	"formula": "Se",
+	"components": [{ "symbol": "Se", "count": 1 }]
+  },
+  {
+	"name": "Selenium Dioxide",
+	"formula": "SeO2",
+	"components": [
+	  { "symbol": "Se", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Selenium Sulfide",
+	"formula": "SeS2",
+	"components": [
+	  { "symbol": "Se", "count": 1 },
+	  { "symbol": "S", "count": 2 }
+	]
+  }
+]

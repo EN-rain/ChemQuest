@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Tin Element",
+	"formula": "Sn",
+	"components": [{ "symbol": "Sn", "count": 1 }]
+  },
+  {
+	"name": "Tin(II) Oxide",
+	"formula": "SnO",
+	"components": [
+	  { "symbol": "Sn", "count": 1 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Tin(IV) Oxide",
+	"formula": "SnO2",
+	"components": [
+	  { "symbol": "Sn", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Platinum Element",
+	"formula": "Pt",
+	"components": [
+	  { "symbol": "Pt", "count": 1 }
+	]
+  },
+  {
+	"name": "Platinum Chloride",
+	"formula": "PtCl4",
+	"components": [
+	  { "symbol": "Pt", "count": 1 },
+	  { "symbol": "Cl", "count": 4 }
+	]
+  },
+  {
+	"name": "Platinum Oxide",
+	"formula": "PtO2",
+	"components": [
+	  { "symbol": "Pt", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  }
+]

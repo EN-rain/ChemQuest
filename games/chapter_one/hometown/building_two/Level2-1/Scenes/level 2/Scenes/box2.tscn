@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://ced30k2khrayc"]
+
+[ext_resource type="Script" uid="uid://bifr45aiq3f83" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level 2/Scripts/level2box.gd" id="1_50g83"]
+[ext_resource type="Texture2D" uid="uid://8ft3oo4at67o" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Items/Boxes/Box2/Idle.png" id="1_jsy84"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_50g83"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jsy84")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5w3l"]
+size = Vector2(14.5, 13)
+
+[sub_resource type="FontVariation" id="FontVariation_m5w3l"]
+fallbacks = Array[Font]([null])
+
+[sub_resource type="LabelSettings" id="LabelSettings_rp70x"]
+font_size = 10
+
+[node name="barrel" type="RigidBody2D"]
+collision_layer = 3
+can_sleep = false
+freeze_mode = 1
+script = ExtResource("1_50g83")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_50g83")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+shape = SubResource("RectangleShape2D_m5w3l")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -27.0
+offset_top = -50.0
+offset_right = 27.0
+offset_bottom = -19.0
+theme_override_fonts/font = SubResource("FontVariation_m5w3l")
+theme_override_font_sizes/font_size = 0
+label_settings = SubResource("LabelSettings_rp70x")

@@ -1,0 +1,1051 @@
+[gd_scene load_steps=59 format=3 uid="uid://dc3iuei38mgec"]
+
+[ext_resource type="Script" uid="uid://xt73kk2t27ko" path="res://games/chapter_one/hometown/building_one/Level1/Lesson1/control.gd" id="1_aeahy"]
+[ext_resource type="Script" uid="uid://bloveht0mcrmq" path="res://games/chapter_one/hometown/building_one/Level1/Lesson2/spawner.gd" id="1_fpwr2"]
+[ext_resource type="Texture2D" uid="uid://c4dijtmed7iiy" path="res://games/chapter_one/hometown/building_one/Level1/imgs/Dropzone.png" id="1_sl6su"]
+[ext_resource type="Script" uid="uid://bsx6kg6gdogct" path="res://games/chapter_one/hometown/building_one/Level1/Lesson2/pass.gd" id="2_1ehha"]
+[ext_resource type="Texture2D" uid="uid://b4hp8yfw47ogc" path="res://games/chapter_one/hometown/building_one/Level1/imgs/line.png" id="2_wv11b"]
+[ext_resource type="Script" uid="uid://b62oot1bksdrg" path="res://games/chapter_one/hometown/building_one/Level1/Lesson1/music_button.gd" id="4_6smdq"]
+[ext_resource type="Texture2D" uid="uid://dyb36iq8wsfjc" path="res://assets/buttons/notew1.png" id="5_etsj8"]
+[ext_resource type="LabelSettings" uid="uid://mf7oh2pkahx6" path="res://games/chapter_one/hometown/building_one/Level1/atom.tres" id="6_0sp3d"]
+[ext_resource type="Script" uid="uid://dnepjw8kly6jh" path="res://games/chapter_one/hometown/building_one/level3/back_panel.gd" id="6_ca2ju"]
+[ext_resource type="Texture2D" uid="uid://c4ayatj868kf7" path="res://assets/buttons/notew2.png" id="6_f6xqn"]
+[ext_resource type="Script" uid="uid://bu15iobyijq18" path="res://games/chapter_one/hometown/building_one/Level1/Lesson2/results_panel.gd" id="6_hv0o3"]
+[ext_resource type="LabelSettings" uid="uid://cwxa7ban3sfcf" path="res://assets/mainmenu.tres" id="6_k8dfy"]
+[ext_resource type="FontFile" uid="uid://dbn2eqhxy00rr" path="res://assets/Roboto-BoldCondensed.ttf" id="6_witp3"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="7_1ehha"]
+[ext_resource type="Texture2D" uid="uid://b667yn0ou5sxj" path="res://assets/back.png" id="8_0pfw8"]
+[ext_resource type="Script" uid="uid://4s6wxflwcqot" path="res://games/chapter_one/hometown/building_one/Level1/Lesson2/checker.gd" id="9_7vy68"]
+[ext_resource type="PackedScene" uid="uid://chspyidxnjt3k" path="res://games/chapter_one/hometown/building_one/Level1/atom.tscn" id="9_r0mqw"]
+[ext_resource type="Texture2D" uid="uid://hiu6i1fsaixv" path="res://games/chapter_one/hometown/building_one/Level1/imgs/Rectangle 1.png" id="14_7vy68"]
+[ext_resource type="Texture2D" uid="uid://d27w7ydxl1hhf" path="res://games/chapter_one/hometown/building_one/Level1/imgs/Rectangle 3.png" id="15_0pfw8"]
+[ext_resource type="Script" uid="uid://c4n7na7j5xm86" path="res://games/chapter_one/hometown/building_one/Level1/Lesson2/game_timer.gd" id="16_2plc8"]
+[ext_resource type="Texture2D" uid="uid://dru53ilcwxgvi" path="res://games/chapter_one/hometown/building_one/Level1/imgs/red.png" id="16_qx0kd"]
+[ext_resource type="Texture2D" uid="uid://ojqwriy0qsd8" path="res://games/chapter_one/hometown/building_one/Level1/imgs/gray.png" id="17_0ybt6"]
+[ext_resource type="Texture2D" uid="uid://b2yygvqrn2k8c" path="res://games/chapter_one/hometown/building_one/imgs/question.png" id="17_v2ip3"]
+[ext_resource type="Script" uid="uid://bgwvwksflkj8s" path="res://games/chapter_one/hometown/building_one/Level1/Lesson2/guide.gd" id="18_2plc8"]
+[ext_resource type="Texture2D" uid="uid://frysx2k45p53" path="res://games/chapter_one/hometown/building_one/Level1/imgs/green.png" id="18_6smdq"]
+[ext_resource type="Texture2D" uid="uid://brlyjgp72leyr" path="res://games/chapter_one/hometown/building_one/imgs/tut (1).png" id="19_v2ip3"]
+[ext_resource type="Texture2D" uid="uid://bf8027jagoya5" path="res://games/chapter_one/hometown/building_one/imgs/Group 20.png" id="20_2plc8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14w58"]
+size = Vector2(606.5, 310)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k8dfy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qx0kd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6smdq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_etsj8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6xqn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2ip3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_witp3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0sp3d"]
+font = ExtResource("6_witp3")
+font_size = 40
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3uv0"]
+size = Vector2(228, 204.875)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0sp3d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k8dfy"]
+font = ExtResource("7_1ehha")
+font_size = 25
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6q8kq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_et1ga"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xxo5c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f78l3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gae1s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rc4g1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vcynf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_siiem"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sme1a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5d8yt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8u0yb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q775c"]
+font = ExtResource("6_witp3")
+font_size = 40
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wm23h"]
+font = ExtResource("6_witp3")
+font_size = 30
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7vy68"]
+font = ExtResource("7_1ehha")
+font_size = 40
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0pfw8"]
+font = ExtResource("7_1ehha")
+font_size = 50
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qx0kd"]
+font = ExtResource("7_1ehha")
+font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ybt6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6smdq"]
+font = ExtResource("6_witp3")
+font_size = 30
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ybt6"]
+font = ExtResource("6_witp3")
+font_size = 30
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Lesson2" type="Node2D"]
+
+[node name="DesignCanvas" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="DesignCanvas"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="bg" type="ColorRect" parent="DesignCanvas/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="dropzone" type="TextureRect" parent="DesignCanvas/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -309.0
+offset_top = -113.0
+offset_right = -109.0
+offset_bottom = 87.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_sl6su")
+
+[node name="Label" type="Label" parent="DesignCanvas/Control/dropzone"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 5.0
+offset_right = 40.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Drop Here"
+
+[node name="line" type="TextureRect" parent="DesignCanvas/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -316.5
+offset_top = 80.0
+offset_right = 316.5
+offset_bottom = 88.0
+grow_horizontal = 2
+texture = ExtResource("2_wv11b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("1_aeahy")
+
+[node name="MusicButton" type="TextureButton" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -55.0
+offset_right = -15.0
+offset_bottom = 35.0
+grow_horizontal = 0
+scale = Vector2(1.3, 1.3)
+script = ExtResource("4_6smdq")
+texture_on = ExtResource("5_etsj8")
+texture_off = ExtResource("6_f6xqn")
+
+[node name="Spawner" type="Control" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/MarginContainer/Control/Spawner"]
+position = Vector2(-205.09613, -20.005249)
+script = ExtResource("1_fpwr2")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MarginContainer/Control/Spawner/Node2D"]
+position = Vector2(-3.005249, -6.0105286)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MarginContainer/Control/Spawner/Node2D/Area2D"]
+position = Vector2(-14.898621, 3.0157776)
+shape = SubResource("RectangleShape2D_14w58")
+
+[node name="Pass" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -187.0
+offset_right = 187.0
+offset_bottom = 115.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_k8dfy")
+script = ExtResource("2_1ehha")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/Pass"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -29.5
+offset_right = 105.0
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("6_k8dfy")
+
+[node name="BackButton" type="Button" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 4.0
+offset_right = 228.0
+offset_bottom = 87.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qx0kd")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6smdq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_etsj8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_f6xqn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v2ip3")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/BackButton"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -33.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "BACK"
+label_settings = ExtResource("6_0sp3d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/BackButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = 32.0
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("8_0pfw8")
+
+[node name="ConfirmButton" type="Button" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/ConfirmButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.25
+offset_top = -43.25
+offset_right = 131.25
+offset_bottom = 43.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "CONFIRM"
+label_settings = ExtResource("6_0sp3d")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckerPanel" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -147.0
+offset_top = -51.0
+offset_right = 147.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_witp3")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/CheckerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -68.5
+offset_right = 252.0
+offset_bottom = -20.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_0sp3d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Checker" type="Control" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -124.75
+offset_bottom = 124.75
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/MarginContainer/Control/Checker"]
+script = ExtResource("9_7vy68")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MarginContainer/Control/Checker/Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MarginContainer/Control/Checker/Node2D/Area2D"]
+position = Vector2(116, 114.75)
+shape = SubResource("RectangleShape2D_l3uv0")
+
+[node name="Marker2D" type="Marker2D" parent="CanvasLayer/MarginContainer/Control/Checker"]
+unique_name_in_owner = true
+position = Vector2(113.610596, 116.91016)
+
+[node name="ScorePanel" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 89.0
+offset_top = -97.0
+offset_right = 264.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0sp3d")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/ScorePanel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -53.5
+offset_right = -30.0
+offset_bottom = 15.75
+grow_horizontal = 0
+grow_vertical = 2
+text = "0
+1/15"
+label_settings = SubResource("LabelSettings_k8dfy")
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/Control/ScorePanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -12.5
+offset_right = 68.0
+offset_bottom = 12.5
+grow_vertical = 2
+text = "Round:"
+
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/Control/ScorePanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -42.5
+offset_right = 68.0
+offset_bottom = -17.5
+grow_vertical = 2
+text = "Score:"
+
+[node name="AtomContainer" type="Control" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 126.0
+offset_top = -193.0
+offset_right = 714.0
+offset_bottom = 120.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Atom" parent="CanvasLayer/MarginContainer/Control/AtomContainer" instance=ExtResource("9_r0mqw")]
+visible = false
+
+[node name="GameTimerControl" type="Control" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -639.0
+offset_top = -116.0
+offset_right = 639.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GameTimer" type="Node2D" parent="CanvasLayer/MarginContainer/Control/GameTimerControl"]
+unique_name_in_owner = true
+position = Vector2(638.8483, 15.48584)
+script = ExtResource("16_2plc8")
+
+[node name="TimeBar" type="ProgressBar" parent="CanvasLayer/MarginContainer/Control/GameTimerControl/GameTimer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -554.8483
+offset_top = -17.48584
+offset_right = 567.1517
+offset_bottom = -8.48584
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 60.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/GameTimerControl/GameTimer/TimeBar"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -25.0
+offset_right = 65.0
+offset_bottom = -2.0
+text = "Time"
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/MarginContainer/Control/GameTimerControl/GameTimer/TimeBar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -30.74292
+offset_right = 8.0
+offset_bottom = -7.74292
+grow_horizontal = 0
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="CanvasLayer/MarginContainer/Control/GameTimerControl/GameTimer"]
+unique_name_in_owner = true
+
+[node name="GuideButton" type="Button" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 0
+offset_top = 90.0
+offset_right = 72.0
+offset_bottom = 141.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6q8kq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_et1ga")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xxo5c")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_f78l3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gae1s")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_rc4g1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vcynf")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_siiem")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sme1a")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5d8yt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8u0yb")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/GuideButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.5
+offset_right = 108.0
+offset_bottom = 109.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_v2ip3")
+
+[node name="Guide" type="Control" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("18_2plc8")
+
+[node name="NextButton" type="Button" parent="CanvasLayer/MarginContainer/Control/Guide"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer/Control/Guide/NextButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.73333335)
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/Guide/NextButton"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.5
+offset_top = 63.0
+offset_right = 124.5
+offset_bottom = 86.0
+grow_horizontal = 2
+text = "CLICK ANYWHERE TO CONTINUE"
+label_settings = SubResource("LabelSettings_q775c")
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer/Control/Guide/NextButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/Guide/NextButton/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -634.0
+offset_top = -352.5
+offset_right = 634.0
+offset_bottom = 352.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_v2ip3")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/Guide/NextButton/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -855.7143
+offset_top = -227.14287
+offset_right = -509.7143
+offset_bottom = 246.85713
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_2plc8")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/Guide/NextButton/Control/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.14285
+offset_top = -76.5
+offset_right = 148.42853
+offset_bottom = 76.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sort and combine the elements to create a  CORRECT compound based on the target compound. ^^"
+label_settings = SubResource("LabelSettings_wm23h")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ResultsPanel" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("6_hv0o3")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05882353, 0.09019608, 0.16470589, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/ResultsPanel/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -354.0
+offset_top = -251.0
+offset_right = 354.0
+offset_bottom = 251.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_7vy68")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/ResultsPanel/ColorRect/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.75
+offset_top = -60.5
+offset_right = 67.75
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_0pfw8")
+
+[node name="t2" type="Label" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.5
+offset_top = -153.0
+offset_right = 189.5
+offset_bottom = -83.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Your Score"
+label_settings = SubResource("LabelSettings_7vy68")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="t" type="Label" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.5
+offset_top = -218.0
+offset_right = 189.5
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Round Complete!"
+label_settings = SubResource("LabelSettings_0pfw8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -41.0
+offset_right = 66.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+label_settings = SubResource("LabelSettings_qx0kd")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PassLabel" type="Label" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -316.0
+offset_top = -37.5
+offset_right = -116.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "pass"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Retry" type="Button" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.0
+offset_top = 150.0
+offset_right = -122.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ybt6")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/ResultsPanel/Retry"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_qx0kd")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/ResultsPanel/Retry/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Retry"
+label_settings = SubResource("LabelSettings_6smdq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoBack" type="Button" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 123.0
+offset_top = 150.0
+offset_right = 303.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ybt6")
+text = "GO BACK"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/ResultsPanel/GoBack"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_0ybt6")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/ResultsPanel/GoBack/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Go Back"
+label_settings = SubResource("LabelSettings_6smdq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Continue" type="Button" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = 150.0
+offset_right = 90.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ybt6")
+text = "CONTINUE"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/ResultsPanel/Continue"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_6smdq")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/ResultsPanel/Continue/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+label_settings = SubResource("LabelSettings_6smdq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Correction" type="Button" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 107.0
+offset_top = -20.0
+offset_right = 313.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ybt6")
+text = "GLOSSARY"
+
+[node name="BackPanel" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_ca2ju")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/Control/BackPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -45.5
+offset_right = 182.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Yes" type="Button" parent="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "YES"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer/Yes"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_0ybt6")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer/Yes/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Yes"
+label_settings = SubResource("LabelSettings_0ybt6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="No" type="Button" parent="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "NO"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer/No"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_0ybt6")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer/No/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "No"
+label_settings = SubResource("LabelSettings_0ybt6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/BackPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -121.0
+offset_right = 149.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Are you sure?"
+label_settings = ExtResource("6_0sp3d")
+
+[node name="FadeSfx" type="ColorRect" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[connection signal="toggled" from="CanvasLayer/MarginContainer/Control/MusicButton" to="CanvasLayer/MarginContainer/Control/MusicButton" method="_on_toggled"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/BackButton" to="CanvasLayer/MarginContainer/Control" method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/ConfirmButton" to="CanvasLayer/MarginContainer/Control/Checker/Node2D" method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/GuideButton" to="CanvasLayer/MarginContainer/Control/Guide" method="_on_guide_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/Guide/NextButton" to="CanvasLayer/MarginContainer/Control/Guide" method="_on_next_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/ResultsPanel/Retry" to="CanvasLayer/MarginContainer/Control/ResultsPanel" method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/ResultsPanel/GoBack" to="CanvasLayer/MarginContainer/Control/ResultsPanel" method="_on_go_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/ResultsPanel/Continue" to="CanvasLayer/MarginContainer/Control/ResultsPanel" method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/ResultsPanel/Correction" to="CanvasLayer/MarginContainer/Control/ResultsPanel" method="_on_correction_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer/Yes" to="CanvasLayer/MarginContainer/Control/BackPanel" method="_on_yes_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer/No" to="CanvasLayer/MarginContainer/Control/BackPanel" method="_on_no_pressed"]

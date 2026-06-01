@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://be7dr37pqiwmk"]
+
+[ext_resource type="Script" uid="uid://lbdbo2mjdvgd" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scripts/liquid_gate.gd" id="1_dr2kr"]
+[ext_resource type="Texture2D" uid="uid://dpme530x3prd6" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Treasure Hunters/Palm Tree Island/Sprites/Background/Additional Water.png" id="2_gocqk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u653a"]
+size = Vector2(30, 84)
+
+[node name="Liquid" type="StaticBody2D"]
+script = ExtResource("1_dr2kr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -27)
+scale = Vector2(1, 2.6875)
+texture = ExtResource("2_gocqk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -27)
+shape = SubResource("RectangleShape2D_u653a")

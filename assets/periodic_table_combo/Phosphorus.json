@@ -1,0 +1,35 @@
+[
+  {
+	"name": "White Phosphorus",
+	"formula": "P4",
+	"components": [
+	  { "symbol": "P", "count": 4 }
+	]
+  },
+  {
+	"name": "Phosphoric Acid",
+	"formula": "H3PO4",
+	"components": [
+	  { "symbol": "H", "count": 3 },
+	  { "symbol": "P", "count": 1 },
+	  { "symbol": "O", "count": 4 }
+	]
+  },
+  {
+	"name": "Phosphine",
+	"formula": "PH3",
+	"components": [
+	  { "symbol": "P", "count": 1 },
+	  { "symbol": "H", "count": 3 }
+	]
+  },
+  {
+	"name": "Calcium Phosphate",
+	"formula": "Ca3(PO4)2",
+	"components": [
+	  { "symbol": "Ca", "count": 3 },
+	  { "symbol": "P", "count": 2 },
+	  { "symbol": "O", "count": 8 }
+	]
+  }
+]

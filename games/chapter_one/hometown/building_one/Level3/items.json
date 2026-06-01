@@ -1,0 +1,580 @@
+{
+  "items": [
+	{
+	  "id": "1",
+	  "name": "gravel",
+	  "separation": ["sieving"],
+	  "feedback": {
+		"filtration": "Filtration does not separate gravel effectively.",
+		"sieving": "Gravel can be separated by sieving.",
+		"evaporation": "Evaporation is irrelevant for gravel.",
+		"magnetism": "Gravel is not magnetic.",
+		"decantation": "Gravel does not decant."
+	  }
+	},
+	{
+	  "id": "2",
+	  "name": "sand",
+	  "separation": ["filtration", "sieving"],
+	  "feedback": {
+		"filtration": "Sand can be separated from water by filtration.",
+		"sieving": "Sand can be separated by sieving when mixed with larger particles.",
+		"evaporation": "Evaporation will not separate sand.",
+		"magnetism": "Sand is not magnetic.",
+		"decantation": "Sand does not decant."
+	  }
+	},
+	{
+	  "id": "4",
+	  "name": "salt_water",
+	  "separation": ["evaporation"],
+	  "feedback": {
+		"filtration": "Filtration does not separate dissolved salt.",
+		"sieving": "Sieving cannot separate dissolved salt.",
+		"evaporation": "Salt solution can be separated by evaporation.",
+		"magnetism": "Magnetism does not affect salt water.",
+		"decantation": "Decantation does not separate dissolved salt."
+	  }
+	},
+	{
+	  "id": "5",
+	  "name": "oil_water",
+	  "separation": ["decantation"],
+	  "feedback": {
+		"filtration": "Filtration does not separate oil and water.",
+		"sieving": "Sieving does not separate oil and water.",
+		"evaporation": "Evaporation does not separate oil from water.",
+		"magnetism": "Oil and water are not magnetic.",
+		"decantation": "Oil and water can be separated by decantation."
+	  }
+	},
+	{
+	  "id": "7",
+	  "name": "sugar_solution",
+	  "separation": ["evaporation"],
+	  "feedback": {
+		"filtration": "Filtration cannot separate dissolved sugar.",
+		"sieving": "Sieving does not work for sugar solution.",
+		"evaporation": "Sugar solution can be separated by evaporation.",
+		"magnetism": "Sugar is not magnetic.",
+		"decantation": "Decantation does not separate dissolved sugar."
+	  }
+	},
+	{
+	  "id": "8",
+	  "name": "flour",
+	  "separation": ["sieving"],
+	  "feedback": {
+		"filtration": "Filtration does not separate flour.",
+		"sieving": "Flour can be separated from larger impurities by sieving.",
+		"evaporation": "Evaporation is not useful for flour.",
+		"magnetism": "Flour is not magnetic.",
+		"decantation": "Flour does not decant."
+	  }
+	},
+	{
+	  "id": "9",
+	  "name": "sawdust_water",
+	  "separation": ["decantation"],
+	  "feedback": {
+		"filtration": "Filtration may clog but is not ideal.",
+		"sieving": "Sieving is not effective for sawdust and water.",
+		"evaporation": "Evaporation leaves sawdust unchanged.",
+		"magnetism": "Sawdust is not magnetic.",
+		"decantation": "Sawdust floats on water and can be decanted."
+	  }
+	},
+	{
+	  "id": "10",
+	  "name": "copper_sulphate_solution",
+	  "separation": ["evaporation"],
+	  "feedback": {
+		"filtration": "Filtration cannot separate dissolved copper sulphate.",
+		"sieving": "Sieving cannot separate solutions.",
+		"evaporation": "Crystals of copper sulphate can be obtained by evaporation.",
+		"magnetism": "Copper sulphate is not magnetic.",
+		"decantation": "Decantation does not separate solutions."
+	  }
+	},
+	{
+	  "id": "11",
+	  "name": "plastic_beads_sand",
+	  "separation": ["sieving"],
+	  "feedback": {
+		"filtration": "Filtration is not relevant for dry mixtures.",
+		"sieving": "Plastic beads can be separated from sand using sieving.",
+		"evaporation": "Evaporation is not useful for dry solids.",
+		"magnetism": "Plastic and sand are not magnetic.",
+		"decantation": "This mixture does not decant."
+	  }
+	},
+	{
+	  "id": "12",
+	  "name": "chalk_water",
+	  "separation": ["filtration"],
+	  "feedback": {
+		"filtration": "Chalk can be separated from water by filtration.",
+		"sieving": "Sieving is not fine enough for chalk particles.",
+		"evaporation": "Evaporation leaves chalk residue mixed.",
+		"magnetism": "Chalk is not magnetic.",
+		"decantation": "Chalk does not decant efficiently."
+	  }
+	},
+	{
+	  "id": "13",
+	  "name": "iron_sand",
+	  "separation": ["magnetism"],
+	  "feedback": {
+		"filtration": "Filtration is not applicable for dry solids.",
+		"sieving": "Sieving does not separate iron and sand.",
+		"evaporation": "Evaporation is irrelevant for this mixture.",
+		"magnetism": "Iron can be separated from sand by magnetism.",
+		"decantation": "This mixture does not decant."
+	  }
+	},
+	{
+	  "id": "14",
+	  "name": "wheat_husk",
+	  "separation": ["decantation"],
+	  "feedback": {
+		"filtration": "Filtration does not separate husk.",
+		"sieving": "Sieving is not ideal for husk separation.",
+		"evaporation": "Evaporation is not useful.",
+		"magnetism": "Husk is not magnetic.",
+		"decantation": "Husk floats and can be separated by decantation (winnowing)."
+	  }
+	},
+	{
+	  "id": "15",
+	  "name": "sugar_sand",
+	  "separation": ["sieving"],
+	  "feedback": {
+		"filtration": "Filtration does not separate sugar and sand.",
+		"sieving": "Sugar can be separated from sand using sieving (particle size).",
+		"evaporation": "Evaporation is not relevant for dry solids.",
+		"magnetism": "Sugar and sand are not magnetic.",
+		"decantation": "Sugar and sand do not decant."
+	  }
+	},
+	{
+	  "id": "16",
+	  "name": "muddy_water",
+	  "separation": ["filtration"],
+	  "feedback": {
+		"filtration": "Muddy water can be cleared using filtration.",
+		"sieving": "Sieving is too coarse for mud particles.",
+		"evaporation": "Evaporation leaves behind both mud and minerals.",
+		"magnetism": "Mud is not magnetic.",
+		"decantation": "Mud partially settles but filtration is better."
+	  }
+	},
+	{
+	  "id": "17",
+	  "name": "iron_filings_sulphur",
+	  "separation": ["magnetism"],
+	  "feedback": {
+		"filtration": "Filtration is not applicable to dry solids.",
+		"sieving": "Sieving cannot separate iron filings and sulphur effectively.",
+		"evaporation": "Evaporation is irrelevant for this solid mixture.",
+		"magnetism": "Iron filings can be separated from sulphur using a magnet.",
+		"decantation": "This mixture does not decant."
+	  }
+	},
+	{
+	  "id": "18",
+	  "name": "tea_leaves_water",
+	  "separation": ["filtration"],
+	  "feedback": {
+		"filtration": "Tea leaves can be separated from water using filtration.",
+		"sieving": "Sieving may work but leaves small particles.",
+		"evaporation": "Evaporation removes water completely, not practical.",
+		"magnetism": "Tea leaves are not magnetic.",
+		"decantation": "Tea leaves do not decant effectively."
+	  }
+	},
+	{
+	  "id": "19",
+	  "name": "milk_cream",
+	  "separation": ["decantation"],
+	  "feedback": {
+		"filtration": "Filtration does not separate milk and cream.",
+		"sieving": "Sieving is not suitable for liquids.",
+		"evaporation": "Evaporation thickens both together.",
+		"magnetism": "Milk and cream are not magnetic.",
+		"decantation": "Cream floats and can be separated by decantation."
+	  }
+	},
+	{
+	  "id": "20",
+	  "name": "salt_sand",
+	  "separation": ["filtration", "evaporation"],
+	  "feedback": {
+		"filtration": "After dissolving salt, filtration separates sand.",
+		"sieving": "Sieving partially separates larger grains only.",
+		"evaporation": "Evaporation recovers salt from solution.",
+		"magnetism": "Neither salt nor sand is magnetic.",
+		"decantation": "Decantation is not effective."
+	  }
+	},
+	{
+	  "id": "21",
+	  "name": "leaves_water",
+	  "separation": ["decantation"],
+	  "feedback": {
+		"filtration": "Filtration clogs easily with leaves.",
+		"sieving": "Sieving is inefficient for floating leaves.",
+		"evaporation": "Evaporation dries both leaves and water.",
+		"magnetism": "Leaves are not magnetic.",
+		"decantation": "Leaves float and can be separated by decantation."
+	  }
+	},
+	{
+	  "id": "22",
+	  "name": "coal_powder_water",
+	  "separation": ["filtration"],
+	  "feedback": {
+		"filtration": "Coal powder can be separated from water by filtration.",
+		"sieving": "Sieving is too coarse for fine coal particles.",
+		"evaporation": "Evaporation leaves black residue but not pure separation.",
+		"magnetism": "Coal is not magnetic.",
+		"decantation": "Coal settles slowly, not ideal for decantation."
+	  }
+	},
+	{
+	  "id": "23",
+	  "name": "brass_iron",
+	  "separation": ["magnetism"],
+	  "feedback": {
+		"filtration": "Filtration does not work for metals.",
+		"sieving": "Sieving cannot separate metals.",
+		"evaporation": "Evaporation is not relevant.",
+		"magnetism": "Iron can be pulled out from brass using a magnet.",
+		"decantation": "Decantation does not work for solids."
+	  }
+	},
+	{
+	  "id": "24",
+	  "name": "pebbles_sand",
+	  "separation": ["sieving"],
+	  "feedback": {
+		"filtration": "Filtration is irrelevant for dry solids.",
+		"sieving": "Pebbles can be separated from sand by sieving.",
+		"evaporation": "Evaporation is not applicable.",
+		"magnetism": "Neither component is magnetic.",
+		"decantation": "Does not decant."
+	  }
+	},
+	{
+	  "id": "25",
+	  "name": "salt_pepper",
+	  "separation": ["magnetism"],
+	  "feedback": {
+		"filtration": "Filtration is not possible.",
+		"sieving": "Sieving does not help.",
+		"evaporation": "Evaporation does not apply.",
+		"magnetism": "If pepper is magnetic powder, can be separated; otherwise, no effect.",
+		"decantation": "Not decantable."
+	  }
+	},
+	{
+	  "id": "26",
+	  "name": "iron_nails_wood_chips",
+	  "separation": ["magnetism"],
+	  "feedback": {
+		"filtration": "Filtration is not applicable.",
+		"sieving": "Sieving may work partially.",
+		"evaporation": "Evaporation is not useful.",
+		"magnetism": "Iron nails can be separated from wood chips by magnetism.",
+		"decantation": "Not decantable."
+	  }
+	},
+	{
+	  "id": "27",
+	  "name": "sand_water",
+	  "separation": ["filtration"],
+	  "feedback": {
+		"filtration": "Sand can be separated from water by filtration.",
+		"sieving": "Sieving can remove larger grains.",
+		"evaporation": "Evaporation leaves both sand and minerals mixed.",
+		"magnetism": "Sand is not magnetic.",
+		"decantation": "Sand settles partially; filtration is better."
+	  }
+	},
+	{
+	  "id": "28",
+	  "name": "metal_scraps_plastic",
+	  "separation": ["magnetism"],
+	  "feedback": {
+		"filtration": "Filtration does not apply to solids.",
+		"sieving": "Sieving does not separate effectively.",
+		"evaporation": "Evaporation does not affect metals or plastics.",
+		"magnetism": "Magnetic metals can be removed from plastics using magnetism.",
+		"decantation": "Not decantable."
+	  }
+	},
+	{
+	  "id": "29",
+	  "name": "chalk_powder_water",
+	  "separation": ["filtration"],
+	  "feedback": {
+		"filtration": "Chalk powder can be separated from water using filtration.",
+		"sieving": "Sieving is too coarse for fine chalk particles.",
+		"evaporation": "Evaporation leaves chalk residue behind.",
+		"magnetism": "Chalk is not magnetic.",
+		"decantation": "Decantation is less effective."
+	  }
+	},
+	{
+	  "id": "30",
+	  "name": "iron_nails_sand",
+	  "separation": ["magnetism"],
+	  "feedback": {
+		"filtration": "Filtration does not separate solid mixtures.",
+		"sieving": "Sieving cannot fully separate iron nails from sand.",
+		"evaporation": "Evaporation is irrelevant for solids.",
+		"magnetism": "Iron nails can be separated from sand using magnetism.",
+		"decantation": "This mixture does not decant."
+	  }
+	},
+	   {
+		  "id": "31",
+		  "name": "sand_clay",
+		  "separation": ["decantation"],
+		  "feedback": {
+			"filtration": "Filtration can separate fine clay after partial settling.",
+			"sieving": "Sieving cannot separate clay from sand due to particle size overlap.",
+			"evaporation": "Evaporation leaves both solids together.",
+			"magnetism": "Neither sand nor clay is magnetic.",
+			"decantation": "Clay suspends in water while sand settles, allowing decantation."
+		  }
+		},
+		{
+		  "id": "32",
+		  "name": "sugar_crystals_water",
+		  "separation": ["evaporation"],
+		  "feedback": {
+			"filtration": "Filtration cannot separate dissolved sugar.",
+			"sieving": "Sieving does not affect sugar in solution.",
+			"evaporation": "Evaporation separates sugar crystals from water.",
+			"magnetism": "Sugar is not magnetic.",
+			"decantation": "Sugar is dissolved, so decantation does not work."
+		  }
+		},
+		{
+		  "id": "33",
+		  "name": "iron_copper_powder",
+		  "separation": ["magnetism"],
+		  "feedback": {
+			"filtration": "Filtration does not apply to solids.",
+			"sieving": "Sieving cannot separate similar particle sizes.",
+			"evaporation": "Evaporation is not relevant.",
+			"magnetism": "Iron can be separated from copper using a magnet.",
+			"decantation": "This mixture cannot be decanted."
+		  }
+		},
+		{
+		  "id": "34",
+		  "name": "rice_water",
+		  "separation": ["decantation"],
+		  "feedback": {
+			"filtration": "Filtration can separate rice but is slow.",
+			"sieving": "Sieving easily separates rice from water.",
+			"evaporation": "Evaporation dries rice unnecessarily.",
+			"magnetism": "Rice and water are not magnetic.",
+			"decantation": "Rice sinks and water can be decanted off."
+		  }
+		},
+		{
+		  "id": "35",
+		  "name": "chalk_powder_oil",
+		  "separation": ["filtration"],
+		  "feedback": {
+			"filtration": "Chalk can be separated from oil by filtration.",
+			"sieving": "Sieving is not fine enough for chalk particles.",
+			"evaporation": "Evaporation is not useful for oil mixtures.",
+			"magnetism": "Neither chalk nor oil is magnetic.",
+			"decantation": "Chalk does not float for decantation."
+		  }
+		},
+		{
+		  "id": "36",
+		  "name": "salt_iron_filings",
+		  "separation": ["magnetism", "evaporation"],
+		  "feedback": {
+			"filtration": "Filtration does not apply to dry mixtures.",
+			"sieving": "Sieving is not effective due to small particle size.",
+			"evaporation": "After dissolving salt in water, evaporation recovers it.",
+			"magnetism": "Magnetism separates iron filings from the mixture.",
+			"decantation": "Decantation is not applicable."
+		  }
+		},
+		{
+		  "id": "37",
+		  "name": "alcohol_water",
+		  "separation": ["evaporation"],
+		  "feedback": {
+			"filtration": "Filtration does not separate liquids.",
+			"sieving": "Sieving is not used for liquids.",
+			"evaporation": "Alcohol evaporates faster, leaving water behind (distillation).",
+			"magnetism": "Liquids are not magnetic.",
+			"decantation": "Liquids are miscible; decantation fails."
+		  }
+		},
+		{
+		  "id": "38",
+		  "name": "iron_nuts_bolts",
+		  "separation": ["magnetism"],
+		  "feedback": {
+			"filtration": "Filtration cannot separate solid metals.",
+			"sieving": "Sieving may group by size but not type.",
+			"evaporation": "Evaporation is irrelevant.",
+			"magnetism": "Iron parts can be separated using magnetism.",
+			"decantation": "Decantation does not apply."
+		  }
+		},
+		{
+		  "id": "39",
+		  "name": "silt_water",
+		  "separation": ["filtration"],
+		  "feedback": {
+			"filtration": "Filtration removes fine silt from water.",
+			"sieving": "Sieving is too coarse for silt particles.",
+			"evaporation": "Evaporation leaves muddy residue.",
+			"magnetism": "Silt is not magnetic.",
+			"decantation": "Silt settles slowly; filtration is more effective."
+		  }
+		},
+		{
+		  "id": "40",
+		  "name": "oil_vinegar",
+		  "separation": ["decantation"],
+		  "feedback": {
+			"filtration": "Filtration is ineffective for liquids.",
+			"sieving": "Sieving does not apply to liquids.",
+			"evaporation": "Evaporation removes both unevenly.",
+			"magnetism": "Neither liquid is magnetic.",
+			"decantation": "Oil floats over vinegar and can be decanted."
+		  }
+		},
+		{
+		  "id": "41",
+		  "name": "sugar_powder_salt",
+		  "separation": ["filtration", "evaporation"],
+		  "feedback": {
+			"filtration": "After dissolving sugar or salt, filtration separates impurities.",
+			"sieving": "Sieving cannot separate similar grain sizes.",
+			"evaporation": "Evaporation can recover crystals after dissolving.",
+			"magnetism": "Neither is magnetic.",
+			"decantation": "Decantation is ineffective."
+		  }
+		},
+		{
+		  "id": "42",
+		  "name": "chalk_vinegar",
+		  "separation": ["filtration"],
+		  "feedback": {
+			"filtration": "Filtration can remove undissolved chalk.",
+			"sieving": "Sieving is not suitable for fine particles.",
+			"evaporation": "Evaporation leaves calcium residue.",
+			"magnetism": "Chalk is not magnetic.",
+			"decantation": "Decantation is less efficient."
+		  }
+		},
+		{
+		  "id": "43",
+		  "name": "water_turpentine",
+		  "separation": ["decantation"],
+		  "feedback": {
+			"filtration": "Filtration is not used for liquids.",
+			"sieving": "Sieving is ineffective.",
+			"evaporation": "Evaporation changes both liquids.",
+			"magnetism": "Neither is magnetic.",
+			"decantation": "Turpentine floats on water and can be decanted."
+		  }
+		},
+		{
+		  "id": "44",
+		  "name": "aluminium_iron",
+		  "separation": ["magnetism"],
+		  "feedback": {
+			"filtration": "Filtration cannot separate metals.",
+			"sieving": "Sieving does not distinguish between metals.",
+			"evaporation": "Evaporation is irrelevant.",
+			"magnetism": "Iron can be separated from aluminium using magnetism.",
+			"decantation": "Not decantable."
+		  }
+		},
+		{
+		  "id": "45",
+		  "name": "sand_salt_water",
+		  "separation": ["filtration", "evaporation"],
+		  "feedback": {
+			"filtration": "Filtration removes sand from saltwater.",
+			"sieving": "Sieving separates larger sand grains but not dissolved salt.",
+			"evaporation": "Evaporation recovers salt crystals after filtration.",
+			"magnetism": "Neither sand nor salt is magnetic.",
+			"decantation": "Decantation is ineffective."
+		  }
+		},
+		{
+		  "id": "46",
+		  "name": "cereal_milk",
+		  "separation": ["decantation"],
+		  "feedback": {
+			"filtration": "Filtration clogs with cereal pieces.",
+			"sieving": "Sieving can work but is messy.",
+			"evaporation": "Evaporation thickens milk, not ideal.",
+			"magnetism": "Cereal and milk are not magnetic.",
+			"decantation": "Cereal floats or sinks and can be decanted."
+		  }
+		},
+		{
+		  "id": "47",
+		  "name": "iron_copper_nickel",
+		  "separation": ["magnetism"],
+		  "feedback": {
+			"filtration": "Filtration is not relevant for solids.",
+			"sieving": "Sieving cannot separate metals.",
+			"evaporation": "Evaporation does not apply.",
+			"magnetism": "Iron can be removed magnetically, copper and nickel remain.",
+			"decantation": "Not decantable."
+		  }
+		},
+		{
+		  "id": "48",
+		  "name": "mud_salt_water",
+		  "separation": ["filtration", "evaporation"],
+		  "feedback": {
+			"filtration": "Filtration removes mud from saltwater.",
+			"sieving": "Sieving cannot remove fine particles.",
+			"evaporation": "Evaporation leaves pure salt after filtration.",
+			"magnetism": "None of the components are magnetic.",
+			"decantation": "Partial settling occurs but filtration is better."
+		  }
+		},
+		{
+		  "id": "49",
+		  "name": "iron_wood_chips_sand",
+		  "separation": ["magnetism", "sieving"],
+		  "feedback": {
+			"filtration": "Filtration is irrelevant for solids.",
+			"sieving": "Sieving separates wood chips and sand by size.",
+			"evaporation": "Evaporation does not apply.",
+			"magnetism": "Magnetism separates iron from the mixture.",
+			"decantation": "Not decantable."
+		  }
+		},
+		{
+		  "id": "50",
+		  "name": "salt_mud_water",
+		  "separation": ["filtration", "evaporation"],
+		  "feedback": {
+			"filtration": "Filtration removes mud from salt solution.",
+			"sieving": "Sieving is ineffective for fine mud particles.",
+			"evaporation": "Evaporation recovers salt from the clear solution.",
+			"magnetism": "None are magnetic.",
+			"decantation": "Decantation can remove large particles but not all."
+		  }
+		}
+	  ]
+	}

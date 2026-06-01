@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Lead Element",
+	"formula": "Pb",
+	"components": [
+	  { "symbol": "Pb", "count": 1 }
+	]
+  },
+  {
+	"name": "Lead(II) Oxide",
+	"formula": "PbO",
+	"components": [
+	  { "symbol": "Pb", "count": 1 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Lead(IV) Oxide",
+	"formula": "PbO2",
+	"components": [
+	  { "symbol": "Pb", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Lead(II) Chloride",
+	"formula": "PbCl2",
+	"components": [
+	  { "symbol": "Pb", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+	"name": "Radium Element",
+	"formula": "Ra",
+	"components": [{ "symbol": "Ra", "count": 1 }]
+  },
+  {
+	"name": "Radium Chloride",
+	"formula": "RaCl2",
+	"components": [
+	  { "symbol": "Ra", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  },
+  {
+	"name": "Radium Sulfate",
+	"formula": "RaSO4",
+	"components": [
+	  { "symbol": "Ra", "count": 1 },
+	  { "symbol": "S", "count": 1 },
+	  { "symbol": "O", "count": 4 }
+	]
+  }
+]

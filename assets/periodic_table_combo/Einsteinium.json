@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Einsteinium Element",
+	"formula": "Es",
+	"components": [
+	  { "symbol": "Es", "count": 1 }
+	]
+  },
+  {
+	"name": "Einsteinium Oxide",
+	"formula": "Es2O3",
+	"components": [
+	  { "symbol": "Es", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Einsteinium Chloride",
+	"formula": "EsCl3",
+	"components": [
+	  { "symbol": "Es", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  },
+  {
+	"name": "Einsteinium Fluoride",
+	"formula": "EsF3",
+	"components": [
+	  { "symbol": "Es", "count": 1 },
+	  { "symbol": "F", "count": 3 }
+	]
+  }
+]

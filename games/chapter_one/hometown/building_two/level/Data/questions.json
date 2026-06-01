@@ -1,0 +1,21 @@
+[
+  {
+	"question": "Sino Crush ni Mhel?",
+	"choices": ["Catherine Ballescas", "Catherine Batubilat", "Talibutab", "Catherine"],
+	"answer": "Catherine",
+	"explain": "Muna lang man sakto da "
+  },
+  {
+	"question": "Ano si Rogel?",
+	"choices": ["Ulol", "Bobo", "Tanga", "Tangkoloy"],
+	"answer": "Ulol",
+	"explain": "Ambot ah."
+  },
+  {
+	"question": "Sino pinka wala pulos sa thesis?",
+	"choices": ["Maki", "Jaylord", "Suenio", "Ako"],
+	"answer": "Suenio",
+	"explain": "Sang san o lang nagka pulos ang ghost? mango simo ."
+  },
+ 
+]

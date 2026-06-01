@@ -1,0 +1,6 @@
+--- Debug adapter server started on port 6006 ---
+  ERROR: core/variant/variant_utility.cpp:1024 - OpenRouter API key not set. Please configure the API key in the main tab and spawn a new assistant.
+  ERROR: Cannot open file 'res://addons/ai_autonomous_agent/llm_providers/openrouter.tres'.
+  ERROR: Failed loading resource: res://addons/ai_autonomous_agent/llm_providers/openrouter.tres.
+--- GDScript language server started on port 6005 ---
+uid://b0kl5p5vkr8q1

@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Lutetium Element",
+	"formula": "Lu",
+	"components": [
+	  { "symbol": "Lu", "count": 1 }
+	]
+  },
+  {
+	"name": "Lutetium Oxide",
+	"formula": "Lu2O3",
+	"components": [
+	  { "symbol": "Lu", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Lutetium Chloride",
+	"formula": "LuCl3",
+	"components": [
+	  { "symbol": "Lu", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

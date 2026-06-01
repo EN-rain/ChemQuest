@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Plutonium Element",
+	"formula": "Pu",
+	"components": [
+	  { "symbol": "Pu", "count": 1 }
+	]
+  },
+  {
+	"name": "Plutonium Dioxide",
+	"formula": "PuO2",
+	"components": [
+	  { "symbol": "Pu", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Plutonium Trioxide",
+	"formula": "PuO3",
+	"components": [
+	  { "symbol": "Pu", "count": 1 },
+	  { "symbol": "O", "count": 3 }
+	]
+  }
+]

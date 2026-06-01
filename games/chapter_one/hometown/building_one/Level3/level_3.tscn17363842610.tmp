@@ -1,0 +1,135 @@
+[gd_scene load_steps=7 format=3 uid="uid://dox7anq283twi"]
+
+[ext_resource type="Script" uid="uid://b4m1yikf2x4c7" path="res://games/chapter_one/hometown/building_one/Level3/spawner.gd" id="1_7tufp"]
+[ext_resource type="PackedScene" uid="uid://fjuuubkt21m2" path="res://games/chapter_one/hometown/building_one/Level3/items.tscn" id="1_nr6n3"]
+[ext_resource type="Script" uid="uid://ljurjlyrwikg" path="res://games/chapter_one/hometown/building_one/Level3/tray.gd" id="3_exfqq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tufp"]
+size = Vector2(163.27954, 309.83344)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jji0h"]
+size = Vector2(77.78381, 52.973816)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nr6n3"]
+size = Vector2(67, 267.9561)
+
+[node name="Level3" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Buttons" type="Control" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.5
+offset_top = -95.0
+offset_right = 81.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Left" type="Button" parent="CanvasLayer/MarginContainer/Control/Buttons"]
+visible = false
+layout_mode = 0
+offset_left = -95.5
+offset_top = -73.0
+offset_right = 115.5
+offset_bottom = 5.0
+
+[node name="Right" type="Button" parent="CanvasLayer/MarginContainer/Control/Buttons"]
+visible = false
+layout_mode = 0
+offset_left = 156.5
+offset_top = -77.0
+offset_right = 356.5
+offset_bottom = -2.0
+
+[node name="Seperate" type="Button" parent="CanvasLayer/MarginContainer/Control/Buttons"]
+visible = false
+layout_mode = 0
+offset_left = 23.5
+offset_top = -168.0
+offset_right = 221.5
+offset_bottom = -97.0
+
+[node name="Start" type="Button" parent="CanvasLayer/MarginContainer/Control/Buttons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 235.5
+offset_top = -193.0
+offset_right = 437.0
+offset_bottom = -134.0
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(237, 251)
+script = ExtResource("1_7tufp")
+item_scene = ExtResource("1_nr6n3")
+
+[node name="Area2D" type="Area2D" parent="Spawner"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D"]
+shape = SubResource("RectangleShape2D_7tufp")
+
+[node name="Tray" type="Node2D" parent="."]
+position = Vector2(606.2162, 333.02618)
+
+[node name="Tray" type="Area2D" parent="Tray"]
+script = ExtResource("3_exfqq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tray/Tray"]
+shape = SubResource("RectangleShape2D_jji0h")
+
+[node name="Marker2D" type="Marker2D" parent="Tray/Tray"]
+
+[node name="Machines" type="Node2D" parent="."]
+position = Vector2(812, 230)
+
+[node name="Evaporation" type="Area2D" parent="Machines"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machines/Evaporation"]
+shape = SubResource("RectangleShape2D_nr6n3")
+
+[node name="Filtration" type="Area2D" parent="Machines"]
+position = Vector2(200, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machines/Filtration"]
+shape = SubResource("RectangleShape2D_nr6n3")
+
+[node name="Decantation" type="Area2D" parent="Machines"]
+position = Vector2(400, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machines/Decantation"]
+shape = SubResource("RectangleShape2D_nr6n3")
+
+[node name="Magnetism" type="Area2D" parent="Machines"]
+position = Vector2(600, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machines/Magnetism"]
+shape = SubResource("RectangleShape2D_nr6n3")
+
+[node name="Sieving" type="Area2D" parent="Machines"]
+position = Vector2(800, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machines/Sieving"]
+shape = SubResource("RectangleShape2D_nr6n3")
+
+[node name="Items" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Items" parent="Items" instance=ExtResource("1_nr6n3")]
+visible = false

@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Dubnium Element",
+	"formula": "Db",
+	"components": [
+	  { "symbol": "Db", "count": 1 }
+	]
+  },
+  {
+	"name": "Dubnium Pentachloride",
+	"formula": "DbCl5",
+	"components": [
+	  { "symbol": "Db", "count": 1 },
+	  { "symbol": "Cl", "count": 5 }
+	]
+  },
+  {
+	"name": "Dubnium Oxide",
+	"formula": "Db2O5",
+	"components": [
+	  { "symbol": "Db", "count": 2 },
+	  { "symbol": "O", "count": 5 }
+	]
+  },
+  {
+	"name": "Dubnium Fluoride",
+	"formula": "DbF5",
+	"components": [
+	  { "symbol": "Db", "count": 1 },
+	  { "symbol": "F", "count": 5 }
+	]
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Seaborgium Element",
+	"formula": "Sg",
+	"components": [{ "symbol": "Sg", "count": 1 }]
+  },
+  {
+	"name": "Seaborgium Oxide",
+	"formula": "SgO2",
+	"components": [
+	  { "symbol": "Sg", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Seaborgium Chloride",
+	"formula": "SgCl6",
+	"components": [
+	  { "symbol": "Sg", "count": 1 },
+	  { "symbol": "Cl", "count": 6 }
+	]
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+	"name": "Carbon Element",
+	"formula": "C",
+	"components": [
+	  { "symbol": "C", "count": 1 }
+	]
+  },
+  {
+	"name": "Carbon Dioxide",
+	"formula": "CO2",
+	"components": [
+	  { "symbol": "C", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Carbon Monoxide",
+	"formula": "CO",
+	"components": [
+	  { "symbol": "C", "count": 1 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Methane",
+	"formula": "CH4",
+	"components": [
+	  { "symbol": "C", "count": 1 },
+	  { "symbol": "H", "count": 4 }
+	]
+  },
+  {
+	"name": "Glucose",
+	"formula": "C6H12O6",
+	"components": [
+	  { "symbol": "C", "count": 6 },
+	  { "symbol": "H", "count": 12 },
+	  { "symbol": "O", "count": 6 }
+	]
+  }
+]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://ijt7scporj53"]
+
+[ext_resource type="Texture2D" uid="uid://bpgapumtg10l2" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Traps/Falling Platforms/On (32x10).png" id="1_o20dk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtyfn"]
+atlas = ExtResource("1_o20dk")
+region = Rect2(0, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6c57"]
+atlas = ExtResource("1_o20dk")
+region = Rect2(32, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph7rw"]
+atlas = ExtResource("1_o20dk")
+region = Rect2(64, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq2sx"]
+atlas = ExtResource("1_o20dk")
+region = Rect2(96, 0, 32, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fdxir"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtyfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6c57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ph7rw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tq2sx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47kr6"]
+size = Vector2(32, 5)
+
+[node name="Platforms" type="AnimatableBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fdxir")
+autoplay = "default"
+frame_progress = 0.15128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_47kr6")

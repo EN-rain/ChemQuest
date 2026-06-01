@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://clxuyllf877fp"]
+
+[ext_resource type="Script" uid="uid://715bt5eatonn" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scripts/collectible.gd" id="1_athsx"]
+[ext_resource type="Texture2D" uid="uid://bjs63envmqi5t" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Treasure Hunters/Pirate Treasure/Sprites/Blue Diamond/04.png" id="1_fwdfn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_athsx"]
+radius = 7.07107
+
+[node name="Collectible" type="Area2D"]
+script = ExtResource("1_athsx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fwdfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_athsx")

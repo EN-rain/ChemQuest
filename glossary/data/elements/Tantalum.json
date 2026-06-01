@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Tantalum Element",
+	"formula": "Ta",
+	"components": [{ "symbol": "Ta", "count": 1 }]
+  },
+  {
+	"name": "Tantalum Pentoxide",
+	"formula": "Ta2O5",
+	"components": [
+	  { "symbol": "Ta", "count": 2 },
+	  { "symbol": "O", "count": 5 }
+	]
+  },
+  {
+	"name": "Tantalum Chloride",
+	"formula": "TaCl5",
+	"components": [
+	  { "symbol": "Ta", "count": 1 },
+	  { "symbol": "Cl", "count": 5 }
+	]
+  }
+]

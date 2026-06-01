@@ -1,0 +1,26 @@
+[
+  {
+	"name": "Beryllium Element",
+	"formula": "Be",
+	"components": [
+	  { "symbol": "Be", "count": 1 }
+	]
+  },
+  {
+	"name": "Beryllium Oxide",
+	"formula": "BeO",
+	"components": [
+	  { "symbol": "Be", "count": 1 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Beryllium Hydroxide",
+	"formula": "Be(OH)2",
+	"components": [
+	  { "symbol": "Be", "count": 1 },
+	  { "symbol": "O", "count": 2 },
+	  { "symbol": "H", "count": 2 }
+	]
+  }
+]

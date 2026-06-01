@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://c4ucke4bxdkjy"]
+
+[ext_resource type="Script" uid="uid://duo3kaqapni22" path="res://intro.gd" id="1_s2ta7"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="2_ayt76"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ufi4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dk2oa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dpxxx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6ycx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u2rf6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y72e6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0a7ni"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7a8ye"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ayt76"]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_s2ta7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.134115
+anchor_top = 0.156944
+anchor_right = 0.865885
+anchor_bottom = 0.843056
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7ufi4")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_dk2oa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dpxxx")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_y6ycx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_u2rf6")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_y72e6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_0a7ni")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_7a8ye")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ayt76")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = -34.5
+offset_right = 74.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ayt76")
+theme_override_font_sizes/font_size = 250
+text = "START"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

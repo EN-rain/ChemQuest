@@ -1,0 +1,34 @@
+[
+  {
+	"name": "Neodymium Element",
+	"formula": "Nd",
+	"components": [
+	  { "symbol": "Nd", "count": 1 }
+	]
+  },
+  {
+	"name": "Neodymium Oxide",
+	"formula": "Nd2O3",
+	"components": [
+	  { "symbol": "Nd", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Neodymium Chloride",
+	"formula": "NdCl3",
+	"components": [
+	  { "symbol": "Nd", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  },
+  {
+	"name": "Neodymium Magnet",
+	"formula": "Nd2Fe14B",
+	"components": [
+	  { "symbol": "Nd", "count": 2 },
+	  { "symbol": "Fe", "count": 14 },
+	  { "symbol": "B", "count": 1 }
+	]
+  }
+]

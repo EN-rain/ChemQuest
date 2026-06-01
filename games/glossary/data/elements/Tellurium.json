@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Tellurium Element",
+	"formula": "Te",
+	"components": [{ "symbol": "Te", "count": 1 }]
+  },
+  {
+	"name": "Tellurium Dioxide",
+	"formula": "TeO2",
+	"components": [
+	  { "symbol": "Te", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Hydrogen Telluride",
+	"formula": "H2Te",
+	"components": [
+	  { "symbol": "H", "count": 2 },
+	  { "symbol": "Te", "count": 1 }
+	]
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Neon Element",
+	"formula": "Ne",
+	"components": [
+	  { "symbol": "Ne", "count": 1 }
+	]
+  },
+  {
+	"name": "Neon Gas Tube",
+	"formula": "Ne(g)",
+	"components": [
+	  { "symbol": "Ne", "count": 1 }
+	]
+  },
+  {
+	"name": "Liquid Neon",
+	"formula": "Ne(l)",
+	"components": [
+	  { "symbol": "Ne", "count": 1 }
+	]
+  }
+]

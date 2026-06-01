@@ -1,0 +1,35 @@
+[
+  {
+	"name": "Potassium Element",
+	"formula": "K",
+	"components": [
+	  { "symbol": "K", "count": 1 }
+	]
+  },
+  {
+	"name": "Potassium Hydroxide",
+	"formula": "KOH",
+	"components": [
+	  { "symbol": "K", "count": 1 },
+	  { "symbol": "O", "count": 1 },
+	  { "symbol": "H", "count": 1 }
+	]
+  },
+  {
+	"name": "Potassium Chloride",
+	"formula": "KCl",
+	"components": [
+	  { "symbol": "K", "count": 1 },
+	  { "symbol": "Cl", "count": 1 }
+	]
+  },
+  {
+	"name": "Potassium Nitrate",
+	"formula": "KNO3",
+	"components": [
+	  { "symbol": "K", "count": 1 },
+	  { "symbol": "N", "count": 1 },
+	  { "symbol": "O", "count": 3 }
+	]
+  }
+]

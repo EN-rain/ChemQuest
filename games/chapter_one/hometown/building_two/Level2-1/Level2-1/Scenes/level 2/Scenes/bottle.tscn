@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://ci05jfqne46r6"]
+
+[ext_resource type="Texture2D" uid="uid://3ka5akl2ewk8" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Treasure Hunters/Pirate Treasure/Sprites/Green Bottle/03.png" id="1_21te3"]
+[ext_resource type="Script" uid="uid://bv6pc5bak5mao" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level 2/Scripts/bottle.gd" id="1_v4k4n"]
+[ext_resource type="Texture2D" uid="uid://bwsdvk5osmp5n" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Treasure Hunters/Pirate Treasure/Sprites/Green Bottle/01.png" id="2_ke34r"]
+[ext_resource type="Texture2D" uid="uid://xam7ufq141mc" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Treasure Hunters/Pirate Treasure/Sprites/Green Bottle/02.png" id="3_b8me0"]
+[ext_resource type="Texture2D" uid="uid://ujydwok66kxk" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Treasure Hunters/Pirate Treasure/Sprites/Green Bottle/04.png" id="5_bfhfg"]
+[ext_resource type="Texture2D" uid="uid://cefukjjyinftu" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Treasure Hunters/Pirate Treasure/Sprites/Green Bottle/05.png" id="6_ni2a7"]
+[ext_resource type="Texture2D" uid="uid://c5y0dwrlletpp" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Treasure Hunters/Pirate Treasure/Sprites/Green Bottle/06.png" id="7_0nb80"]
+[ext_resource type="Texture2D" uid="uid://cc2gg40atknya" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Treasure Hunters/Pirate Treasure/Sprites/Green Bottle/07.png" id="8_7k22u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4k4n"]
+size = Vector2(14, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1pq5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ke34r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b8me0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_21te3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bfhfg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ni2a7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0nb80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7k22u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+lock_rotation = true
+freeze_mode = 1
+continuous_cd = 2
+script = ExtResource("1_v4k4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v4k4n")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -38.0
+offset_right = 20.0
+offset_bottom = -15.0
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.25, 0)
+scale = Vector2(1.03846, 1)
+sprite_frames = SubResource("SpriteFrames_f1pq5")
+autoplay = "default"
+frame_progress = 0.388695

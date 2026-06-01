@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Titanium Element",
+	"formula": "Ti",
+	"components": [{ "symbol": "Ti", "count": 1 }]
+  },
+  {
+	"name": "Titanium Dioxide",
+	"formula": "TiO2",
+	"components": [
+	  { "symbol": "Ti", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Titanium Tetrachloride",
+	"formula": "TiCl4",
+	"components": [
+	  { "symbol": "Ti", "count": 1 },
+	  { "symbol": "Cl", "count": 4 }
+	]
+  }
+]

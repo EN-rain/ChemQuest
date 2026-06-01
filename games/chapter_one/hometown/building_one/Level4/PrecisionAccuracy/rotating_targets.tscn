@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbtuegpdmspxb"]
+
+[ext_resource type="Texture2D" uid="uid://dtic0826twd85" path="res://scenes/levels/mini_levels/PrecisionAccuracy/imgs/bullseye.png" id="1_fetsk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1b7mb"]
+radius = 64.1327
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nc61k"]
+radius = 51.1957
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r1hf0"]
+radius = 39.5601
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ei3ri"]
+radius = 27.2029
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_smnkx"]
+radius = 12.0416
+
+[node name="RotatingTargets" type="Node2D"]
+
+[node name="Targets" type="Node2D" parent="."]
+
+[node name="Target1" type="Node2D" parent="Targets"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Targets/Target1"]
+position = Vector2(512, 191)
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("1_fetsk")
+
+[node name="Score1" type="Area2D" parent="Targets/Target1"]
+position = Vector2(507, 193)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Targets/Target1/Score1"]
+position = Vector2(5, -2)
+shape = SubResource("CircleShape2D_1b7mb")
+
+[node name="Score2" type="Area2D" parent="Targets/Target1"]
+position = Vector2(257, 197)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Targets/Target1/Score2"]
+position = Vector2(255, -6)
+shape = SubResource("CircleShape2D_nc61k")
+
+[node name="Score3" type="Area2D" parent="Targets/Target1"]
+position = Vector2(181, 244)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Targets/Target1/Score3"]
+position = Vector2(331, -53)
+shape = SubResource("CircleShape2D_r1hf0")
+
+[node name="Score4" type="Area2D" parent="Targets/Target1"]
+position = Vector2(117, 273)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Targets/Target1/Score4"]
+position = Vector2(395, -82)
+shape = SubResource("CircleShape2D_ei3ri")
+
+[node name="Score5" type="Area2D" parent="Targets/Target1"]
+position = Vector2(170, 287)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Targets/Target1/Score5"]
+position = Vector2(342, -96)
+shape = SubResource("CircleShape2D_smnkx")

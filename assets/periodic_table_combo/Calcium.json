@@ -1,0 +1,35 @@
+[
+  {
+	"name": "Calcium Element",
+	"formula": "Ca",
+	"components": [
+	  { "symbol": "Ca", "count": 1 }
+	]
+  },
+  {
+	"name": "Calcium Carbonate",
+	"formula": "CaCO3",
+	"components": [
+	  { "symbol": "Ca", "count": 1 },
+	  { "symbol": "C", "count": 1 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Calcium Hydroxide",
+	"formula": "Ca(OH)2",
+	"components": [
+	  { "symbol": "Ca", "count": 1 },
+	  { "symbol": "O", "count": 2 },
+	  { "symbol": "H", "count": 2 }
+	]
+  },
+  {
+	"name": "Calcium Chloride",
+	"formula": "CaCl2",
+	"components": [
+	  { "symbol": "Ca", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  }
+]

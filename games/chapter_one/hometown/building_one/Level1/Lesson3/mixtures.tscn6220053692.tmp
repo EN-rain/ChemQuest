@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://pc36d0entonh"]
+
+[ext_resource type="Script" uid="uid://m88b7q1hp55h" path="res://games/chapter_one/hometown/building_one/Level1/Lesson3/mixtures.gd" id="1_8tk85"]
+[ext_resource type="Texture2D" uid="uid://ba0wxkocs7dol" path="res://games/chapter_one/hometown/building_one/Level1/imgs/card.png" id="2_jf168"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxdpe"]
+size = Vector2(128, 214)
+
+[node name="Mixtures" type="Area2D"]
+script = ExtResource("1_8tk85")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-3.0000005, -1)
+scale = Vector2(2.9206347, 2.6804123)
+texture = ExtResource("2_jf168")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 3)
+shape = SubResource("RectangleShape2D_kxdpe")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -63.0
+offset_top = 4.0
+offset_right = 61.0
+offset_bottom = 101.0
+text = "sssss"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

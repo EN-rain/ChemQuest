@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Livermorium Element",
+	"formula": "Lv",
+	"components": [
+	  { "symbol": "Lv", "count": 1 }
+	]
+  },
+  {
+	"name": "Livermorium Oxide",
+	"formula": "LvO",
+	"components": [
+	  { "symbol": "Lv", "count": 1 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Livermorium Chloride",
+	"formula": "LvCl2",
+	"components": [
+	  { "symbol": "Lv", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  }
+]

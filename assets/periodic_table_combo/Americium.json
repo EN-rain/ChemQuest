@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Americium Glow",
+	"formula": "Am",
+	"components": [
+	  { "symbol": "Am", "count": 1 }
+	]
+  },
+  {
+	"name": "Americium Oxide",
+	"formula": "AmO2",
+	"components": [
+	  { "symbol": "Am", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Americium Chloride",
+	"formula": "AmCl3",
+	"components": [
+	  { "symbol": "Am", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

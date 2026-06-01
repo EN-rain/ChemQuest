@@ -1,0 +1,24 @@
+[
+  {
+	"name": "Rubidium Element",
+	"formula": "Rb",
+	"components": [{ "symbol": "Rb", "count": 1 }]
+  },
+  {
+	"name": "Rubidium Chloride",
+	"formula": "RbCl",
+	"components": [
+	  { "symbol": "Rb", "count": 1 },
+	  { "symbol": "Cl", "count": 1 }
+	]
+  },
+  {
+	"name": "Rubidium Hydroxide",
+	"formula": "RbOH",
+	"components": [
+	  { "symbol": "Rb", "count": 1 },
+	  { "symbol": "O", "count": 1 },
+	  { "symbol": "H", "count": 1 }
+	]
+  }
+]

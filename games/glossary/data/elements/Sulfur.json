@@ -1,0 +1,34 @@
+[
+  {
+	"name": "Sulfur Element",
+	"formula": "S8",
+	"components": [
+	  { "symbol": "S", "count": 8 }
+	]
+  },
+  {
+	"name": "Sulfur Dioxide",
+	"formula": "SO2",
+	"components": [
+	  { "symbol": "S", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Sulfuric Acid",
+	"formula": "H2SO4",
+	"components": [
+	  { "symbol": "H", "count": 2 },
+	  { "symbol": "S", "count": 1 },
+	  { "symbol": "O", "count": 4 }
+	]
+  },
+  {
+	"name": "Hydrogen Sulfide",
+	"formula": "H2S",
+	"components": [
+	  { "symbol": "H", "count": 2 },
+	  { "symbol": "S", "count": 1 }
+	]
+  }
+]

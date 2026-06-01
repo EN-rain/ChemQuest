@@ -1,0 +1,34 @@
+[
+  {
+	"name": "Nickel Element",
+	"formula": "Ni",
+	"components": [
+	  { "symbol": "Ni", "count": 1 }
+	]
+  },
+  {
+	"name": "Nickel Oxide",
+	"formula": "NiO",
+	"components": [
+	  { "symbol": "Ni", "count": 1 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Nickel Sulfate",
+	"formula": "NiSO4",
+	"components": [
+	  { "symbol": "Ni", "count": 1 },
+	  { "symbol": "S", "count": 1 },
+	  { "symbol": "O", "count": 4 }
+	]
+  },
+  {
+	"name": "Nickel Chloride",
+	"formula": "NiCl2",
+	"components": [
+	  { "symbol": "Ni", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  }
+]

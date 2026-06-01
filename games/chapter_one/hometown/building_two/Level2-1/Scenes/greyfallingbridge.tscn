@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbesvnybb44nn"]
+
+[ext_resource type="Script" uid="uid://dc7746opl1r7b" path="res://games/chapter_one/hometown/building_two/Level2-1/Scripts/falling_platform.gd" id="1_0dbg7"]
+[ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_k8s2v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dbg7"]
+atlas = ExtResource("2_k8s2v")
+region = Rect2(264, 22, 88, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k8s2v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dbg7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymylk"]
+size = Vector2(47, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqslv"]
+size = Vector2(49, 6)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_0dbg7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(11, -2)
+sprite_frames = SubResource("SpriteFrames_k8s2v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_ymylk")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, -3)
+shape = SubResource("RectangleShape2D_oqslv")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

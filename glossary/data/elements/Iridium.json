@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Iridium Element",
+	"formula": "Ir",
+	"components": [
+	  { "symbol": "Ir", "count": 1 }
+	]
+  },
+  {
+	"name": "Iridium Oxide",
+	"formula": "IrO2",
+	"components": [
+	  { "symbol": "Ir", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Iridium Chloride",
+	"formula": "IrCl3",
+	"components": [
+	  { "symbol": "Ir", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  },
+  {
+	"name": "Iridium Hexafluoride",
+	"formula": "IrF6",
+	"components": [
+	  { "symbol": "Ir", "count": 1 },
+	  { "symbol": "F", "count": 6 }
+	]
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Bromine Element",
+	"formula": "Br",
+	"components": [
+	  { "symbol": "Br", "count": 1 }
+	]
+  },
+  {
+	"name": "Hydrogen Bromide",
+	"formula": "HBr",
+	"components": [
+	  { "symbol": "H", "count": 1 },
+	  { "symbol": "Br", "count": 1 }
+	]
+  },
+  {
+	"name": "Sodium Bromide",
+	"formula": "NaBr",
+	"components": [
+	  { "symbol": "Na", "count": 1 },
+	  { "symbol": "Br", "count": 1 }
+	]
+  },
+  {
+	"name": "Bromine Water",
+	"formula": "Br2O",
+	"components": [
+	  { "symbol": "Br", "count": 2 },
+	  { "symbol": "O", "count": 1 }
+	]
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+	"name": "Water",
+	"formula": "H2O",
+	"components": [
+	  { "symbol": "H", "count": 2 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Hydrogen Peroxide",
+	"formula": "H2O2",
+	"components": [
+	  { "symbol": "H", "count": 2 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Methane",
+	"formula": "CH4",
+	"components": [
+	  { "symbol": "C", "count": 1 },
+	  { "symbol": "H", "count": 4 }
+	]
+  },
+  {
+	"name": "Ammonia",
+	"formula": "NH3",
+	"components": [
+	  { "symbol": "N", "count": 1 },
+	  { "symbol": "H", "count": 3 }
+	]
+  },
+  {
+	"name": "Hydrochloric Acid",
+	"formula": "HCl",
+	"components": [
+	  { "symbol": "H", "count": 1 },
+	  { "symbol": "Cl", "count": 1 }
+	]
+  }
+]

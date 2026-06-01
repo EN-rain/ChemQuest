@@ -1,0 +1,904 @@
+[
+  {
+	"id": 1,
+	"name": "Salt dissolved in water",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Saltwater is uniform throughout.",
+	  "heterogeneous": "Not correct. Saltwater looks the same everywhere, so it’s homogeneous."
+	}
+  },
+  {
+	"id": 2,
+	"name": "Sand mixed with water",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Sand settles and separates, so it’s heterogeneous.",
+	  "heterogeneous": "Correct! Sand and water are clearly separate layers."
+	}
+  },
+  {
+	"id": 3,
+	"name": "Air (oxygen + nitrogen)",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Air is a uniform mixture of gases.",
+	  "heterogeneous": "Not correct. You can’t see separate layers in air, so it’s homogeneous."
+	}
+  },
+  {
+	"id": 4,
+	"name": "Oil mixed with water",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Oil floats and forms a separate layer, so it’s heterogeneous.",
+	  "heterogeneous": "Correct! Oil and water don’t mix evenly."
+	}
+  },
+  {
+	"id": 5,
+	"name": "Sugar dissolved in tea",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Sugar spreads evenly throughout the tea.",
+	  "heterogeneous": "Not correct. You can’t see sugar separately once it dissolves."
+	}
+  },
+  {
+	"id": 6,
+	"name": "Concrete (cement, sand, gravel)",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. You can clearly see gravel and sand in concrete.",
+	  "heterogeneous": "Correct! Concrete has visible different components."
+	}
+  },
+  {
+	"id": 7,
+	"name": "Vinegar (water + acetic acid)",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Vinegar is uniform throughout.",
+	  "heterogeneous": "Not correct. Vinegar has no visible layers, so it’s homogeneous."
+	}
+  },
+  {
+	"id": 8,
+	"name": "Fruit salad",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. You can see the different fruits clearly.",
+	  "heterogeneous": "Correct! Fruit salad is a heterogeneous mixture."
+	}
+  },
+  {
+	"id": 9,
+	"name": "Steel (iron + carbon)",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Steel looks and behaves uniformly.",
+	  "heterogeneous": "Not correct. You cannot see separate iron and carbon."
+	}
+  },
+  {
+	"id": 10,
+	"name": "Cereal in milk",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. The cereal floats or sinks, not uniform.",
+	  "heterogeneous": "Correct! Cereal and milk stay separate."
+	}
+  },
+  {
+	"id": 11,
+	"name": "Smoke in air",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Smoke particles make the mixture non-uniform.",
+	  "heterogeneous": "Correct! Smoke is tiny solid particles mixed with air."
+	}
+  },
+  {
+	"id": 12,
+	"name": "Milk",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Milk looks uniform because fat droplets are evenly dispersed.",
+	  "heterogeneous": "Not correct. You don’t see separate fat and water in milk."
+	}
+  },
+  {
+	"id": 13,
+	"name": "Pizza",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. You can clearly see cheese, sauce, and toppings.",
+	  "heterogeneous": "Correct! Pizza is a heterogeneous mixture."
+	}
+  },
+  {
+	"id": 14,
+	"name": "Alloy: Brass (copper + zinc)",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Brass is uniform throughout.",
+	  "heterogeneous": "Not correct. You cannot see copper and zinc separately."
+	}
+  },
+  {
+	"id": 15,
+	"name": "Salad dressing (oil + vinegar)",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Oil and vinegar separate into layers.",
+	  "heterogeneous": "Correct! Salad dressing is heterogeneous when left standing."
+	}
+  },
+[
+  {
+	"id": 16,
+	"name": "Blood",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Blood under a microscope shows plasma, cells, and platelets separately.",
+	  "heterogeneous": "Correct! Blood is a heterogeneous mixture of different components."
+	}
+  },
+  {
+	"id": 17,
+	"name": "Bronze (copper + tin)",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Bronze is uniform throughout.",
+	  "heterogeneous": "Not correct. You cannot see copper and tin separately."
+	}
+  },
+  {
+	"id": 18,
+	"name": "Soil",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Soil contains rocks, organic matter, and minerals.",
+	  "heterogeneous": "Correct! Soil is a heterogeneous mixture."
+	}
+  },
+  {
+	"id": 19,
+	"name": "Coffee with sugar",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Once sugar dissolves, the mixture is uniform.",
+	  "heterogeneous": "Not correct. The sugar is not visible separately."
+	}
+  },
+  {
+	"id": 20,
+	"name": "Ice cubes in soda",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Ice floats as separate pieces in liquid.",
+	  "heterogeneous": "Correct! Ice and soda are distinct parts."
+	}
+  },
+  {
+	"id": 21,
+	"name": "Perfume (alcohol + fragrance)",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Perfume is uniform throughout.",
+	  "heterogeneous": "Not correct. You cannot see separate fragrance and alcohol."
+	}
+  },
+  {
+	"id": 22,
+	"name": "Trail mix",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. You can pick out raisins, nuts, and candies.",
+	  "heterogeneous": "Correct! Trail mix is clearly heterogeneous."
+	}
+  },
+  {
+	"id": 23,
+	"name": "Brass and bronze coins",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! These alloys are uniform throughout.",
+	  "heterogeneous": "Not correct. Metals are not visibly separated."
+	}
+  },
+  {
+	"id": 24,
+	"name": "Clouds (water droplets in air)",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Clouds contain visible water droplets.",
+	  "heterogeneous": "Correct! Clouds are heterogeneous mixtures."
+	}
+  },
+  {
+	"id": 25,
+	"name": "Seawater",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Salt is dissolved evenly in seawater.",
+	  "heterogeneous": "Not correct. You cannot see salt separately."
+	}
+  },
+  {
+	"id": 26,
+	"name": "Hot chocolate with marshmallows",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Marshmallows float separately in the drink.",
+	  "heterogeneous": "Correct! You can see the marshmallows distinct from the chocolate."
+	}
+  },
+  {
+	"id": 27,
+	"name": "Tap water",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Tap water looks uniform though it contains minerals.",
+	  "heterogeneous": "Not correct. You cannot see the dissolved minerals."
+	}
+  },
+  {
+	"id": 28,
+	"name": "Rocks with minerals",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. You can see different mineral crystals.",
+	  "heterogeneous": "Correct! Rocks are heterogeneous mixtures."
+	}
+  },
+  {
+	"id": 29,
+	"name": "Soft drink (carbonated water + sugar)",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! The sugar dissolves evenly, making the drink uniform.",
+	  "heterogeneous": "Not correct. You cannot see the sugar separately."
+	}
+  },
+  {
+	"id": 30,
+	"name": "Vegetable soup",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. You can see vegetables, broth, and meat separately.",
+	  "heterogeneous": "Correct! Soup is a heterogeneous mixture."
+	}
+  },
+  {
+	"id": 31,
+	"name": "Cheese",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Cheese looks and tastes uniform throughout.",
+	  "heterogeneous": "Not correct. You can’t see separate milk solids in cheese."
+	}
+  },
+  {
+	"id": 32,
+	"name": "Granite rock",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Granite has visible crystals of quartz, feldspar, and mica.",
+	  "heterogeneous": "Correct! Granite is composed of distinct minerals."
+	}
+  },
+  {
+	"id": 33,
+	"name": "Rubbing alcohol (isopropyl + water)",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! The mixture is uniform at the molecular level.",
+	  "heterogeneous": "Not correct. You can’t distinguish the components visually."
+	}
+  },
+  {
+	"id": 34,
+	"name": "Soda with ice and lemon slices",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Ice and lemon slices are visible separately.",
+	  "heterogeneous": "Correct! It has distinct solid and liquid parts."
+	}
+  },
+  {
+	"id": 35,
+	"name": "Brine (saltwater solution)",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Salt dissolves completely in the water.",
+	  "heterogeneous": "Not correct. Brine is uniform throughout."
+	}
+  },
+  {
+	"id": 36,
+	"name": "Mixed nuts",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. You can easily see and separate each nut.",
+	  "heterogeneous": "Correct! Mixed nuts are clearly heterogeneous."
+	}
+  },
+  {
+	"id": 37,
+	"name": "Ink",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Ink appears as one consistent color mixture.",
+	  "heterogeneous": "Not correct. The different pigments are evenly mixed."
+	}
+  },
+  {
+	"id": 38,
+	"name": "Beach sand",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Sand grains vary in size and color.",
+	  "heterogeneous": "Correct! Beach sand has multiple visible materials."
+	}
+  },
+  {
+	"id": 39,
+	"name": "Honey",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Honey is smooth and uniform throughout.",
+	  "heterogeneous": "Not correct. It has no visible layers or pieces."
+	}
+  },
+  {
+	"id": 40,
+	"name": "Soapy water",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Soap dissolves evenly in water.",
+	  "heterogeneous": "Not correct. You cannot see soap particles separately."
+	}
+  },
+  {
+	"id": 41,
+	"name": "Salad (lettuce, tomato, cucumber)",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Each ingredient is visible.",
+	  "heterogeneous": "Correct! You can see and separate all parts of the salad."
+	}
+  },
+  {
+	"id": 42,
+	"name": "Tea with milk",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Tea and milk mix evenly into one color.",
+	  "heterogeneous": "Not correct. The mixture appears uniform."
+	}
+  },
+  {
+	"id": 43,
+	"name": "Water with ice cubes",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Ice and liquid water are distinct states.",
+	  "heterogeneous": "Correct! You can see solid ice separate from liquid water."
+	}
+  },
+  {
+	"id": 44,
+	"name": "Fog",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Fog contains visible water droplets in air.",
+	  "heterogeneous": "Correct! Fog is a heterogeneous mixture of liquid and gas."
+	}
+  },
+  {
+	"id": 45,
+	"name": "Chocolate milk",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Cocoa powder is evenly distributed in milk.",
+	  "heterogeneous": "Not correct. You cannot see separate particles."
+	}
+  },
+  {
+	"id": 46,
+	"name": "Salty soup broth",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Salt dissolves uniformly in the broth.",
+	  "heterogeneous": "Not correct. You cannot see the salt."
+	}
+  },
+  {
+	"id": 47,
+	"name": "Cookie dough with chocolate chips",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. You can see and pick out the chocolate chips.",
+	  "heterogeneous": "Correct! The chips are separate pieces in the dough."
+	}
+  },
+  {
+	"id": 48,
+	"name": "Bronze statue",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Bronze is a uniform alloy of copper and tin.",
+	  "heterogeneous": "Not correct. The metals are not visible separately."
+	}
+  },
+  {
+	"id": 49,
+	"name": "Dust in air",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Dust particles make the air cloudy and uneven.",
+	  "heterogeneous": "Correct! Dust in air is a heterogeneous mixture."
+	}
+  },
+  {
+	"id": 50,
+	"name": "Sugar syrup",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Sugar dissolves completely in the syrup.",
+	  "heterogeneous": "Not correct. The mixture is smooth and uniform."
+	}
+  },
+  {
+	"id": 51,
+	"name": "Muddy water",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Mud particles make the water cloudy and uneven.",
+	  "heterogeneous": "Correct! Muddy water contains visible suspended soil particles."
+	}
+  },
+  {
+	"id": 52,
+	"name": "Whipped cream",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Air and cream are blended evenly.",
+	  "heterogeneous": "Not correct. The mixture looks smooth and uniform."
+	}
+  },
+  {
+	"id": 53,
+	"name": "Cement and gravel mix",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. You can see separate gravel pieces in the mix.",
+	  "heterogeneous": "Correct! The components are not evenly distributed."
+	}
+  },
+  {
+	"id": 54,
+	"name": "Salt and pepper mix",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Salt and pepper grains remain separate.",
+	  "heterogeneous": "Correct! It’s a visible mixture of solids."
+	}
+  },
+  {
+	"id": 55,
+	"name": "Lemonade",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Sugar and lemon juice are evenly dissolved in water.",
+	  "heterogeneous": "Not correct. You cannot see separate particles in lemonade."
+	}
+  },
+  {
+	"id": 56,
+	"name": "Vegetable fried rice",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. The vegetables and rice remain distinct.",
+	  "heterogeneous": "Correct! Each ingredient can be seen and separated."
+	}
+  },
+  {
+	"id": 57,
+	"name": "Soda (carbonated water)",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! The carbonation and liquid are uniform when sealed.",
+	  "heterogeneous": "Not correct. You can’t distinguish the dissolved gas in the drink."
+	}
+  },
+  {
+	"id": 58,
+	"name": "Marble rock",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Marble is uniform in texture and color.",
+	  "heterogeneous": "Not correct. You cannot see distinct components in marble."
+	}
+  },
+  {
+	"id": 59,
+	"name": "Oil and sand mixture",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Oil and sand do not mix evenly.",
+	  "heterogeneous": "Correct! You can see separate oil and sand grains."
+	}
+  },
+  {
+	"id": 60,
+	"name": "Colored glass",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! The coloring agents are distributed evenly in the glass.",
+	  "heterogeneous": "Not correct. The glass has a single uniform color."
+	}
+  },
+  {
+	"id": 61,
+	"name": "Cereal bar",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. You can see the oats, nuts, and chocolate bits separately.",
+	  "heterogeneous": "Correct! It’s made of visibly different ingredients."
+	}
+  },
+  {
+	"id": 62,
+	"name": "Salt in vinegar",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Salt dissolves fully in vinegar.",
+	  "heterogeneous": "Not correct. The mixture appears clear and even."
+	}
+  },
+  {
+	"id": 63,
+	"name": "Paint",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Pigments are evenly mixed in the liquid medium.",
+	  "heterogeneous": "Not correct. You can’t see the pigments separately."
+	}
+  },
+  {
+	"id": 64,
+	"name": "Granola mix",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. You can easily see oats, nuts, and raisins.",
+	  "heterogeneous": "Correct! Granola is a heterogeneous food mixture."
+	}
+  },
+  {
+	"id": 65,
+	"name": "Ink in water",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! The ink spreads evenly throughout the water.",
+	  "heterogeneous": "Not correct. You can’t see the ink separately."
+	}
+  },
+  {
+	"id": 66,
+	"name": "Wet soil",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Soil clumps and water are distinct.",
+	  "heterogeneous": "Correct! You can see separate moist soil and water pockets."
+	}
+  },
+  {
+	"id": 67,
+	"name": "Milkshake",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Ingredients are blended smoothly together.",
+	  "heterogeneous": "Not correct. It appears as one uniform liquid."
+	}
+  },
+  {
+	"id": 68,
+	"name": "Beach pebbles",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Each pebble is a separate solid piece.",
+	  "heterogeneous": "Correct! Pebbles differ in color, shape, and size."
+	}
+  },
+  {
+	"id": 69,
+	"name": "Apple juice",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Apple juice looks uniform throughout.",
+	  "heterogeneous": "Not correct. There are no visible solid parts."
+	}
+  },
+  {
+	"id": 70,
+	"name": "Chocolate chip ice cream",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Chocolate chips are visible within the ice cream.",
+	  "heterogeneous": "Correct! The chips and cream are distinct parts."
+	}
+  },
+  {
+	"id": 71,
+	"name": "Brass key",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Brass is an even alloy of copper and zinc.",
+	  "heterogeneous": "Not correct. It’s uniform in texture and color."
+	}
+  },
+  {
+	"id": 72,
+	"name": "Oatmeal",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. You can see the oats and liquid separately.",
+	  "heterogeneous": "Correct! Oatmeal has solid and liquid parts."
+	}
+  },
+  {
+	"id": 73,
+	"name": "Fruit juice blend",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! The juices mix completely into one flavor.",
+	  "heterogeneous": "Not correct. The drink appears uniform and single-colored."
+	}
+  },
+  {
+	"id": 74,
+	"name": "Popcorn with butter",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Butter coats the popcorn unevenly.",
+	  "heterogeneous": "Correct! You can see distinct butter and popcorn pieces."
+	}
+  },
+  {
+	"id": 75,
+	"name": "Colored ink (blue pen)",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Pigments are uniformly dissolved in the solvent.",
+	  "heterogeneous": "Not correct. The ink color is consistent throughout."
+	}
+  },
+  {
+	"id": 76,
+	"name": "Hot coffee",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! The coffee appears uniform throughout.",
+	  "heterogeneous": "Not correct. There are no visible solids or layers."
+	}
+  },
+  {
+	"id": 77,
+	"name": "Snow globe",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. The glitter and liquid are visibly separate.",
+	  "heterogeneous": "Correct! You can see the floating particles move through the liquid."
+	}
+  },
+  {
+	"id": 78,
+	"name": "Grape juice",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! The juice is smooth and evenly mixed.",
+	  "heterogeneous": "Not correct. There are no separate parts or particles visible."
+	}
+  },
+  {
+	"id": 79,
+	"name": "Pebbles in a jar",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Pebbles and air occupy separate spaces.",
+	  "heterogeneous": "Correct! The materials are not evenly distributed."
+	}
+  },
+  {
+	"id": 80,
+	"name": "Carbonated soda",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! The dissolved gas and liquid form a uniform mixture when sealed.",
+	  "heterogeneous": "Not correct. You cannot see the gas until it escapes as bubbles."
+	}
+  },
+  {
+	"id": 81,
+	"name": "Chicken soup with noodles",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. You can see separate chicken pieces and noodles.",
+	  "heterogeneous": "Correct! The contents are clearly distinct."
+	}
+  },
+  {
+	"id": 82,
+	"name": "Sealed air in a balloon",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Air is evenly mixed gases.",
+	  "heterogeneous": "Not correct. You cannot distinguish oxygen and nitrogen."
+	}
+  },
+  {
+	"id": 83,
+	"name": "Pebbles and sand",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Pebbles and sand can be easily separated.",
+	  "heterogeneous": "Correct! The components are different in size and texture."
+	}
+  },
+  {
+	"id": 84,
+	"name": "Iced coffee",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Ice and liquid coffee are separate phases.",
+	  "heterogeneous": "Correct! The ice cubes are visible in the drink."
+	}
+  },
+  {
+	"id": 85,
+	"name": "Liquid detergent",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! All ingredients mix evenly into one solution.",
+	  "heterogeneous": "Not correct. The mixture looks and feels uniform."
+	}
+  },
+  {
+	"id": 86,
+	"name": "Cereal bowl with fruits",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. The fruit pieces and cereal stay separate.",
+	  "heterogeneous": "Correct! Each item is clearly visible in the bowl."
+	}
+  },
+  {
+	"id": 87,
+	"name": "Salt in lemon juice",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Salt dissolves evenly in the lemon juice.",
+	  "heterogeneous": "Not correct. The solution looks clear and uniform."
+	}
+  },
+  {
+	"id": 88,
+	"name": "Concrete block",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. You can see coarse particles in the solid block.",
+	  "heterogeneous": "Correct! Concrete contains visible sand and gravel."
+	}
+  },
+  {
+	"id": 89,
+	"name": "Soft drink syrup",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! The syrup is consistent in color and texture.",
+	  "heterogeneous": "Not correct. There are no visible solids."
+	}
+  },
+  {
+	"id": 90,
+	"name": "Fruit smoothie",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Blended fruits form one smooth mixture.",
+	  "heterogeneous": "Not correct. There are no distinct chunks or layers."
+	}
+  },
+  {
+	"id": 91,
+	"name": "Jar of nuts",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Each nut type remains separate.",
+	  "heterogeneous": "Correct! The jar shows visible differences in color and size."
+	}
+  },
+  {
+	"id": 92,
+	"name": "Perfumed lotion",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Fragrance and lotion are evenly combined.",
+	  "heterogeneous": "Not correct. The lotion has a smooth, single-phase texture."
+	}
+  },
+  {
+	"id": 93,
+	"name": "Soil with gravel",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Gravel pieces are visibly distinct from the soil.",
+	  "heterogeneous": "Correct! The mixture shows separate rock and dirt particles."
+	}
+  },
+  {
+	"id": 94,
+	"name": "Distilled water",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! It is pure and uniform with no impurities.",
+	  "heterogeneous": "Not correct. There are no layers or particles."
+	}
+  },
+  {
+	"id": 95,
+	"name": "Hot cocoa with whipped cream",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. The whipped cream floats on top of the cocoa.",
+	  "heterogeneous": "Correct! The drink has separate visible layers."
+	}
+  },
+  {
+	"id": 96,
+	"name": "Brine solution",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! Salt dissolves evenly in the water.",
+	  "heterogeneous": "Not correct. The solution looks uniform."
+	}
+  },
+  {
+	"id": 97,
+	"name": "Cereal with milk and berries",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Cereal and berries remain distinct from the milk.",
+	  "heterogeneous": "Correct! The components are clearly visible."
+	}
+  },
+  {
+	"id": 98,
+	"name": "Vinegar and salt solution",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! The salt dissolves completely in vinegar.",
+	  "heterogeneous": "Not correct. The mixture looks clear and even."
+	}
+  },
+  {
+	"id": 99,
+	"name": "Sandy beach",
+	"type": "heterogeneous",
+	"feedback": {
+	  "homogeneous": "Not correct. Sand grains vary in color and size.",
+	  "heterogeneous": "Correct! It’s made of different visible materials."
+	}
+  },
+  {
+	"id": 100,
+	"name": "Clear glass window",
+	"type": "homogeneous",
+	"feedback": {
+	  "homogeneous": "Correct! The glass is uniform throughout.",
+	  "heterogeneous": "Not correct. It shows no visible variation or layering."
+	}
+  }
+]
+]

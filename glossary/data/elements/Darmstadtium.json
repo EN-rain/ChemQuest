@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Darmstadtium Element",
+	"formula": "Ds",
+	"components": [
+	  { "symbol": "Ds", "count": 1 }
+	]
+  },
+  {
+	"name": "Darmstadtium Chloride",
+	"formula": "DsCl4",
+	"components": [
+	  { "symbol": "Ds", "count": 1 },
+	  { "symbol": "Cl", "count": 4 }
+	]
+  },
+  {
+	"name": "Darmstadtium Oxide",
+	"formula": "DsO2",
+	"components": [
+	  { "symbol": "Ds", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Meitnerium Element",
+	"formula": "Mt",
+	"components": [
+	  { "symbol": "Mt", "count": 1 }
+	]
+  },
+  {
+	"name": "Meitnerium Oxide",
+	"formula": "MtO2",
+	"components": [
+	  { "symbol": "Mt", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Meitnerium Chloride",
+	"formula": "MtCl4",
+	"components": [
+	  { "symbol": "Mt", "count": 1 },
+	  { "symbol": "Cl", "count": 4 }
+	]
+  }
+]

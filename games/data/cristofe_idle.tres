@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bge3sbk7ivakx"]
+
+[ext_resource type="Texture2D" uid="uid://c00xf1h006ye6" path="res://assets/Pixel Crawler - Free Pack/Entities/Npc's/Rogue/Idle/Idle-Sheet.png" id="1_83jwf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42y86"]
+atlas = ExtResource("1_83jwf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v7tn"]
+atlas = ExtResource("1_83jwf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64aoa"]
+atlas = ExtResource("1_83jwf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2thl"]
+atlas = ExtResource("1_83jwf")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42y86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v7tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64aoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2thl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

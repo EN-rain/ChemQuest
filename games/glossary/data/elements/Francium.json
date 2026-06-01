@@ -1,0 +1,34 @@
+[
+  {
+	"name": "Francium Element",
+	"formula": "Fr",
+	"components": [
+	  { "symbol": "Fr", "count": 1 }
+	]
+  },
+  {
+	"name": "Francium Chloride",
+	"formula": "FrCl",
+	"components": [
+	  { "symbol": "Fr", "count": 1 },
+	  { "symbol": "Cl", "count": 1 }
+	]
+  },
+  {
+	"name": "Francium Hydroxide",
+	"formula": "FrOH",
+	"components": [
+	  { "symbol": "Fr", "count": 1 },
+	  { "symbol": "O", "count": 1 },
+	  { "symbol": "H", "count": 1 }
+	]
+  },
+  {
+	"name": "Francium Fluoride",
+	"formula": "FrF",
+	"components": [
+	  { "symbol": "Fr", "count": 1 },
+	  { "symbol": "F", "count": 1 }
+	]
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Roentgenium Element",
+	"formula": "Rg",
+	"components": [{ "symbol": "Rg", "count": 1 }]
+  },
+  {
+	"name": "Roentgenium Chloride",
+	"formula": "RgCl3",
+	"components": [
+	  { "symbol": "Rg", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  },
+  {
+	"name": "Roentgenium Oxide",
+	"formula": "Rg2O3",
+	"components": [
+	  { "symbol": "Rg", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  }
+]

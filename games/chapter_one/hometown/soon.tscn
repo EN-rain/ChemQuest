@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ciinpklhpvav0"]
+
+[ext_resource type="Script" uid="uid://me5u35rlb2fs" path="res://games/chapter_one/hometown/soon.gd" id="1_8ios4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52bov"]
+size = Vector2(152.125, 118)
+
+[node name="Soon" type="Area2D"]
+script = ExtResource("1_8ios4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_52bov")

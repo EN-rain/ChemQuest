@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Tungsten Element",
+	"formula": "W",
+	"components": [{ "symbol": "W", "count": 1 }]
+  },
+  {
+	"name": "Tungsten Trioxide",
+	"formula": "WO3",
+	"components": [
+	  { "symbol": "W", "count": 1 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Tungsten Hexafluoride",
+	"formula": "WF6",
+	"components": [
+	  { "symbol": "W", "count": 1 },
+	  { "symbol": "F", "count": 6 }
+	]
+  }
+]

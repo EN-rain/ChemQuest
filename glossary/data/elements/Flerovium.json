@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Flerovium Element",
+	"formula": "Fl",
+	"components": [
+	  { "symbol": "Fl", "count": 1 }
+	]
+  },
+  {
+	"name": "Flerovium Chloride",
+	"formula": "FlCl4",
+	"components": [
+	  { "symbol": "Fl", "count": 1 },
+	  { "symbol": "Cl", "count": 4 }
+	]
+  },
+  {
+	"name": "Flerovium Oxide",
+	"formula": "FlO2",
+	"components": [
+	  { "symbol": "Fl", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  }
+]

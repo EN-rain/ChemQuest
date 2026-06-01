@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Ytterbium Element",
+	"formula": "Yb",
+	"components": [{ "symbol": "Yb", "count": 1 }]
+  },
+  {
+	"name": "Ytterbium Oxide",
+	"formula": "Yb2O3",
+	"components": [
+	  { "symbol": "Yb", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Ytterbium Chloride",
+	"formula": "YbCl3",
+	"components": [
+	  { "symbol": "Yb", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

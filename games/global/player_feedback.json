@@ -1,0 +1,34 @@
+{
+	"player_after_book1": [
+		"I finally finished the first book on elements!",
+		"I can almost hear Uncle Wiz smiling already."
+	],
+	"player_after_book2": [
+		"The second tome was harder, but I learned how elements combine.",
+		"Wiz is going to love hearing about this."
+	],
+	"player_after_desk": [
+		"The Desk of Trials was no joke, but I passed!",
+		"My mind feels sharper than ever."
+	],
+	"player_after_book3": [
+		"Mixtures make so much more sense now.",
+		"I should tell Wiz what I discovered."
+	],
+	"player_after_separation": [
+		"The separation experiments were tough, but I did it!",
+		"Time to report back to Wiz."
+	],
+	"player_after_accuracy": [
+		"I finally understand the difference between accuracy and precision.",
+		"That one really made me think."
+	],
+	"player_after_density": [
+		"Christofe’s density lessons were amazing!",
+		"I can’t wait to show him what I learned."
+	],
+	"player_after_states": [
+		"So this is how matter changes between solid, liquid, and gas...",
+		"Christofe will be impressed!"
+	]
+}

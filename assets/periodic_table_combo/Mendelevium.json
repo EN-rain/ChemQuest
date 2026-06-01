@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Mendelevium Element",
+	"formula": "Md",
+	"components": [
+	  { "symbol": "Md", "count": 1 }
+	]
+  },
+  {
+	"name": "Mendelevium Oxide",
+	"formula": "Md2O3",
+	"components": [
+	  { "symbol": "Md", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Mendelevium Chloride",
+	"formula": "MdCl3",
+	"components": [
+	  { "symbol": "Md", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

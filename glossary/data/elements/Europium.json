@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Europium Element",
+	"formula": "Eu",
+	"components": [
+	  { "symbol": "Eu", "count": 1 }
+	]
+  },
+  {
+	"name": "Europium Oxide",
+	"formula": "Eu2O3",
+	"components": [
+	  { "symbol": "Eu", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Europium Chloride",
+	"formula": "EuCl3",
+	"components": [
+	  { "symbol": "Eu", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  },
+  {
+	"name": "Europium Fluoride",
+	"formula": "EuF3",
+	"components": [
+	  { "symbol": "Eu", "count": 1 },
+	  { "symbol": "F", "count": 3 }
+	]
+  }
+]

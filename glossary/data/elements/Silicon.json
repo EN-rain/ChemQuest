@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Silicon Element",
+	"formula": "Si",
+	"components": [{ "symbol": "Si", "count": 1 }]
+  },
+  {
+	"name": "Silicon Dioxide",
+	"formula": "SiO2",
+	"components": [
+	  { "symbol": "Si", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Silicon Carbide",
+	"formula": "SiC",
+	"components": [
+	  { "symbol": "Si", "count": 1 },
+	  { "symbol": "C", "count": 1 }
+	]
+  }
+]

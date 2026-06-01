@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://dximk72tncfof"]
+
+[ext_resource type="Texture2D" uid="uid://cmmft5y08bn2g" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Treasure Hunters/Merchant Ship/Sprites/Barrel/Idle/1.png" id="1_3w4xy"]
+[ext_resource type="Script" uid="uid://ctrcx74qjqj8w" path="res://games/chapter_one/hometown/building_two/Level2-1/Scripts/barrel.gd" id="1_m5w3l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5w3l"]
+atlas = ExtResource("1_3w4xy")
+region = Rect2(0, 0, 26, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rp70x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5w3l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5w3l"]
+size = Vector2(14.5, 13)
+
+[sub_resource type="FontVariation" id="FontVariation_m5w3l"]
+fallbacks = Array[Font]([null])
+
+[sub_resource type="LabelSettings" id="LabelSettings_rp70x"]
+font_size = 10
+
+[node name="barrel" type="RigidBody2D"]
+collision_layer = 3
+can_sleep = false
+freeze_mode = 1
+script = ExtResource("1_m5w3l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -15)
+sprite_frames = SubResource("SpriteFrames_rp70x")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_m5w3l")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -21.0
+offset_top = -58.0
+offset_right = 21.0
+offset_bottom = -35.0
+theme_override_fonts/font = SubResource("FontVariation_m5w3l")
+theme_override_font_sizes/font_size = 0
+label_settings = SubResource("LabelSettings_rp70x")

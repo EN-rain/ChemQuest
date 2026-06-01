@@ -1,0 +1,46 @@
+{
+  "wiz_intro": [
+	"Ahhh... So the winds have brought you back, young one. It has been an age since you last walked these halls.",
+    "Knowledge sleeps upon my shelves, waiting for curious minds. Seek the shelf, and awaken the wisdom within."
+  ],
+
+  "wiz_after": [
+	"Still wandering without wisdom, are we?",
+    "Return when the dust of the shelves has clung to your hands and your mind hums with what you’ve learned."
+  ],
+
+  "wiz_books_intro": [
+	"Ah, you found the tomes, but did their secrets find you?",
+    "Return once your eyes have danced through their pages and your thoughts have grown sharper."
+  ],
+
+  "wiz_return_after_book1": [
+	"So, the first book yields its knowledge to you. The Elements themselves whisper your name now.",
+    "Your next task awaits: seek out Book II the art of creation, where elements become one."
+  ],
+
+  "wiz_return_after_book2": [
+	"The second tome lies conquered! You now grasp the power of combination and the birth of compounds.",
+    "Yet knowledge untested is knowledge wasted. Go to my desk face the Trial of Properties."
+  ],
+
+  "wiz_return_after_desk": [
+	"You triumphed over the Tials of Properties! Your understanding of properties now rivals that of seasoned scholars.",
+    "But the path stretches onward. Venture to Book III where mixtures weave the threads of chaos and order."
+  ],
+
+  "wiz_return_after_book3": [
+	"Marvelous! You’ve mastered the lessons of mixtures few have come this far.",
+    "Your foundation is strong. Ahead lie experiments that separate the skilled from the wise."
+  ],
+
+  "wiz_return_after_separation": [
+	"You’ve proven your dexterity in the art of separation precision and patience your allies.",
+    "Our experiments grow ever more subtle. Your next trial concerns the twin blades of Accuracy and Precision handle them with care."
+  ],
+
+  "wiz_return_after_accuracy": [
+	"Ah, I can see clarity in your eyes the balance between truth and exactness has revealed itself to you.",
+    "Now, journey forth to find Christofe, my apprentice in the eastern halls. He will teach you the weight of the world the Lesson of Density."
+  ]
+}

@@ -1,0 +1,258 @@
+[gd_scene load_steps=12 format=3 uid="uid://dox7anq283twi"]
+
+[ext_resource type="Script" uid="uid://b4m1yikf2x4c7" path="res://games/chapter_one/hometown/building_one/Level3/spawner.gd" id="1_7tufp"]
+[ext_resource type="Script" uid="uid://dsdf1b1kl6wgd" path="res://games/chapter_one/hometown/building_one/Level3/buttons.gd" id="1_ih7s1"]
+[ext_resource type="Script" uid="uid://dm7clp4oanfyf" path="res://games/chapter_one/hometown/building_one/Level3/level_3.gd" id="1_m54j2"]
+[ext_resource type="PackedScene" uid="uid://fjuuubkt21m2" path="res://games/chapter_one/hometown/building_one/Level3/items.tscn" id="1_nr6n3"]
+[ext_resource type="Script" uid="uid://ljurjlyrwikg" path="res://games/chapter_one/hometown/building_one/Level3/tray.gd" id="3_exfqq"]
+[ext_resource type="Script" uid="uid://b2rckj241c810" path="res://games/chapter_one/hometown/building_one/Level3/dialogue_box.gd" id="3_lvmdc"]
+[ext_resource type="Script" uid="uid://buslegxr7jn5h" path="res://games/chapter_one/hometown/building_one/Level3/machines.gd" id="5_o3aju"]
+[ext_resource type="Texture2D" uid="uid://chfebsjdxkfy0" path="res://games/chapter_one/hometown/building_one/imgs/121.png" id="7_038ih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tufp"]
+size = Vector2(163.27954, 309.83344)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jji0h"]
+size = Vector2(77.78381, 52.973816)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nr6n3"]
+size = Vector2(67, 267.9561)
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_m54j2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Buttons" type="Control" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.5
+offset_top = -95.0
+offset_right = 81.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_ih7s1")
+
+[node name="Left" type="Button" parent="CanvasLayer/MarginContainer/Control/Buttons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -95.5
+offset_top = -73.0
+offset_right = 115.5
+offset_bottom = 5.0
+text = "LEft"
+
+[node name="Right" type="Button" parent="CanvasLayer/MarginContainer/Control/Buttons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 156.5
+offset_top = -77.0
+offset_right = 356.5
+offset_bottom = -2.0
+text = "Right"
+
+[node name="Seperate" type="Button" parent="CanvasLayer/MarginContainer/Control/Buttons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 23.5
+offset_top = -168.0
+offset_right = 221.5
+offset_bottom = -97.0
+text = "Seperate"
+
+[node name="Start" type="Button" parent="CanvasLayer/MarginContainer/Control/Buttons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 235.5
+offset_top = -193.0
+offset_right = 437.0
+offset_bottom = -134.0
+text = "Start"
+
+[node name="DialogueBox" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -349.0
+offset_top = -278.0
+offset_right = 349.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_lvmdc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/Control/DialogueBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.5
+offset_top = -124.5
+offset_right = 312.5
+offset_bottom = 124.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "asdasasasasasasasasasasasasasasasasasasasasdasdasasdadssddssdsdsdsdsdsdds"
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(237, 251)
+script = ExtResource("1_7tufp")
+item_scene = ExtResource("1_nr6n3")
+
+[node name="Area2D" type="Area2D" parent="Spawner"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D"]
+shape = SubResource("RectangleShape2D_7tufp")
+
+[node name="Tray" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(612, 330)
+script = ExtResource("3_exfqq")
+
+[node name="Marker2D" type="Marker2D" parent="Tray"]
+
+[node name="Area2D" type="Area2D" parent="Tray"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tray/Area2D"]
+shape = SubResource("RectangleShape2D_jji0h")
+
+[node name="Camera2D" type="Camera2D" parent="Tray/Area2D"]
+
+[node name="Machines" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(812, 230)
+script = ExtResource("5_o3aju")
+
+[node name="Starter" type="Marker2D" parent="Machines"]
+unique_name_in_owner = true
+position = Vector2(-200, 100)
+
+[node name="Evaporation" type="Area2D" parent="Machines"]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Machines/Evaporation"]
+position = Vector2(0, -300)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_038ih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machines/Evaporation"]
+shape = SubResource("RectangleShape2D_nr6n3")
+
+[node name="Marker2D" type="Marker2D" parent="Machines/Evaporation"]
+position = Vector2(0, 100)
+
+[node name="Filtration" type="Area2D" parent="Machines"]
+unique_name_in_owner = true
+position = Vector2(250, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Machines/Filtration"]
+position = Vector2(0, -300)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_038ih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machines/Filtration"]
+shape = SubResource("RectangleShape2D_nr6n3")
+
+[node name="Marker2D" type="Marker2D" parent="Machines/Filtration"]
+position = Vector2(0, 100)
+
+[node name="Decantation" type="Area2D" parent="Machines"]
+unique_name_in_owner = true
+position = Vector2(500, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Machines/Decantation"]
+position = Vector2(0, -300)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_038ih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machines/Decantation"]
+shape = SubResource("RectangleShape2D_nr6n3")
+
+[node name="Marker2D" type="Marker2D" parent="Machines/Decantation"]
+position = Vector2(0, 100)
+
+[node name="Magnetism" type="Area2D" parent="Machines"]
+unique_name_in_owner = true
+position = Vector2(750, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Machines/Magnetism"]
+position = Vector2(0, -300)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_038ih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machines/Magnetism"]
+shape = SubResource("RectangleShape2D_nr6n3")
+
+[node name="Marker2D" type="Marker2D" parent="Machines/Magnetism"]
+position = Vector2(0, 100)
+
+[node name="Sieving" type="Area2D" parent="Machines"]
+unique_name_in_owner = true
+position = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Machines/Sieving"]
+position = Vector2(0, -300)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_038ih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machines/Sieving"]
+shape = SubResource("RectangleShape2D_nr6n3")
+
+[node name="Marker2D" type="Marker2D" parent="Machines/Sieving"]
+position = Vector2(0, 100)
+
+[node name="End" type="Marker2D" parent="Machines"]
+unique_name_in_owner = true
+position = Vector2(1250, 100)
+
+[node name="Items" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Items" parent="Items" instance=ExtResource("1_nr6n3")]
+visible = false
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/Buttons/Left" to="CanvasLayer/MarginContainer/Control/Buttons" method="_on_left_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/Buttons/Right" to="CanvasLayer/MarginContainer/Control/Buttons" method="_on_right_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/Buttons/Seperate" to="CanvasLayer/MarginContainer/Control/Buttons" method="_on_seperate_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/Buttons/Start" to="CanvasLayer/MarginContainer/Control/Buttons" method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/Buttons/Start" to="Tray" method="_on_start_pressed"]
+[connection signal="area_entered" from="Tray/Area2D" to="Tray" method="_on_tray_area_entered"]
+[connection signal="area_exited" from="Tray/Area2D" to="Tray" method="_on_tray_area_exited"]
+[connection signal="area_entered" from="Machines/Evaporation" to="Machines" method="_on_evaporation_area_entered"]
+[connection signal="area_exited" from="Machines/Evaporation" to="Machines" method="_on_evaporation_area_exited"]
+[connection signal="area_entered" from="Machines/Filtration" to="Machines" method="_on_filtration_area_entered"]
+[connection signal="area_exited" from="Machines/Filtration" to="Machines" method="_on_filtration_area_exited"]
+[connection signal="area_entered" from="Machines/Decantation" to="Machines" method="_on_decantation_area_entered"]
+[connection signal="area_exited" from="Machines/Decantation" to="Machines" method="_on_decantation_area_exited"]
+[connection signal="area_entered" from="Machines/Magnetism" to="Machines" method="_on_magnetism_area_entered"]
+[connection signal="area_exited" from="Machines/Magnetism" to="Machines" method="_on_magnetism_area_exited"]
+[connection signal="area_entered" from="Machines/Sieving" to="Machines" method="_on_sieving_area_entered"]
+[connection signal="area_exited" from="Machines/Sieving" to="Machines" method="_on_sieving_area_exited"]

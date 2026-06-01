@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcn8gfhb6duqn"]
+
+[ext_resource type="Script" uid="uid://hjrtkar1su46" path="res://scenes/levels/mini_levels/PrecisionAccuracy/target_4.gd" id="1_qdyjd"]
+[ext_resource type="Texture2D" uid="uid://dtic0826twd85" path="res://scenes/levels/mini_levels/PrecisionAccuracy/imgs/bullseye.png" id="2_n435g"]
+[ext_resource type="Script" uid="uid://c88mjes27s4ta" path="res://scenes/levels/mini_levels/PrecisionAccuracy/score_1.gd" id="3_4gaqe"]
+[ext_resource type="Script" uid="uid://ml4gwd7f2ke4" path="res://scenes/levels/mini_levels/PrecisionAccuracy/score_2.gd" id="4_r3p7e"]
+[ext_resource type="Script" uid="uid://bjbrnapd0xu63" path="res://scenes/levels/mini_levels/PrecisionAccuracy/score_3.gd" id="5_s5cam"]
+[ext_resource type="Script" uid="uid://cp87p1h1e114o" path="res://scenes/levels/mini_levels/PrecisionAccuracy/score_4.gd" id="6_uf7kr"]
+[ext_resource type="Script" uid="uid://c1vwq21wlu5sg" path="res://scenes/levels/mini_levels/PrecisionAccuracy/score_5.gd" id="7_wbmb3"]
+
+[node name="Target4" type="Node2D"]
+script = ExtResource("1_qdyjd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_n435g")
+
+[node name="HitContainer" type="Node2D" parent="."]
+
+[node name="Score1" type="Area2D" parent="."]
+script = ExtResource("3_4gaqe")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Score1"]
+
+[node name="Score2" type="Area2D" parent="."]
+script = ExtResource("4_r3p7e")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Score2"]
+
+[node name="Score3" type="Area2D" parent="."]
+script = ExtResource("5_s5cam")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Score3"]
+
+[node name="Score4" type="Area2D" parent="."]
+script = ExtResource("6_uf7kr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Score4"]
+
+[node name="Score5" type="Area2D" parent="."]
+script = ExtResource("7_wbmb3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Score5"]

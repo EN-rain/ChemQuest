@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://efq4xfc3p66i"]
+
+[ext_resource type="Script" uid="uid://bggwmn0wx6i4p" path="res://games/chapter_one/hometown/building_one/Level3/items.gd" id="1_ak3pt"]
+[ext_resource type="Texture2D" uid="uid://bakkjk3o2svws" path="res://games/chapter_one/hometown/building_one/imgs/itembg.png" id="2_46nxo"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="3_ak3pt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tufp"]
+size = Vector2(173.5, 65)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n1ja8"]
+font = ExtResource("3_ak3pt")
+font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Items" type="Area2D"]
+script = ExtResource("1_ak3pt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.019, 0.95)
+texture = ExtResource("2_46nxo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7tufp")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -45.0
+offset_right = 115.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "dddd"
+label_settings = SubResource("LabelSettings_n1ja8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true

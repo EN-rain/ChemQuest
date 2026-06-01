@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Mercury Element",
+	"formula": "Hg",
+	"components": [
+	  { "symbol": "Hg", "count": 1 }
+	]
+  },
+  {
+	"name": "Mercury(I) Chloride",
+	"formula": "Hg2Cl2",
+	"components": [
+	  { "symbol": "Hg", "count": 2 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  },
+  {
+	"name": "Mercury(II) Chloride",
+	"formula": "HgCl2",
+	"components": [
+	  { "symbol": "Hg", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  },
+  {
+	"name": "Mercury(II) Oxide",
+	"formula": "HgO",
+	"components": [
+	  { "symbol": "Hg", "count": 1 },
+	  { "symbol": "O", "count": 1 }
+	]
+  }
+]

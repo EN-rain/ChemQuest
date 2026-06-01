@@ -1,0 +1,34 @@
+[
+  {
+	"name": "Copper Element",
+	"formula": "Cu",
+	"components": [
+	  { "symbol": "Cu", "count": 1 }
+	]
+  },
+  {
+	"name": "Copper Oxide",
+	"formula": "CuO",
+	"components": [
+	  { "symbol": "Cu", "count": 1 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Copper Sulfate",
+	"formula": "CuSO4",
+	"components": [
+	  { "symbol": "Cu", "count": 1 },
+	  { "symbol": "S", "count": 1 },
+	  { "symbol": "O", "count": 4 }
+	]
+  },
+  {
+	"name": "Copper Chloride",
+	"formula": "CuCl2",
+	"components": [
+	  { "symbol": "Cu", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  }
+]

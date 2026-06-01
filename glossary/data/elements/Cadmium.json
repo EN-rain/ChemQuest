@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Cadmium Element",
+	"formula": "Cd",
+	"components": [
+	  { "symbol": "Cd", "count": 1 }
+	]
+  },
+  {
+	"name": "Cadmium Sulfide",
+	"formula": "CdS",
+	"components": [
+	  { "symbol": "Cd", "count": 1 },
+	  { "symbol": "S", "count": 1 }
+	]
+  },
+  {
+	"name": "Cadmium Oxide",
+	"formula": "CdO",
+	"components": [
+	  { "symbol": "Cd", "count": 1 },
+	  { "symbol": "O", "count": 1 }
+	]
+  }
+]

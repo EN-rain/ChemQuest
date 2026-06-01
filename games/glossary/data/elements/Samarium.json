@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Samarium Element",
+	"formula": "Sm",
+	"components": [{ "symbol": "Sm", "count": 1 }]
+  },
+  {
+	"name": "Samarium Oxide",
+	"formula": "Sm2O3",
+	"components": [
+	  { "symbol": "Sm", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Samarium Chloride",
+	"formula": "SmCl3",
+	"components": [
+	  { "symbol": "Sm", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

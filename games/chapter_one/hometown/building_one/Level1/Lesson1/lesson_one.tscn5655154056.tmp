@@ -1,0 +1,218 @@
+[gd_scene load_steps=7 format=3 uid="uid://b64pwym5r0cu7"]
+
+[ext_resource type="Script" uid="uid://mqyfdisgp0it" path="res://games/chapter_one/hometown/building_one/Level1/Lesson1/pass.gd" id="6_i5d37"]
+[ext_resource type="Script" uid="uid://csu6wat2qkxnn" path="res://games/chapter_one/hometown/building_one/Level1/Lesson1/spawner.gd" id="10_1opbo"]
+[ext_resource type="Script" uid="uid://hmyakwrvioqv" path="res://games/chapter_one/hometown/building_one/Level1/Lesson1/checker.gd" id="11_r1dh5"]
+[ext_resource type="PackedScene" uid="uid://chspyidxnjt3k" path="res://games/chapter_one/hometown/building_one/Level1/atom.tscn" id="13_cjjli"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt6b4"]
+size = Vector2(606.5, 310)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmm40"]
+size = Vector2(302, 227.75)
+
+[node name="Lesson1" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Spawner" type="Control" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/MarginContainer/Control/Spawner"]
+position = Vector2(-205.09613, -20.005249)
+script = ExtResource("10_1opbo")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MarginContainer/Control/Spawner/Node2D"]
+position = Vector2(-3.005249, -6.0105286)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MarginContainer/Control/Spawner/Node2D/Area2D"]
+position = Vector2(-14.898621, 3.0157776)
+shape = SubResource("RectangleShape2D_tt6b4")
+
+[node name="Pass" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -187.0
+offset_right = 187.0
+offset_bottom = 115.0
+grow_horizontal = 2
+script = ExtResource("6_i5d37")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/Pass"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -184.5
+offset_right = 184.5
+offset_bottom = 116.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/Pass/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -28.25
+offset_right = 105.0
+offset_bottom = 28.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 219.0
+offset_bottom = 81.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/BackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.5
+offset_top = -33.0
+offset_right = 86.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ConfirmButton" type="Button" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -171.0
+offset_right = 196.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/ConfirmButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.25
+offset_top = -43.25
+offset_right = 131.25
+offset_bottom = 43.25
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckerPanel" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -186.0
+offset_right = 294.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/CheckerPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Checker" type="Control" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -124.75
+offset_bottom = 124.75
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/MarginContainer/Control/Checker"]
+script = ExtResource("11_r1dh5")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MarginContainer/Control/Checker/Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MarginContainer/Control/Checker/Node2D/Area2D"]
+position = Vector2(166, 126.75)
+shape = SubResource("RectangleShape2D_vmm40")
+
+[node name="Marker2D" type="Marker2D" parent="CanvasLayer/MarginContainer/Control/Checker"]
+unique_name_in_owner = true
+position = Vector2(167.92761, 125.37323)
+
+[node name="ScorePanel" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -264.0
+offset_bottom = 108.0
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/ScorePanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AtomContainer" type="Control" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 126.0
+offset_top = -193.0
+offset_right = 714.0
+offset_bottom = 120.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Atom" parent="CanvasLayer/MarginContainer/Control/AtomContainer" instance=ExtResource("13_cjjli")]
+visible = false
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/ConfirmButton" to="CanvasLayer/MarginContainer/Control/Checker/Node2D" method="_on_confirm_button_pressed"]

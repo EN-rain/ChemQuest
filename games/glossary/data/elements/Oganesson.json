@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Oganesson Element",
+	"formula": "Og",
+	"components": [
+	  { "symbol": "Og", "count": 1 }
+	]
+  },
+  {
+	"name": "Oganesson Oxide",
+	"formula": "OgO",
+	"components": [
+	  { "symbol": "Og", "count": 1 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Oganesson Chloride",
+	"formula": "OgCl2",
+	"components": [
+	  { "symbol": "Og", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  }
+]

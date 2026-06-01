@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://872wn853lkpd"]
+
+[ext_resource type="Script" uid="uid://bkn7gjma3qbm7" path="res://games/chapter_one/hometown/building_two/level/Scenes/main.gd" id="1_r150o"]
+[ext_resource type="Texture2D" uid="uid://bo3txpx740rj0" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="2_idj7w"]
+[ext_resource type="FontFile" uid="uid://dhbkof0yy71s7" path="res://games/chapter_one/hometown/building_two/level/Assets/FONTS/LilitaOne-Regular.ttf" id="3_kln2b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_idj7w"]
+font = ExtResource("3_kln2b")
+font_size = 50
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1, 4)
+
+[sub_resource type="Theme" id="Theme_kln2b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r150o"]
+line_spacing = 0.0
+font = ExtResource("3_kln2b")
+font_size = 50
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r150o")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 646.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(576, 324.5)
+scale = Vector2(2.99479, 5.03906)
+texture = ExtResource("2_idj7w")
+
+[node name="Question" type="Label" parent="."]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 111.0
+offset_right = 968.0
+offset_bottom = 218.0
+label_settings = SubResource("LabelSettings_idj7w")
+autowrap_mode = 3
+justification_flags = 171
+
+[node name="Answer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 351.0
+offset_right = 777.0
+offset_bottom = 526.0
+theme = SubResource("Theme_kln2b")
+
+[node name="Lives" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 10.0
+offset_right = 399.0
+offset_bottom = 155.0
+label_settings = SubResource("LabelSettings_r150o")
+autowrap_mode = 3
+justification_flags = 171

@@ -1,0 +1,1946 @@
+[gd_scene load_steps=3 format=3 uid="uid://8so0sts8wvqr"]
+
+[ext_resource type="Script" uid="uid://dyxdmfiosiv6m" path="res://games/glossary/main.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://bv25i4uilt8md" path="res://games/glossary/TE.png" id="1_ig7tw"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0xm2m")
+
+[node name="TableImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ig7tw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SuggestionsPanel" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -447.0
+offset_top = 62.635662
+offset_right = -4.0
+offset_bottom = 125.635666
+grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SuggestionsPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SuggestionsPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "dsds"
+
+[node name="ElementButtons" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="H" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -288.0
+offset_right = -520.0
+offset_bottom = -233.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="He" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 525.0
+offset_top = -289.0
+offset_right = 581.0
+offset_bottom = -234.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Li" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -571.0
+offset_top = -223.0
+offset_right = -515.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Be" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -508.0
+offset_top = -223.0
+offset_right = -452.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="B" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 199.0
+offset_top = -224.0
+offset_right = 255.0
+offset_bottom = -169.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="C" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 263.0
+offset_top = -224.0
+offset_right = 319.0
+offset_bottom = -169.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="N" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 324.0
+offset_top = -223.0
+offset_right = 380.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="O" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 390.0
+offset_top = -224.0
+offset_right = 446.0
+offset_bottom = -169.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="F" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 456.0
+offset_top = -224.0
+offset_right = 512.0
+offset_bottom = -169.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ne" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 519.0
+offset_top = -224.0
+offset_right = 575.0
+offset_bottom = -169.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Na" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 0
+offset_left = 66.0
+offset_top = 201.0
+offset_right = 122.0
+offset_bottom = 256.0
+
+[node name="Mg" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -509.0
+offset_top = -159.0
+offset_right = -453.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Al" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 199.0
+offset_top = -158.0
+offset_right = 255.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Si" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 263.0
+offset_top = -158.0
+offset_right = 319.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="P" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 327.0
+offset_top = -158.0
+offset_right = 383.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="S" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 398.0
+offset_top = -158.0
+offset_right = 454.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cl" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 457.0
+offset_top = -160.0
+offset_right = 513.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ar" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 521.0
+offset_top = -159.0
+offset_right = 577.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="K" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -95.0
+offset_right = -518.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ca" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -508.0
+offset_top = -93.0
+offset_right = -452.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sc" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -444.0
+offset_top = -92.0
+offset_right = -388.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ti" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -382.0
+offset_top = -94.0
+offset_right = -326.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="V" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.0
+offset_top = -95.816956
+offset_right = -261.0
+offset_bottom = -40.816956
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cr" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.58643
+offset_top = -94.41745
+offset_right = -196.58643
+offset_bottom = -39.41745
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Mn" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.8089
+offset_top = -93.95093
+offset_right = -130.8089
+offset_bottom = -38.950928
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fe" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.36389
+offset_top = -95.816956
+offset_right = -67.36389
+offset_bottom = -40.816956
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Co" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.501587
+offset_top = -95.32715
+offset_right = -2.501587
+offset_bottom = -40.32715
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ni" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 5.8483887
+offset_top = -95.89163
+offset_right = 61.84839
+offset_bottom = -40.891632
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cu" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 71.269165
+offset_top = -95.039276
+offset_right = 127.269165
+offset_bottom = -40.039276
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Zn" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 135.92712
+offset_top = -95.55243
+offset_right = 191.92712
+offset_bottom = -40.55243
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ga" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.58496
+offset_top = -96.06558
+offset_right = 256.58496
+offset_bottom = -41.065582
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ge" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 264.72974
+offset_top = -95.55243
+offset_right = 320.72974
+offset_bottom = -40.55243
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="As" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 329.96887
+offset_top = -96.578735
+offset_right = 385.96887
+offset_bottom = -41.578735
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Se" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 395.1399
+offset_top = -95.039276
+offset_right = 451.1399
+offset_bottom = -40.039276
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Br" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 459.28467
+offset_top = -96.578735
+offset_right = 515.28467
+offset_bottom = -41.578735
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Kr" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 523.9426
+offset_top = -96.06558
+offset_right = 579.9426
+offset_bottom = -41.065582
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Rb" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.66
+offset_top = -31.637909
+offset_right = -520.66
+offset_bottom = 23.362091
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sr" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -511.88873
+offset_top = -32.023438
+offset_right = -455.88873
+offset_bottom = 22.976563
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Y" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -447.50153
+offset_top = -30.367798
+offset_right = -391.50153
+offset_bottom = 24.632202
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Zr" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -382.92572
+offset_top = -31.60965
+offset_right = -326.92572
+offset_bottom = 23.39035
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Nb" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.72894
+offset_top = -31.60965
+offset_right = -261.72894
+offset_bottom = 23.39035
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Mo" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.03516
+offset_top = -32.08777
+offset_right = -197.03516
+offset_bottom = 22.912231
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tc" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.67078
+offset_top = -29.833832
+offset_right = -131.67078
+offset_bottom = 25.166168
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ru" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.584595
+offset_top = -30.585144
+offset_right = -66.584595
+offset_bottom = 24.414856
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Rh" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.971497
+offset_top = -31.336456
+offset_right = -1.9714966
+offset_bottom = 23.663544
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pd" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 6.6415405
+offset_top = -31.336456
+offset_right = 62.64154
+offset_bottom = 23.663544
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ag" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 70.503296
+offset_top = -31.336456
+offset_right = 126.503296
+offset_bottom = 23.663544
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cd" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 135.1164
+offset_top = -30.585144
+offset_right = 191.1164
+offset_bottom = 24.414856
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="In" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.48077
+offset_top = -30.585144
+offset_right = 256.48077
+offset_bottom = 24.414856
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sn" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 265.09387
+offset_top = -29.833832
+offset_right = 321.09387
+offset_bottom = 25.166168
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sb" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 330.2511
+offset_top = -30.585144
+offset_right = 386.2511
+offset_bottom = 24.414856
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Te" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 394.1128
+offset_top = -30.585144
+offset_right = 450.1128
+offset_bottom = 24.414856
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="I" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 458.6267
+offset_top = -32.0
+offset_right = 514.6267
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Xe" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 523.8235
+offset_top = -31.0
+offset_right = 579.8235
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cs" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -577.01184
+offset_top = 34.246063
+offset_right = -521.01184
+offset_bottom = 89.24606
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ba" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.35394
+offset_top = 33.219757
+offset_right = -456.35394
+offset_bottom = 88.21976
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hf" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -382.42862
+offset_top = 32.99475
+offset_right = -326.42862
+offset_bottom = 87.99475
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ta" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.8528
+offset_top = 33.61566
+offset_right = -261.8528
+offset_bottom = 88.61566
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="W" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.65607
+offset_top = 33.61566
+offset_right = -196.65607
+offset_bottom = 88.61566
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Re" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.70117
+offset_top = 35.478455
+offset_right = -132.70117
+offset_bottom = 90.478455
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Os" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.84735
+offset_top = 33.61566
+offset_right = -66.84735
+offset_bottom = 88.61566
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ir" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.271545
+offset_top = 33.61566
+offset_right = -2.2715454
+offset_bottom = 88.61566
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pt" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 6.3043213
+offset_top = 32.99475
+offset_right = 62.30432
+offset_bottom = 87.99475
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Au" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 71.50098
+offset_top = 34.236572
+offset_right = 127.50098
+offset_bottom = 89.23657
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hg" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 134.83496
+offset_top = 33.61566
+offset_right = 190.83496
+offset_bottom = 88.61566
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tl" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 199.41077
+offset_top = 34.236572
+offset_right = 255.41077
+offset_bottom = 89.23657
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pb" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 265.2284
+offset_top = 34.236572
+offset_right = 321.2284
+offset_bottom = 89.23657
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bi" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 329.65063
+offset_top = 34.0
+offset_right = 385.65063
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Po" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 394.3086
+offset_top = 33.610474
+offset_right = 450.3086
+offset_bottom = 88.61047
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="At" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 459.93103
+offset_top = 33.09732
+offset_right = 515.931
+offset_bottom = 88.09732
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Rn" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 34.0
+offset_right = 580.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fr" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.90686
+offset_top = 97.75525
+offset_right = -520.90686
+offset_bottom = 152.75525
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ra" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -511.73578
+offset_top = 97.75525
+offset_right = -455.73578
+offset_bottom = 152.75525
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RF" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -382.41998
+offset_top = 98.781555
+offset_right = -326.41998
+offset_bottom = 153.78156
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Db" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -318.0772
+offset_top = 98.26837
+offset_right = -262.0772
+offset_bottom = 153.26837
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sg" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.39297
+offset_top = 98.26837
+offset_right = -196.39297
+offset_bottom = 153.26837
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bh" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.76135
+offset_top = 98.26837
+offset_right = -132.76135
+offset_bottom = 153.26837
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hs" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.8645
+offset_top = 98.26837
+offset_right = -67.8645
+offset_bottom = 153.26837
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Mt" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.69342
+offset_top = 98.26837
+offset_right = -2.6934204
+offset_bottom = 153.26837
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ds" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 5.451294
+offset_top = 97.75525
+offset_right = 61.451294
+offset_bottom = 152.75525
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Rg" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 70.622375
+offset_top = 97.75525
+offset_right = 126.622375
+offset_bottom = 152.75525
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cn" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 134.76715
+offset_top = 98.781555
+offset_right = 190.76715
+offset_bottom = 153.78156
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Nh" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.45135
+offset_top = 98.781555
+offset_right = 256.45135
+offset_bottom = 153.78156
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fl" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 264.28796
+offset_top = 98.781555
+offset_right = 320.28796
+offset_bottom = 153.78156
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Mc" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 330.49207
+offset_top = 99.29468
+offset_right = 386.49207
+offset_bottom = 154.29468
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lv" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 394.63684
+offset_top = 98.781555
+offset_right = 450.63684
+offset_bottom = 153.78156
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ts" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 459.2948
+offset_top = 99.29468
+offset_right = 515.2948
+offset_bottom = 154.29468
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Og" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 98.781555
+offset_right = 580.0
+offset_bottom = 153.78156
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="La" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.906
+offset_top = 184.59387
+offset_right = -520.906
+offset_bottom = 239.59387
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ce" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -511.85605
+offset_top = 184.53229
+offset_right = -455.85605
+offset_bottom = 239.53229
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pr" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -447.6528
+offset_top = 184.53229
+offset_right = -391.6528
+offset_bottom = 239.53229
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Nd" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -382.76654
+offset_top = 183.8493
+offset_right = -326.76654
+offset_bottom = 238.8493
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pm" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.88025
+offset_top = 185.21533
+offset_right = -261.88025
+offset_bottom = 240.21533
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sm" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.71976
+offset_top = 183.16626
+offset_right = -197.71976
+offset_bottom = 238.16626
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Eu" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.4674
+offset_top = 183.8493
+offset_right = -131.4674
+offset_bottom = 238.8493
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Gd" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.390076
+offset_top = 185.21533
+offset_right = -68.390076
+offset_bottom = 240.21533
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tb" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.8208
+offset_top = 185.89832
+offset_right = -2.8208008
+offset_bottom = 240.89832
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dy" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 6.748535
+offset_top = 185.0
+offset_right = 62.748535
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ho" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 71.634766
+offset_top = 184.53229
+offset_right = 127.634766
+offset_bottom = 239.53229
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Er" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 135.31726
+offset_top = 182.48328
+offset_right = 191.31726
+offset_bottom = 237.48328
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tm" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 201.56958
+offset_top = 185.0
+offset_right = 257.56958
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Yb" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 265.77283
+offset_top = 182.0
+offset_right = 321.77283
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lu" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 330.11353
+offset_top = 185.1377
+offset_right = 386.11353
+offset_bottom = 240.1377
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ac" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -577.2284
+offset_top = 252.0
+offset_right = -521.2284
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Th" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.46216
+offset_top = 251.62689
+offset_right = -456.46216
+offset_bottom = 306.6269
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pa" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -445.18726
+offset_top = 251.4242
+offset_right = -389.18726
+offset_bottom = 306.4242
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="U" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -381.549
+offset_top = 250.0
+offset_right = -325.549
+offset_bottom = 305.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Np" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 0
+offset_left = 322.2365
+offset_top = 608.0
+offset_right = 378.2365
+offset_bottom = 663.0
+
+[node name="Pu" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.54242
+offset_top = 250.10992
+offset_right = -198.54242
+offset_bottom = 305.10992
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Am" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = 250.0
+offset_right = -132.0
+offset_bottom = 305.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cm" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.02002
+offset_top = 250.10992
+offset_right = -67.02002
+offset_bottom = 305.10992
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bk" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.402832
+offset_top = 250.0
+offset_right = -3.402832
+offset_bottom = 305.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cf" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 6.640564
+offset_top = 248.98096
+offset_right = 62.640564
+offset_bottom = 303.98096
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Es" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 71.55505
+offset_top = 248.98096
+offset_right = 127.55505
+offset_bottom = 303.98096
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fm" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 136.0
+offset_top = 248.0
+offset_right = 192.0
+offset_bottom = 303.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Md" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 201.94855
+offset_top = 250.10992
+offset_right = 257.94855
+offset_bottom = 305.10992
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="No" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 264.53168
+offset_top = 250.5332
+offset_right = 320.53168
+offset_bottom = 305.5332
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lr" type="Button" parent="ElementButtons"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0.03529412)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 329.41797
+offset_top = 249.16724
+offset_right = 385.41797
+offset_bottom = 304.16724
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SearchBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -452.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 64.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="SearchInput" type="LineEdit" parent="SearchBar"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Search"

@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Rhodium Element",
+	"formula": "Rh",
+	"components": [{ "symbol": "Rh", "count": 1 }]
+  },
+  {
+	"name": "Rhodium Oxide",
+	"formula": "Rh2O3",
+	"components": [
+	  { "symbol": "Rh", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Rhodium Chloride",
+	"formula": "RhCl3",
+	"components": [
+	  { "symbol": "Rh", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

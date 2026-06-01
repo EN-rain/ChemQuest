@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Germanium Element",
+	"formula": "Ge",
+	"components": [
+	  { "symbol": "Ge", "count": 1 }
+	]
+  },
+  {
+	"name": "Germanium Dioxide",
+	"formula": "GeO2",
+	"components": [
+	  { "symbol": "Ge", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Germanium Tetrachloride",
+	"formula": "GeCl4",
+	"components": [
+	  { "symbol": "Ge", "count": 1 },
+	  { "symbol": "Cl", "count": 4 }
+	]
+  },
+  {
+	"name": "Germanium Disulfide",
+	"formula": "GeS2",
+	"components": [
+	  { "symbol": "Ge", "count": 1 },
+	  { "symbol": "S", "count": 2 }
+	]
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+	"name": "Argon Gas",
+	"formula": "Ar",
+	"components": [
+	  { "symbol": "Ar", "count": 1 }
+	]
+  },
+  {
+	"name": "Argon Neon Mix",
+	"formula": "ArNe",
+	"components": [
+	  { "symbol": "Ar", "count": 1 },
+	  { "symbol": "Ne", "count": 1 }
+	]
+  },
+  {
+	"name": "Liquid Argon",
+	"formula": "Ar2",
+	"components": [
+	  { "symbol": "Ar", "count": 2 }
+	]
+  }
+]

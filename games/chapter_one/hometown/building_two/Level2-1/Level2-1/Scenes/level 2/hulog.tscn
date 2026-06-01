@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c11fp4gtdnub6"]
+
+[ext_resource type="Script" uid="uid://dne724n65mg6c" path="res://games/chapter_one/hometown/building_two/Level2-1/meme.gd" id="1_srd8x"]
+[ext_resource type="AudioStream" uid="uid://buy5p8b8sjg1m" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/meme.mp3" id="2_jjg64"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_srd8x")
+
+[node name="Meme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jjg64")

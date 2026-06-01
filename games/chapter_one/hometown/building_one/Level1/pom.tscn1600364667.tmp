@@ -1,0 +1,145 @@
+[gd_scene load_steps=10 format=3 uid="uid://b64pwym5r0cu7"]
+
+[ext_resource type="Texture2D" uid="uid://by71vptnsmggi" path="res://games/chapter_one/hometown/building_one/particulates_of_matter/imgs/Bg.png" id="1_d3jsj"]
+[ext_resource type="Texture2D" uid="uid://12n5mxk2a2ph" path="res://assets/periodic_table_combo/atom.png" id="2_5hytn"]
+[ext_resource type="Script" uid="uid://dhmo1agbspbyj" path="res://games/chapter_one/hometown/building_one/particulates_of_matter/scripts/pass.gd" id="2_6dij0"]
+[ext_resource type="Script" uid="uid://csu6wat2qkxnn" path="res://games/chapter_one/hometown/building_one/particulates_of_matter/scripts/spawner.gd" id="2_frfr3"]
+[ext_resource type="Script" uid="uid://ovb6q04xf7gy" path="res://games/chapter_one/hometown/building_one/particulates_of_matter/scripts/atom.gd" id="3_4b8th"]
+[ext_resource type="LabelSettings" uid="uid://mf7oh2pkahx6" path="res://games/chapter_one/hometown/building_one/particulates_of_matter/scripts/atom.tres" id="5_5ms2l"]
+[ext_resource type="Script" uid="uid://b8x04tod4hys7" path="res://games/chapter_one/hometown/building_one/particulates_of_matter/scripts/checker.gd" id="7_v2r1b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wot77"]
+radius = 59.20304
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3jsj"]
+size = Vector2(675, 456)
+
+[node name="Pom" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BG" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_d3jsj")
+
+[node name="Pass" type="Panel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -305.0
+offset_right = 305.0
+offset_bottom = 176.0
+grow_horizontal = 2
+script = ExtResource("2_6dij0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Pass"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "LABEL"
+
+[node name="BackButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -358.0
+offset_top = 7.0
+offset_bottom = 132.0
+grow_horizontal = 0
+text = "BACK"
+metadata/_edit_use_anchors_ = true
+
+[node name="Spawner" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/Spawner"]
+script = ExtResource("2_frfr3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/Spawner/Node2D"]
+position = Vector2(822.996, 425.33002)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Spawner/Node2D/Area2D"]
+position = Vector2(-811.996, -448.33002)
+polygon = PackedVector2Array(-340, 486, -838, 477, -839, -330, 815, -330, 818, 485, 344, 487, 340, 117, -340, 122)
+
+[node name="Atom" type="Area2D" parent="CanvasLayer"]
+unique_name_in_owner = true
+position = Vector2(872, 423)
+script = ExtResource("3_4b8th")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Atom"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5hytn")
+
+[node name="Label" type="Label" parent="CanvasLayer/Atom"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.5
+offset_top = -38.5
+offset_right = 41.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("5_5ms2l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Atom"]
+shape = SubResource("CircleShape2D_wot77")
+
+[node name="Checker" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/Checker"]
+script = ExtResource("7_v2r1b")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/Checker/Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Checker/Node2D/Area2D"]
+position = Vector2(29.5, -190)
+shape = SubResource("RectangleShape2D_d3jsj")
+
+[connection signal="body_entered" from="CanvasLayer/Checker/Node2D/Area2D" to="CanvasLayer/Checker/Node2D" method="_on_area_2d_body_entered"]

@@ -1,0 +1,34 @@
+[
+  {
+	"name": "Gold Element",
+	"formula": "Au",
+	"components": [
+	  { "symbol": "Au", "count": 1 }
+	]
+  },
+  {
+	"name": "Gold Chloride",
+	"formula": "AuCl3",
+	"components": [
+	  { "symbol": "Au", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  },
+  {
+	"name": "Gold Oxide",
+	"formula": "Au2O3",
+	"components": [
+	  { "symbol": "Au", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Gold Cyanide",
+	"formula": "AuCN",
+	"components": [
+	  { "symbol": "Au", "count": 1 },
+	  { "symbol": "C", "count": 1 },
+	  { "symbol": "N", "count": 1 }
+	]
+  }
+]

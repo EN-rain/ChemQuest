@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Molybdenum Element",
+	"formula": "Mo",
+	"components": [
+	  { "symbol": "Mo", "count": 1 }
+	]
+  },
+  {
+	"name": "Molybdenum Trioxide",
+	"formula": "MoO3",
+	"components": [
+	  { "symbol": "Mo", "count": 1 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Molybdenum Disulfide",
+	"formula": "MoS2",
+	"components": [
+	  { "symbol": "Mo", "count": 1 },
+	  { "symbol": "S", "count": 2 }
+	]
+  }
+]

@@ -1,0 +1,312 @@
+[gd_scene load_steps=13 format=3 uid="uid://b3ql76j3sbf0i"]
+
+[ext_resource type="Script" uid="uid://coedcxr1qbxew" path="res://PrecisionAccuracy/pa_manager.gd" id="1_1b7mb"]
+[ext_resource type="Script" uid="uid://74elvaf733p5" path="res://PrecisionAccuracy/wheel.gd" id="2_1b7mb"]
+[ext_resource type="Texture2D" uid="uid://bhlb5pe7x2ycw" path="res://PrecisionAccuracy/target (1).png" id="2_ei45l"]
+[ext_resource type="Texture2D" uid="uid://dtic0826twd85" path="res://PrecisionAccuracy/bullseye.png" id="2_slysd"]
+[ext_resource type="Script" uid="uid://co4qf3vkfhv82" path="res://PrecisionAccuracy/target_1.gd" id="3_r1hf0"]
+[ext_resource type="Texture2D" uid="uid://c0frmc3e1rn3s" path="res://Square.png" id="3_scnyl"]
+[ext_resource type="Script" uid="uid://c88mjes27s4ta" path="res://PrecisionAccuracy/score_1.gd" id="4_nc61k"]
+[ext_resource type="Script" uid="uid://cgvxn7qngg5tk" path="res://PrecisionAccuracy/target_2.gd" id="6_ei3ri"]
+[ext_resource type="Script" uid="uid://2y7evw3pb4ed" path="res://PrecisionAccuracy/target_3.gd" id="7_smnkx"]
+[ext_resource type="Script" uid="uid://hjrtkar1su46" path="res://PrecisionAccuracy/target_4.gd" id="8_2romn"]
+[ext_resource type="Script" uid="uid://dy5w5ehjqck8r" path="res://PrecisionAccuracy/target_5.gd" id="9_scnyl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_slysd"]
+radius = 4.0
+
+[node name="PrecisionAccuracy" type="Node2D"]
+
+[node name="PAManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_1b7mb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 645.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="UI"]
+unique_name_in_owner = true
+offset_left = 331.0
+offset_top = 15.0
+offset_right = 374.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score"
+
+[node name="Button" type="Button" parent="UI"]
+unique_name_in_owner = true
+offset_left = 480.0
+offset_top = 560.0
+offset_right = 617.0
+offset_bottom = 598.0
+text = "FIRE"
+
+[node name="ResultsPanel" type="Panel" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -471.0
+offset_top = -254.0
+offset_right = 473.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TargetResult1" type="TextureRect" parent="UI/ResultsPanel"]
+layout_mode = 2
+offset_right = 512.0
+offset_bottom = 512.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="TextureRect" parent="UI/ResultsPanel/TargetResult1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.999349
+anchor_top = 0.996094
+anchor_right = 0.999349
+anchor_bottom = 0.996094
+offset_left = -278.333
+offset_top = -276.667
+offset_right = -228.333
+offset_bottom = -226.667
+texture = ExtResource("3_scnyl")
+
+[node name="TargetResult2" type="TextureRect" parent="UI/ResultsPanel"]
+layout_mode = 2
+offset_left = 197.1
+offset_right = 709.1
+offset_bottom = 512.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="TextureRect" parent="UI/ResultsPanel/TargetResult2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.570964
+anchor_top = 0.579427
+anchor_right = 0.570964
+anchor_bottom = 0.579427
+offset_left = -58.9997
+offset_top = -63.3334
+offset_right = -8.99969
+offset_bottom = -13.3334
+texture = ExtResource("3_scnyl")
+
+[node name="TargetResult3" type="TextureRect" parent="UI/ResultsPanel"]
+layout_mode = 2
+offset_left = 394.2
+offset_right = 906.2
+offset_bottom = 512.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="TextureRect" parent="UI/ResultsPanel/TargetResult3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.570964
+anchor_top = 0.579427
+anchor_right = 0.570964
+anchor_bottom = 0.579427
+offset_left = -58.9997
+offset_top = -63.3334
+offset_right = -8.99969
+offset_bottom = -13.3334
+texture = ExtResource("3_scnyl")
+
+[node name="TargetResult4" type="TextureRect" parent="UI/ResultsPanel"]
+layout_mode = 2
+offset_left = 591.3
+offset_right = 1103.3
+offset_bottom = 512.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="TextureRect" parent="UI/ResultsPanel/TargetResult4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.570964
+anchor_top = 0.579427
+anchor_right = 0.570964
+anchor_bottom = 0.579427
+offset_left = -58.9999
+offset_top = -63.3334
+offset_right = -8.99988
+offset_bottom = -13.3334
+texture = ExtResource("3_scnyl")
+
+[node name="TargetResult5" type="TextureRect" parent="UI/ResultsPanel"]
+layout_mode = 2
+offset_left = 788.4
+offset_right = 1300.4
+offset_bottom = 512.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="TextureRect" parent="UI/ResultsPanel/TargetResult5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.570964
+anchor_top = 0.579427
+anchor_right = 0.570964
+anchor_bottom = 0.579427
+offset_left = -58.9997
+offset_top = -63.3334
+offset_right = -8.99969
+offset_bottom = -13.3334
+texture = ExtResource("3_scnyl")
+
+[node name="Label" type="Label" parent="UI/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -11.5
+offset_right = 45.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ghagshgjafj"
+
+[node name="Wheel" type="Node2D" parent="."]
+position = Vector2(575, 313)
+script = ExtResource("2_1b7mb")
+
+[node name="Center" type="TextureRect" parent="Wheel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Targets" type="Node2D" parent="Wheel"]
+
+[node name="Target1" type="Node2D" parent="Wheel/Targets"]
+unique_name_in_owner = true
+position = Vector2(6, 71)
+script = ExtResource("3_r1hf0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel/Targets/Target1"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Wheel/Targets/Target1"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target1/Score1"]
+visible = false
+position = Vector2(1, 0)
+polygon = PackedVector2Array(10, 62, 23, 59, 35, 55, 46, 47, 57, 36, 63, 25, 68, 11, 69, -3, 66, -19, 61, -33, 52, -46, 41, -55, 29, -62, 15, -65, 2, -66, -13, -64, -26, -58, -37, -50, -46, -40, -53, -29, -57, -16, -59, 1, -56, 16, -49, 32, -43, 40, -35, 48, -26, 54, -15, 59, -3, 62, 10, 62, 7, 50, -8, 48, -21, 43, -31, 35, -39, 25, -45, 12, -47, -3, -45, -16, -40, -27, -32, -38, -22, -46, -10, -52, 2, -54, 14, -53, 26, -49, 36, -43, 45, -35, 51, -25, 55, -12, 56, 2, 53, 17, 46, 29, 37, 39, 28, 44, 17, 48, 7, 50)
+
+[node name="Target2" type="Node2D" parent="Wheel/Targets"]
+unique_name_in_owner = true
+position = Vector2(6, 71)
+script = ExtResource("6_ei3ri")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel/Targets/Target2"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Wheel/Targets/Target2"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target2/Score1"]
+visible = false
+position = Vector2(1, 0)
+polygon = PackedVector2Array(10, 62, 23, 59, 35, 55, 46, 47, 57, 36, 63, 25, 68, 11, 69, -3, 66, -19, 61, -33, 52, -46, 41, -55, 29, -62, 15, -65, 2, -66, -13, -64, -26, -58, -37, -50, -46, -40, -53, -29, -57, -16, -59, 1, -56, 16, -49, 32, -43, 40, -35, 48, -26, 54, -15, 59, -3, 62, 10, 62, 7, 50, -8, 48, -21, 43, -31, 35, -39, 25, -45, 12, -47, -3, -45, -16, -40, -27, -32, -38, -22, -46, -10, -52, 2, -54, 14, -53, 26, -49, 36, -43, 45, -35, 51, -25, 55, -12, 56, 2, 53, 17, 46, 29, 37, 39, 28, 44, 17, 48, 7, 50)
+
+[node name="Target3" type="Node2D" parent="Wheel/Targets"]
+unique_name_in_owner = true
+position = Vector2(6, 71)
+script = ExtResource("7_smnkx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel/Targets/Target3"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Wheel/Targets/Target3"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target3/Score1"]
+visible = false
+position = Vector2(1, 0)
+polygon = PackedVector2Array(10, 62, 23, 59, 35, 55, 46, 47, 57, 36, 63, 25, 68, 11, 69, -3, 66, -19, 61, -33, 52, -46, 41, -55, 29, -62, 15, -65, 2, -66, -13, -64, -26, -58, -37, -50, -46, -40, -53, -29, -57, -16, -59, 1, -56, 16, -49, 32, -43, 40, -35, 48, -26, 54, -15, 59, -3, 62, 10, 62, 7, 50, -8, 48, -21, 43, -31, 35, -39, 25, -45, 12, -47, -3, -45, -16, -40, -27, -32, -38, -22, -46, -10, -52, 2, -54, 14, -53, 26, -49, 36, -43, 45, -35, 51, -25, 55, -12, 56, 2, 53, 17, 46, 29, 37, 39, 28, 44, 17, 48, 7, 50)
+
+[node name="Target4" type="Node2D" parent="Wheel/Targets"]
+unique_name_in_owner = true
+position = Vector2(6, 71)
+script = ExtResource("8_2romn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel/Targets/Target4"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Wheel/Targets/Target4"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target4/Score1"]
+visible = false
+position = Vector2(1, 0)
+polygon = PackedVector2Array(10, 62, 23, 59, 35, 55, 46, 47, 57, 36, 63, 25, 68, 11, 69, -3, 66, -19, 61, -33, 52, -46, 41, -55, 29, -62, 15, -65, 2, -66, -13, -64, -26, -58, -37, -50, -46, -40, -53, -29, -57, -16, -59, 1, -56, 16, -49, 32, -43, 40, -35, 48, -26, 54, -15, 59, -3, 62, 10, 62, 7, 50, -8, 48, -21, 43, -31, 35, -39, 25, -45, 12, -47, -3, -45, -16, -40, -27, -32, -38, -22, -46, -10, -52, 2, -54, 14, -53, 26, -49, 36, -43, 45, -35, 51, -25, 55, -12, 56, 2, 53, 17, 46, 29, 37, 39, 28, 44, 17, 48, 7, 50)
+
+[node name="Target5" type="Node2D" parent="Wheel/Targets"]
+unique_name_in_owner = true
+position = Vector2(6, 71)
+script = ExtResource("9_scnyl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel/Targets/Target5"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Wheel/Targets/Target5"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target5/Score1"]
+visible = false
+position = Vector2(1, 0)
+polygon = PackedVector2Array(10, 62, 23, 59, 35, 55, 46, 47, 57, 36, 63, 25, 68, 11, 69, -3, 66, -19, 61, -33, 52, -46, 41, -55, 29, -62, 15, -65, 2, -66, -13, -64, -26, -58, -37, -50, -46, -40, -53, -29, -57, -16, -59, 1, -56, 16, -49, 32, -43, 40, -35, 48, -26, 54, -15, 59, -3, 62, 10, 62, 7, 50, -8, 48, -21, 43, -31, 35, -39, 25, -45, 12, -47, -3, -45, -16, -40, -27, -32, -38, -22, -46, -10, -52, 2, -54, 14, -53, 26, -49, 36, -43, 45, -35, 51, -25, 55, -12, 56, 2, 53, 17, 46, 29, 37, 39, 28, 44, 17, 48, 7, 50)
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(-2, -29)
+
+[node name="TextureRect" type="TextureRect" parent="Player"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 511.0
+offset_top = 100.0
+offset_right = 1023.0
+offset_bottom = 612.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ei45l")
+metadata/_edit_use_anchors_ = true
+
+[node name="FireZone" type="Area2D" parent="Player"]
+unique_name_in_owner = true
+position = Vector2(-57, -62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/FireZone"]
+position = Vector2(593, 186)
+shape = SubResource("CircleShape2D_slysd")
+
+[connection signal="pressed" from="UI/Button" to="PAManager" method="_on_button_pressed"]

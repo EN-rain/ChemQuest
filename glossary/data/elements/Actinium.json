@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Actinium Glow",
+	"formula": "Ac",
+	"components": [
+	  { "symbol": "Ac", "count": 1 }
+	]
+  },
+  {
+	"name": "Actinium Oxide",
+	"formula": "Ac2O3",
+	"components": [
+	  { "symbol": "Ac", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Actinium Fluoride",
+	"formula": "AcF3",
+	"components": [
+	  { "symbol": "Ac", "count": 1 },
+	  { "symbol": "F", "count": 3 }
+	]
+  }
+]

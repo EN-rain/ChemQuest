@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Fermium Element",
+	"formula": "Fm",
+	"components": [
+	  { "symbol": "Fm", "count": 1 }
+	]
+  },
+  {
+	"name": "Fermium Oxide",
+	"formula": "Fm2O3",
+	"components": [
+	  { "symbol": "Fm", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Fermium Chloride",
+	"formula": "FmCl3",
+	"components": [
+	  { "symbol": "Fm", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  },
+  {
+	"name": "Fermium Fluoride",
+	"formula": "FmF3",
+	"components": [
+	  { "symbol": "Fm", "count": 1 },
+	  { "symbol": "F", "count": 3 }
+	]
+  }
+]

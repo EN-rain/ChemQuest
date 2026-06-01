@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://vt3jsbt4rtc4"]
+
+[ext_resource type="Texture2D" uid="uid://cieqvkr52ov7o" path="res://scenes/levels/mini_levels/PrecisionAccuracy/imgs/crosshair.png" id="1_pvyci"]
+
+[node name="Hitmark" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.646875, 0.646875)
+texture = ExtResource("1_pvyci")

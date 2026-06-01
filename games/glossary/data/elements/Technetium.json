@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Technetium Element",
+	"formula": "Tc",
+	"components": [{ "symbol": "Tc", "count": 1 }]
+  },
+  {
+	"name": "Technetium Oxide",
+	"formula": "Tc2O7",
+	"components": [
+	  { "symbol": "Tc", "count": 2 },
+	  { "symbol": "O", "count": 7 }
+	]
+  },
+  {
+	"name": "Technetium Chloride",
+	"formula": "TcCl4",
+	"components": [
+	  { "symbol": "Tc", "count": 1 },
+	  { "symbol": "Cl", "count": 4 }
+	]
+  }
+]

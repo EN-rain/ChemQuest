@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Californium Element",
+	"formula": "Cf",
+	"components": [
+	  { "symbol": "Cf", "count": 1 }
+	]
+  },
+  {
+	"name": "Californium Oxide",
+	"formula": "Cf2O3",
+	"components": [
+	  { "symbol": "Cf", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Californium Chloride",
+	"formula": "CfCl3",
+	"components": [
+	  { "symbol": "Cf", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  },
+  {
+	"name": "Californium Fluoride",
+	"formula": "CfF3",
+	"components": [
+	  { "symbol": "Cf", "count": 1 },
+	  { "symbol": "F", "count": 3 }
+	]
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+	"name": "Lithium Element",
+	"formula": "Li",
+	"components": [
+	  { "symbol": "Li", "count": 1 }
+	]
+  },
+  {
+	"name": "Lithium Oxide",
+	"formula": "Li2O",
+	"components": [
+	  { "symbol": "Li", "count": 2 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Lithium Chloride",
+	"formula": "LiCl",
+	"components": [
+	  { "symbol": "Li", "count": 1 },
+	  { "symbol": "Cl", "count": 1 }
+	]
+  },
+  {
+	"name": "Lithium Carbonate",
+	"formula": "Li2CO3",
+	"components": [
+	  { "symbol": "Li", "count": 2 },
+	  { "symbol": "C", "count": 1 },
+	  { "symbol": "O", "count": 3 }
+	]
+  }
+]

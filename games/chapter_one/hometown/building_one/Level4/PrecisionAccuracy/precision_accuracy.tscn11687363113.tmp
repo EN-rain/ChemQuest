@@ -1,0 +1,596 @@
+[gd_scene load_steps=15 format=3 uid="uid://b3ql76j3sbf0i"]
+
+[ext_resource type="Script" uid="uid://coedcxr1qbxew" path="res://PrecisionAccuracy/pa_manager.gd" id="1_1b7mb"]
+[ext_resource type="Script" uid="uid://b4m6egkmohs4o" path="res://PrecisionAccuracy/target.gd" id="1_2romn"]
+[ext_resource type="Texture2D" uid="uid://dtic0826twd85" path="res://PrecisionAccuracy/bullseye.png" id="2_slysd"]
+[ext_resource type="Texture2D" uid="uid://cyvp3cf2iuscr" path="res://Untitled design.png" id="3_4lvjh"]
+[ext_resource type="Script" uid="uid://c88mjes27s4ta" path="res://PrecisionAccuracy/score_1.gd" id="4_nc61k"]
+[ext_resource type="Script" uid="uid://ml4gwd7f2ke4" path="res://PrecisionAccuracy/score_2.gd" id="6_u25yt"]
+[ext_resource type="Script" uid="uid://bjbrnapd0xu63" path="res://PrecisionAccuracy/score_3.gd" id="7_4lvjh"]
+[ext_resource type="Texture2D" uid="uid://lis1fi2nlmpf" path="res://Circle.png" id="7_wymn4"]
+[ext_resource type="Script" uid="uid://cp87p1h1e114o" path="res://PrecisionAccuracy/score_4.gd" id="8_fdqim"]
+[ext_resource type="Script" uid="uid://c1vwq21wlu5sg" path="res://PrecisionAccuracy/score_5.gd" id="9_5e20c"]
+[ext_resource type="Script" uid="uid://ch25rnmkydsim" path="res://PrecisionAccuracy/target_manager.gd" id="10_scnyl"]
+[ext_resource type="Script" uid="uid://coc7brkyrg523" path="res://PrecisionAccuracy/results_panel.gd" id="11_rn4h7"]
+[ext_resource type="Script" uid="uid://dq8ry3f5k7dr6" path="res://PrecisionAccuracy/score_display.gd" id="11_xmfqp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_slysd"]
+radius = 7.07107
+
+[node name="PrecisionAccuracy" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 645.0
+metadata/_edit_lock_ = true
+
+[node name="Targets" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(549, 314)
+
+[node name="Target1" type="Node2D" parent="Targets"]
+unique_name_in_owner = true
+position = Vector2(-300, -96)
+script = ExtResource("1_2romn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Targets/Target1"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Targets/Target1"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target1/Score1"]
+
+[node name="Score2" type="Area2D" parent="Targets/Target1"]
+script = ExtResource("6_u25yt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target1/Score2"]
+
+[node name="Score3" type="Area2D" parent="Targets/Target1"]
+script = ExtResource("7_4lvjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target1/Score3"]
+
+[node name="Score4" type="Area2D" parent="Targets/Target1"]
+script = ExtResource("8_fdqim")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target1/Score4"]
+
+[node name="Score5" type="Area2D" parent="Targets/Target1"]
+script = ExtResource("9_5e20c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target1/Score5"]
+
+[node name="Target2" type="Node2D" parent="Targets"]
+unique_name_in_owner = true
+position = Vector2(-150, -96)
+script = ExtResource("1_2romn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Targets/Target2"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Targets/Target2"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target2/Score1"]
+
+[node name="Score2" type="Area2D" parent="Targets/Target2"]
+script = ExtResource("6_u25yt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target2/Score2"]
+
+[node name="Score3" type="Area2D" parent="Targets/Target2"]
+script = ExtResource("7_4lvjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target2/Score3"]
+
+[node name="Score4" type="Area2D" parent="Targets/Target2"]
+script = ExtResource("8_fdqim")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target2/Score4"]
+
+[node name="Score5" type="Area2D" parent="Targets/Target2"]
+script = ExtResource("9_5e20c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target2/Score5"]
+
+[node name="Target3" type="Node2D" parent="Targets"]
+unique_name_in_owner = true
+position = Vector2(0, -96)
+script = ExtResource("1_2romn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Targets/Target3"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Targets/Target3"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target3/Score1"]
+
+[node name="Score2" type="Area2D" parent="Targets/Target3"]
+script = ExtResource("6_u25yt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target3/Score2"]
+
+[node name="Score3" type="Area2D" parent="Targets/Target3"]
+script = ExtResource("7_4lvjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target3/Score3"]
+
+[node name="Score4" type="Area2D" parent="Targets/Target3"]
+script = ExtResource("8_fdqim")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target3/Score4"]
+
+[node name="Score5" type="Area2D" parent="Targets/Target3"]
+script = ExtResource("9_5e20c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target3/Score5"]
+
+[node name="Target4" type="Node2D" parent="Targets"]
+unique_name_in_owner = true
+position = Vector2(150, -96)
+script = ExtResource("1_2romn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Targets/Target4"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Targets/Target4"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Targets/Target4/Score1"]
+
+[node name="Score2" type="Area2D" parent="Targets/Target4"]
+script = ExtResource("6_u25yt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target4/Score2"]
+
+[node name="Score3" type="Area2D" parent="Targets/Target4"]
+script = ExtResource("7_4lvjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target4/Score3"]
+
+[node name="Score4" type="Area2D" parent="Targets/Target4"]
+script = ExtResource("8_fdqim")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target4/Score4"]
+
+[node name="Score5" type="Area2D" parent="Targets/Target4"]
+script = ExtResource("9_5e20c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target4/Score5"]
+
+[node name="Target5" type="Node2D" parent="Targets"]
+unique_name_in_owner = true
+position = Vector2(300, -96)
+script = ExtResource("1_2romn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Targets/Target5"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Targets/Target5"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target5/Score1"]
+
+[node name="Score2" type="Area2D" parent="Targets/Target5"]
+script = ExtResource("6_u25yt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target5/Score2"]
+
+[node name="Score3" type="Area2D" parent="Targets/Target5"]
+script = ExtResource("7_4lvjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target5/Score3"]
+
+[node name="Score4" type="Area2D" parent="Targets/Target5"]
+script = ExtResource("8_fdqim")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target5/Score4"]
+
+[node name="Score5" type="Area2D" parent="Targets/Target5"]
+script = ExtResource("9_5e20c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target5/Score5"]
+
+[node name="PAManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_1b7mb")
+
+[node name="FireZoneBoundary" type="ColorRect" parent="PAManager"]
+unique_name_in_owner = true
+offset_left = 480.0
+offset_top = 198.0
+offset_right = 631.0
+offset_bottom = 244.0
+color = Color(0.543633, 0.423, 0.94, 0)
+
+[node name="FireZone" type="Area2D" parent="PAManager/FireZoneBoundary"]
+unique_name_in_owner = true
+position = Vector2(91, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="PAManager/FireZoneBoundary/FireZone"]
+position = Vector2(0.499999, 0)
+scale = Vector2(0.575, 0.55)
+texture = ExtResource("7_wymn4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PAManager/FireZoneBoundary/FireZone"]
+shape = SubResource("CircleShape2D_slysd")
+
+[node name="TargetManager" type="Node2D" parent="PAManager"]
+unique_name_in_owner = true
+script = ExtResource("10_scnyl")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ResultsPanel" type="Panel" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -472.0
+offset_top = -253.0
+offset_right = 472.0
+offset_bottom = 253.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_rn4h7")
+
+[node name="Precision" type="Button" parent="UI/ResultsPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 206.0
+offset_top = 341.0
+offset_right = 322.0
+offset_bottom = 394.0
+text = "HIGH PRECISION"
+
+[node name="Precision2" type="Button" parent="UI/ResultsPanel"]
+unique_name_in_owner = true
+offset_left = 207.0
+offset_top = 413.0
+offset_right = 323.0
+offset_bottom = 466.0
+text = "LOW PRECISION"
+
+[node name="Accuracy" type="Button" parent="UI/ResultsPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 533.0
+offset_top = 399.0
+offset_right = 710.0
+offset_bottom = 447.0
+text = "LOW ACCURACY"
+
+[node name="Accuracy2" type="Button" parent="UI/ResultsPanel"]
+unique_name_in_owner = true
+offset_left = 533.0
+offset_top = 336.0
+offset_right = 710.0
+offset_bottom = 384.0
+text = "HIGH ACCURACY"
+
+[node name="Label" type="Label" parent="UI/ResultsPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = 35.0
+offset_right = 129.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "IS THIS ANPRECISION OR ACCURACY"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ResultsPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.107011
+anchor_right = 1.20513
+anchor_bottom = 1.12177
+offset_left = 78.0
+offset_top = 143.148
+offset_right = 1820.36
+offset_bottom = -271.616
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.27, 0.27)
+theme_override_constants/separation = 720
+
+[node name="HitTarget1" type="Control" parent="UI/ResultsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget1"]
+texture_filter = 1
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget1"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_4lvjh")
+
+[node name="Label" type="Label" parent="UI/ResultsPanel/HBoxContainer/HitTarget1"]
+layout_mode = 2
+offset_left = -118.519
+offset_top = 340.741
+offset_right = 134.482
+offset_bottom = 450.741
+theme_override_font_sizes/font_size = 80
+text = "SCORE"
+
+[node name="HitTarget2" type="Control" parent="UI/ResultsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget2"]
+texture_filter = 1
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget2"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_4lvjh")
+
+[node name="Label" type="Label" parent="UI/ResultsPanel/HBoxContainer/HitTarget2"]
+layout_mode = 2
+offset_left = -118.519
+offset_top = 340.741
+offset_right = 134.482
+offset_bottom = 450.741
+theme_override_font_sizes/font_size = 80
+text = "SCORE"
+
+[node name="HitTarget3" type="Control" parent="UI/ResultsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget3"]
+texture_filter = 1
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget3"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_4lvjh")
+
+[node name="Label" type="Label" parent="UI/ResultsPanel/HBoxContainer/HitTarget3"]
+layout_mode = 2
+offset_left = -118.519
+offset_top = 340.741
+offset_right = 134.482
+offset_bottom = 450.741
+theme_override_font_sizes/font_size = 80
+text = "SCORE"
+
+[node name="HitTarget4" type="Control" parent="UI/ResultsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget4"]
+texture_filter = 1
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget4"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_4lvjh")
+
+[node name="Label" type="Label" parent="UI/ResultsPanel/HBoxContainer/HitTarget4"]
+layout_mode = 2
+offset_left = -118.519
+offset_top = 340.741
+offset_right = 134.482
+offset_bottom = 450.741
+theme_override_font_sizes/font_size = 80
+text = "SCORE"
+
+[node name="HitTarget5" type="Control" parent="UI/ResultsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget5"]
+texture_filter = 1
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget5"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_4lvjh")
+
+[node name="Label" type="Label" parent="UI/ResultsPanel/HBoxContainer/HitTarget5"]
+layout_mode = 2
+offset_left = -118.519
+offset_top = 340.741
+offset_right = 134.482
+offset_bottom = 450.741
+theme_override_font_sizes/font_size = 80
+text = "SCORE"
+
+[node name="ScoreDisplay" type="Control" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 43.0
+offset_top = 334.0
+offset_right = 135.0
+offset_bottom = 602.0
+script = ExtResource("11_xmfqp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ScoreDisplay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.107011
+anchor_right = 1.20513
+anchor_bottom = 1.12177
+offset_bottom = 750.687
+scale = Vector2(0.27, 0.27)
+theme_override_constants/separation = 270
+
+[node name="HitTarget1" type="Control" parent="UI/ScoreDisplay/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget1"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget1"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_4lvjh")
+
+[node name="Label" type="Label" parent="UI/ScoreDisplay/VBoxContainer/HitTarget1"]
+layout_mode = 2
+offset_left = 166.667
+offset_top = -18.5186
+offset_right = 217.667
+offset_bottom = 4.48142
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SCORE"
+
+[node name="HitTarget2" type="Control" parent="UI/ScoreDisplay/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget2"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget2"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_4lvjh")
+
+[node name="Label" type="Label" parent="UI/ScoreDisplay/VBoxContainer/HitTarget2"]
+layout_mode = 2
+offset_left = 166.667
+offset_top = -18.5186
+offset_right = 217.667
+offset_bottom = 4.48142
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SCORE"
+
+[node name="HitTarget3" type="Control" parent="UI/ScoreDisplay/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget3"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget3"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_4lvjh")
+
+[node name="Label" type="Label" parent="UI/ScoreDisplay/VBoxContainer/HitTarget3"]
+layout_mode = 2
+offset_left = 166.667
+offset_top = -18.5186
+offset_right = 217.667
+offset_bottom = 4.48142
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SCORE"
+
+[node name="HitTarget4" type="Control" parent="UI/ScoreDisplay/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget4"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget4"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_4lvjh")
+
+[node name="Label" type="Label" parent="UI/ScoreDisplay/VBoxContainer/HitTarget4"]
+layout_mode = 2
+offset_left = 166.667
+offset_top = -18.5186
+offset_right = 217.667
+offset_bottom = 4.48142
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SCORE"
+
+[node name="HitTarget5" type="Control" parent="UI/ScoreDisplay/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget5"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget5"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_4lvjh")
+
+[node name="Label" type="Label" parent="UI/ScoreDisplay/VBoxContainer/HitTarget5"]
+layout_mode = 2
+offset_left = 166.667
+offset_top = -18.5186
+offset_right = 217.667
+offset_bottom = 4.48142
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SCORE"
+
+[node name="GameHUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FireButton" type="Button" parent="UI/GameHUD"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 480.0
+offset_top = 560.0
+offset_right = 617.0
+offset_bottom = 598.0
+text = "FIRE"
+
+[node name="Label" type="Label" parent="UI/GameHUD"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="UI/ResultsPanel/Precision" to="UI/ResultsPanel" method="_on_precision_pressed"]
+[connection signal="pressed" from="UI/ResultsPanel/Precision2" to="UI/ResultsPanel" method="_on_precision_2_pressed"]
+[connection signal="pressed" from="UI/ResultsPanel/Accuracy" to="UI/ResultsPanel" method="_on_accuracy_pressed"]
+[connection signal="pressed" from="UI/ResultsPanel/Accuracy2" to="UI/ResultsPanel" method="_on_accuracy_2_pressed"]

@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Nobelium Element",
+	"formula": "No",
+	"components": [
+	  { "symbol": "No", "count": 1 }
+	]
+  },
+  {
+	"name": "Nobelium Oxide",
+	"formula": "NoO3",
+	"components": [
+	  { "symbol": "No", "count": 1 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Nobelium Chloride",
+	"formula": "NoCl3",
+	"components": [
+	  { "symbol": "No", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

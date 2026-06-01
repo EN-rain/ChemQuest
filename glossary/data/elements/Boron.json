@@ -1,0 +1,34 @@
+[
+  {
+	"name": "Boron Element",
+	"formula": "B",
+	"components": [
+	  { "symbol": "B", "count": 1 }
+	]
+  },
+  {
+	"name": "Boric Acid",
+	"formula": "H3BO3",
+	"components": [
+	  { "symbol": "H", "count": 3 },
+	  { "symbol": "B", "count": 1 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Boron Trioxide",
+	"formula": "B2O3",
+	"components": [
+	  { "symbol": "B", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Boron Nitride",
+	"formula": "BN",
+	"components": [
+	  { "symbol": "B", "count": 1 },
+	  { "symbol": "N", "count": 1 }
+	]
+  }
+]

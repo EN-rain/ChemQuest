@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Chlorine Element",
+	"formula": "Cl",
+	"components": [
+	  { "symbol": "Cl", "count": 1 }
+	]
+  },
+  {
+	"name": "Sodium Chloride",
+	"formula": "NaCl",
+	"components": [
+	  { "symbol": "Na", "count": 1 },
+	  { "symbol": "Cl", "count": 1 }
+	]
+  },
+  {
+	"name": "Hydrochloric Acid",
+	"formula": "HCl",
+	"components": [
+	  { "symbol": "H", "count": 1 },
+	  { "symbol": "Cl", "count": 1 }
+	]
+  },
+  {
+	"name": "Calcium Chloride",
+	"formula": "CaCl2",
+	"components": [
+	  { "symbol": "Ca", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  }
+]

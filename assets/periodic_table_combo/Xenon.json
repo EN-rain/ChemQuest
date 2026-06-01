@@ -1,0 +1,31 @@
+[
+  {
+	"name": "Xenon Element",
+	"formula": "Xe",
+	"components": [{ "symbol": "Xe", "count": 1 }]
+  },
+  {
+	"name": "Xenon Difluoride",
+	"formula": "XeF2",
+	"components": [
+	  { "symbol": "Xe", "count": 1 },
+	  { "symbol": "F", "count": 2 }
+	]
+  },
+  {
+	"name": "Xenon Tetrafluoride",
+	"formula": "XeF4",
+	"components": [
+	  { "symbol": "Xe", "count": 1 },
+	  { "symbol": "F", "count": 4 }
+	]
+  },
+  {
+	"name": "Xenon Hexafluoride",
+	"formula": "XeF6",
+	"components": [
+	  { "symbol": "Xe", "count": 1 },
+	  { "symbol": "F", "count": 6 }
+	]
+  }
+]

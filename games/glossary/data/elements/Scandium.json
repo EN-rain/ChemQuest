@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Scandium Element",
+	"formula": "Sc",
+	"components": [{ "symbol": "Sc", "count": 1 }]
+  },
+  {
+	"name": "Scandium Oxide",
+	"formula": "Sc2O3",
+	"components": [
+	  { "symbol": "Sc", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Scandium Chloride",
+	"formula": "ScCl3",
+	"components": [
+	  { "symbol": "Sc", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

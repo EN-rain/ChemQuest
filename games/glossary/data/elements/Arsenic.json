@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Arsenic Crystal",
+	"formula": "As",
+	"components": [
+	  { "symbol": "As", "count": 1 }
+	]
+  },
+  {
+	"name": "Arsenic Trioxide",
+	"formula": "As2O3",
+	"components": [
+	  { "symbol": "As", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Arsenic Sulfide",
+	"formula": "As2S3",
+	"components": [
+	  { "symbol": "As", "count": 2 },
+	  { "symbol": "S", "count": 3 }
+	]
+  }
+]

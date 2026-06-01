@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Hafnium Element",
+	"formula": "Hf",
+	"components": [
+	  { "symbol": "Hf", "count": 1 }
+	]
+  },
+  {
+	"name": "Hafnium Oxide",
+	"formula": "HfO2",
+	"components": [
+	  { "symbol": "Hf", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Hafnium Chloride",
+	"formula": "HfCl4",
+	"components": [
+	  { "symbol": "Hf", "count": 1 },
+	  { "symbol": "Cl", "count": 4 }
+	]
+  }
+]

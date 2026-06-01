@@ -1,0 +1,742 @@
+[gd_scene format=3 uid="uid://rostqa5axqhn"]
+
+[ext_resource type="Script" uid="uid://bs5bndlt3qsc1" path="res://games/main.gd" id="1_70oq6"]
+[ext_resource type="Texture2D" uid="uid://u300cismahhn" path="res://assets/mainbgx.png" id="2_scjq1"]
+[ext_resource type="Texture2D" uid="uid://ctj3dtt8xp0ph" path="res://assets/Sprit11e.png" id="3_01swq"]
+[ext_resource type="Texture2D" uid="uid://ctwmd6rqx7dby" path="res://assets/linedesign.png" id="3_pcmvf"]
+[ext_resource type="Texture2D" uid="uid://l1vww4m38u5j" path="res://assets/shadow1.png" id="4_7s6k0"]
+[ext_resource type="Texture2D" uid="uid://jbuh0o68tg1y" path="res://assets/uni.png" id="4_ghaca"]
+[ext_resource type="Script" uid="uid://ckojdfnvjdm8" path="res://games/scroll_container.gd" id="4_hvaxu"]
+[ext_resource type="Texture2D" uid="uid://nwkmlvoj4avg" path="res://assets/chemlabi.png" id="5_hvaxu"]
+[ext_resource type="Texture2D" uid="uid://5cs3muais5ul" path="res://assets/shadow2.png" id="5_j0q6l"]
+[ext_resource type="Script" uid="uid://brfa55qna718i" path="res://games/chapter_one/hometown/music_button.gd" id="6_d63cy"]
+[ext_resource type="FontFile" uid="uid://dbn2eqhxy00rr" path="res://assets/Roboto-BoldCondensed.ttf" id="6_ghaca"]
+[ext_resource type="Texture2D" uid="uid://ksv3waqtg1ac" path="res://assets/Mask group.png" id="7_2in4i"]
+[ext_resource type="Texture2D" uid="uid://fvxtwjdombr5" path="res://assets/buttons/noteb1.png" id="7_tvq4k"]
+[ext_resource type="Texture2D" uid="uid://c85fjitp8d3aw" path="res://assets/buttons/noteb2.png" id="8_ojhob"]
+[ext_resource type="Script" uid="uid://cgy48rwgp8jgw" path="res://games/achieve_button.gd" id="9_ojhob"]
+[ext_resource type="Texture2D" uid="uid://mdvgvf4tki23" path="res://assets/buttons/Sprite.png" id="9_tvq4k"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="10_7s6k0"]
+[ext_resource type="FontFile" uid="uid://8v6dmfjj68e3" path="res://assets/electrone.regular.ttf" id="14_vwgfs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a1pu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cbrdv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dsvat"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b0yqj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_umpaj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdsqb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vt6jk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s8q7u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_almt4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_phga6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbq75"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2in4i"]
+font = ExtResource("14_vwgfs")
+font_size = 100
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tgsnv"]
+font = ExtResource("10_7s6k0")
+font_size = 80
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vwgfs"]
+font = ExtResource("6_ghaca")
+font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ojhob"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ghaca"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htn46"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7s6k0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgsnv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j0q6l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_scjq1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vwgfs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2in4i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d63cy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvq4k"]
+
+[sub_resource type="FontFile" id="FontFile_htn46"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_scjq1"]
+font = ExtResource("6_ghaca")
+font_size = 70
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hvaxu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ycelc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kf3hi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k14s7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pte2o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nddj8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3vfg4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8jsi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cftth"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ryglv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w8yjl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0v2jx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_10w15"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01swq"]
+
+[node name="Main" type="Node2D" unique_id=1529134299]
+script = ExtResource("1_70oq6")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=814587997]
+
+[node name="TextureBg" type="TextureRect" parent="CanvasLayer2" unique_id=979775629]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.6901961)
+texture_filter = 1
+anchors_preset = -1
+anchor_left = -0.02890625
+anchor_right = 1.0132812
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_right = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_scjq1")
+stretch_mode = 6
+
+[node name="line" type="TextureRect" parent="CanvasLayer2/TextureBg" unique_id=1917198654]
+modulate = Color(1, 1, 1, 0.6)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -973.0
+offset_top = -482.0
+offset_right = 27.0
+offset_bottom = 518.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_pcmvf")
+stretch_mode = 6
+
+[node name="shadow1" type="TextureRect" parent="CanvasLayer2/TextureBg" unique_id=1027367665]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_7s6k0")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="shadow2" type="TextureRect" parent="CanvasLayer2/TextureBg" unique_id=1768937]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_j0q6l")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1224073356]
+
+[node name="MusicButton" type="TextureButton" parent="CanvasLayer" unique_id=228861345]
+unique_name_in_owner = true
+texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -55.0
+offset_right = -15.0
+offset_bottom = 35.0
+grow_horizontal = 0
+scale = Vector2(1.5, 1.5)
+script = ExtResource("6_d63cy")
+texture_on = ExtResource("7_tvq4k")
+texture_off = ExtResource("8_ojhob")
+
+[node name="AchieveButton" type="Button" parent="CanvasLayer" unique_id=1904101949]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -185.0
+offset_top = 1.0
+offset_right = -73.0
+offset_bottom = 82.0
+grow_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6a1pu")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cbrdv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dsvat")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_b0yqj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_umpaj")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_rdsqb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vt6jk")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_s8q7u")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_almt4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_phga6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lbq75")
+script = ExtResource("9_ojhob")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/AchieveButton" unique_id=237734794]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -38.5
+offset_right = 14.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.508, 1.4)
+texture = ExtResource("9_tvq4k")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1676882485]
+offset_right = 537.0
+offset_bottom = 127.0
+text = "ChemQuest"
+label_settings = SubResource("LabelSettings_2in4i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Label" unique_id=312759868]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.5
+offset_top = 41.5
+offset_right = 686.5
+offset_bottom = 81.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.2)
+texture = ExtResource("7_2in4i")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Label" unique_id=1959367084]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.0
+offset_top = 62.0
+offset_right = 679.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.2)
+texture = ExtResource("7_2in4i")
+flip_v = true
+
+[node name="title" type="ColorRect" parent="CanvasLayer" unique_id=908551356]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -626.0
+offset_top = -118.0
+offset_right = -219.0
+offset_bottom = -65.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3529412)
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/title" unique_id=1517335188]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.5
+offset_top = -70.75
+offset_right = 208.36401
+offset_bottom = 22.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hometown"
+label_settings = SubResource("LabelSettings_tgsnv")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Playing" type="Label" parent="CanvasLayer/title" unique_id=1416231851]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = -2.25
+offset_right = 90.5
+offset_bottom = 57.75
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAYING"
+label_settings = SubResource("LabelSettings_vwgfs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1981060987]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -348.0
+offset_top = -217.0
+offset_right = -31.0
+offset_bottom = 233.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="NewGame" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=384238141]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ojhob")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ghaca")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_htn46")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_7s6k0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tgsnv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_j0q6l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_scjq1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vwgfs")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2in4i")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_d63cy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tvq4k")
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/NewGame" unique_id=636555552]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.5
+offset_top = -40.5
+offset_right = 167.5
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontFile_htn46")
+text = "New Game"
+label_settings = SubResource("LabelSettings_scjq1")
+horizontal_alignment = 2
+
+[node name="Continue" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1642171390]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ojhob")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ghaca")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_htn46")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_7s6k0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tgsnv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_j0q6l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_scjq1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vwgfs")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2in4i")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_d63cy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tvq4k")
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Continue" unique_id=1247934922]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -40.5
+offset_right = 164.5
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontFile_htn46")
+text = "Continue"
+label_settings = SubResource("LabelSettings_scjq1")
+horizontal_alignment = 2
+
+[node name="Glossary" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1810285432]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hvaxu")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ghaca")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_htn46")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_7s6k0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tgsnv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_j0q6l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_scjq1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vwgfs")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2in4i")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_d63cy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tvq4k")
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Glossary" unique_id=373457166]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -41.5
+offset_right = 165.5
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontFile_htn46")
+text = "Glossary"
+label_settings = SubResource("LabelSettings_scjq1")
+horizontal_alignment = 2
+
+[node name="About" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1343448951]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ojhob")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ghaca")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_htn46")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_7s6k0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tgsnv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_j0q6l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_scjq1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vwgfs")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2in4i")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_d63cy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tvq4k")
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/About" unique_id=724001570]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = -41.5
+offset_right = 165.5
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontFile_htn46")
+text = "About"
+label_settings = SubResource("LabelSettings_scjq1")
+horizontal_alignment = 2
+
+[node name="Exit" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1212013358]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ojhob")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ghaca")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_htn46")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_7s6k0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tgsnv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_j0q6l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_scjq1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vwgfs")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2in4i")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_d63cy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tvq4k")
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Exit" unique_id=14024670]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = -41.5
+offset_right = 166.5
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontFile_htn46")
+text = "Exit"
+label_settings = SubResource("LabelSettings_scjq1")
+horizontal_alignment = 2
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1138995333]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control" unique_id=2097981572]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -195.0
+offset_top = -217.0
+offset_right = 255.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ycelc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kf3hi")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("4_hvaxu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/ScrollContainer" unique_id=907475164]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="chapter1" type="Button" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer" unique_id=636649263]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(450, 450)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k14s7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_pte2o")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_nddj8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3vfg4")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_r8jsi")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_cftth")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ryglv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w8yjl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_0v2jx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_10w15")
+text = "CHAPTER 1"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/chapter1" unique_id=811570150]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = -231.0
+offset_right = 231.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.32915837, 0.3291584, 0.3291584, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/chapter1" unique_id=720761172]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -225.0
+offset_right = 225.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_01swq")
+
+[node name="chapter2" type="Button" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer" unique_id=1924210965]
+custom_minimum_size = Vector2(450, 450)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k14s7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_pte2o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_01swq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_nddj8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3vfg4")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_r8jsi")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_cftth")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ryglv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w8yjl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_0v2jx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_10w15")
+text = "CHAPTER 2"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/chapter2" unique_id=1084272771]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = -231.0
+offset_right = 231.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.32915837, 0.3291584, 0.3291584, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/chapter2" unique_id=1733243511]
+modulate = Color(0.39308554, 0.39308554, 0.39308533, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -225.0
+offset_right = 225.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ghaca")
+
+[node name="chapter3" type="Button" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer" unique_id=1495262926]
+custom_minimum_size = Vector2(450, 450)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k14s7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_pte2o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_01swq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_nddj8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3vfg4")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_r8jsi")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_cftth")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ryglv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w8yjl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_0v2jx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_10w15")
+text = "CHAPTER 3"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/chapter3" unique_id=171810488]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = -231.0
+offset_right = 231.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.32915837, 0.3291584, 0.3291584, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/chapter3" unique_id=463041164]
+modulate = Color(0.39308554, 0.3930855, 0.39308548, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -225.0
+offset_right = 225.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_hvaxu")
+
+[node name="Marker" type="ColorRect" parent="CanvasLayer/Control" unique_id=184547602]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -5.0
+offset_right = 222.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="FadeSfx" type="ColorRect" parent="CanvasLayer" unique_id=1011293413]
+unique_name_in_owner = true
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[connection signal="toggled" from="CanvasLayer/MusicButton" to="CanvasLayer/MusicButton" method="_on_toggled"]
+[connection signal="pressed" from="CanvasLayer/AchieveButton" to="CanvasLayer/AchieveButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Glossary" to="." method="_on_glossary_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/About" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/VBoxContainer/chapter1" to="." method="_on_chapter_1_pressed"]

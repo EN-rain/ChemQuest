@@ -1,0 +1,24 @@
+[
+  {
+	"name": "Strontium Element",
+	"formula": "Sr",
+	"components": [{ "symbol": "Sr", "count": 1 }]
+  },
+  {
+	"name": "Strontium Chloride",
+	"formula": "SrCl2",
+	"components": [
+	  { "symbol": "Sr", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  },
+  {
+	"name": "Strontium Nitrate",
+	"formula": "Sr(NO3)2",
+	"components": [
+	  { "symbol": "Sr", "count": 1 },
+	  { "symbol": "N", "count": 2 },
+	  { "symbol": "O", "count": 6 }
+	]
+  }
+]

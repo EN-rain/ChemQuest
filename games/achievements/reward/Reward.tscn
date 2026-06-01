@@ -1,0 +1,293 @@
+[gd_scene load_steps=33 format=3 uid="uid://dbac72tyo5w85"]
+
+[ext_resource type="Texture2D" uid="uid://u300cismahhn" path="res://assets/mainbgx.png" id="1_o7gyv"]
+[ext_resource type="Script" uid="uid://dvco57vr2wels" path="res://games/achievements/reward/reward.gd" id="1_y50ux"]
+[ext_resource type="Texture2D" uid="uid://ctwmd6rqx7dby" path="res://assets/linedesign.png" id="2_l4o0o"]
+[ext_resource type="Texture2D" uid="uid://l1vww4m38u5j" path="res://assets/shadow1.png" id="3_ldrfa"]
+[ext_resource type="Texture2D" uid="uid://5cs3muais5ul" path="res://assets/shadow2.png" id="4_y50ux"]
+[ext_resource type="Texture2D" uid="uid://dcqgu8kvpxbmp" path="res://games/achievements/reward/everynight.png" id="5_l4o0o"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="6_ldrfa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldrfa"]
+atlas = ExtResource("5_l4o0o")
+region = Rect2(0, 0, 320, 293)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y50ux"]
+atlas = ExtResource("5_l4o0o")
+region = Rect2(320, 0, 320, 293)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rihca"]
+atlas = ExtResource("5_l4o0o")
+region = Rect2(640, 0, 320, 293)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpu4f"]
+atlas = ExtResource("5_l4o0o")
+region = Rect2(960, 0, 320, 293)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxuuv"]
+atlas = ExtResource("5_l4o0o")
+region = Rect2(1280, 0, 320, 293)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1eyut"]
+atlas = ExtResource("5_l4o0o")
+region = Rect2(1600, 0, 320, 293)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8it1"]
+atlas = ExtResource("5_l4o0o")
+region = Rect2(1920, 0, 320, 293)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iad8j"]
+atlas = ExtResource("5_l4o0o")
+region = Rect2(2240, 0, 320, 293)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjq0l"]
+atlas = ExtResource("5_l4o0o")
+region = Rect2(2560, 0, 320, 293)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1lt6"]
+atlas = ExtResource("5_l4o0o")
+region = Rect2(2880, 0, 320, 293)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l3g4k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldrfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y50ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rihca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpu4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxuuv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1eyut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8it1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iad8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjq0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1lt6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y50ux"]
+font = ExtResource("6_ldrfa")
+font_size = 80
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rihca"]
+font = ExtResource("6_ldrfa")
+font_size = 60
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y50ux"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rihca"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gpu4f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lxuuv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1eyut"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f8it1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iad8j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjq0l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1lt6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l3g4k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qxrld"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gpu4f"]
+font = ExtResource("6_ldrfa")
+font_size = 70
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Reward" type="Node2D"]
+script = ExtResource("1_y50ux")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureBg" type="TextureRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.6901961)
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o7gyv")
+stretch_mode = 6
+
+[node name="line" type="TextureRect" parent="CanvasLayer/TextureBg"]
+modulate = Color(1, 1, 1, 0.6)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -973.0
+offset_top = -482.0
+offset_right = 27.0
+offset_bottom = 518.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_l4o0o")
+stretch_mode = 6
+
+[node name="shadow1" type="TextureRect" parent="CanvasLayer/TextureBg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ldrfa")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="shadow2" type="TextureRect" parent="CanvasLayer/TextureBg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_y50ux")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/MarginContainer/Control"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(166, 573)
+sprite_frames = SubResource("SpriteFrames_l3g4k")
+frame_progress = 0.4660425
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -502.0
+offset_top = 19.0
+offset_right = 502.0
+offset_bottom = 100.0
+grow_horizontal = 2
+text = "THANKS FOR PLAYING THE GAME!!"
+label_settings = SubResource("LabelSettings_y50ux")
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -597.5
+offset_top = 136.0
+offset_right = 597.5
+offset_bottom = 228.0
+grow_horizontal = 2
+text = "Here's your REWARD"
+label_settings = SubResource("LabelSettings_rihca")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -270.0
+offset_right = 270.0
+offset_bottom = 70.0
+grow_horizontal = 2
+text = "Note: This scene only show once"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -147.5
+offset_right = 170.0
+offset_bottom = 147.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -92.0
+offset_right = 265.0
+offset_bottom = 10.0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y50ux")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rihca")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gpu4f")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lxuuv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1eyut")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_f8it1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_iad8j")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_sjq0l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_u1lt6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_l3g4k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qxrld")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = -40.5
+offset_right = 118.5
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Go Back"
+label_settings = SubResource("LabelSettings_gpu4f")
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/Button" to="." method="_on_button_pressed"]

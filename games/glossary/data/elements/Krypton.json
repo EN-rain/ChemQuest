@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Krypton Element",
+	"formula": "Kr",
+	"components": [
+	  { "symbol": "Kr", "count": 1 }
+	]
+  },
+  {
+	"name": "Krypton Difluoride",
+	"formula": "KrF2",
+	"components": [
+	  { "symbol": "Kr", "count": 1 },
+	  { "symbol": "F", "count": 2 }
+	]
+  },
+  {
+	"name": "Krypton Tetrafluoride",
+	"formula": "KrF4",
+	"components": [
+	  { "symbol": "Kr", "count": 1 },
+	  { "symbol": "F", "count": 4 }
+	]
+  }
+]

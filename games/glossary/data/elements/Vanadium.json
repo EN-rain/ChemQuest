@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Vanadium Element",
+	"formula": "V",
+	"components": [{ "symbol": "V", "count": 1 }]
+  },
+  {
+	"name": "Vanadium Pentoxide",
+	"formula": "V2O5",
+	"components": [
+	  { "symbol": "V", "count": 2 },
+	  { "symbol": "O", "count": 5 }
+	]
+  },
+  {
+	"name": "Vanadium Chloride",
+	"formula": "VCl3",
+	"components": [
+	  { "symbol": "V", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

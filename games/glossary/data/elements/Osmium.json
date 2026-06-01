@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Osmium Element",
+	"formula": "Os",
+	"components": [
+	  { "symbol": "Os", "count": 1 }
+	]
+  },
+  {
+	"name": "Osmium Tetroxide",
+	"formula": "OsO4",
+	"components": [
+	  { "symbol": "Os", "count": 1 },
+	  { "symbol": "O", "count": 4 }
+	]
+  },
+  {
+	"name": "Osmium Dioxide",
+	"formula": "OsO2",
+	"components": [
+	  { "symbol": "Os", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  }
+]

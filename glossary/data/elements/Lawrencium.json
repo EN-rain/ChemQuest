@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Lawrencium Element",
+	"formula": "Lr",
+	"components": [
+	  { "symbol": "Lr", "count": 1 }
+	]
+  },
+  {
+	"name": "Lawrencium Oxide",
+	"formula": "Lr2O3",
+	"components": [
+	  { "symbol": "Lr", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Lawrencium Chloride",
+	"formula": "LrCl3",
+	"components": [
+	  { "symbol": "Lr", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

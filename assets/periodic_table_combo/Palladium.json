@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Palladium Element",
+	"formula": "Pd",
+	"components": [
+	  { "symbol": "Pd", "count": 1 }
+	]
+  },
+  {
+	"name": "Palladium Chloride",
+	"formula": "PdCl2",
+	"components": [
+	  { "symbol": "Pd", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  },
+  {
+	"name": "Palladium Oxide",
+	"formula": "PdO",
+	"components": [
+	  { "symbol": "Pd", "count": 1 },
+	  { "symbol": "O", "count": 1 }
+	]
+  }
+]

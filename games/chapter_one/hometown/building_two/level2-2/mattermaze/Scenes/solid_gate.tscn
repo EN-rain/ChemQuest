@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgwhrfr5nh03d"]
+
+[ext_resource type="Script" uid="uid://2qsogkp2c6o8" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scripts/matter_gate.gd" id="1_hn5au"]
+[ext_resource type="Texture2D" uid="uid://6ptqj837dtk1" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/01.png" id="2_xt5rb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpi0u"]
+size = Vector2(5, 55)
+
+[node name="MatterGateS" type="StaticBody2D"]
+script = ExtResource("1_hn5au")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xt5rb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -3.5)
+shape = SubResource("RectangleShape2D_jpi0u")

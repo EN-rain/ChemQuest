@@ -1,0 +1,235 @@
+[gd_scene load_steps=16 format=3 uid="uid://3hy6ngyfu4e2"]
+
+[ext_resource type="Script" uid="uid://7no78mc3pifk" path="res://glossary/element_info.gd" id="1_km50h"]
+[ext_resource type="FontFile" uid="uid://bsj8upn8vmpqh" path="res://glossary/assets/Roboto-BoldCondensed.ttf" id="3_bjf0r"]
+[ext_resource type="LabelSettings" uid="uid://cwxa7ban3sfcf" path="res://assets/mainmenu.tres" id="3_i7w07"]
+[ext_resource type="LabelSettings" uid="uid://mf7oh2pkahx6" path="res://games/chapter_one/hometown/building_one/Level1/atom.tres" id="3_xv2xm"]
+[ext_resource type="Texture2D" uid="uid://b667yn0ou5sxj" path="res://assets/back.png" id="4_y2115"]
+[ext_resource type="Texture2D" uid="uid://b4hp8yfw47ogc" path="res://games/chapter_one/hometown/building_one/Level1/imgs/line.png" id="5_y2115"]
+
+[sub_resource type="Theme" id="Theme_bjf0r"]
+default_font = ExtResource("3_bjf0r")
+default_font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_biura"]
+font = ExtResource("3_bjf0r")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_bjf0r"]
+font = ExtResource("3_bjf0r")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_kqgsg"]
+font = ExtResource("3_bjf0r")
+font_size = 25
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7w07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wbw10"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xd31f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i022k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p0d5w"]
+
+[node name="ElementInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_km50h")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bjf0r")
+metadata/_edit_use_anchors_ = true
+
+[node name="ElementImage" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -339.0
+offset_top = -300.0
+offset_right = 14.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Name" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.18933
+offset_top = 19.0
+offset_right = 58.18933
+offset_bottom = 79.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.072842635, 0.072842635, 0.072842635, 1)
+text = "1"
+label_settings = ExtResource("3_i7w07")
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Symbol" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 194.0
+offset_top = -60.5
+offset_right = 269.0001
+offset_bottom = -29.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.029506557, 0.029506557, 0.029506557, 1)
+text = "2"
+label_settings = SubResource("LabelSettings_biura")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Number" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 194.0
+offset_top = 40.0
+offset_right = 346.0
+offset_bottom = 72.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.09239707, 0.09239706, 0.09239706, 1)
+text = "3"
+label_settings = SubResource("LabelSettings_bjf0r")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Mass" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 194.0
+offset_top = 139.5
+offset_right = 299.0
+offset_bottom = 170.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "4"
+label_settings = SubResource("LabelSettings_kqgsg")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CompoundsList" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = -160.0
+offset_right = -15.0
+offset_bottom = 292.0
+grow_horizontal = 0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 4.0
+offset_right = 228.0
+offset_bottom = 87.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i7w07")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wbw10")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xd31f")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i022k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p0d5w")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control/BackButton"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -33.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "BACK"
+label_settings = ExtResource("3_xv2xm")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/BackButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = 32.0
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_y2115")
+metadata/_edit_use_anchors_ = true
+
+[node name="line" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -316.5
+offset_top = 80.0
+offset_right = 316.5
+offset_bottom = 88.0
+grow_horizontal = 2
+texture = ExtResource("5_y2115")
+metadata/_edit_use_anchors_ = true
+
+[node name="FadeSfx" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="Control2" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]

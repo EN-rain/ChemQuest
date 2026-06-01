@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://chspyidxnjt3k"]
+
+[ext_resource type="Script" uid="uid://ovb6q04xf7gy" path="res://games/chapter_one/hometown/building_one/Level1/atom.gd" id="1_ygv7c"]
+[ext_resource type="Texture2D" uid="uid://bgccn48boq3s7" path="res://assets/atom_colors/limegreen.png" id="2_v6n1l"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="3_v6n1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygv7c"]
+size = Vector2(153, 149)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ygv7c"]
+font = ExtResource("3_v6n1l")
+font_size = 50
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Atom" type="Area2D"]
+script = ExtResource("1_ygv7c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 0.9999999)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_v6n1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -0.5)
+shape = SubResource("RectangleShape2D_ygv7c")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -29.0
+offset_right = 20.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_ygv7c")
+horizontal_alignment = 1

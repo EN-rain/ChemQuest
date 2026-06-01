@@ -1,0 +1,349 @@
+[gd_scene load_steps=18 format=3 uid="uid://bnd1q1kgm1qnt"]
+
+[ext_resource type="LabelSettings" uid="uid://mf7oh2pkahx6" path="res://games/chapter_one/hometown/building_one/Level1/atom.tres" id="1_sjddr"]
+[ext_resource type="Script" uid="uid://by1d6lfsw5x2x" path="res://games/achievements/achievements.gd" id="1_xc3xd"]
+[ext_resource type="Texture2D" uid="uid://c4fjichb8mddn" path="res://glossary/assets/shadow2.png" id="2_nhegi"]
+[ext_resource type="Texture2D" uid="uid://b667yn0ou5sxj" path="res://assets/back.png" id="2_q1uyp"]
+[ext_resource type="Texture2D" uid="uid://u300cismahhn" path="res://assets/mainbgx.png" id="3_vgwte"]
+[ext_resource type="FontFile" uid="uid://dhad2su8bcwal" path="res://glossary/assets/electrone.regular.ttf" id="4_vgwte"]
+[ext_resource type="Texture2D" uid="uid://bl2nfu0wdrau3" path="res://glossary/assets/line.png" id="5_nhegi"]
+[ext_resource type="FontFile" uid="uid://44iffnbrlgyt" path="res://glossary/assets/LilitaOne-Regular.ttf" id="7_sdd6q"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="8_lugsu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37idd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_me7ty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2we34"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ju7l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d43mk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sdd6q"]
+font = ExtResource("4_vgwte")
+font_size = 100
+outline_size = 15
+outline_color = Color(0.051970966, 0.05197096, 0.05197095, 0.8862745)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lugsu"]
+font = ExtResource("7_sdd6q")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_xc3xd"]
+font = ExtResource("8_lugsu")
+font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Achievements" type="Node2D"]
+script = ExtResource("1_xc3xd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control"]
+modulate = Color(0.35, 0.35, 0.35, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_vgwte")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nhegi")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer/Control/TextureRect/TextureRect"]
+modulate = Color(1, 1, 1, 0.22745098)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -461.0
+offset_top = -565.0
+offset_right = 449.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+
+[node name="BackButton" type="Button" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 4.0
+offset_right = 228.0
+offset_bottom = 87.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_37idd")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_me7ty")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2we34")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4ju7l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d43mk")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/BackButton"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -33.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "BACK"
+label_settings = ExtResource("1_sjddr")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/BackButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = 32.0
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_q1uyp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -276.5
+offset_right = 276.5
+offset_bottom = 129.0
+grow_horizontal = 2
+text = "Chemquest"
+label_settings = SubResource("LabelSettings_sdd6q")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.027124774
+anchor_top = 0.8062016
+anchor_right = 1.0470161
+anchor_bottom = 0.86821705
+offset_right = 845.9998
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.2)
+texture = ExtResource("5_nhegi")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.027124774
+anchor_top = 0.9302326
+anchor_right = 0.91862553
+anchor_bottom = 0.99224806
+offset_right = 739.4999
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.2)
+texture = ExtResource("5_nhegi")
+flip_v = true
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="Label" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -210.5
+offset_top = 145.0
+offset_right = 210.5
+offset_bottom = 215.0
+grow_horizontal = 2
+text = "ACHIEVEMENTS"
+label_settings = SubResource("LabelSettings_lugsu")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -401.0
+offset_top = -140.0
+offset_right = 392.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/Control/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label1" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "sss"
+label_settings = SubResource("LabelSettings_xc3xd")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer/Label1"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 25.0
+offset_right = 1970.0
+offset_bottom = 57.0
+grow_vertical = 2
+scale = Vector2(0.4, 0.05)
+texture = ExtResource("5_nhegi")
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "sss"
+label_settings = SubResource("LabelSettings_xc3xd")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer/Label2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 25.0
+offset_right = 1970.0
+offset_bottom = 57.0
+grow_vertical = 2
+scale = Vector2(0.4, 0.05)
+texture = ExtResource("5_nhegi")
+
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "sss"
+label_settings = SubResource("LabelSettings_xc3xd")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer/Label3"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 25.0
+offset_right = 1970.0
+offset_bottom = 57.0
+grow_vertical = 2
+scale = Vector2(0.4, 0.05)
+texture = ExtResource("5_nhegi")
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "sss"
+label_settings = SubResource("LabelSettings_xc3xd")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer/Label4"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 25.0
+offset_right = 1970.0
+offset_bottom = 57.0
+grow_vertical = 2
+scale = Vector2(0.4, 0.05)
+texture = ExtResource("5_nhegi")
+
+[node name="Label5" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "sss"
+label_settings = SubResource("LabelSettings_xc3xd")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer/Label5"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 25.0
+offset_right = 1970.0
+offset_bottom = 57.0
+grow_vertical = 2
+scale = Vector2(0.4, 0.05)
+texture = ExtResource("5_nhegi")
+
+[node name="Label6" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "sss"
+label_settings = SubResource("LabelSettings_xc3xd")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer/Label6"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 25.0
+offset_right = 1970.0
+offset_bottom = 57.0
+grow_vertical = 2
+scale = Vector2(0.4, 0.05)
+texture = ExtResource("5_nhegi")
+
+[node name="Label7" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "sss"
+label_settings = SubResource("LabelSettings_xc3xd")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer/Label7"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 25.0
+offset_right = 1970.0
+offset_bottom = 57.0
+grow_vertical = 2
+scale = Vector2(0.4, 0.05)
+texture = ExtResource("5_nhegi")
+
+[node name="FadeSfx" type="ColorRect" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,32 @@
+[
+  {
+	"name": "Oxygen Gas",
+	"formula": "O2",
+	"components": [
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Ozone",
+	"formula": "O3",
+	"components": [
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Water",
+	"formula": "H2O",
+	"components": [
+	  { "symbol": "H", "count": 2 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Carbon Dioxide",
+	"formula": "CO2",
+	"components": [
+	  { "symbol": "C", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  }
+]

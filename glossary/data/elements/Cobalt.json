@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Cobalt Element",
+	"formula": "Co",
+	"components": [
+	  { "symbol": "Co", "count": 1 }
+	]
+  },
+  {
+	"name": "Cobalt Oxide",
+	"formula": "CoO",
+	"components": [
+	  { "symbol": "Co", "count": 1 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Cobalt Chloride",
+	"formula": "CoCl2",
+	"components": [
+	  { "symbol": "Co", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  }
+]

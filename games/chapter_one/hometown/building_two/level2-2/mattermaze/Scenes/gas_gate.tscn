@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxwnxfl8qhvw0"]
+
+[ext_resource type="Script" uid="uid://d0xko5gm21815" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scripts/gas_gate.gd" id="1_jnkgg"]
+[ext_resource type="Texture2D" uid="uid://bp3xkomsuyfa6" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="2_u021m"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_u021m"]
+points = PackedVector2Array(-62, 24, 47, 23, -9, -23)
+
+[node name="Gas" type="StaticBody2D"]
+script = ExtResource("1_jnkgg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.1920929e-07, 0)
+scale = Vector2(1.7702702, 2.0416665)
+texture = ExtResource("2_u021m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_u021m")

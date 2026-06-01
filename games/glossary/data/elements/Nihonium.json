@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Nihonium Element",
+	"formula": "Nh",
+	"components": [
+	  { "symbol": "Nh", "count": 1 }
+	]
+  },
+  {
+	"name": "Nihonium Oxide",
+	"formula": "Nh2O3",
+	"components": [
+	  { "symbol": "Nh", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Nihonium Chloride",
+	"formula": "NhCl3",
+	"components": [
+	  { "symbol": "Nh", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+	"name": "Iodine Element",
+	"formula": "I2",
+	"components": [
+	  { "symbol": "I", "count": 2 }
+	]
+  },
+  {
+	"name": "Hydrogen Iodide",
+	"formula": "HI",
+	"components": [
+	  { "symbol": "H", "count": 1 },
+	  { "symbol": "I", "count": 1 }
+	]
+  },
+  {
+	"name": "Iodic Acid",
+	"formula": "HIO3",
+	"components": [
+	  { "symbol": "H", "count": 1 },
+	  { "symbol": "I", "count": 1 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Potassium Iodide",
+	"formula": "KI",
+	"components": [
+	  { "symbol": "K", "count": 1 },
+	  { "symbol": "I", "count": 1 }
+	]
+  },
+  {
+	"name": "Sodium Iodide",
+	"formula": "NaI",
+	"components": [
+	  { "symbol": "Na", "count": 1 },
+	  { "symbol": "I", "count": 1 }
+	]
+  }
+]

@@ -1,0 +1,344 @@
+[gd_scene load_steps=16 format=3 uid="uid://b3ql76j3sbf0i"]
+
+[ext_resource type="Script" uid="uid://coedcxr1qbxew" path="res://PrecisionAccuracy/pa_manager.gd" id="1_1b7mb"]
+[ext_resource type="Script" uid="uid://74elvaf733p5" path="res://PrecisionAccuracy/wheel.gd" id="2_1b7mb"]
+[ext_resource type="Texture2D" uid="uid://bhlb5pe7x2ycw" path="res://PrecisionAccuracy/target (1).png" id="2_ei45l"]
+[ext_resource type="Texture2D" uid="uid://dtic0826twd85" path="res://PrecisionAccuracy/bullseye.png" id="2_slysd"]
+[ext_resource type="Script" uid="uid://c88mjes27s4ta" path="res://PrecisionAccuracy/score_1.gd" id="4_nc61k"]
+[ext_resource type="Script" uid="uid://ml4gwd7f2ke4" path="res://PrecisionAccuracy/score_2.gd" id="5_r1hf0"]
+[ext_resource type="Script" uid="uid://bjbrnapd0xu63" path="res://PrecisionAccuracy/score_3.gd" id="7_xmfqp"]
+[ext_resource type="Script" uid="uid://cp87p1h1e114o" path="res://PrecisionAccuracy/score_4.gd" id="8_rn4h7"]
+[ext_resource type="Script" uid="uid://c1vwq21wlu5sg" path="res://PrecisionAccuracy/score_5.gd" id="9_u25yt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nc61k"]
+radius = 51.1957
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r1hf0"]
+radius = 39.5601
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ei3ri"]
+radius = 27.2029
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_smnkx"]
+radius = 12.0416
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1b7mb"]
+radius = 64.1327
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_slysd"]
+radius = 4.0
+
+[node name="PrecisionAccuracy" type="Node2D"]
+
+[node name="PAManager" type="Node2D" parent="."]
+script = ExtResource("1_1b7mb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1154.0
+offset_bottom = 646.0
+metadata/_edit_lock_ = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="UI"]
+unique_name_in_owner = true
+offset_left = 331.0
+offset_top = 15.0
+offset_right = 374.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score"
+
+[node name="Bullets" type="Label" parent="UI"]
+offset_left = 530.0
+offset_top = 25.0
+offset_right = 592.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Bullets"
+
+[node name="Button" type="Button" parent="UI"]
+unique_name_in_owner = true
+offset_left = 480.0
+offset_top = 559.0
+offset_right = 617.0
+offset_bottom = 597.0
+text = "FIRE"
+
+[node name="Wheel" type="Node2D" parent="."]
+position = Vector2(575, 313)
+script = ExtResource("2_1b7mb")
+
+[node name="Center" type="TextureRect" parent="Wheel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Targets" type="Node2D" parent="Wheel"]
+position = Vector2(-26, -9)
+
+[node name="Target1" type="Node2D" parent="Wheel/Targets"]
+unique_name_in_owner = true
+position = Vector2(-88, 156)
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel/Targets/Target1"]
+position = Vector2(1, -1)
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Wheel/Targets/Target1"]
+position = Vector2(-4, 1)
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wheel/Targets/Target1/Score1"]
+position = Vector2(5, -2)
+
+[node name="Score2" type="Area2D" parent="Wheel/Targets/Target1"]
+collision_layer = 2
+script = ExtResource("5_r1hf0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target1/Score2"]
+shape = SubResource("CircleShape2D_nc61k")
+
+[node name="Score3" type="Area2D" parent="Wheel/Targets/Target1"]
+collision_layer = 4
+script = ExtResource("7_xmfqp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target1/Score3"]
+shape = SubResource("CircleShape2D_r1hf0")
+
+[node name="Score4" type="Area2D" parent="Wheel/Targets/Target1"]
+collision_layer = 8
+script = ExtResource("8_rn4h7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target1/Score4"]
+shape = SubResource("CircleShape2D_ei3ri")
+
+[node name="Score5" type="Area2D" parent="Wheel/Targets/Target1"]
+collision_layer = 16
+script = ExtResource("9_u25yt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target1/Score5"]
+shape = SubResource("CircleShape2D_smnkx")
+
+[node name="Target2" type="Node2D" parent="Wheel/Targets"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(144, 130)
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel/Targets/Target2"]
+position = Vector2(1, -1)
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Wheel/Targets/Target2"]
+position = Vector2(-4, 1)
+script = ExtResource("4_nc61k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target2/Score1"]
+position = Vector2(5, -2)
+shape = SubResource("CircleShape2D_1b7mb")
+
+[node name="Score2" type="Area2D" parent="Wheel/Targets/Target2"]
+collision_layer = 2
+script = ExtResource("5_r1hf0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target2/Score2"]
+shape = SubResource("CircleShape2D_nc61k")
+
+[node name="Score3" type="Area2D" parent="Wheel/Targets/Target2"]
+collision_layer = 4
+script = ExtResource("7_xmfqp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target2/Score3"]
+shape = SubResource("CircleShape2D_r1hf0")
+
+[node name="Score4" type="Area2D" parent="Wheel/Targets/Target2"]
+collision_layer = 8
+script = ExtResource("8_rn4h7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target2/Score4"]
+shape = SubResource("CircleShape2D_ei3ri")
+
+[node name="Score5" type="Area2D" parent="Wheel/Targets/Target2"]
+collision_layer = 16
+script = ExtResource("9_u25yt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target2/Score5"]
+shape = SubResource("CircleShape2D_smnkx")
+
+[node name="Target3" type="Node2D" parent="Wheel/Targets"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(194, -67)
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel/Targets/Target3"]
+position = Vector2(1, -1)
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Wheel/Targets/Target3"]
+position = Vector2(-4, 1)
+script = ExtResource("4_nc61k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target3/Score1"]
+position = Vector2(5, -2)
+shape = SubResource("CircleShape2D_1b7mb")
+
+[node name="Score2" type="Area2D" parent="Wheel/Targets/Target3"]
+collision_layer = 2
+script = ExtResource("5_r1hf0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target3/Score2"]
+shape = SubResource("CircleShape2D_nc61k")
+
+[node name="Score3" type="Area2D" parent="Wheel/Targets/Target3"]
+collision_layer = 4
+script = ExtResource("7_xmfqp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target3/Score3"]
+shape = SubResource("CircleShape2D_r1hf0")
+
+[node name="Score4" type="Area2D" parent="Wheel/Targets/Target3"]
+collision_layer = 8
+script = ExtResource("8_rn4h7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target3/Score4"]
+shape = SubResource("CircleShape2D_ei3ri")
+
+[node name="Score5" type="Area2D" parent="Wheel/Targets/Target3"]
+collision_layer = 16
+script = ExtResource("9_u25yt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target3/Score5"]
+shape = SubResource("CircleShape2D_smnkx")
+
+[node name="Target4" type="Node2D" parent="Wheel/Targets"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-209, -23)
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel/Targets/Target4"]
+position = Vector2(1, -1)
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Wheel/Targets/Target4"]
+position = Vector2(-4, 1)
+script = ExtResource("4_nc61k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target4/Score1"]
+position = Vector2(5, -2)
+shape = SubResource("CircleShape2D_1b7mb")
+
+[node name="Score2" type="Area2D" parent="Wheel/Targets/Target4"]
+collision_layer = 2
+script = ExtResource("5_r1hf0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target4/Score2"]
+shape = SubResource("CircleShape2D_nc61k")
+
+[node name="Score3" type="Area2D" parent="Wheel/Targets/Target4"]
+collision_layer = 4
+script = ExtResource("7_xmfqp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target4/Score3"]
+shape = SubResource("CircleShape2D_r1hf0")
+
+[node name="Score4" type="Area2D" parent="Wheel/Targets/Target4"]
+collision_layer = 8
+script = ExtResource("8_rn4h7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target4/Score4"]
+shape = SubResource("CircleShape2D_ei3ri")
+
+[node name="Score5" type="Area2D" parent="Wheel/Targets/Target4"]
+collision_layer = 16
+script = ExtResource("9_u25yt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target4/Score5"]
+shape = SubResource("CircleShape2D_smnkx")
+
+[node name="Target5" type="Node2D" parent="Wheel/Targets"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-14, -179)
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel/Targets/Target5"]
+position = Vector2(1, -1)
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Wheel/Targets/Target5"]
+position = Vector2(-4, 1)
+script = ExtResource("4_nc61k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target5/Score1"]
+position = Vector2(5, -2)
+shape = SubResource("CircleShape2D_1b7mb")
+
+[node name="Score2" type="Area2D" parent="Wheel/Targets/Target5"]
+collision_layer = 2
+script = ExtResource("5_r1hf0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target5/Score2"]
+shape = SubResource("CircleShape2D_nc61k")
+
+[node name="Score3" type="Area2D" parent="Wheel/Targets/Target5"]
+collision_layer = 4
+script = ExtResource("7_xmfqp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target5/Score3"]
+shape = SubResource("CircleShape2D_r1hf0")
+
+[node name="Score4" type="Area2D" parent="Wheel/Targets/Target5"]
+collision_layer = 8
+script = ExtResource("8_rn4h7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target5/Score4"]
+shape = SubResource("CircleShape2D_ei3ri")
+
+[node name="Score5" type="Area2D" parent="Wheel/Targets/Target5"]
+collision_layer = 16
+script = ExtResource("9_u25yt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Targets/Target5/Score5"]
+shape = SubResource("CircleShape2D_smnkx")
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(-2, -29)
+
+[node name="TextureRect" type="TextureRect" parent="Player"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 511.0
+offset_top = 100.0
+offset_right = 1023.0
+offset_bottom = 612.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ei45l")
+metadata/_edit_use_anchors_ = true
+
+[node name="FireZone" type="Area2D" parent="Player"]
+unique_name_in_owner = true
+position = Vector2(-57, -62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/FireZone"]
+position = Vector2(593, 186)
+shape = SubResource("CircleShape2D_slysd")
+
+[connection signal="pressed" from="UI/Button" to="PAManager" method="_on_button_pressed"]

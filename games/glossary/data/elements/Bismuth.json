@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Bismuth Element",
+	"formula": "Bi",
+	"components": [
+	  { "symbol": "Bi", "count": 1 }
+	]
+  },
+  {
+	"name": "Bismuth Oxide",
+	"formula": "Bi2O3",
+	"components": [
+	  { "symbol": "Bi", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Bismuth Chloride",
+	"formula": "BiCl3",
+	"components": [
+	  { "symbol": "Bi", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

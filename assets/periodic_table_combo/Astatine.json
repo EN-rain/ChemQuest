@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Astatine Element",
+	"formula": "At",
+	"components": [
+	  { "symbol": "At", "count": 1 }
+	]
+  },
+  {
+	"name": "Astatine Monoxide",
+	"formula": "At2O",
+	"components": [
+	  { "symbol": "At", "count": 2 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Astatine Iodide",
+	"formula": "AtI",
+	"components": [
+	  { "symbol": "At", "count": 1 },
+	  { "symbol": "I", "count": 1 }
+	]
+  }
+]

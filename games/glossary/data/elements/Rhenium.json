@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Rhenium Element",
+	"formula": "Re",
+	"components": [{ "symbol": "Re", "count": 1 }]
+  },
+  {
+	"name": "Rhenium Oxide",
+	"formula": "Re2O7",
+	"components": [
+	  { "symbol": "Re", "count": 2 },
+	  { "symbol": "O", "count": 7 }
+	]
+  },
+  {
+	"name": "Rhenium Chloride",
+	"formula": "ReCl5",
+	"components": [
+	  { "symbol": "Re", "count": 1 },
+	  { "symbol": "Cl", "count": 5 }
+	]
+  }
+]

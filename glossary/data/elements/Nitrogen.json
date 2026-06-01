@@ -1,0 +1,34 @@
+[
+  {
+	"name": "Nitrogen Gas",
+	"formula": "N2",
+	"components": [
+	  { "symbol": "N", "count": 2 }
+	]
+  },
+  {
+	"name": "Ammonia",
+	"formula": "NH3",
+	"components": [
+	  { "symbol": "N", "count": 1 },
+	  { "symbol": "H", "count": 3 }
+	]
+  },
+  {
+	"name": "Nitric Acid",
+	"formula": "HNO3",
+	"components": [
+	  { "symbol": "H", "count": 1 },
+	  { "symbol": "N", "count": 1 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Nitrous Oxide",
+	"formula": "N2O",
+	"components": [
+	  { "symbol": "N", "count": 2 },
+	  { "symbol": "O", "count": 1 }
+	]
+  }
+]

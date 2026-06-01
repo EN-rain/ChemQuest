@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Antimony Crystal",
+	"formula": "Sb",
+	"components": [
+	  { "symbol": "Sb", "count": 1 }
+	]
+  },
+  {
+	"name": "Antimony Trioxide",
+	"formula": "Sb2O3",
+	"components": [
+	  { "symbol": "Sb", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Antimony Sulfide",
+	"formula": "Sb2S3",
+	"components": [
+	  { "symbol": "Sb", "count": 2 },
+	  { "symbol": "S", "count": 3 }
+	]
+  }
+]

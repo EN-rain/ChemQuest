@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Cerium Element",
+	"formula": "Ce",
+	"components": [
+	  { "symbol": "Ce", "count": 1 }
+	]
+  },
+  {
+	"name": "Cerium Oxide",
+	"formula": "CeO2",
+	"components": [
+	  { "symbol": "Ce", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Cerium Chloride",
+	"formula": "CeCl3",
+	"components": [
+	  { "symbol": "Ce", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

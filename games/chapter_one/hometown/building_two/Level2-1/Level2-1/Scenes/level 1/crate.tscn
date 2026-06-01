@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://msdqh7vkellj"]
+
+[ext_resource type="Script" uid="uid://cdmkerlq2wht7" path="res://games/chapter_one/hometown/building_two/Level2-1/Scripts/crate.gd" id="1_i4r3v"]
+[ext_resource type="Texture2D" uid="uid://ckhew0de2xube" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Items/Boxes/Box3/Idle.png" id="2_i4r3v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdp7h"]
+atlas = ExtResource("2_i4r3v")
+region = Rect2(0, 0, 28, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4r3v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdp7h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="FontVariation" id="FontVariation_m5w3l"]
+fallbacks = Array[Font]([null])
+
+[sub_resource type="LabelSettings" id="LabelSettings_rp70x"]
+font_size = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp72f"]
+size = Vector2(27, 29)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_i4r3v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(6, -20)
+scale = Vector2(1.81406, 1.93941)
+sprite_frames = SubResource("SpriteFrames_i4r3v")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -21.0
+offset_top = -58.0
+offset_right = 21.0
+offset_bottom = -35.0
+theme_override_fonts/font = SubResource("FontVariation_m5w3l")
+theme_override_font_sizes/font_size = 0
+label_settings = SubResource("LabelSettings_rp70x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, -20)
+shape = SubResource("RectangleShape2D_wp72f")

@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Terbium Element",
+	"formula": "Tb",
+	"components": [{ "symbol": "Tb", "count": 1 }]
+  },
+  {
+	"name": "Terbium Oxide",
+	"formula": "Tb4O7",
+	"components": [
+	  { "symbol": "Tb", "count": 4 },
+	  { "symbol": "O", "count": 7 }
+	]
+  },
+  {
+	"name": "Terbium Chloride",
+	"formula": "TbCl3",
+	"components": [
+	  { "symbol": "Tb", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

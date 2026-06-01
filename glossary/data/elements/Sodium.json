@@ -1,0 +1,34 @@
+[
+  {
+	"name": "Sodium Element",
+	"formula": "Na",
+	"components": [{ "symbol": "Na", "count": 1 }]
+  },
+  {
+	"name": "Sodium Chloride",
+	"formula": "NaCl",
+	"components": [
+	  { "symbol": "Na", "count": 1 },
+	  { "symbol": "Cl", "count": 1 }
+	]
+  },
+  {
+	"name": "Sodium Hydroxide",
+	"formula": "NaOH",
+	"components": [
+	  { "symbol": "Na", "count": 1 },
+	  { "symbol": "O", "count": 1 },
+	  { "symbol": "H", "count": 1 }
+	]
+  },
+  {
+	"name": "Baking Soda",
+	"formula": "NaHCO3",
+	"components": [
+	  { "symbol": "Na", "count": 1 },
+	  { "symbol": "H", "count": 1 },
+	  { "symbol": "C", "count": 1 },
+	  { "symbol": "O", "count": 3 }
+	]
+  }
+]

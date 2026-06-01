@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Gadolinium Element",
+	"formula": "Gd",
+	"components": [
+	  { "symbol": "Gd", "count": 1 }
+	]
+  },
+  {
+	"name": "Gadolinium Oxide",
+	"formula": "Gd2O3",
+	"components": [
+	  { "symbol": "Gd", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Gadolinium Chloride",
+	"formula": "GdCl3",
+	"components": [
+	  { "symbol": "Gd", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  },
+  {
+	"name": "Gadolinium Fluoride",
+	"formula": "GdF3",
+	"components": [
+	  { "symbol": "Gd", "count": 1 },
+	  { "symbol": "F", "count": 3 }
+	]
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Gallium Element",
+	"formula": "Ga",
+	"components": [
+	  { "symbol": "Ga", "count": 1 }
+	]
+  },
+  {
+	"name": "Gallium Arsenide",
+	"formula": "GaAs",
+	"components": [
+	  { "symbol": "Ga", "count": 1 },
+	  { "symbol": "As", "count": 1 }
+	]
+  },
+  {
+	"name": "Gallium Oxide",
+	"formula": "Ga2O3",
+	"components": [
+	  { "symbol": "Ga", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Gallium Chloride",
+	"formula": "GaCl3",
+	"components": [
+	  { "symbol": "Ga", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

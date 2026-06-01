@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Moscovium Element",
+	"formula": "Mc",
+	"components": [
+	  { "symbol": "Mc", "count": 1 }
+	]
+  },
+  {
+	"name": "Moscovium Oxide",
+	"formula": "Mc2O3",
+	"components": [
+	  { "symbol": "Mc", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Moscovium Chloride",
+	"formula": "McCl3",
+	"components": [
+	  { "symbol": "Mc", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

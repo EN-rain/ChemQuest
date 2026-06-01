@@ -1,0 +1,121 @@
+{
+	"last_spawn": "default",
+	"last_scene": "res://games/chapter_one/hometown/hometown.tscn",
+	"player_position": [0, 0],
+	"quests": [
+		{
+			"id": "find_wiz",
+			"title": "The Lost Wizard of Hometown",
+			"description": "The townsfolk whisper of an eccentric mage who dwells nearby. Find Uncle Wiz in the Old House and uncover what mysteries he guards.",
+			"is_completed": false
+		},
+		{
+			"id": "read_books",
+			"title": "The Shelves of Knowledge",
+			"description": "Uncle Wiz has directed you toward his library. Seek the shelf of wisdom and study one of his ancient tomes.",
+			"is_completed": false
+		},
+		{
+			"id": "finish_book1",
+			"title": "Book I – The Nature of Elements",
+			"description": "Through the pages of the first tome, learn to perceive and identify the fundamental elements that form all matter.",
+			"is_completed": false
+		},
+		{
+			"id": "after_book1",
+			"title": "Return to the Sage",
+			"description": "You’ve completed the first book. Return to Uncle Wiz and share the truths you’ve uncovered.",
+			"is_completed": false
+		},
+		{
+			"id": "finish_book2",
+			"title": "Book II – The Art of Creation",
+			"description": "Delve into the second tome to master the alchemy of combining elements into powerful compounds.",
+			"is_completed": false
+		},
+		{
+			"id": "after_book2",
+			"title": "Return to the Sage",
+			"description": "Bring your newfound wisdom back to Uncle Wiz and await your next challenge.",
+			"is_completed": false
+		},
+		{
+			"description": "Uncle Wiz has prepared a test at his 2nd Book shelf. Prove your understanding of the properties of matter.",
+			"id": "desk_quiz",
+			"is_completed": false,
+			"title": "The Trials of Properties"
+		},
+		{
+			"id": "after_desk_quiz",
+			"title": "Return to the Wizard",
+			"description": "Report to Uncle Wiz after conquering the Trials of Properties.",
+			"is_completed": false
+		},
+		{
+			"id": "finish_book3",
+			"title": "Book III – The Mystery of Mixtures",
+			"description": "Travel to the map of knowledge and complete your third lesson to understand how elements mingle to form mixtures.",
+			"is_completed": false
+		},
+		{
+			"id": "after_book3",
+			"title": "Return to the Wizard",
+			"description": "Return to Uncle Wiz and share your insights about mixtures.",
+			"is_completed": false
+		},
+		{
+			"id": "seperation_methods",
+			"title": "The Table of Separation",
+			"description": "A new experiment awaits beneath the furniture—a table dedicated to unraveling the art of separating mixtures.",
+			"is_completed": false
+		},
+		{
+			"id": "seperation_methods_after",
+			"title": "Return to the Wizard",
+			"description": "Report to Uncle Wiz after mastering the Separation Table.",
+			"is_completed": false
+		},
+		{
+			"id": "accuracy_vs_precision",
+			"title": "Lesson IV – The Measure of Truth",
+			"description": "Study the difference between Accuracy and Precision at the newly revealed table of instruments.",
+			"is_completed": false
+		},
+		{
+			"id": "after_accuracy_vs_precision",
+			"title": "Return to the Wizard",
+			"description": "Share your newfound insight about precision and accuracy with Uncle Wiz.",
+			"is_completed": false
+		},
+		{
+			"id": "find_christofe",
+			"title": "The Apprentice of the East",
+			"description": "Uncle Wiz speaks of his apprentice, Christofe. Seek him out in the Blacksmith to continue your training.",
+			"is_completed": false
+		},
+		{
+			"id": "density_measurement",
+			"title": "Lesson V – The Weight of Matter",
+			"description": "Under Christofe’s guidance, study the principles of density—how mass and volume reveal the false measure of matter.",
+			"is_completed": false
+		},
+		{
+			"id": "after_density_measurement",
+			"title": "Return to Christofe",
+			"description": "Return to Christofe to discuss your discoveries about density.",
+			"is_completed": false
+		},
+		{
+			"id": "states_of_matter",
+			"title": "Lesson VI – The Dance of Matter",
+			"description": "Christofe invites you to a new experiment table. Learn how matter shifts its form between solid, liquid, and gas.",
+			"is_completed": false
+		},
+		{
+			"id": "after_states_of_matter",
+			"title": "Return to Christofe",
+			"description": "Report to Christofe and reflect on what you’ve learned about the states of matter.",
+			"is_completed": false
+		}
+	]
+}

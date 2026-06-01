@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Hassium Element",
+	"formula": "Hs",
+	"components": [
+	  { "symbol": "Hs", "count": 1 }
+	]
+  },
+  {
+	"name": "Hassium Oxide",
+	"formula": "HsO4",
+	"components": [
+	  { "symbol": "Hs", "count": 1 },
+	  { "symbol": "O", "count": 4 }
+	]
+  },
+  {
+	"name": "Hassium Chloride",
+	"formula": "HsCl4",
+	"components": [
+	  { "symbol": "Hs", "count": 1 },
+	  { "symbol": "Cl", "count": 4 }
+	]
+  }
+]

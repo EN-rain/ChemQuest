@@ -1,0 +1,306 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvxd0pbxjgd7s"]
+
+[ext_resource type="Script" uid="uid://bvcjlc4mf8jc4" path="res://games/chapter_one/hometown/building_one/Level1/Lesson3/lesson_3.gd" id="1_1iaa8"]
+[ext_resource type="Script" uid="uid://dnepjw8kly6jh" path="res://games/chapter_one/hometown/building_one/back_panel.gd" id="1_qi8wb"]
+[ext_resource type="Script" uid="uid://ewlegoegm116" path="res://games/chapter_one/hometown/building_one/Level2/results_panel.gd" id="2_kxdpe"]
+[ext_resource type="PackedScene" uid="uid://pc36d0entonh" path="res://games/chapter_one/hometown/building_one/Level1/Lesson3/mixtures.tscn" id="3_kxdpe"]
+[ext_resource type="Script" uid="uid://qcsu8dw6te7v" path="res://games/chapter_one/hometown/building_one/Level1/Lesson3/boxes.gd" id="4_fk4dj"]
+[ext_resource type="Script" uid="uid://bh2o1pmroefdo" path="res://games/chapter_one/hometown/building_one/Level1/Lesson3/mistakes_panel.gd" id="5_h0axc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi8wb"]
+size = Vector2(245.75, 134.75)
+
+[node name="Lesson3" type="Node2D"]
+script = ExtResource("1_1iaa8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="BackButton" type="Button" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 0
+offset_right = 173.0
+offset_bottom = 92.0
+text = "Back"
+
+[node name="BackPanel" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qi8wb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/Control/BackPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Yes" type="Button" parent="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "YES"
+
+[node name="No" type="Button" parent="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "NO"
+
+[node name="Timer" type="Timer" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -91.0
+offset_right = 91.0
+offset_bottom = 73.0
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FadeSfx" type="ColorRect" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="SpawnerPanel" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.0
+offset_top = -160.0
+offset_right = 299.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Boxes" type="Control" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_fk4dj")
+
+[node name="Homogeneous" type="Area2D" parent="CanvasLayer/MarginContainer/Control/Boxes"]
+unique_name_in_owner = true
+position = Vector2(-257, 160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MarginContainer/Control/Boxes/Homogeneous"]
+shape = SubResource("RectangleShape2D_qi8wb")
+
+[node name="Marker2D" type="Marker2D" parent="CanvasLayer/MarginContainer/Control/Boxes/Homogeneous"]
+
+[node name="Heterogeneous" type="Area2D" parent="CanvasLayer/MarginContainer/Control/Boxes"]
+unique_name_in_owner = true
+position = Vector2(298.931, 160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MarginContainer/Control/Boxes/Heterogeneous"]
+shape = SubResource("RectangleShape2D_qi8wb")
+
+[node name="Marker2D" type="Marker2D" parent="CanvasLayer/MarginContainer/Control/Boxes/Heterogeneous"]
+
+[node name="FinalizeButton" type="Button" parent="CanvasLayer/MarginContainer/Control/Boxes"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = 119.0
+offset_right = 72.5
+offset_bottom = 183.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "FINALIZE"
+
+[node name="ResultsPanel" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_kxdpe")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24477637, 0.2447764, 0.24477637, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -238.0
+offset_right = 238.0
+offset_bottom = 125.0
+grow_horizontal = 2
+text = "asasssssssaas"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Retry" type="Button" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 73.0
+offset_top = -148.0
+offset_right = 306.0
+offset_bottom = -81.0
+grow_vertical = 0
+text = "RETRY"
+
+[node name="GoBack" type="Button" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -282.0
+offset_top = -153.0
+offset_right = -49.0
+offset_bottom = -86.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "GO BACK"
+
+[node name="Continue" type="Button" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -119.5
+offset_top = -69.0
+offset_right = 119.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "CONTINUE"
+
+[node name="Correction" type="Button" parent="CanvasLayer/MarginContainer/Control/ResultsPanel"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 186.0
+offset_right = 508.0
+offset_bottom = 224.0
+text = "SHOW MISTAKES"
+
+[node name="MistakesPanel" type="Panel" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -300.0
+offset_right = 500.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_h0axc")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MarginContainer/Control/MistakesPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/Control/MistakesPanel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 45
+theme_override_constants/v_separation = 60
+columns = 5
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/Control/MistakesPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -196.0
+offset_bottom = 67.0
+grow_horizontal = 0
+text = "BACK"
+
+[node name="Mixtures" parent="CanvasLayer/MarginContainer/Control" instance=ExtResource("3_kxdpe")]
+visible = false
+position = Vector2(89, 329)
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer/Yes" to="CanvasLayer/MarginContainer/Control/BackPanel" method="_on_yes_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/BackPanel/HBoxContainer/No" to="CanvasLayer/MarginContainer/Control/BackPanel" method="_on_no_pressed"]
+[connection signal="area_entered" from="CanvasLayer/MarginContainer/Control/Boxes/Homogeneous" to="CanvasLayer/MarginContainer/Control/Boxes" method="_on_homogeneous_area_entered"]
+[connection signal="area_entered" from="CanvasLayer/MarginContainer/Control/Boxes/Heterogeneous" to="CanvasLayer/MarginContainer/Control/Boxes" method="_on_heterogeneous_area_entered"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/Boxes/FinalizeButton" to="CanvasLayer/MarginContainer/Control/Boxes" method="_on_finalize_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/ResultsPanel/Retry" to="CanvasLayer/MarginContainer/Control/ResultsPanel" method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/ResultsPanel/GoBack" to="CanvasLayer/MarginContainer/Control/ResultsPanel" method="_on_go_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/ResultsPanel/Continue" to="CanvasLayer/MarginContainer/Control/ResultsPanel" method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/ResultsPanel/Correction" to="CanvasLayer/MarginContainer/Control/ResultsPanel" method="_on_correction_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/MistakesPanel/Button" to="CanvasLayer/MarginContainer/Control/MistakesPanel" method="_on_button_pressed"]

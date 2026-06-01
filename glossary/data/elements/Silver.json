@@ -1,0 +1,24 @@
+[
+  {
+	"name": "Silver Element",
+	"formula": "Ag",
+	"components": [{ "symbol": "Ag", "count": 1 }]
+  },
+  {
+	"name": "Silver Nitrate",
+	"formula": "AgNO3",
+	"components": [
+	  { "symbol": "Ag", "count": 1 },
+	  { "symbol": "N", "count": 1 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Silver Chloride",
+	"formula": "AgCl",
+	"components": [
+	  { "symbol": "Ag", "count": 1 },
+	  { "symbol": "Cl", "count": 1 }
+	]
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+	"name": "Magnesium Element",
+	"formula": "Mg",
+	"components": [
+	  { "symbol": "Mg", "count": 1 }
+	]
+  },
+  {
+	"name": "Magnesium Oxide",
+	"formula": "MgO",
+	"components": [
+	  { "symbol": "Mg", "count": 1 },
+	  { "symbol": "O", "count": 1 }
+	]
+  },
+  {
+	"name": "Magnesium Sulfate (Epsom Salt)",
+	"formula": "MgSO4",
+	"components": [
+	  { "symbol": "Mg", "count": 1 },
+	  { "symbol": "S", "count": 1 },
+	  { "symbol": "O", "count": 4 }
+	]
+  },
+  {
+	"name": "Magnesium Chloride",
+	"formula": "MgCl2",
+	"components": [
+	  { "symbol": "Mg", "count": 1 },
+	  { "symbol": "Cl", "count": 2 }
+	]
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+	"name": "Bohrium Element",
+	"formula": "Bh",
+	"components": [
+	  { "symbol": "Bh", "count": 1 }
+	]
+  },
+  {
+	"name": "Bohrium Chloride",
+	"formula": "BhCl3",
+	"components": [
+	  { "symbol": "Bh", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  },
+  {
+	"name": "Bohrium Oxide",
+	"formula": "BhO2",
+	"components": [
+	  { "symbol": "Bh", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Bohrium Sulfide",
+	"formula": "Bh2S3",
+	"components": [
+	  { "symbol": "Bh", "count": 2 },
+	  { "symbol": "S", "count": 3 }
+	]
+  },
+  {
+	"name": "Bohrium Fluoride",
+	"formula": "BhF6",
+	"components": [
+	  { "symbol": "Bh", "count": 1 },
+	  { "symbol": "F", "count": 6 }
+	]
+  }
+]

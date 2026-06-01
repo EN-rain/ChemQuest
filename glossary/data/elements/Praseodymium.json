@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Praseodymium Element",
+	"formula": "Pr",
+	"components": [
+	  { "symbol": "Pr", "count": 1 }
+	]
+  },
+  {
+	"name": "Praseodymium Oxide",
+	"formula": "Pr6O11",
+	"components": [
+	  { "symbol": "Pr", "count": 6 },
+	  { "symbol": "O", "count": 11 }
+	]
+  },
+  {
+	"name": "Praseodymium Chloride",
+	"formula": "PrCl3",
+	"components": [
+	  { "symbol": "Pr", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

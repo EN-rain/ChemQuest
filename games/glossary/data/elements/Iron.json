@@ -1,0 +1,43 @@
+[
+  {
+	"name": "Iron Element",
+	"formula": "Fe",
+	"components": [
+	  { "symbol": "Fe", "count": 1 }
+	]
+  },
+  {
+	"name": "Iron(III) Oxide (Rust)",
+	"formula": "Fe2O3",
+	"components": [
+	  { "symbol": "Fe", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Iron(II) Sulfate",
+	"formula": "FeSO4",
+	"components": [
+	  { "symbol": "Fe", "count": 1 },
+	  { "symbol": "S", "count": 1 },
+	  { "symbol": "O", "count": 4 }
+	]
+  },
+  {
+	"name": "Iron(III) Chloride",
+	"formula": "FeCl3",
+	"components": [
+	  { "symbol": "Fe", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  },
+  {
+	"name": "Magnetite",
+	"formula": "Fe3O4",
+	"components": [
+	  { "symbol": "Fe", "count": 3 },
+	  { "symbol": "O", "count": 4 }
+	]
+  }
+]
+ 

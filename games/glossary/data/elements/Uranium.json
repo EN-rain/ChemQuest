@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Uranium Element",
+	"formula": "U",
+	"components": [{ "symbol": "U", "count": 1 }]
+  },
+  {
+	"name": "Uranium Dioxide",
+	"formula": "UO2",
+	"components": [
+	  { "symbol": "U", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Uranium Hexafluoride",
+	"formula": "UF6",
+	"components": [
+	  { "symbol": "U", "count": 1 },
+	  { "symbol": "F", "count": 6 }
+	]
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Holmium Element",
+	"formula": "Ho",
+	"components": [
+	  { "symbol": "Ho", "count": 1 }
+	]
+  },
+  {
+	"name": "Holmium Oxide",
+	"formula": "Ho2O3",
+	"components": [
+	  { "symbol": "Ho", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Holmium Chloride",
+	"formula": "HoCl3",
+	"components": [
+	  { "symbol": "Ho", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  },
+  {
+	"name": "Holmium Fluoride",
+	"formula": "HoF3",
+	"components": [
+	  { "symbol": "Ho", "count": 1 },
+	  { "symbol": "F", "count": 3 }
+	]
+  }
+]

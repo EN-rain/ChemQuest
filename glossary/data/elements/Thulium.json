@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Thulium Element",
+	"formula": "Tm",
+	"components": [{ "symbol": "Tm", "count": 1 }]
+  },
+  {
+	"name": "Thulium Oxide",
+	"formula": "Tm2O3",
+	"components": [
+	  { "symbol": "Tm", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Thulium Chloride",
+	"formula": "TmCl3",
+	"components": [
+	  { "symbol": "Tm", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  }
+]

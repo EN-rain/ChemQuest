@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Zirconium Element",
+	"formula": "Zr",
+	"components": [{ "symbol": "Zr", "count": 1 }]
+  },
+  {
+	"name": "Zirconium Oxide",
+	"formula": "ZrO2",
+	"components": [
+	  { "symbol": "Zr", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Zirconium Chloride",
+	"formula": "ZrCl4",
+	"components": [
+	  { "symbol": "Zr", "count": 1 },
+	  { "symbol": "Cl", "count": 4 }
+	]
+  }
+]

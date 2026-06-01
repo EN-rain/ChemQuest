@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Rutherfordium Element",
+	"formula": "Rf",
+	"components": [{ "symbol": "Rf", "count": 1 }]
+  },
+  {
+	"name": "Rutherfordium Oxide",
+	"formula": "RfO2",
+	"components": [
+	  { "symbol": "Rf", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Rutherfordium Chloride",
+	"formula": "RfCl4",
+	"components": [
+	  { "symbol": "Rf", "count": 1 },
+	  { "symbol": "Cl", "count": 4 }
+	]
+  }
+]

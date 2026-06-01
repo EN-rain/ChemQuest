@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Copernicium Element",
+	"formula": "Cn",
+	"components": [
+	  { "symbol": "Cn", "count": 1 }
+	]
+  },
+  {
+	"name": "Copernicium Chloride",
+	"formula": "CnCl4",
+	"components": [
+	  { "symbol": "Cn", "count": 1 },
+	  { "symbol": "Cl", "count": 4 }
+	]
+  },
+  {
+	"name": "Copernicium Oxide",
+	"formula": "CnO",
+	"components": [
+	  { "symbol": "Cn", "count": 1 },
+	  { "symbol": "O", "count": 1 }
+	]
+  }
+]

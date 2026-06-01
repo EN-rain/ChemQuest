@@ -1,0 +1,23 @@
+[
+  {
+	"name": "Thorium Element",
+	"formula": "Th",
+	"components": [{ "symbol": "Th", "count": 1 }]
+  },
+  {
+	"name": "Thorium Dioxide",
+	"formula": "ThO2",
+	"components": [
+	  { "symbol": "Th", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  },
+  {
+	"name": "Thorium Tetrafluoride",
+	"formula": "ThF4",
+	"components": [
+	  { "symbol": "Th", "count": 1 },
+	  { "symbol": "F", "count": 4 }
+	]
+  }
+]

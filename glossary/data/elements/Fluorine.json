@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Fluorine Element",
+	"formula": "F2",
+	"components": [
+	  { "symbol": "F", "count": 2 }
+	]
+  },
+  {
+	"name": "Hydrofluoric Acid",
+	"formula": "HF",
+	"components": [
+	  { "symbol": "H", "count": 1 },
+	  { "symbol": "F", "count": 1 }
+	]
+  },
+  {
+	"name": "Calcium Fluoride",
+	"formula": "CaF2",
+	"components": [
+	  { "symbol": "Ca", "count": 1 },
+	  { "symbol": "F", "count": 2 }
+	]
+  },
+  {
+	"name": "Sulfur Hexafluoride",
+	"formula": "SF6",
+	"components": [
+	  { "symbol": "S", "count": 1 },
+	  { "symbol": "F", "count": 6 }
+	]
+  }
+]

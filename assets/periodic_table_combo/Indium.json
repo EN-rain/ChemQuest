@@ -1,0 +1,35 @@
+[
+  {
+	"name": "Indium Element",
+	"formula": "In",
+	"components": [
+	  { "symbol": "In", "count": 1 }
+	]
+  },
+  {
+	"name": "Indium Oxide",
+	"formula": "In2O3",
+	"components": [
+	  { "symbol": "In", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Indium Chloride",
+	"formula": "InCl3",
+	"components": [
+	  { "symbol": "In", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  },
+  {
+	"name": "Indium Tin Oxide",
+	"formula": "In2O3·SnO2",
+	"components": [
+	  { "symbol": "In", "count": 2 },
+	  { "symbol": "O", "count": 3 },
+	  { "symbol": "Sn", "count": 1 },
+	  { "symbol": "O", "count": 2 }
+	]
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+	"name": "Erbium Element",
+	"formula": "Er",
+	"components": [
+	  { "symbol": "Er", "count": 1 }
+	]
+  },
+  {
+	"name": "Erbium Oxide",
+	"formula": "Er2O3",
+	"components": [
+	  { "symbol": "Er", "count": 2 },
+	  { "symbol": "O", "count": 3 }
+	]
+  },
+  {
+	"name": "Erbium Chloride",
+	"formula": "ErCl3",
+	"components": [
+	  { "symbol": "Er", "count": 1 },
+	  { "symbol": "Cl", "count": 3 }
+	]
+  },
+  {
+	"name": "Erbium Fluoride",
+	"formula": "ErF3",
+	"components": [
+	  { "symbol": "Er", "count": 1 },
+	  { "symbol": "F", "count": 3 }
+	]
+  }
+]

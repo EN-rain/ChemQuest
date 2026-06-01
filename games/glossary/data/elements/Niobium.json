@@ -1,0 +1,25 @@
+[
+  {
+	"name": "Niobium Element",
+	"formula": "Nb",
+	"components": [
+	  { "symbol": "Nb", "count": 1 }
+	]
+  },
+  {
+	"name": "Niobium Pentoxide",
+	"formula": "Nb2O5",
+	"components": [
+	  { "symbol": "Nb", "count": 2 },
+	  { "symbol": "O", "count": 5 }
+	]
+  },
+  {
+	"name": "Niobium Chloride",
+	"formula": "NbCl5",
+	"components": [
+	  { "symbol": "Nb", "count": 1 },
+	  { "symbol": "Cl", "count": 5 }
+	]
+  }
+]

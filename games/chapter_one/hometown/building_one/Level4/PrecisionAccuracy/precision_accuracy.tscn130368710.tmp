@@ -1,0 +1,975 @@
+[gd_scene load_steps=58 format=3 uid="uid://b3ql76j3sbf0i"]
+
+[ext_resource type="Script" uid="uid://coedcxr1qbxew" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/pa_manager.gd" id="1_1b7mb"]
+[ext_resource type="Script" uid="uid://b4m6egkmohs4o" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/target.gd" id="1_2romn"]
+[ext_resource type="Texture2D" uid="uid://dtic0826twd85" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/imgs/bullseye.png" id="2_slysd"]
+[ext_resource type="Script" uid="uid://c88mjes27s4ta" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/score_1.gd" id="4_nc61k"]
+[ext_resource type="Script" uid="uid://ml4gwd7f2ke4" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/score_2.gd" id="6_u25yt"]
+[ext_resource type="Script" uid="uid://bjbrnapd0xu63" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/score_3.gd" id="7_4lvjh"]
+[ext_resource type="Script" uid="uid://cp87p1h1e114o" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/score_4.gd" id="8_fdqim"]
+[ext_resource type="Script" uid="uid://c1vwq21wlu5sg" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/score_5.gd" id="9_5e20c"]
+[ext_resource type="Texture2D" uid="uid://cieqvkr52ov7o" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/imgs/crosshair.png" id="9_8xj85"]
+[ext_resource type="Texture2D" uid="uid://dmf6jv6hquln3" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/imgs/Group 318 (1).png" id="10_nisfu"]
+[ext_resource type="Script" uid="uid://ch25rnmkydsim" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/target_manager.gd" id="10_scnyl"]
+[ext_resource type="Script" uid="uid://coc7brkyrg523" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/results_panel.gd" id="11_rn4h7"]
+[ext_resource type="Script" uid="uid://dq8ry3f5k7dr6" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/score_display.gd" id="11_xmfqp"]
+[ext_resource type="Texture2D" uid="uid://cma5tm1knivdr" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/imgs/Group 698.png" id="13_jxqq1"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="14_nisfu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_slysd"]
+radius = 7.07107
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j2j2u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdsvj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i81ox"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3n3k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_os8op"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w6brl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihplx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tjll5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5joa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cffxq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hr125"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gdhq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btehx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7cfjq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xd4kp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmbqv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qny1j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a1cb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hnwe7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u6pcw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23huu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a4hji"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5y4dt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vsini"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xi87c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6loxg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_byqfo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0tdcm"]
+font = ExtResource("14_nisfu")
+font_size = 25
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5j05r"]
+font = ExtResource("14_nisfu")
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_6a1cb"]
+font = ExtResource("14_nisfu")
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_qny1j"]
+font = ExtResource("14_nisfu")
+font_size = 40
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lr0td"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0lem2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_phw4t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pkd53"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ui1y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y3bd4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_epbbk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_os5ik"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trl5c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fhp8u"]
+font = ExtResource("14_nisfu")
+font_size = 40
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1, 2)
+
+[node name="PrecisionAccuracy" type="Node2D"]
+
+[node name="Targets" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(549, 314)
+
+[node name="Target1" type="Node2D" parent="Targets"]
+unique_name_in_owner = true
+position = Vector2(-300, -96)
+script = ExtResource("1_2romn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Targets/Target1"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Targets/Target1"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target1/Score1"]
+
+[node name="Score2" type="Area2D" parent="Targets/Target1"]
+script = ExtResource("6_u25yt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target1/Score2"]
+
+[node name="Score3" type="Area2D" parent="Targets/Target1"]
+script = ExtResource("7_4lvjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target1/Score3"]
+
+[node name="Score4" type="Area2D" parent="Targets/Target1"]
+script = ExtResource("8_fdqim")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target1/Score4"]
+
+[node name="Score5" type="Area2D" parent="Targets/Target1"]
+script = ExtResource("9_5e20c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target1/Score5"]
+
+[node name="Target2" type="Node2D" parent="Targets"]
+unique_name_in_owner = true
+position = Vector2(-150, -96)
+script = ExtResource("1_2romn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Targets/Target2"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Targets/Target2"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target2/Score1"]
+
+[node name="Score2" type="Area2D" parent="Targets/Target2"]
+script = ExtResource("6_u25yt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target2/Score2"]
+
+[node name="Score3" type="Area2D" parent="Targets/Target2"]
+script = ExtResource("7_4lvjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target2/Score3"]
+
+[node name="Score4" type="Area2D" parent="Targets/Target2"]
+script = ExtResource("8_fdqim")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target2/Score4"]
+
+[node name="Score5" type="Area2D" parent="Targets/Target2"]
+script = ExtResource("9_5e20c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target2/Score5"]
+
+[node name="Target3" type="Node2D" parent="Targets"]
+unique_name_in_owner = true
+position = Vector2(0, -96)
+script = ExtResource("1_2romn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Targets/Target3"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Targets/Target3"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target3/Score1"]
+
+[node name="Score2" type="Area2D" parent="Targets/Target3"]
+script = ExtResource("6_u25yt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target3/Score2"]
+
+[node name="Score3" type="Area2D" parent="Targets/Target3"]
+script = ExtResource("7_4lvjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target3/Score3"]
+
+[node name="Score4" type="Area2D" parent="Targets/Target3"]
+script = ExtResource("8_fdqim")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target3/Score4"]
+
+[node name="Score5" type="Area2D" parent="Targets/Target3"]
+script = ExtResource("9_5e20c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target3/Score5"]
+
+[node name="Target4" type="Node2D" parent="Targets"]
+unique_name_in_owner = true
+position = Vector2(150, -96)
+script = ExtResource("1_2romn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Targets/Target4"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Targets/Target4"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Targets/Target4/Score1"]
+
+[node name="Score2" type="Area2D" parent="Targets/Target4"]
+script = ExtResource("6_u25yt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target4/Score2"]
+
+[node name="Score3" type="Area2D" parent="Targets/Target4"]
+script = ExtResource("7_4lvjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target4/Score3"]
+
+[node name="Score4" type="Area2D" parent="Targets/Target4"]
+script = ExtResource("8_fdqim")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target4/Score4"]
+
+[node name="Score5" type="Area2D" parent="Targets/Target4"]
+script = ExtResource("9_5e20c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target4/Score5"]
+
+[node name="Target5" type="Node2D" parent="Targets"]
+unique_name_in_owner = true
+position = Vector2(300, -96)
+script = ExtResource("1_2romn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Targets/Target5"]
+scale = Vector2(0.248, 0.25)
+texture = ExtResource("2_slysd")
+
+[node name="Score1" type="Area2D" parent="Targets/Target5"]
+script = ExtResource("4_nc61k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target5/Score1"]
+
+[node name="Score2" type="Area2D" parent="Targets/Target5"]
+script = ExtResource("6_u25yt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target5/Score2"]
+
+[node name="Score3" type="Area2D" parent="Targets/Target5"]
+script = ExtResource("7_4lvjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target5/Score3"]
+
+[node name="Score4" type="Area2D" parent="Targets/Target5"]
+script = ExtResource("8_fdqim")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target5/Score4"]
+
+[node name="Score5" type="Area2D" parent="Targets/Target5"]
+script = ExtResource("9_5e20c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Targets/Target5/Score5"]
+
+[node name="PAManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_1b7mb")
+
+[node name="FireZoneBoundary" type="ColorRect" parent="PAManager"]
+unique_name_in_owner = true
+offset_left = 480.0
+offset_top = 198.0
+offset_right = 631.0
+offset_bottom = 244.0
+color = Color(0.543633, 0.423, 0.94, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="FireZone" type="Area2D" parent="PAManager/FireZoneBoundary"]
+unique_name_in_owner = true
+position = Vector2(91, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PAManager/FireZoneBoundary/FireZone"]
+shape = SubResource("CircleShape2D_slysd")
+
+[node name="Sprite2D" type="Sprite2D" parent="PAManager/FireZoneBoundary/FireZone"]
+self_modulate = Color(0.87, 0.1653, 0.30624, 1)
+position = Vector2(-2.70605e-05, 7.27177e-06)
+scale = Vector2(0.109375, 0.109375)
+texture = ExtResource("9_8xj85")
+
+[node name="TargetManager" type="Node2D" parent="PAManager"]
+unique_name_in_owner = true
+script = ExtResource("10_scnyl")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="FireButton" type="Button" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.410156
+anchor_top = 0.733025
+anchor_right = 0.589844
+anchor_bottom = 1.0
+offset_top = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j2j2u")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cdsvj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i81ox")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_r3n3k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_os8op")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w6brl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ihplx")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_tjll5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x5joa")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/FireButton"]
+position = Vector2(103.5, 52)
+scale = Vector2(0.7, 0.661)
+texture = ExtResource("10_nisfu")
+
+[node name="ScoreDisplay" type="Control" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchor_left = 0.0373264
+anchor_top = 0.470679
+anchor_right = 0.117188
+anchor_bottom = 0.884259
+script = ExtResource("11_xmfqp")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ScoreDisplay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.107011
+anchor_right = 0.325385
+anchor_bottom = 0.981049
+offset_right = 80.9365
+offset_bottom = 788.4
+scale = Vector2(0.27, 0.27)
+theme_override_constants/separation = 270
+metadata/_edit_use_anchors_ = true
+
+[node name="HitTarget1" type="Control" parent="UI/ScoreDisplay/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget1"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget1"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_8xj85")
+
+[node name="Label" type="Label" parent="UI/ScoreDisplay/VBoxContainer/HitTarget1"]
+layout_mode = 0
+anchor_left = 1.51515
+anchor_right = 2.56061
+offset_left = 1.52588e-05
+offset_top = -29.6297
+offset_right = 28.9994
+offset_bottom = 28.3703
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SCORE"
+
+[node name="HitTarget2" type="Control" parent="UI/ScoreDisplay/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget2"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget2"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_8xj85")
+
+[node name="Label" type="Label" parent="UI/ScoreDisplay/VBoxContainer/HitTarget2"]
+layout_mode = 0
+anchor_left = 1.51515
+anchor_right = 2.56061
+offset_left = 1.52588e-05
+offset_top = -29.6298
+offset_right = 28.9994
+offset_bottom = 28.3702
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SCORE"
+
+[node name="HitTarget3" type="Control" parent="UI/ScoreDisplay/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget3"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget3"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_8xj85")
+
+[node name="Label" type="Label" parent="UI/ScoreDisplay/VBoxContainer/HitTarget3"]
+layout_mode = 0
+anchor_left = 1.51515
+anchor_right = 2.56061
+offset_left = 1.52588e-05
+offset_top = -29.6298
+offset_right = 28.9994
+offset_bottom = 28.3702
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SCORE"
+
+[node name="HitTarget4" type="Control" parent="UI/ScoreDisplay/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget4"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget4"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_8xj85")
+
+[node name="Label" type="Label" parent="UI/ScoreDisplay/VBoxContainer/HitTarget4"]
+layout_mode = 0
+anchor_left = 1.51515
+anchor_right = 2.56061
+offset_left = 1.52588e-05
+offset_top = -29.6298
+offset_right = 28.9994
+offset_bottom = 28.3702
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SCORE"
+
+[node name="HitTarget5" type="Control" parent="UI/ScoreDisplay/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget5"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ScoreDisplay/VBoxContainer/HitTarget5"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_8xj85")
+
+[node name="Label" type="Label" parent="UI/ScoreDisplay/VBoxContainer/HitTarget5"]
+layout_mode = 0
+anchor_left = 1.51515
+anchor_right = 2.56061
+offset_left = 1.52588e-05
+offset_top = -29.6296
+offset_right = 28.9994
+offset_bottom = 28.3704
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SCORE"
+
+[node name="GameHUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Home" type="Button" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.876736
+anchor_right = 1.0
+anchor_bottom = 0.117284
+grow_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cffxq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_hr125")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8gdhq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_btehx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7cfjq")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xd4kp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jmbqv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qny1j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6a1cb")
+metadata/_edit_use_anchors_ = true
+
+[node name="ResultsPanel" type="Panel" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.0902778
+anchor_top = 0.109568
+anchor_right = 0.909722
+anchor_bottom = 0.890432
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_rn4h7")
+metadata/_edit_use_anchors_ = true
+
+[node name="Precision" type="Button" parent="UI/ResultsPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 120.0
+offset_top = 317.0
+offset_right = 393.0
+offset_bottom = 397.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hnwe7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_u6pcw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_23huu")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_a4hji")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5y4dt")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_vsini")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_xi87c")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6loxg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_byqfo")
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/ResultsPanel/Precision"]
+position = Vector2(138.75, 39.9999)
+scale = Vector2(1.21282, 1)
+texture = ExtResource("13_jxqq1")
+
+[node name="Label" type="Label" parent="UI/ResultsPanel/Precision"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -15.0
+offset_right = 93.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HIGH PRECISION"
+
+[node name="Precision2" type="Button" parent="UI/ResultsPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 120.0
+offset_top = 413.0
+offset_right = 402.0
+offset_bottom = 493.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hnwe7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_u6pcw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_23huu")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_a4hji")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5y4dt")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_vsini")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_xi87c")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6loxg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_byqfo")
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/ResultsPanel/Precision2"]
+position = Vector2(138.75, 39.9999)
+scale = Vector2(1.21282, 1)
+texture = ExtResource("13_jxqq1")
+
+[node name="Label" type="Label" parent="UI/ResultsPanel/Precision2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -15.0
+offset_right = 93.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "LOW PRECISION"
+
+[node name="Accuracy" type="Button" parent="UI/ResultsPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 540.0
+offset_top = 316.0
+offset_right = 817.0
+offset_bottom = 396.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hnwe7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_u6pcw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_23huu")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_a4hji")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5y4dt")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_vsini")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_xi87c")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6loxg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_byqfo")
+text = "HIGH PRECISION"
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/ResultsPanel/Accuracy"]
+position = Vector2(138.75, 39.9999)
+scale = Vector2(1.21282, 1)
+texture = ExtResource("13_jxqq1")
+
+[node name="Label" type="Label" parent="UI/ResultsPanel/Accuracy"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -15.0
+offset_right = 93.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HIGH ACCURACY"
+
+[node name="Accuracy2" type="Button" parent="UI/ResultsPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 540.0
+offset_top = 414.0
+offset_right = 817.0
+offset_bottom = 494.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hnwe7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_u6pcw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_23huu")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_a4hji")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5y4dt")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_vsini")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_xi87c")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6loxg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_byqfo")
+text = "LOW ACCURACY"
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/ResultsPanel/Accuracy2"]
+position = Vector2(138.75, 39.9999)
+scale = Vector2(1.21282, 1)
+texture = ExtResource("13_jxqq1")
+
+[node name="Label" type="Label" parent="UI/ResultsPanel/Accuracy2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -15.0
+offset_right = 93.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "LOW ACCURACY"
+
+[node name="Question" type="Label" parent="UI/ResultsPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.268008
+anchor_top = 0.44664
+anchor_right = 0.731992
+anchor_bottom = 0.55336
+grow_horizontal = 2
+grow_vertical = 2
+text = "How would you describe your shooting?"
+label_settings = SubResource("LabelSettings_0tdcm")
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ResultsPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.107011
+anchor_right = 1.20513
+anchor_bottom = 1.12177
+offset_left = 78.0
+offset_top = 143.148
+offset_right = 1820.36
+offset_bottom = -271.616
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.27, 0.27)
+theme_override_constants/separation = 720
+
+[node name="HitTarget1" type="Control" parent="UI/ResultsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget1"]
+texture_filter = 1
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget1"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_8xj85")
+
+[node name="Label" type="Label" parent="UI/ResultsPanel/HBoxContainer/HitTarget1"]
+layout_mode = 0
+offset_left = -118.519
+offset_top = 340.741
+offset_right = 134.482
+offset_bottom = 450.741
+text = "SCORE"
+label_settings = SubResource("LabelSettings_5j05r")
+horizontal_alignment = 1
+
+[node name="HitTarget2" type="Control" parent="UI/ResultsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget2"]
+texture_filter = 1
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget2"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_8xj85")
+
+[node name="Label" type="Label" parent="UI/ResultsPanel/HBoxContainer/HitTarget2"]
+layout_mode = 0
+offset_left = -118.519
+offset_top = 340.741
+offset_right = 134.482
+offset_bottom = 450.741
+text = "SCORE"
+label_settings = SubResource("LabelSettings_5j05r")
+horizontal_alignment = 1
+
+[node name="HitTarget3" type="Control" parent="UI/ResultsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget3"]
+texture_filter = 1
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget3"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_8xj85")
+
+[node name="Label" type="Label" parent="UI/ResultsPanel/HBoxContainer/HitTarget3"]
+layout_mode = 0
+offset_left = -118.519
+offset_top = 340.741
+offset_right = 134.482
+offset_bottom = 450.741
+text = "SCORE"
+label_settings = SubResource("LabelSettings_5j05r")
+horizontal_alignment = 1
+
+[node name="HitTarget4" type="Control" parent="UI/ResultsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget4"]
+texture_filter = 1
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget4"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_8xj85")
+
+[node name="Label" type="Label" parent="UI/ResultsPanel/HBoxContainer/HitTarget4"]
+layout_mode = 0
+offset_left = -118.519
+offset_top = 340.741
+offset_right = 134.482
+offset_bottom = 450.741
+text = "SCORE"
+label_settings = SubResource("LabelSettings_5j05r")
+horizontal_alignment = 1
+
+[node name="HitTarget5" type="Control" parent="UI/ResultsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="TargetImg" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget5"]
+texture_filter = 1
+texture = ExtResource("2_slysd")
+
+[node name="HitMark" type="Sprite2D" parent="UI/ResultsPanel/HBoxContainer/HitTarget5"]
+modulate = Color(0.243049, 0.568111, 0.770834, 1)
+rotation = 3.14159
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_8xj85")
+
+[node name="Label" type="Label" parent="UI/ResultsPanel/HBoxContainer/HitTarget5"]
+layout_mode = 0
+offset_left = -118.519
+offset_top = 340.741
+offset_right = 134.482
+offset_bottom = 450.741
+text = "SCORE"
+label_settings = SubResource("LabelSettings_5j05r")
+horizontal_alignment = 1
+
+[node name="ResultsLabel" type="Label" parent="UI/ResultsPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -395.0
+offset_top = -223.0
+offset_right = 394.0
+offset_bottom = 0.00012207
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_6a1cb")
+
+[node name="Score" type="TextureRect" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.430122
+anchor_right = 0.569878
+anchor_bottom = 0.126543
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="Label" parent="UI/Score"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.276398
+anchor_top = 0.219512
+anchor_right = 0.723602
+anchor_bottom = 0.780488
+offset_top = 8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+label_settings = SubResource("LabelSettings_qny1j")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="End" type="Button" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = -1
+anchor_left = 0.876736
+anchor_top = 0.140432
+anchor_right = 0.993924
+anchor_bottom = 0.248457
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lr0td")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_0lem2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_phw4t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pkd53")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1ui1y")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_y3bd4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_epbbk")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_os5ik")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_trl5c")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/End"]
+position = Vector2(69.25, 34.25)
+scale = Vector2(0.375332, 1.05)
+
+[node name="Label" type="Label" parent="UI/End"]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 141.0
+offset_bottom = 67.0
+text = "END "
+label_settings = SubResource("LabelSettings_fhp8u")
+horizontal_alignment = 1
+
+[node name="Retry" type="Button" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = -1
+anchor_left = 0.876736
+anchor_top = 0.263889
+anchor_right = 0.993924
+anchor_bottom = 0.371914
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lr0td")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_0lem2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_phw4t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pkd53")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1ui1y")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_y3bd4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_epbbk")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_os5ik")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_trl5c")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Retry"]
+position = Vector2(69.25, 34.25)
+scale = Vector2(0.375332, 1.05)
+
+[node name="Label" type="Label" parent="UI/Retry"]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 141.0
+offset_bottom = 67.0
+text = "RETRY"
+label_settings = SubResource("LabelSettings_fhp8u")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="UI/Home" to="PAManager" method="_on_home_pressed"]
+[connection signal="pressed" from="UI/ResultsPanel/Precision" to="UI/ResultsPanel" method="_on_precision_pressed"]
+[connection signal="pressed" from="UI/ResultsPanel/Precision2" to="UI/ResultsPanel" method="_on_precision_2_pressed"]
+[connection signal="pressed" from="UI/ResultsPanel/Accuracy" to="UI/ResultsPanel" method="_on_accuracy_pressed"]
+[connection signal="pressed" from="UI/ResultsPanel/Accuracy2" to="UI/ResultsPanel" method="_on_accuracy_2_pressed"]

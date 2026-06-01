@@ -1,0 +1,552 @@
+[
+  {
+	"id": 1,
+	"situation": "The mass of a gold bar increases when you add more gold.",
+	"answer": "extensive",
+	"feedback": {
+	  "extensive": "That is right. Mass depends on how much material is present.",
+	  "intensive": "This property does change with amount, so it is not intensive.",
+	  "chemical": "This does not involve a chemical reaction or new substance.",
+	  "physical": "This is a physical property, but it is more specific than just physical."
+	}
+  },
+  {
+	"id": 2,
+	"situation": "The density of water remains the same whether you have one cup or a full bucket.",
+	"answer": "intensive",
+	"feedback": {
+	  "extensive": "This property does not increase with quantity of water.",
+	  "intensive": "That is correct. Density does not depend on the amount of matter.",
+	  "chemical": "Density is not a chemical property.",
+	  "physical": "Density is a physical property, but more specifically it is intensive."
+	}
+  },
+  {
+	"id": 3,
+	"situation": "Iron rusts when it reacts with oxygen over time.",
+	"answer": "chemical",
+	"feedback": {
+	  "extensive": "Rusting does not depend on the size of the sample.",
+	  "intensive": "This is not about a constant property like density or color.",
+	  "chemical": "That is correct. Rusting creates a new substance.",
+	  "physical": "This is more than a change of state or shape."
+	}
+  },
+  {
+	"id": 4,
+	"situation": "Ice melts into liquid water when heated.",
+	"answer": "physical",
+	"feedback": {
+	  "extensive": "Melting is not affected by the amount of ice.",
+	  "intensive": "This is not about a constant measurement.",
+	  "chemical": "Melting does not produce a new substance.",
+	  "physical": "That is correct. Melting changes the state but not the composition."
+	}
+  },
+  {
+	"id": 5,
+	"situation": "The volume of air in a balloon increases when you blow more air into it.",
+	"answer": "extensive",
+	"feedback": {
+	  "extensive": "That is right. Volume depends on the amount of matter.",
+	  "intensive": "This property does change with quantity.",
+	  "chemical": "This is not a chemical process.",
+	  "physical": "Volume is a physical property, but it is specifically extensive."
+	}
+  },
+  {
+	"id": 6,
+	"situation": "The boiling point of pure water is always 100 degrees Celsius at standard pressure.",
+	"answer": "intensive",
+	"feedback": {
+	  "extensive": "This value does not change with more or less water.",
+	  "intensive": "That is correct. The boiling point is an intensive property.",
+	  "chemical": "Boiling does not represent a chemical transformation.",
+	  "physical": "The boiling point is physical, but more specific as an intensive property."
+	}
+  },
+  {
+	"id": 7,
+	"situation": "Wood burning in a fireplace produces ash and smoke.",
+	"answer": "chemical",
+	"feedback": {
+	  "extensive": "Burning is not about the size of the piece of wood.",
+	  "intensive": "This is not about a measurable constant.",
+	  "chemical": "That is correct. Burning changes the composition of the material.",
+	  "physical": "This goes beyond a simple physical change."
+	}
+  },
+  {
+	"id": 8,
+	"situation": "A glass shatters into smaller pieces when dropped.",
+	"answer": "physical",
+	"feedback": {
+	  "extensive": "Breaking glass does not depend on the amount of glass.",
+	  "intensive": "This is not about density or color.",
+	  "chemical": "Shattering does not create a new substance.",
+	  "physical": "That is correct. The composition remains the same, only the form changes."
+	}
+  },
+  {
+	"id": 9,
+	"situation": "The length of a metal rod increases if more material is added.",
+	"answer": "extensive",
+	"feedback": {
+	  "extensive": "That is right. Length depends on the quantity of material.",
+	  "intensive": "This property does depend on quantity, so it is not intensive.",
+	  "chemical": "No chemical change occurs when material is added.",
+	  "physical": "Length is physical, but specifically extensive."
+	}
+  },
+  {
+	"id": 10,
+	"situation": "The color of copper is reddish-brown no matter how much you have.",
+	"answer": "intensive",
+	"feedback": {
+	  "extensive": "The color does not change when more copper is added.",
+	  "intensive": "That is correct. Color does not depend on the amount of matter.",
+	  "chemical": "No chemical change is happening here.",
+	  "physical": "Color is a physical property, but it is specifically intensive."
+	}
+  },
+  {
+	"id": 11,
+	"situation": "Milk turns sour if it is left out for several days.",
+	"answer": "chemical",
+	"feedback": {
+	  "extensive": "The souring does not depend on how much milk there is.",
+	  "intensive": "This is not about a constant property like boiling point.",
+	  "chemical": "That is correct. Souring creates new substances.",
+	  "physical": "Souring is not a physical change of state or form."
+	}
+  },
+  {
+	"id": 12,
+	"situation": "The temperature of boiling water is the same in a small pot and a large pot.",
+	"answer": "intensive",
+	"feedback": {
+	  "extensive": "The size of the pot does not change the boiling temperature.",
+	  "intensive": "That is correct. Boiling temperature does not depend on quantity.",
+	  "chemical": "Boiling is not a chemical property.",
+	  "physical": "Temperature is physical, but more specifically intensive."
+	}
+  },
+  {
+	"id": 13,
+	"situation": "Sugar dissolves in water to form a sweet solution.",
+	"answer": "physical",
+	"feedback": {
+	  "extensive": "Dissolving is not tied to the quantity in this way.",
+	  "intensive": "This is not about a constant measurable property.",
+	  "chemical": "No new substance is created when sugar dissolves.",
+	  "physical": "That is correct. Dissolving is a physical change."
+	}
+  },
+  {
+	"id": 14,
+	"situation": "Gasoline burning in an engine releases carbon dioxide and water vapor.",
+	"answer": "chemical",
+	"feedback": {
+	  "extensive": "This reaction does not depend on the amount of gasoline in this sense.",
+	  "intensive": "This is not about a constant value like density or boiling point.",
+	  "chemical": "That is correct. Burning gasoline creates new substances.",
+	  "physical": "This is more than a change of state or appearance."
+	}
+  },
+  {
+	"id": 15,
+	"situation": "The weight of a box doubles if you place a second identical box on top of it.",
+	"answer": "extensive",
+	"feedback": {
+	  "extensive": "That is right. Weight depends on the total amount of matter.",
+	  "intensive": "Weight changes with quantity, so it is not intensive.",
+	  "chemical": "No chemical change is happening here.",
+	  "physical": "Weight is physical, but more specifically extensive."
+	}
+  },
+  {
+	"id": 16,
+	"situation": "The melting point of pure gold remains the same whether you have one gram or one kilogram.",
+	"answer": "intensive",
+	"feedback": {
+	  "extensive": "The melting point does not change with more gold.",
+	  "intensive": "That is correct. Melting point is independent of size.",
+	  "chemical": "Melting point is not a chemical property.",
+	  "physical": "It is a physical property, but more specifically intensive."
+	}
+  },
+  {
+	"id": 17,
+	"situation": "An apple turns brown after being cut and exposed to air.",
+	"answer": "chemical",
+	"feedback": {
+	  "extensive": "The browning is not about the amount of apple.",
+	  "intensive": "This is not about a measurable constant.",
+	  "chemical": "That is correct. The browning is a chemical reaction.",
+	  "physical": "This is not just a change in shape or state."
+	}
+  },
+  {
+	"id": 18,
+	"situation": "A metal wire conducts electricity the same way regardless of its length.",
+	"answer": "intensive",
+	"feedback": {
+	  "extensive": "Conductivity is not determined by the size of the wire.",
+	  "intensive": "That is correct. Conductivity is an intensive property.",
+	  "chemical": "Conductivity is not a chemical property.",
+	  "physical": "It is physical, but more specifically intensive."
+	}
+  },
+  {
+	"id": 19,
+	"situation": "When salt is heated strongly, it decomposes into sodium and chlorine gases.",
+	"answer": "chemical",
+	"feedback": {
+	  "extensive": "This decomposition does not depend on the amount of salt.",
+	  "intensive": "This is not a constant measurable property.",
+	  "chemical": "That is correct. Heating causes a chemical decomposition.",
+	  "physical": "This is not just a change of state."
+	}
+  },
+  {
+	"id": 20,
+	"situation": "The volume of water in a container doubles when you pour in a second identical container of water.",
+	"answer": "extensive",
+	"feedback": {
+	  "extensive": "That is right. Volume adds up with more material.",
+	  "intensive": "This does change with amount, so it is not intensive.",
+	  "chemical": "No chemical reaction is involved here.",
+	  "physical": "Volume is physical, but specifically extensive."
+	}
+  },
+  {
+	"id": 21,
+	"situation": "Cutting a sheet of paper into smaller pieces leaves the material still as paper.",
+	"answer": "physical",
+	"feedback": {
+	  "extensive": "Cutting does not depend on the size of the sheet.",
+	  "intensive": "This is not about a constant value like density.",
+	  "chemical": "No new substance is formed by cutting.",
+	  "physical": "That is correct. The composition remains the same."
+	}
+  },
+  {
+	"id": 22,
+	"situation": "The taste of sugar remains sweet whether you have a teaspoon or a bag.",
+	"answer": "intensive",
+	"feedback": {
+	  "extensive": "The taste does not change with amount.",
+	  "intensive": "That is correct. Taste is independent of sample size.",
+	  "chemical": "Taste is not a chemical change.",
+	  "physical": "Taste is a physical property, but more specifically intensive."
+	}
+  },
+  {
+	"id": 23,
+	"situation": "Burning a candle produces carbon dioxide, water vapor, and wax residue.",
+	"answer": "chemical",
+	"feedback": {
+	  "extensive": "The chemical change occurs regardless of the amount of wax.",
+	  "intensive": "This is not about a measurable constant.",
+	  "chemical": "That is correct. Burning creates new substances.",
+	  "physical": "This is not just a physical change of form."
+	}
+  },
+  {
+	"id": 24,
+	"situation": "Stretching a rubber band makes it longer but does not change what it is made of.",
+	"answer": "physical",
+	"feedback": {
+	  "extensive": "The change in length does not define the property type.",
+	  "intensive": "This is not about a constant property like color.",
+	  "chemical": "Stretching does not produce a new substance.",
+	  "physical": "That is correct. Stretching is a physical change."
+	}
+  },
+  {
+	"id": 25,
+	"situation": "The brightness of gold remains the same no matter how much you have.",
+	"answer": "intensive",
+	"feedback": {
+	  "extensive": "Brightness does not depend on the amount of gold.",
+	  "intensive": "That is correct. Brightness is an intensive property.",
+	  "chemical": "Brightness is not chemical in nature.",
+	  "physical": "It is physical, but specifically intensive."
+	}
+  },
+  {
+	"id": 26,
+	"situation": "Silver tarnishes when exposed to air and moisture.",
+	"answer": "chemical",
+	"feedback": {
+	  "extensive": "Tarnishing does not depend on how much silver is present.",
+	  "intensive": "This is not a measurable constant like density.",
+	  "chemical": "That is correct. Tarnishing forms a new compound.",
+	  "physical": "This is not a simple physical change."
+	}
+  },
+  {
+	"id": 27,
+	"situation": "The weight of a pile of sand increases as more sand is added.",
+	"answer": "extensive",
+	"feedback": {
+	  "extensive": "That is right. Weight increases with more material.",
+	  "intensive": "Weight is not constant with sample size.",
+	  "chemical": "No chemical change occurs when adding sand.",
+	  "physical": "Weight is physical, but specifically extensive."
+	}
+  },
+  {
+	"id": 28,
+	"situation": "Alcohol evaporates when left uncovered at room temperature.",
+	"answer": "physical",
+	"feedback": {
+	  "extensive": "Evaporation is not determined by the amount.",
+	  "intensive": "This is not about a constant property.",
+	  "chemical": "No new substance is formed by evaporation.",
+	  "physical": "That is correct. Evaporation is a physical change of state."
+	}
+  },
+  {
+	"id": 29,
+	"situation": "The color of sulfur is yellow regardless of the sample size.",
+	"answer": "intensive",
+	"feedback": {
+	  "extensive": "The color does not change when more sulfur is present.",
+	  "intensive": "That is correct. Color is an intensive property.",
+	  "chemical": "Color is not the result of a chemical change.",
+	  "physical": "It is physical, but more specifically intensive."
+	}
+  },
+  {
+	"id": 30,
+	"situation": "Baking bread produces a new aroma and texture.",
+	"answer": "chemical",
+	"feedback": {
+	  "extensive": "The chemical change does not depend on the size of dough.",
+	  "intensive": "This is not about a measurable constant.",
+	  "chemical": "That is correct. Baking involves chemical changes.",
+	  "physical": "This is more than just a physical transformation."
+	}
+  },
+  {
+	"id": 31,
+	"situation": "The volume of juice increases when more juice is poured into the glass.",
+	"answer": "extensive",
+	"feedback": {
+	  "extensive": "That is right. Volume grows as more liquid is added.",
+	  "intensive": "Volume is not independent of quantity.",
+	  "chemical": "No new substance is created here.",
+	  "physical": "Volume is a physical property, but specifically extensive."
+	}
+  },
+  {
+	"id": 32,
+	"situation": "The smell of vinegar is the same whether you have a drop or a bottle.",
+	"answer": "intensive",
+	"feedback": {
+	  "extensive": "The smell does not vary with amount.",
+	  "intensive": "That is correct. Smell is an intensive property.",
+	  "chemical": "Smell itself is not a chemical change.",
+	  "physical": "It is physical, but more specifically intensive."
+	}
+  },
+  {
+	"id": 33,
+	"situation": "Iron filings attracted to a magnet remain iron filings afterward.",
+	"answer": "physical",
+	"feedback": {
+	  "extensive": "The attraction is not tied to the amount of iron.",
+	  "intensive": "This is not about a measurable constant.",
+	  "chemical": "Magnetism does not create a new substance.",
+	  "physical": "That is correct. The composition does not change."
+	}
+  },
+  {
+	"id": 34,
+	"situation": "Cooking an egg changes the clear liquid into a solid white.",
+	"answer": "chemical",
+	"feedback": {
+	  "extensive": "This change happens regardless of egg size.",
+	  "intensive": "This is not about a constant property like density.",
+	  "chemical": "That is correct. Cooking eggs involves chemical reactions.",
+	  "physical": "This is not just a simple physical change."
+	}
+  },
+  {
+	"id": 35,
+	"situation": "The shape of clay changes when molded but it remains clay.",
+	"answer": "physical",
+	"feedback": {
+	  "extensive": "The property does not depend on how much clay is present.",
+	  "intensive": "This is not a constant measurable property.",
+	  "chemical": "Molding does not create a new substance.",
+	  "physical": "That is correct. The composition is unchanged."
+	}
+  },
+  {
+	"id": 36,
+	"situation": "The density of pure gold is the same in a ring or a bar.",
+	"answer": "intensive",
+	"feedback": {
+	  "extensive": "The density does not depend on how much gold there is.",
+	  "intensive": "That is correct. Density is an intensive property.",
+	  "chemical": "Density is not a chemical property.",
+	  "physical": "It is physical, but more specifically intensive."
+	}
+  },
+  {
+	"id": 37,
+	"situation": "Burning paper produces smoke and ash.",
+	"answer": "chemical",
+	"feedback": {
+	  "extensive": "The chemical change occurs regardless of paper size.",
+	  "intensive": "This is not about a constant property.",
+	  "chemical": "That is correct. Burning paper creates new substances.",
+	  "physical": "This is more than just a change in form."
+	}
+  },
+  {
+	"id": 38,
+	"situation": "The mass of water increases if more water is poured into the container.",
+	"answer": "extensive",
+	"feedback": {
+	  "extensive": "That is right. Mass depends on the amount of matter.",
+	  "intensive": "This property changes with amount, so it is not intensive.",
+	  "chemical": "Adding water is not a chemical change.",
+	  "physical": "Mass is physical, but specifically extensive."
+	}
+  },
+  {
+	"id": 39,
+	"situation": "The boiling point of ethanol remains constant at standard pressure.",
+	"answer": "intensive",
+	"feedback": {
+	  "extensive": "Boiling point does not vary with more or less ethanol.",
+	  "intensive": "That is correct. Boiling point is an intensive property.",
+	  "chemical": "Boiling point is not a chemical property.",
+	  "physical": "It is physical, but more specifically intensive."
+	}
+  },
+  {
+	"id": 40,
+	"situation": "Frying potatoes changes their texture and produces new flavors.",
+	"answer": "chemical",
+	"feedback": {
+	  "extensive": "The change occurs regardless of portion size.",
+	  "intensive": "This is not about a constant measurable property.",
+	  "chemical": "That is correct. Frying involves chemical changes.",
+	  "physical": "This is not just a change of shape or state."
+	}
+  },
+{
+	"id": 41,
+	"situation": "When a metal spoon is left in hot tea, the handle becomes warm.",
+	"answer": "physical",
+	"feedback": {
+	  "extensive": "Heat transfer happens regardless of amount.",
+	  "intensive": "This is not a fixed measurable property like density.",
+	  "chemical": "No new substance is formed here.",
+	  "physical": "That is correct. Heat transfer is a physical process."
+	}
+},
+{
+	"id": 42,
+	"situation": "Gold jewelry keeps its shiny appearance even when reshaped.",
+	"answer": "physical",
+	"feedback": {
+	  "extensive": "Changing shape doesn’t depend on quantity.",
+	  "intensive": "This is not about a fixed property like melting point.",
+	  "chemical": "No chemical reaction occurs during reshaping.",
+	  "physical": "That is correct. The material remains the same."
+	}
+},
+{
+	"id": 43,
+	"situation": "The sweetness of honey is the same no matter how much you taste.",
+	"answer": "intensive",
+	"feedback": {
+	  "extensive": "Taste does not increase with more quantity.",
+	  "intensive": "That is correct. Sweetness is an intensive property.",
+	  "chemical": "Taste alone is not a chemical change.",
+	  "physical": "Sweetness is physical, but specifically intensive."
+	}
+},
+{
+	"id": 44,
+	"situation": "When iron is heated strongly, it glows red hot.",
+	"answer": "physical",
+	"feedback": {
+	  "extensive": "The color change due to heat is not about amount.",
+	  "intensive": "Temperature affects this, but not quantity.",
+	  "chemical": "No new material is created when glowing.",
+	  "physical": "That is correct. The glow is a physical change."
+	}
+},
+{
+	"id": 45,
+	"situation": "Vinegar reacting with baking soda produces bubbles of carbon dioxide gas.",
+	"answer": "chemical",
+	"feedback": {
+	  "extensive": "The reaction occurs regardless of sample size.",
+	  "intensive": "This is not about a constant property like color.",
+	  "chemical": "That is correct. A new substance (CO₂) is formed.",
+	  "physical": "This is more than a change in form or state."
+	}
+},
+{
+	"id": 46,
+	"situation": "The luster of silver remains even when it is cut into smaller pieces.",
+	"answer": "intensive",
+	"feedback": {
+	  "extensive": "Shininess does not change with more or less silver.",
+	  "intensive": "That is correct. Luster is an intensive property.",
+	  "chemical": "This does not involve a new substance.",
+	  "physical": "It is a physical property, specifically intensive."
+	}
+},
+{
+	"id": 47,
+	"situation": "A log of wood burns to produce charcoal and smoke.",
+	"answer": "chemical",
+	"feedback": {
+	  "extensive": "The reaction happens regardless of wood size.",
+	  "intensive": "This is not a constant measurable property.",
+	  "chemical": "That is correct. Burning creates new materials.",
+	  "physical": "This is not just a change in shape or form."
+	}
+},
+{
+	"id": 48,
+	"situation": "The mass of a metal block doubles when two identical blocks are combined.",
+	"answer": "extensive",
+	"feedback": {
+	  "extensive": "That is correct. Mass depends on total quantity.",
+	  "intensive": "Mass changes with size, so it is not intensive.",
+	  "chemical": "Combining does not cause a reaction.",
+	  "physical": "Mass is a physical property, but specifically extensive."
+	}
+},
+{
+	"id": 49,
+	"situation": "The melting point of silver remains constant regardless of sample size.",
+	"answer": "intensive",
+	"feedback": {
+	  "extensive": "The melting point does not change with quantity.",
+	  "intensive": "That is correct. Melting point is an intensive property.",
+	  "chemical": "Melting is not a chemical transformation.",
+	  "physical": "It is physical, but more specific as intensive."
+	}
+},
+{
+	"id": 50,
+	"situation": "Rotting fruit gives off a foul odor as it decomposes.",
+	"answer": "chemical",
+	"feedback": {
+	  "extensive": "The process happens no matter the amount of fruit.",
+	  "intensive": "This is not a constant measurable property.",
+	  "chemical": "That is correct. Decomposition forms new substances.",
+	  "physical": "Rotting is not a simple physical change."
+	}
+}
+]
