@@ -13,6 +13,10 @@ ChemQuest2 is a Godot 4 chemistry learning game. It combines a story-driven home
 
 ## Getting Started
 
+To play the game, check the repository's GitHub Releases page and install the latest APK on an Android device.
+
+For development:
+
 1. Install Godot 4.6 or newer.
 2. Open the project folder in Godot.
 3. Run the project from `project.godot`.
@@ -26,10 +30,12 @@ The project uses Godot's `user://` storage for save data. Existing local saves m
 - Interact: `F`
 - Jump: `Space`
 - Drop: `Q`
-- Pickup: `E`
-- Matter state shortcuts: `1`, `2`, `3`
 
 Touch input is enabled through mouse-to-touch emulation and mobile-oriented settings.
+
+## Playing Builds
+
+Playable builds will be published through the repository's GitHub Releases page.
 
 ## Project Structure
 
