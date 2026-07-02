@@ -8,7 +8,7 @@ func _ready() -> void:
 	_shuffle()
 
 func _load_data() -> void:
-	var path := "res://data/questions.json"
+	var path := "res://games/chapter_one/hometown/building_two/level/Data/questions.json"
 	if not FileAccess.file_exists(path):
 		push_error("QuestionDB: questions.json not found at %s" % path)
 		return

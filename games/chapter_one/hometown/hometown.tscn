@@ -3158,6 +3158,12 @@ size = Vector2(180.2367, 182.99998)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uofjm"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_1jyrp"]
+font = ExtResource("27_tfeq3")
+font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Animation" id="Animation_nnlsi"]
 length = 0.001
 tracks/0/type = "value"
@@ -4038,6 +4044,7 @@ offset_bottom = 171.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Follow this quest to progress"
+label_settings = SubResource("LabelSettings_1jyrp")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

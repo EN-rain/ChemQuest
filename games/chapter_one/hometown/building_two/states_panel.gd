@@ -57,25 +57,22 @@ func _unlock_button(btn: Button) -> void:
 func _on_level_1_pressed() -> void:
 	MusicManager.stop_music()
 	await FadeManager.fade_and_change(
-		"res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/level_1.tscn"
+		"res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/level_1.tscn"
 	)
-	QuestManager.advance_states_level(1)  # ✅ pass level number
 	_update_states_levels()
 
 func _on_level_2_pressed() -> void:
 	MusicManager.stop_music()
 	await FadeManager.fade_and_change(
-		"res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/level_2.tscn"
+		"res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/level_2.tscn"
 	)
-	QuestManager.advance_states_level(2)  # ✅ pass level number
 	_update_states_levels()
 
 func _on_level_3_pressed() -> void:
 	MusicManager.stop_music()
 	await FadeManager.fade_and_change(
-		"res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/level_3.tscn"
+		"res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/level_3.tscn"
 	)
-	QuestManager.advance_states_level(3)  # ✅ pass level number
 	_update_states_levels()
 
 

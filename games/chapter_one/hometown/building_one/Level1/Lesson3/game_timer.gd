@@ -9,13 +9,13 @@ signal time_up
 var round_time: float = 60.0
 var remaining: float = 60.0
 var running: bool = false
+var time_up_emitted: bool = false
 
 var fill_style: StyleBoxFlat
 var bg_style: StyleBoxFlat
 
 
 func _ready() -> void:
-	# --- create and assign custom styles ---
 	fill_style = StyleBoxFlat.new()
 	bg_style = StyleBoxFlat.new()
 
@@ -41,6 +41,7 @@ func _ready() -> void:
 
 func start_timer() -> void:
 	remaining = round_time
+	time_up_emitted = false
 	reset_timer_ui()
 	_update_bar_color()
 	logic_timer.start()
@@ -57,10 +58,7 @@ func _process(delta: float) -> void:
 	_update_bar_color()
 
 	if remaining <= 0.0:
-		running = false
-		logic_timer.stop()
-		emit_signal("time_up")
-		_handle_time_up_results()  # ✅ NEW
+		_finish_time_up()
 
 
 func reset_timer_ui() -> void:
@@ -88,22 +86,33 @@ func stop_timer() -> void:
 
 
 func _on_time_up() -> void:
-	print("Time’s up!")
+	_finish_time_up()
+
+
+func _finish_time_up() -> void:
+	if time_up_emitted:
+		return
+	time_up_emitted = true
+	running = false
+	if logic_timer and not logic_timer.is_stopped():
+		logic_timer.stop()
+	print("Time's up!")
 	emit_signal("time_up")
-	_handle_time_up_results()  # ✅ Ensures trigger if connected only here
+	_handle_time_up_results()
 
 
 func reset_timer() -> void:
 	stop_timer()
 	start_timer()
 
+
 func pause_timer() -> void:
 	if not running:
 		return
 	running = false
-	if logic_timer and logic_timer.is_stopped() == false:
+	if logic_timer and not logic_timer.is_stopped():
 		logic_timer.set_paused(true)
-	print("⏸ Timer paused.")
+	print("Timer paused.")
 
 
 func resume_timer() -> void:
@@ -112,38 +121,32 @@ func resume_timer() -> void:
 	running = true
 	if logic_timer:
 		logic_timer.set_paused(false)
-	print("▶ Timer resumed.")
+	print("Timer resumed.")
 
-# ✅ NEW — When timer runs out, show results even if unsorted
+
 func _handle_time_up_results() -> void:
-	# Find the Boxes node (where sorting happens)
 	var boxes = get_tree().get_root().get_node_or_null("Lesson3/CanvasLayer/MarginContainer/Control/Boxes")
 	if not boxes:
-		print("⚠️ Couldn’t find Boxes node — skipping results display.")
+		print("Could not find Boxes node; skipping results display.")
 		return
 
-	# Find the ResultsPanel
 	var results_panel = get_tree().get_root().get_node_or_null("Lesson3/CanvasLayer/MarginContainer/Control/ResultsPanel")
 	if not results_panel:
-		print("⚠️ Couldn’t find ResultsPanel node — skipping results display.")
+		print("Could not find ResultsPanel node; skipping results display.")
 		return
 
 	if results_panel.visible:
-		return  # already showing
+		return
 
-	# Collect data
 	var correct_count: int = boxes.correct_count if "correct_count" in boxes else 0
 	var mistakes: Array = boxes.mistakes if "mistakes" in boxes else []
 
-	print("⏰ Timer ended — showing results early. Correct:", correct_count, "Mistakes:", mistakes.size())
+	print("Timer ended; showing results early. Correct:", correct_count, "Mistakes:", mistakes.size())
 
-	# Stop everything else
 	if "lesson3" in boxes and boxes.lesson3 and boxes.lesson3.has_method("lock_all_mixtures"):
 		boxes.lesson3.lock_all_mixtures()
 
-	# Show results panel
 	results_panel.show_results(correct_count, mistakes)
 
-	# Stop any additional spawns or logic
 	if "lesson3" in boxes and boxes.lesson3 and boxes.lesson3.has_method("save_history"):
 		boxes.lesson3.save_history()

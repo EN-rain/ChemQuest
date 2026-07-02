@@ -7,7 +7,6 @@ func _ready() -> void:
 		%GameTimer.start_timer()
 	else:
 		# First time seen → mark it and start timer
-		GuideManager.mark_seen("lesson_1_guide")
 		%GameTimer.stop_timer()
 
 

@@ -13,7 +13,6 @@ func _ready() -> void:
 		hide()
 	else:
 		show()
-		GuideManager.mark_seen(guide_id)
 		if %Timer:
 			%Timer.set_paused(true)  # Pause the timer while guide is visible
 
@@ -31,6 +30,8 @@ func _start_label_tween(lbl: Label) -> void:
 
 func _on_next_button_pressed() -> void:
 	hide()
+	if not GuideManager.has_seen(guide_id):
+		GuideManager.mark_seen(guide_id)
 	if %Timer:
 		if %Timer.is_stopped():
 			%Timer.start()

@@ -10,6 +10,7 @@ var round_time: float = 30.0
 var remaining: float = 30.0
 var running: bool = false
 var paused: bool = false
+var time_up_emitted: bool = false
 
 var fill_style: StyleBoxFlat
 var bg_style: StyleBoxFlat
@@ -48,6 +49,7 @@ func start_timer() -> void:
 	remaining = round_time
 	paused = false
 	running = true
+	time_up_emitted = false
 	reset_timer_ui()
 	_update_bar_color()
 	# set timer to the remaining time and start it
@@ -96,10 +98,7 @@ func _process(delta: float) -> void:
 	_update_bar_color()
 
 	if remaining <= 0.0:
-		running = false
-		if logic_timer and not logic_timer.is_stopped():
-			logic_timer.stop()
-		emit_signal("time_up")
+		_finish_time_up()
 
 
 func reset_timer_ui() -> void:
@@ -133,9 +132,18 @@ func stop_timer() -> void:
 
 func _on_time_up() -> void:
 	# ensure internal state is consistent when Timer times out
+	_finish_time_up()
+
+
+func _finish_time_up() -> void:
+	if time_up_emitted:
+		return
+	time_up_emitted = true
 	remaining = 0.0
 	running = false
 	paused = false
+	if logic_timer and not logic_timer.is_stopped():
+		logic_timer.stop()
 	time_bar.value = 0.0
 	time_label.text = "0"
 	print("Time’s up!")

@@ -116,7 +116,7 @@ func _on_button_2_pressed() -> void:
 
 func _on_button_3_pressed() -> void:
 	MusicManager.play_music_by_id("button")
-	if button2.disabled:
+	if button3.disabled:
 		return
 	var player = get_tree().get_first_node_in_group("Player")
 	if player:

@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var next_scene_path: String = "res://Scenes/level_1.tscn"  # set per gate in the Inspector
+@export var next_scene_path: String = "res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/level_1.tscn"  # set per gate in the Inspector
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var fade_rect: ColorRect = $"../CanvasLayer/FadeRect"
@@ -35,17 +35,3 @@ func _load_next_level() -> void:
 
 	print("Loading next scene: ", next_scene_path)
 	get_tree().change_scene_to_file(next_scene_path)
-
-	# Small delay so the new scene is fully ready
-
-
-func _fade_in_new_scene() -> void:
-	var new_scene := get_tree().current_scene
-	if not new_scene:
-		return
-
-	var new_fade_rect: ColorRect = new_scene.get_node("CanvasLayer/FadeRect")
-	if new_fade_rect:
-		new_fade_rect.color = Color(0, 0, 0, 1) # Start fully black
-		var tween := create_tween()
-		tween.tween_property(new_fade_rect, "color:a", 0.0, 1.0) # Fade in over 1 second

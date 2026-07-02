@@ -75,6 +75,9 @@ func show_feedback(method_name: String) -> void:
 	if not feedback_data.has(method_name):
 		feedback_label.text = " No feedback for " + method_name
 		feedback_text.text = ""
+		feedback_active = false
+		if undo_button:
+			undo_button.disabled = false
 		return
 
 	var is_correct: bool = method_name in current_item.separation

@@ -30,8 +30,6 @@ var shortcuts: Dictionary = {
 # -------------------- READY --------------------
 func _ready() -> void:
 	randomize()
-	load_questions()
-	show_new_question()
 
 	ok_button.pressed.connect(_on_ok_pressed)
 	input_line.text_submitted.connect(_on_answer_submitted)
@@ -40,6 +38,13 @@ func _ready() -> void:
 
 	results_panel.visible = false
 	update_labels()
+	load_questions()
+
+	if questions.is_empty():
+		_show_quiz_error("No quiz questions available.")
+		return
+
+	show_new_question()
 
 
 # -------------------- MAIN GAME LOGIC --------------------
@@ -56,12 +61,26 @@ func load_questions() -> void:
 		if typeof(data) == TYPE_ARRAY:
 			var parsed_questions: Array[Dictionary] = []
 			for q in data:
-				if typeof(q) == TYPE_DICTIONARY:
+				if _is_valid_question(q):
 					parsed_questions.append(q)
 			questions = parsed_questions
 
 
+func _is_valid_question(q: Variant) -> bool:
+	return (
+		typeof(q) == TYPE_DICTIONARY
+		and q.has("situation")
+		and q.has("feedback")
+		and q.has("answer")
+		and typeof(q["feedback"]) == TYPE_DICTIONARY
+	)
+
+
 func show_new_question() -> void:
+	if questions.is_empty():
+		_show_quiz_error("No quiz questions available.")
+		return
+
 	if asked_count >= total_questions:
 		end_quiz()
 		return
@@ -129,6 +148,13 @@ func update_labels() -> void:
 
 func update_timer_label() -> void:
 	timer_label.text = str(int(quiz_timer.time_left))
+
+
+func _show_quiz_error(message: String) -> void:
+	quiz_timer.stop()
+	ok_button.disabled = true
+	input_line.editable = false
+	situation_label.text = message
 
 
 # -------------------- FEEDBACK + SOUND --------------------

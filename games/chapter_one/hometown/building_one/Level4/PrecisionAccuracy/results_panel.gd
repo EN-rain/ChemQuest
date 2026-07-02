@@ -198,7 +198,7 @@ func show_results(score: int, new_max: int) -> void:
 	max_score = new_max
 	visible = true
 
-	if current_score >= max_score:
+	if current_score >= 8:
 		MusicManager.play_music_by_id("showresults")
 		continue_button.visible = true
 		result_label.text += "\n Perfect! %d/%d" % [current_score, max_score]
@@ -219,8 +219,10 @@ func _on_continue_pressed() -> void:
 		QuestManager.complete_quest(acc_id)
 
 	var after_id := "after_accuracy_vs_precision"
-	if not QuestManager.has_quest(after_id) and QuestManager.active_quests.has(after_id):
-		QuestManager.add_quest(QuestManager.active_quests[after_id])
+	if not QuestManager.has_quest(after_id):
+		var next_quest := QuestManager.get_quest_template(after_id)
+		if next_quest:
+			QuestManager.add_quest(next_quest)
 
 	Scoring.reset_precision_accuracy_score()
 	SpawnManager.set_spawn("shooting_spawn")

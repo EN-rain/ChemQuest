@@ -28,9 +28,9 @@ func _on_continue_pressed() -> void:
 	# ✅ Add the "after" quest directly from quest.json data
 	var after_id := "after_accuracy_vs_precision"
 	if not QuestManager.has_quest(after_id):
-		# Pull quest data from QuestManager.active_quests (loaded from quest.json)
-		if QuestManager.active_quests.has(after_id):
-			QuestManager.add_quest(QuestManager.active_quests[after_id])
+		var next_quest := QuestManager.get_quest_template(after_id)
+		if next_quest:
+			QuestManager.add_quest(next_quest)
 		else:
 			push_warning("⚠ Quest id '%s' not found in quest.json" % after_id)
 

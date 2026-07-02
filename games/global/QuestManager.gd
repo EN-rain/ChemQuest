@@ -225,14 +225,14 @@ func advance_states_level(level_number: int) -> void:
 			1:
 				print("States Level 1 completed -> Unlocking Level 2")
 			2:
-				print("States Level 2 completed -> Unlocking Level 3 and finishing quest")
+				print("States Level 2 completed -> Unlocking Level 3")
+			3:
+				print("States Level 3 completed -> Finishing quest")
 				if has_quest("states_of_matter") and not is_quest_completed("states_of_matter"):
 					complete_quest("states_of_matter")
 					var next_quest := get_quest_template("after_states_of_matter")
 					if next_quest:
 						add_quest(next_quest)
-			3:
-				print("States Level 3 completed")
 
 	if has_node("/root/SaveManager"):
 		SaveManager.save_game()

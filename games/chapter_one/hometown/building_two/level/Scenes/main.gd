@@ -15,10 +15,15 @@ var custom_font = preload("res://assets/LilitaOne-Regular.ttf")
 
 func _ready():
 	_load_questions()
+	if questions.is_empty():
+		question_label.text = "No questions available."
+		_clear_answers()
+		_update_lives()
+		return
 	_show_next_question()
 
 func _load_questions():
-	var path = "res://data/questions.json"
+	var path = "res://games/chapter_one/hometown/building_two/level/Data/questions.json"
 	if FileAccess.file_exists(path):
 		var text = FileAccess.get_file_as_string(path)
 		var parsed = JSON.parse_string(text)

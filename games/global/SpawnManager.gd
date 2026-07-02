@@ -16,5 +16,4 @@ func set_spawn(point_name: String) -> void:
 func get_spawn() -> String:
 	var point := spawn_point
 	print("📤 SpawnManager.get_spawn ->", point)
-	spawn_point = ""  # clear after use
 	return point

@@ -13,7 +13,6 @@ func _ready() -> void:
 		hide()
 	else:
 		show()
-		GuideManager.mark_seen(guide_id)
 
 
 func _fade_all_labels(node: Node) -> void:
@@ -30,6 +29,8 @@ func _start_label_tween(lbl: Label) -> void:
 
 func _on_next_button_pressed() -> void:
 	hide()
+	if not GuideManager.has_seen(guide_id):
+		GuideManager.mark_seen(guide_id)
 
 func _on_guide_button_pressed() -> void:
 	show()

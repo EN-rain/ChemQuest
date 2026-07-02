@@ -62,7 +62,7 @@ func _on_body_entered(body: Node) -> void:
 
 func _go_to_level3() -> void:
 	print("➡ Loading Level 3 directly after Level 2...")
-	var next_scene_path = "res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Scenes/level_3.tscn"
+	var next_scene_path = "res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level_3.tscn"
 
 	if ResourceLoader.exists(next_scene_path):
 		await get_tree().create_timer(0.5).timeout

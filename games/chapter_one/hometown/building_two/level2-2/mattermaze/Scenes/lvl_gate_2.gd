@@ -50,16 +50,16 @@ func _load_next_level() -> void:
 	var current_scene := get_tree().current_scene
 	var current_name := current_scene.name
 	var next_scene_path := ""
-	var level_number := 0  # <-- new variable to store level as integer
+	var completed_level_number := 0
 
 	if current_name == "level_1":
-		level_number = 1
-		next_scene_path = "res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/level_2.tscn"
+		completed_level_number = 1
+		next_scene_path = "res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/level_2.tscn"
 	elif current_name == "level_2":
-		level_number = 2
-		next_scene_path = "res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/level_3.tscn"
+		completed_level_number = 2
+		next_scene_path = "res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/level_3.tscn"
 	elif current_name == "level_3":
-		level_number = 3
+		completed_level_number = 3
 		# optional: return to hometown or reward scene after level 3
 		next_scene_path = "res://games/chapter_one/hometown/building_two/building_two.tscn"
 
@@ -69,7 +69,7 @@ func _load_next_level() -> void:
 
 	# ✅ Advance quest progress safely
 	if QuestManager:
-		QuestManager.advance_states_level(level_number)
+		QuestManager.advance_states_level(completed_level_number)
 
 	print("➡ Loading next scene:", next_scene_path)
 	get_tree().change_scene_to_file(next_scene_path)

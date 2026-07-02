@@ -54,7 +54,7 @@ func _on_body_entered(body: Node) -> void:
 			var level_num := int(scene_name.replace("level_", ""))
 			QuestManager.advance_density_level(level_num)
 
-		get_tree().change_scene_to_file("res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Scenes/level_2.tscn")
+		get_tree().change_scene_to_file("res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level_2.tscn")
 	else:
 		print("❌ WRONG! Expected:", goal, "Got:", value)
 		modulate = Color.RED

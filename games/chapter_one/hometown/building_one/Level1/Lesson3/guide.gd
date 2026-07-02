@@ -17,12 +17,13 @@ func _ready() -> void:
 		hide()
 	else:
 		show()
-		GuideManager.mark_seen(guide_id)
 		if %GameTimer:
 			%GameTimer.pause_timer()  # Pause the timer while guide is visible
 
 func _on_next_button_pressed() -> void:
 	hide()
+	if not GuideManager.has_seen(guide_id):
+		GuideManager.mark_seen(guide_id)
 	if %GameTimer:
 		%GameTimer.resume_timer()
 

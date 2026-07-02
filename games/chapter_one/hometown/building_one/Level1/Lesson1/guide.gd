@@ -17,7 +17,6 @@ func _ready() -> void:
 		hide()
 	else:
 		show()
-		GuideManager.mark_seen(guide_id)
 		if %GameTimer:
 			%GameTimer.pause_timer()  # Pause the timer while guide is visible
 
@@ -25,6 +24,8 @@ func _ready() -> void:
 func _on_next_button_pressed() -> void:
 	# Hide the guide and resume/start timer
 	hide()
+	if not GuideManager.has_seen(guide_id):
+		GuideManager.mark_seen(guide_id)
 	if %GameTimer:
 		if %GameTimer.running:
 			%GameTimer.resume_timer()
