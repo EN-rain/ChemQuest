@@ -6,6 +6,7 @@ extends Node2D
 const GUIDE_ID := "after_states_redirect"
 
 func _ready() -> void:
+	
 	# Setup fade transition system
 	FadeManager.setup(fade_sfx)
 

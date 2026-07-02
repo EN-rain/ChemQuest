@@ -28,8 +28,8 @@ func get_color_for_symbol(symbol: String) -> Color:
 		return Color.from_string(e["color"], Color.WHITE)
 	return Color.WHITE
 
-func get_color_for_name(name: String) -> Color:
-	var e = element_by_name.get(name)
+func get_color_for_name(element_name: String) -> Color:
+	var e = element_by_name.get(element_name)
 	if e and e.has("color"):
 		return Color.from_string(e["color"], Color.WHITE)
 	return Color.WHITE

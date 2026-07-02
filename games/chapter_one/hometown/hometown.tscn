@@ -49,6 +49,7 @@
 [ext_resource type="Script" uid="uid://p3l50grrwwb3" path="res://games/chapter_one/hometown/map_panel.gd" id="45_kf88c"]
 [ext_resource type="Script" uid="uid://ko0g74gmb1cp" path="res://games/chapter_one/hometown/menu.gd" id="47_p1d33"]
 [ext_resource type="Script" uid="uid://fpndewmx5k5g" path="res://games/chapter_one/hometown/menu_panel.gd" id="49_nnlsi"]
+[ext_resource type="Script" uid="uid://ci001pc31ssla" path="res://games/chapter_one/hometown/scripts/hometown_tutorial.gd" id="52_i0q7j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xnqja"]
 texture = ExtResource("1_nktmq")
@@ -3147,6 +3148,138 @@ size = Vector2(149, 135)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1d5mu"]
 size = Vector2(180.2367, 182.99998)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4vjyk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tks3h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ch1g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kuw3s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uofjm"]
+
+[sub_resource type="Animation" id="Animation_nnlsi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShowCase:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5419.9995, -2850.0002)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShowCase:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7.461864, 6.7733784)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(366, 287)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(302.5, 244.5)]
+}
+
+[sub_resource type="Animation" id="Animation_1jyrp"]
+resource_name = "tutorial_anim"
+length = 2.3333333
+step = 0.3733
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShowCase:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(2, 2, -2),
+"update": 0,
+"values": [Vector2(-5419.9995, -2850.0002), Vector2(-2626.0002, -1594), Vector2(-2636, -726)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShowCase:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(2, 2, -2),
+"update": 0,
+"values": [Vector2(7.461864, 6.7733784), Vector2(3.3164814, 4.4015727), Vector2(3.3408015, 2.0387213)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(366, 287), Vector2(335, 118)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(302.5, 244.5), Vector2(302.5, 244.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Use these controls to move, and double tap any direction to run.", "Follow this quest to progress"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gs02c"]
+_data = {
+&"RESET": SubResource("Animation_nnlsi"),
+&"tutorial_anim": SubResource("Animation_1jyrp")
+}
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jls33"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13ltn"]
@@ -3168,16 +3301,6 @@ size = Vector2(180.2367, 182.99998)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nnlsi"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1jyrp"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4vjyk"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tks3h"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ch1g"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kuw3s"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uofjm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_52bov"]
 font = ExtResource("39_lafjb")
@@ -3834,90 +3957,6 @@ zoom = Vector2(0.6, 0.6)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1205505167]
 
-[node name="MapButton" type="Button" parent="CanvasLayer" unique_id=59122750]
-texture_filter = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -145.0
-offset_bottom = 152.0
-grow_horizontal = 0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_jls33")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_13ltn")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_7upmv")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lafjb")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_52bov")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8r34j")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_tfeq3")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_p1d33")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_kf88c")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_nnlsi")
-theme_override_styles/focus = SubResource("StyleBoxTexture_1jyrp")
-text = "MAP"
-script = ExtResource("26_uofjm")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MapButton" unique_id=1029419607]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("26_kuw3s")
-
-[node name="MusicButton" type="TextureButton" parent="CanvasLayer" unique_id=214997607]
-unique_name_in_owner = true
-texture_filter = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -211.0
-offset_top = 1.0
-offset_right = -166.33325
-offset_bottom = 57.666668
-grow_horizontal = 0
-scale = Vector2(1.5, 1.5)
-script = ExtResource("26_pctc0")
-texture_on = ExtResource("27_tks3h")
-texture_off = ExtResource("28_8ch1g")
-
-[node name="Buttons" type="Control" parent="CanvasLayer" unique_id=1425146322]
-visible = false
-layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-grow_vertical = 0
-
-[node name="right" type="TouchScreenButton" parent="CanvasLayer/Buttons" unique_id=1929224244]
-texture_filter = 1
-position = Vector2(245, -313)
-scale = Vector2(7, 7)
-texture_normal = ExtResource("3_yisf5")
-action = "right"
-
-[node name="left" type="TouchScreenButton" parent="CanvasLayer/Buttons" unique_id=1407348573]
-texture_filter = 1
-position = Vector2(26, -310)
-scale = Vector2(7, 7)
-texture_normal = ExtResource("4_24nbg")
-action = "left"
-
-[node name="up" type="TouchScreenButton" parent="CanvasLayer/Buttons" unique_id=531178208]
-texture_filter = 1
-position = Vector2(138, -424.00003)
-scale = Vector2(7, 7)
-texture_normal = ExtResource("5_b5q7o")
-action = "up"
-
-[node name="down" type="TouchScreenButton" parent="CanvasLayer/Buttons" unique_id=195410806]
-texture_filter = 1
-position = Vector2(141, -200)
-scale = Vector2(7, 7)
-texture_normal = ExtResource("6_5dwux")
-action = "down"
-
 [node name="BackButton" type="Button" parent="CanvasLayer" unique_id=703554352]
 offset_left = 2.0
 offset_right = 226.0
@@ -3956,6 +3995,140 @@ offset_bottom = 32.0
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("31_pctc0")
+
+[node name="Tutorial" type="Control" parent="CanvasLayer" unique_id=268876003]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("52_i0q7j")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tutorial" unique_id=345624584]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 117.0
+offset_top = -18.0
+offset_right = 117.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShowCase" type="Polygon2D" parent="CanvasLayer/Tutorial/Panel" unique_id=750312458]
+position = Vector2(-5419.9995, -2850.0002)
+scale = Vector2(7.461864, 6.7733784)
+color = Color(0, 0, 0, 0.5529412)
+polygon = PackedVector2Array(605, 280, 881.6574, 428.0288, 754.6093, 427.22864, 755.31866, 508.68182, 883.9196, 510.12366, 883.4666, 429.1648, 605, 280, 1226.3524, 261.4384, 1230.2437, 747.03687, 599.8561, 740.66034)
+
+[node name="Label" type="Label" parent="CanvasLayer/Tutorial/Panel" unique_id=192037146]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.0
+offset_top = -73.0
+offset_right = 28.5
+offset_bottom = 171.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Follow this quest to progress"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Tutorial/Panel" unique_id=143920161]
+libraries/ = SubResource("AnimationLibrary_gs02c")
+
+[node name="MapButton" type="Button" parent="CanvasLayer" unique_id=59122750]
+texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -145.0
+offset_bottom = 152.0
+grow_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jls33")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_13ltn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7upmv")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lafjb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_52bov")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8r34j")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_tfeq3")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_p1d33")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kf88c")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_nnlsi")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1jyrp")
+text = "MAP"
+script = ExtResource("26_uofjm")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MapButton" unique_id=1029419607]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("26_kuw3s")
+
+[node name="MusicButton" type="TextureButton" parent="CanvasLayer" unique_id=214997607]
+unique_name_in_owner = true
+texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -211.0
+offset_top = 1.0
+offset_right = -166.33325
+offset_bottom = 57.666668
+grow_horizontal = 0
+scale = Vector2(1.5, 1.5)
+script = ExtResource("26_pctc0")
+texture_on = ExtResource("27_tks3h")
+texture_off = ExtResource("28_8ch1g")
+
+[node name="Buttons" type="Control" parent="CanvasLayer" unique_id=1425146322]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="right" type="TouchScreenButton" parent="CanvasLayer/Buttons" unique_id=1929224244]
+texture_filter = 1
+position = Vector2(245, -313)
+scale = Vector2(7, 7)
+texture_normal = ExtResource("3_yisf5")
+action = "right"
+
+[node name="left" type="TouchScreenButton" parent="CanvasLayer/Buttons" unique_id=1407348573]
+texture_filter = 1
+position = Vector2(26, -310)
+scale = Vector2(7, 7)
+texture_normal = ExtResource("4_24nbg")
+action = "left"
+
+[node name="up" type="TouchScreenButton" parent="CanvasLayer/Buttons" unique_id=531178208]
+texture_filter = 1
+position = Vector2(138, -424.00003)
+scale = Vector2(7, 7)
+texture_normal = ExtResource("5_b5q7o")
+action = "up"
+
+[node name="down" type="TouchScreenButton" parent="CanvasLayer/Buttons" unique_id=195410806]
+texture_filter = 1
+position = Vector2(141, -200)
+scale = Vector2(7, 7)
+texture_normal = ExtResource("6_5dwux")
+action = "down"
 
 [node name="BackPanel" type="Panel" parent="CanvasLayer" unique_id=1988736232]
 unique_name_in_owner = true
@@ -4221,6 +4394,7 @@ color = Color(0, 0, 0, 0)
 metadata/_edit_lock_ = true
 
 [node name="MenuButton" type="Button" parent="CanvasLayer" unique_id=2052399425]
+visible = false
 y_sort_enabled = true
 anchors_preset = 1
 anchor_left = 1.0
@@ -4232,6 +4406,7 @@ grow_horizontal = 0
 text = "MENU"
 
 [node name="Menu" type="Control" parent="CanvasLayer" unique_id=1339163774]
+visible = false
 y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 11
@@ -4252,6 +4427,137 @@ offset_left = -1273.0
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.21568628)
+
+[node name="MenuPanel" type="Panel" parent="CanvasLayer/Menu" unique_id=641403036]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+self_modulate = Color(1, 1, 1, 0)
+light_mask = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.97085613
+anchor_bottom = 1.0083333
+mouse_filter = 2
+script = ExtResource("49_nnlsi")
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=992647375]
+modulate = Color(1, 1, 1, 0)
+y_sort_enabled = true
+layout_mode = 0
+offset_left = -329.0
+offset_right = -45.0
+offset_bottom = 55.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+text = "Back"
+
+[node name="Button1" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=392954514]
+modulate = Color(1, 1, 1, 0)
+y_sort_enabled = true
+layout_mode = 0
+offset_left = -300.0
+offset_top = 90.0
+offset_right = -59.999664
+offset_bottom = 150.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Button 1"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=1005495141]
+modulate = Color(1, 1, 1, 0)
+y_sort_enabled = true
+layout_mode = 0
+offset_left = -290.0
+offset_top = 180.0
+offset_right = -50.000122
+offset_bottom = 240.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Button 2"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=1637989560]
+modulate = Color(1, 1, 1, 0)
+y_sort_enabled = true
+layout_mode = 0
+offset_left = -280.0
+offset_top = 267.0
+offset_right = -40.00055
+offset_bottom = 327.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Button 3"
+
+[node name="Button4" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=1227934792]
+modulate = Color(1, 1, 1, 0)
+y_sort_enabled = true
+layout_mode = 0
+offset_left = -267.0
+offset_top = 357.0
+offset_right = -26.999054
+offset_bottom = 417.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Button 4"
+
+[node name="Button5" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=420000658]
+modulate = Color(1, 1, 1, 0)
+y_sort_enabled = true
+layout_mode = 0
+offset_left = -258.0
+offset_top = 448.0
+offset_right = -17.999664
+offset_bottom = 508.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Button 5"
+
+[node name="Button6" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=906526609]
+modulate = Color(1, 1, 1, 0)
+y_sort_enabled = true
+layout_mode = 0
+offset_left = -245.0
+offset_top = 541.0
+offset_right = -5.0006104
+offset_bottom = 601.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Button 6"
+
+[node name="Button7" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=682764158]
+modulate = Color(1, 1, 1, 0)
+y_sort_enabled = true
+layout_mode = 0
+offset_left = -232.0
+offset_top = 631.0
+offset_right = 7.999939
+offset_bottom = 691.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Button 7"
+
+[node name="Button8" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=1848674308]
+modulate = Color(1, 1, 1, 0)
+y_sort_enabled = true
+layout_mode = 0
+offset_left = 181.0
+offset_top = 717.0
+offset_right = 421.00024
+offset_bottom = 777.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Button 8"
+
+[node name="Button9" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=267103582]
+modulate = Color(1, 1, 1, 0)
+y_sort_enabled = true
+layout_mode = 0
+offset_left = 196.0
+offset_top = 803.0
+offset_right = 436.00003
+offset_bottom = 863.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Button 9"
 
 [node name="Node2D" type="Node2D" parent="CanvasLayer/Menu" unique_id=1334395541]
 position = Vector2(250, 350)
@@ -4282,148 +4588,6 @@ polygon = PackedVector2Array(1280, 0, 1325, 720, 1500, 720, 1450, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Menu/Node2D" unique_id=256249402]
 libraries/ = SubResource("AnimationLibrary_nnlsi")
-
-[node name="MenuPanel" type="Panel" parent="CanvasLayer/Menu" unique_id=641403036]
-visible = false
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-self_modulate = Color(1, 1, 1, 0)
-light_mask = 0
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.97085613
-anchor_bottom = 1.0083333
-mouse_filter = 2
-script = ExtResource("49_nnlsi")
-metadata/_edit_use_anchors_ = true
-
-[node name="Back" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=992647375]
-modulate = Color(1, 1, 1, 0)
-z_index = -1
-y_sort_enabled = true
-layout_mode = 0
-offset_left = -329.0
-offset_right = -45.0
-offset_bottom = 55.0
-mouse_filter = 1
-theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
-text = "Back"
-
-[node name="Button1" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=392954514]
-modulate = Color(1, 1, 1, 0)
-z_index = -1
-y_sort_enabled = true
-layout_mode = 0
-offset_left = -300.0
-offset_top = 90.0
-offset_right = -59.999664
-offset_bottom = 150.0
-mouse_filter = 1
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Button 1"
-
-[node name="Button2" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=1005495141]
-modulate = Color(1, 1, 1, 0)
-z_index = -1
-y_sort_enabled = true
-layout_mode = 0
-offset_left = -290.0
-offset_top = 180.0
-offset_right = -50.000122
-offset_bottom = 240.0
-mouse_filter = 1
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Button 2"
-
-[node name="Button3" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=1637989560]
-modulate = Color(1, 1, 1, 0)
-z_index = -1
-y_sort_enabled = true
-layout_mode = 0
-offset_left = -280.0
-offset_top = 267.0
-offset_right = -40.00055
-offset_bottom = 327.0
-mouse_filter = 1
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Button 3"
-
-[node name="Button4" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=1227934792]
-modulate = Color(1, 1, 1, 0)
-z_index = -1
-y_sort_enabled = true
-layout_mode = 0
-offset_left = -267.0
-offset_top = 357.0
-offset_right = -26.999054
-offset_bottom = 417.0
-mouse_filter = 1
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Button 4"
-
-[node name="Button5" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=420000658]
-modulate = Color(1, 1, 1, 0)
-z_index = -1
-y_sort_enabled = true
-layout_mode = 0
-offset_left = -258.0
-offset_top = 448.0
-offset_right = -17.999664
-offset_bottom = 508.0
-mouse_filter = 1
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Button 5"
-
-[node name="Button6" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=906526609]
-modulate = Color(1, 1, 1, 0)
-z_index = -1
-y_sort_enabled = true
-layout_mode = 0
-offset_left = -245.0
-offset_top = 541.0
-offset_right = -5.0006104
-offset_bottom = 601.0
-mouse_filter = 1
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Button 6"
-
-[node name="Button7" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=682764158]
-modulate = Color(1, 1, 1, 0)
-z_index = -1
-y_sort_enabled = true
-layout_mode = 0
-offset_left = -232.0
-offset_top = 631.0
-offset_right = 7.999939
-offset_bottom = 691.0
-mouse_filter = 1
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Button 7"
-
-[node name="Button8" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=1848674308]
-modulate = Color(1, 1, 1, 0)
-z_index = -1
-y_sort_enabled = true
-layout_mode = 0
-offset_left = 181.0
-offset_top = 717.0
-offset_right = 421.00024
-offset_bottom = 777.0
-mouse_filter = 1
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Button 8"
-
-[node name="Button9" type="Button" parent="CanvasLayer/Menu/MenuPanel" unique_id=267103582]
-modulate = Color(1, 1, 1, 0)
-z_index = -1
-y_sort_enabled = true
-layout_mode = 0
-offset_left = 196.0
-offset_top = 803.0
-offset_right = 436.00003
-offset_bottom = 863.0
-mouse_filter = 1
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Button 9"
 
 [node name="guide" type="CanvasLayer" parent="." unique_id=1888368863]
 visible = false
@@ -4456,9 +4620,9 @@ grow_vertical = 2
 
 [connection signal="body_entered" from="World/Buldings/BuildingOneEntry" to="World/Buldings/BuildingOneEntry" method="_on_body_entered"]
 [connection signal="body_entered" from="World/Buldings/BuildingTwoEntry" to="World/Buldings/BuildingTwoEntry" method="_on_body_entered"]
+[connection signal="pressed" from="CanvasLayer/BackButton" to="CanvasLayer/BackPanel" method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MapButton" to="CanvasLayer/MapButton" method="_on_pressed"]
 [connection signal="toggled" from="CanvasLayer/MusicButton" to="CanvasLayer/MusicButton" method="_on_toggled"]
-[connection signal="pressed" from="CanvasLayer/BackButton" to="CanvasLayer/BackPanel" method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/BackPanel/HBoxContainer/Yes" to="CanvasLayer/BackPanel" method="_on_yes_pressed"]
 [connection signal="pressed" from="CanvasLayer/BackPanel/HBoxContainer/No" to="CanvasLayer/BackPanel" method="_on_no_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/MapButton" method="_on_button_pressed"]
