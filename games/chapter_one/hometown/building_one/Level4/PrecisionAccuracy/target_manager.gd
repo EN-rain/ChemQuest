@@ -74,8 +74,11 @@ func _cmp_local_x(a: Node, b: Node) -> int:
 
 # ---------------------------
 # Called by PAManager when a target is hit
+# Fix (R2): prefix unused param with underscore to silence Godot's
+# "parameter never used" warning while keeping the signature stable
+# for PAManager callers.
 # ---------------------------
-func on_target_hit(target: Node2D, hit_position: Vector2, score: int) -> void:
+func on_target_hit(target: Node2D, _hit_position: Vector2, score: int) -> void:
 	if not targets.has(target):
 		# already removed (double call) — ignore
 		print("TargetManager: on_target_hit called but target not in list: ", target.name)
@@ -118,9 +121,12 @@ func slide_targets_to_center() -> void:
 	var tween := create_tween()
 	tween.set_parallel(true)
 
-	var count := targets.size()
-	# ✅ find the middle index
-	var center_index := int(count / 2)
+	var count: int = targets.size()
+	# Fix (R2): force float division by making the divisor a float literal,
+	# then truncate back to int. This suppresses Godot's "integer division
+	# will discard decimal" warning that `count / 2` triggers because both
+	# operands are int.
+	var center_index: int = int(count / 2.0)
 
 	for i in range(count):
 		var t := targets[i]

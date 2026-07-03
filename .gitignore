@@ -2,3 +2,7 @@
 .godot/
 /android/
 .vscode/
+
+# Editor crash-dumps and scene save temps (R3)
+*.tmp
+*.tscn*.tmp

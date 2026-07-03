@@ -1,11 +1,20 @@
 extends Area2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var correct: AudioStreamPlayer = $"../Correct"
-@onready var wrong: AudioStreamPlayer = $"../Wrong"
+# Fix (R1): ../Correct and ../Wrong may be missing in some scene variants.
+# Resolve lazily + null-safe so the gate keeps working when the optional
+# audio players aren't present in the scene tree.
+var correct: AudioStreamPlayer
+var wrong: AudioStreamPlayer
 
 func _ready() -> void:
 	add_to_group("DensityGate2")
+	correct = get_node_or_null("../Correct")
+	wrong = get_node_or_null("../Wrong")
+	if correct == null:
+		push_warning("[DensityGate2] '../Correct' AudioStreamPlayer not found; correct-answer SFX will be skipped.")
+	if wrong == null:
+		push_warning("[DensityGate2] '../Wrong' AudioStreamPlayer not found; wrong-answer SFX will be skipped.")
 	connect("body_entered", Callable(self, "_on_body_entered"))
 	call_deferred("_initialize_bottle_challenge")
 
@@ -34,9 +43,13 @@ func _on_body_entered(body: Node) -> void:
 	if abs(density - goal) < 0.01:
 		print("✅ Correct Bottle Detected!")
 		modulate = Color.GREEN
-		correct.play()
-		animated_sprite.play("Correct")
-		await animated_sprite.animation_finished
+		if correct:
+			correct.play()
+		if animated_sprite and animated_sprite.sprite_frames and animated_sprite.sprite_frames.has_animation("Correct"):
+			animated_sprite.play("Correct")
+			await animated_sprite.animation_finished
+		else:
+			await get_tree().create_timer(0.5).timeout
 
 		# ✅ Add QuestManager safe progress
 		if QuestManager:
@@ -57,7 +70,8 @@ func _on_body_entered(body: Node) -> void:
 	else:
 		print("🚫 Wrong Density → Expected: %.2f Got: %.2f" % [goal, density])
 		modulate = Color.RED
-		wrong.play()
+		if wrong:
+			wrong.play()
 
 
 func _go_to_level3() -> void:

@@ -128,8 +128,6 @@ func _update_checker_label() -> void:
 	if confirm_button:
 		confirm_button.visible = true
 
-		confirm_button.visible = true
-
 func _update_score_label() -> void:
 	if score_label:
 		score_label.text = "%d\n%d/%d" % [score, current_round, MAX_ROUNDS]

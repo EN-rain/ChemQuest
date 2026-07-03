@@ -72,6 +72,14 @@ func _play_music(stream: AudioStream, fade_in: float = 0.5) -> void:
 	if current_music.playing:
 		stop_music_immediately()
 
+	# Fix (M7): Duplicate the stream before mutating its loop flag.
+	# `preload()` returns a shared resource that any other consumer of
+	# the same path would also see. Mutating `stream.loop` on a preloaded
+	# resource leaks the loop setting across the entire project.
+	# `duplicate()` gives us a unique instance to safely configure.
+	if stream is AudioStreamOggVorbis or stream is AudioStreamMP3 or stream is AudioStreamWAV:
+		stream = stream.duplicate() as AudioStream
+
 	current_music.stream = stream
 	current_music.volume_db = -40  # start quietly
 
@@ -82,7 +90,7 @@ func _play_music(stream: AudioStream, fade_in: float = 0.5) -> void:
 	else:
 		current_music.bus = default_bus
 
-	# ✅ Enable looping for known stream types
+	# ✅ Enable looping on our private copy
 	if stream is AudioStreamOggVorbis:
 		stream.loop = true
 	elif stream is AudioStreamMP3:

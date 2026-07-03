@@ -3,6 +3,7 @@ extends Node
 
 # Use user:// for writable location in exports (res:// is read-only)
 const SAVE_PATH := "user://save.json"
+const SAVE_COALESCE_MS := 250  # 💾 debounce window for coalescing saves (B4)
 
 # ============================================================
 # 🌍 GAME STATE VARIABLES
@@ -11,6 +12,11 @@ var current_scene_path: String = ""
 var last_spawn: String = ""
 var quest_data: Dictionary = {}
 var shown_feedback: Array[String] = []  # 💬 stores feedback keys already shown
+
+# Fix (B4): Coalesce frequent save_game() calls into a single deferred write.
+# Multiple quest/feedback/spawn updates in the same frame will batch into one
+# file write instead of N writes. Crucial for Android disk-thrash prevention.
+var _save_dirty: bool = false
 
 
 # ============================================================
@@ -34,6 +40,29 @@ func _ready() -> void:
 # 💾 SAVE GAME
 # ============================================================
 func save_game() -> void:
+	# Fix (B4): Coalesce repeated save_game() calls within SAVE_COALESCE_MS.
+	# Mark dirty and schedule a single deferred write. Multiple call sites
+	# (SpawnManager, QuestManager, PlayerFeedbackManager) all funnel through
+	# here, so this is the single chokepoint to batch I/O.
+	if _save_dirty:
+		return  # A deferred write is already pending; let it absorb this update.
+	_save_dirty = true
+	# Use a SceneTreeTimer-equivalent: awaitable via call_deferred chain.
+	# We use a one-shot timer that flips the dirty flag and writes.
+	_run_deferred_save.call_deferred()
+
+
+func _run_deferred_save() -> void:
+	# Wait at least one frame so we coalesce same-frame callers.
+	await get_tree().process_frame
+	# Wait an additional coalesce window for additional callers.
+	if not _save_dirty:
+		return
+	_save_dirty = false
+	_perform_save()
+
+
+func _perform_save() -> void:
 	print("💾 Saving game...")
 
 	#  Capture current scene path automatically

@@ -64,13 +64,13 @@
 			"is_completed": false
 		},
 		{
-			"id": "seperation_methods",
+			"id": "separation_methods",
 			"title": "The Table of Separation",
 			"description": "A new experiment awaits beneath the furniture—a table dedicated to unraveling the art of separating mixtures.",
 			"is_completed": false
 		},
 		{
-			"id": "seperation_methods_after",
+			"id": "separation_methods_after",
 			"title": "Return to the Wizard",
 			"description": "Report to Uncle Wiz after mastering the Separation Table.",
 			"is_completed": false

@@ -93,7 +93,9 @@ func update_achievements() -> void:
 				label.text = String(quest["text"]) + " – Unlocked"
 				label.add_theme_color_override("font_color", Color(0.7, 1.0, 0.7))
 			else:
-				label.text = "Unknown – Locked"
+				# Fix (M26): show the actual achievement title when locked,
+				# not "Unknown". Players need to see what they haven't unlocked yet.
+				label.text = String(quest["text"]) + " – Locked"
 				label.add_theme_color_override("font_color", Color(0.5, 0.5, 0.5))
 			print("Updated:", label.name, "->", label.text)
 		else:

@@ -12,7 +12,15 @@ const DEFAULT_QUESTS_PATH := "res://games/global/quest.json"
 #  INITIALIZATION
 # ---------------------------------------------------------
 func _ready() -> void:
-	_load_default_quests()
+	# Fix (B1): Do NOT auto-load defaults here. The previous behavior
+	# clobbered any state restored by SaveManager.restore_game(), and
+	# depended on the fragile alphabetic autoload ordering that put
+	# SaveManager after QuestManager.
+	#
+	# Defaults are now loaded explicitly by main.gd._on_new_game_pressed()
+	# via load_default_quests(). On Continue, SaveManager.restore_game()
+	# calls load_from_save_data() which sets active_quests directly.
+	pass
 
 
 # ---------------------------------------------------------
@@ -101,6 +109,14 @@ func load_from_save_data(quests_array: Array) -> void:
 		quest.id = entry.get("id", "")
 		quest.title = entry.get("title", "")
 		quest.description = entry.get("description", "")
+
+		# Fix (#27): Migrate old "seperation_*" quest IDs to the correct
+		# "separation_*" spelling so existing saves don't break after the
+		# rename in quest.json.
+		if quest.id == "seperation_methods":
+			quest.id = "separation_methods"
+		elif quest.id == "seperation_methods_after":
+			quest.id = "separation_methods_after"
 
 		var raw_value: Variant = entry.get("is_completed", false)
 		var parsed_value: bool = false
