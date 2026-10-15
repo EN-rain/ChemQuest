@@ -36,31 +36,34 @@ func _on_body_entered(body: Node) -> void:
 
 	if abs(density - goal) < 0.01:
 		print("✅ Correct item detected!")
+		_finished = true
 		modulate = Color.GREEN
 		correct.play()
 		animated_sprite.play("Correct")
 		await animated_sprite.animation_finished
 
-		_finished = true
-		_finish_density_quest()
+		# Record the completed identity before the feedback/return flow. The
+		# scene root is named `Level_3`, so derive the number from the file path
+		# rather than relying on a case-sensitive node-name convention.
+		if QuestManager:
+			QuestManager.advance_density_level(_current_level_number())
+
 		await _show_congratulations()
 	else:
 		print("🚫 Wrong density → Expected: %.2f Got: %.2f" % [goal, density])
 		modulate = Color.RED
 		wrong.play()
 
-func _finish_density_quest() -> void:
-	if QuestManager.has_quest("density_measurement") and not QuestManager.is_quest_completed("density_measurement"):
-		QuestManager.complete_quest("density_measurement")
-		var next_quest = QuestManager.get_quest_template("after_density_measurement")
-		if next_quest:
-			QuestManager.add_quest(next_quest)
-		if has_node("/root/SaveManager"):
-			SaveManager.save_game()
 
-	var quest_panel = get_tree().get_first_node_in_group("QuestPanel")
-	if quest_panel:
-		quest_panel.show_latest_quest()
+func _current_level_number() -> int:
+	var current_scene := get_tree().current_scene
+	if current_scene == null:
+		return 0
+	var file_name := current_scene.scene_file_path.get_file().get_basename()
+	var regex := RegEx.new()
+	regex.compile(r"(\d+)$")
+	var result := regex.search(file_name)
+	return int(result.get_string(1)) if result != null else 0
 
 func _show_congratulations() -> void:
 	var label := Label.new()

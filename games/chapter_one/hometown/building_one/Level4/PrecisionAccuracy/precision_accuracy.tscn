@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://b3ql76j3sbf0i"]
+[gd_scene load_steps=82 format=3 uid="uid://b3ql76j3sbf0i"]
 
 [ext_resource type="Script" uid="uid://coedcxr1qbxew" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/pa_manager.gd" id="1_1b7mb"]
 [ext_resource type="Script" uid="uid://b4m6egkmohs4o" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/target.gd" id="1_2romn"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://b2yygvqrn2k8c" path="res://games/chapter_one/hometown/building_one/imgs/question.png" id="31_jqnqk"]
 [ext_resource type="Script" uid="uid://66tegybsma25" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/guide.gd" id="32_jflqh"]
 [ext_resource type="Texture2D" uid="uid://hy81kcq2dbh6" path="res://games/chapter_one/hometown/building_one/imgs/Precisionguide.png" id="33_jqnqk"]
+[ext_resource type="Script" path="res://games/global/ResponsiveHudLayout.gd" id="34_resp_hud"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87cb7"]
 
@@ -328,6 +329,7 @@ text = "Precision"
 label_settings = SubResource("LabelSettings_67rrq")
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("34_resp_hud")
 
 [node name="MusicButton" type="TextureButton" parent="UI"]
 unique_name_in_owner = true

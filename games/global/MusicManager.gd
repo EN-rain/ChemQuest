@@ -27,6 +27,8 @@ var sfx_player: AudioStreamPlayer
 var current_id: String = ""
 
 func _ready() -> void:
+	_ensure_audio_bus("Music")
+	_ensure_audio_bus("SFX")
 	current_music = AudioStreamPlayer.new()
 	current_music.bus = default_bus
 	current_music.name = "CurrentMusic"
@@ -37,6 +39,12 @@ func _ready() -> void:
 	sfx_player.bus = "SFX" if AudioServer.get_bus_index("SFX") != -1 else default_bus
 	sfx_player.name = "SFXPlayer"
 	add_child(sfx_player)
+
+
+func _ensure_audio_bus(bus_name: String) -> void:
+	if AudioServer.get_bus_index(bus_name) == -1:
+		AudioServer.add_bus()
+		AudioServer.set_bus_name(AudioServer.bus_count - 1, bus_name)
 
 
 # -----------------------
@@ -175,6 +183,17 @@ func play_sfx(id: String) -> void:
 	if not music_library.has(id):
 		push_warning("SFX '%s' not found!" % id)
 		return
-	var stream = music_library[id]
+	if not sfx_player:
+		push_warning("SFX player is not ready; dropping '%s'." % id)
+		return
+	var stream: AudioStream = music_library[id]
+	if stream is AudioStreamOggVorbis or stream is AudioStreamMP3 or stream is AudioStreamWAV:
+		stream = stream.duplicate() as AudioStream
+	if stream is AudioStreamOggVorbis:
+		stream.loop = false
+	elif stream is AudioStreamMP3:
+		stream.loop = false
+	elif stream is AudioStreamWAV:
+		stream.loop_mode = AudioStreamWAV.LOOP_DISABLED
 	sfx_player.stream = stream
 	sfx_player.play()

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dnb6gil3pddda" path="res://assets/mainbgx.png" id="1_pp48r"]
 [ext_resource type="FontFile" uid="uid://dhad2su8bcwal" path="res://assets/electrone.regular.ttf" id="2_k56y8"]
 [ext_resource type="Texture2D" uid="uid://c4fjichb8mddn" path="res://assets/shadow2.png" id="2_sx25x"]
-[ext_resource type="Texture2D" uid="uid://bl2nfu0wdrau3" path="res://assets/line.png" id="3_h6umi"]
+[ext_resource type="Texture2D" uid="uid://bl2nfu0wdrau3" path="res://games/glossary/assets/line.png" id="3_h6umi"]
 [ext_resource type="FontFile" uid="uid://44iffnbrlgyt" path="res://assets/LilitaOne-Regular.ttf" id="5_x5r8a"]
 [ext_resource type="FontFile" uid="uid://bsj8upn8vmpqh" path="res://assets/Roboto-BoldCondensed.ttf" id="6_x5r8a"]
 

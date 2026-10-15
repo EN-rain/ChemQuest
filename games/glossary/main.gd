@@ -1,8 +1,11 @@
 extends Control
 
+const ReleaseLog = preload("res://games/global/ReleaseLog.gd")
+const FixedAspectSurface = preload("res://games/ui/FixedAspectSurface.gd")
+
 # === Variables ===
 var atomic_data: Dictionary = {}     # From elements.json
-var compounds_data: Dictionary = {}  # From res://data/elements/*.json
+var compounds_data: Dictionary = {}  # From res://games/glossary/data/elements/*.json
 
 @onready var table_image: TextureRect = $TableImage
 @onready var buttons_container: Control = $ElementButtons
@@ -17,12 +20,17 @@ const ZOOM_OUT_DURATION := 1.0
 
 var _original_position: Vector2
 var _original_scale: Vector2
+var _surface_position := Vector2.ZERO
+var _surface_scale := 1.0
+var _is_zoomed := false
 
 # === Initialization ===
 func _ready() -> void:
 	get_viewport().gui_focus_changed.connect(_on_gui_focus_changed)
 	_original_position = table_image.position
 	_original_scale = table_image.scale
+	_connect_responsive_layout()
+	_apply_responsive_layout()
 
 	_load_atomic_data()
 	_load_compound_files()
@@ -31,21 +39,74 @@ func _ready() -> void:
 
 	# Defer setup so it happens after the scene finishes loading
 	call_deferred("_setup_suggestions_layer")
+	call_deferred("_apply_responsive_layout")
+
+
+func _connect_responsive_layout() -> void:
+	var service := get_node_or_null("/root/ResponsiveLayout")
+	if service != null and not service.layout_changed.is_connected(_on_responsive_layout_changed):
+		service.layout_changed.connect(_on_responsive_layout_changed)
+
+
+func _on_responsive_layout_changed(_viewport_size: Vector2, _safe_rect: Rect2) -> void:
+	_apply_responsive_layout()
+
+
+func _apply_responsive_layout() -> void:
+	var service := get_node_or_null("/root/ResponsiveLayout")
+	if service == null or table_image == null or buttons_container == null:
+		return
+	var viewport_size: Vector2 = service.viewport_size
+	var safe_rect: Rect2 = service.safe_rect
+	var design_size := Vector2(1280.0, 720.0)
+	_surface_scale = FixedAspectSurface.calculate_scale(viewport_size, design_size)
+	if _surface_scale <= 0.0:
+		return
+	var surface_size := design_size * _surface_scale
+	_surface_position = (viewport_size - surface_size) * 0.5
+	if not _is_zoomed:
+		table_image.position = _surface_position
+		table_image.size = design_size
+		table_image.scale = Vector2.ONE * _surface_scale
+		_original_position = _surface_position
+		_original_scale = Vector2.ONE * _surface_scale
+	buttons_container.position = _surface_position
+	buttons_container.size = design_size
+	buttons_container.scale = Vector2.ONE * _surface_scale
+
+	var search_bar := get_node_or_null("SearchBar") as Control
+	if search_bar != null:
+		var search_width := minf(450.0, maxf(280.0, safe_rect.size.x - 48.0))
+		var search_height := maxf(63.0, search_bar.size.y)
+		# SearchBar is authored with a right anchor; update offsets so Godot's
+		# layout pass cannot snap it back to the physical viewport edge.
+		search_bar.anchor_left = 1.0
+		search_bar.anchor_right = 1.0
+		search_bar.anchor_top = 0.0
+		search_bar.anchor_bottom = 0.0
+		search_bar.grow_horizontal = Control.GROW_DIRECTION_BEGIN
+		search_bar.grow_vertical = Control.GROW_DIRECTION_END
+		var right_margin := viewport_size.x - safe_rect.end.x
+		search_bar.offset_left = -search_width - right_margin
+		search_bar.offset_right = -right_margin
+		search_bar.offset_top = safe_rect.position.y
+		search_bar.offset_bottom = safe_rect.position.y + search_height
+		search_input.custom_minimum_size.x = search_width
+	var back_button := get_node_or_null("BackButton") as Control
+	if back_button != null:
+		back_button.global_position = safe_rect.position
 
 func _setup_suggestions_layer() -> void:
-	var layer := CanvasLayer.new()
-	layer.name = "SuggestionsLayer"
-	get_tree().root.add_child(layer)
-
-	layer.layer = 100  # top-most layer
-	suggestions_panel.reparent(layer)
+	# Keep the panel under Main so the established SuggestionsPanel NodePath
+	# remains valid for scripts, tests, and future scene tooling. Its high
+	# z-index already keeps it above the authored table surface.
 	suggestions_panel.z_index = 999
 
 	# 🔧 Important: don't block mouse when hidden
 	suggestions_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	suggestions_list.mouse_filter = Control.MOUSE_FILTER_STOP
 
-	print("✅ SuggestionsPanel placed in CanvasLayer (z:", suggestions_panel.z_index, ")")
+	ReleaseLog.info("SuggestionsPanel placed in CanvasLayer (z: %s)" % suggestions_panel.z_index)
 
 
 func _on_viewport_gui_input(event: InputEvent) -> void:
@@ -129,7 +190,7 @@ func _load_compound_files() -> void:
 				else:
 					push_warning("⚠️ Invalid JSON in " + file_name)
 	dir.list_dir_end()
-	print("✅ Loaded compound data for ", compounds_data.size(), " elements.")
+	ReleaseLog.info("Loaded compound data for %s elements." % compounds_data.size())
 
 # === Connect element buttons ===
 # === Connect element buttons ===
@@ -163,6 +224,7 @@ func _on_element_pressed(button: Button) -> void:
 	tween.set_ease(Tween.EASE_IN_OUT)
 
 	# --- Calculate where to zoom ---
+	_is_zoomed = true
 	var button_center: Vector2 = button.get_global_rect().get_center()
 	var viewport_center: Vector2 = get_viewport_rect().get_center()
 
@@ -187,18 +249,22 @@ func _on_element_pressed(button: Button) -> void:
 # === Show element info scene ===
 func _show_element_info(symbol: String) -> void:
 	var scene_resource: PackedScene = load("res://games/glossary/element_info.tscn")
-	var info_scene: CanvasLayer = scene_resource.instantiate() as CanvasLayer
+	var info_scene: Control = scene_resource.instantiate() as Control
 	get_tree().root.add_child(info_scene)
 
 	var atomic: Dictionary = atomic_data.get(symbol, {})
 	var compounds: Array = compounds_data.get(symbol, [])
 
-	info_scene.set_element(symbol, atomic, compounds)
+	# Call through the scene contract so the host remains a generic Control and
+	# the implementation can evolve without a hard static type dependency.
+	info_scene.call("set_element", symbol, atomic, compounds)
 	hide()
 
 # === Smooth zoom-out when returning ===
 func zoom_out() -> void:
 	show()
+	_is_zoomed = false
+	_apply_responsive_layout()
 	var tween: Tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
@@ -209,27 +275,27 @@ func zoom_out() -> void:
 
 # === Search System ===
 func _connect_search() -> void:
-	print("🔗 Connecting search input signals...")
+	ReleaseLog.info("Connecting search input signals...")
 	search_input.text_changed.connect(func(new_text):
-		print("🔥 text_changed fired:", new_text)
+		ReleaseLog.info("text_changed fired: %s" % new_text)
 		_on_search_text_changed(new_text)
 	)
 	search_input.text_submitted.connect(func(text):
-		print("📗 text_submitted fired:", text)
+		ReleaseLog.info("text_submitted fired: %s" % text)
 		_on_search_pressed(text)
 	)
-	print("✅ Connected search signals to:", search_input)
+	ReleaseLog.info("Connected search signals to: %s" % search_input)
 
 # 🧠 Show live suggestions
 func _on_search_text_changed(new_text: String) -> void:
-	print("🔍 Search changed:", new_text)
+	ReleaseLog.info("Search changed: %s" % new_text)
 	# Clear old suggestions
 	for child in suggestions_list.get_children():
 		child.queue_free()
 
 	var query := new_text.strip_edges().to_lower()
 	if query.is_empty():
-		print("⚪ Empty query — hiding panel")
+		ReleaseLog.info("Empty query — hiding panel")
 		_hide_suggestions()
 		return
 
@@ -263,10 +329,10 @@ func _on_search_text_changed(new_text: String) -> void:
 				if results.size() >= max_items:
 					break
 
-	print("🧩 Found", results.size(), "results for query:", query)
+	ReleaseLog.info("Found %s results for query: %s" % [results.size(), query])
 
 	if results.is_empty():
-		print("⚪ No matches — hiding panel")
+		ReleaseLog.info("No matches — hiding panel")
 		_hide_suggestions()
 		return
 
@@ -295,7 +361,7 @@ func _on_search_text_changed(new_text: String) -> void:
 
 		btn.connect("pressed", Callable(self, "_on_suggestion_clicked").bind(result))
 		suggestions_list.add_child(btn)
-		print("✅ Added suggestion:", btn.text)
+		ReleaseLog.info("Added suggestion: %s" % btn.text)
 
 	# --- Position and show panel ---
 	var input_rect := search_input.get_global_rect()
@@ -308,30 +374,30 @@ func _on_search_text_changed(new_text: String) -> void:
 	suggestions_panel.z_index = 999
 	suggestions_panel.show()
 
-	print("📦 Showing suggestions panel at:", suggestions_panel.global_position)
+	ReleaseLog.info("Showing suggestions panel at: %s" % suggestions_panel.global_position)
 	_enable_all_buttons(false)
 	suggestions_panel.show()
 
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		print("🖱️ Mouse click at:", event.position)
+		ReleaseLog.info("Mouse click at: %s" % event.position)
 
 		if suggestions_panel.visible:
 			var click_pos: Vector2 = event.position
 			var panel_rect: Rect2 = suggestions_panel.get_global_rect()
 			var input_rect: Rect2 = search_input.get_global_rect()
-			print("📐 Panel rect:", panel_rect, "Input rect:", input_rect)
+			ReleaseLog.info("Panel rect: %s Input rect: %s" % [panel_rect, input_rect])
 
 			if panel_rect.has_point(click_pos):
-				print("🟢 Click inside suggestions panel — allow click.")
+				ReleaseLog.info("Click inside suggestions panel — allow click.")
 				return
 			if not input_rect.has_point(click_pos):
-				print("🔴 Click outside panel — hiding.")
+				ReleaseLog.info("Click outside panel — hiding.")
 				_hide_suggestions()
 
 	elif event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		print("🟡 ESC pressed — hiding panel.")
+		ReleaseLog.info("ESC pressed — hiding panel.")
 		if suggestions_panel.visible:
 			_hide_suggestions()
 
@@ -343,22 +409,22 @@ func _enable_all_buttons(enable: bool) -> void:
 			child.mouse_filter = Control.MOUSE_FILTER_STOP if enable else Control.MOUSE_FILTER_IGNORE
 
 func _on_suggestion_clicked(data: Dictionary) -> void:
-	print("✅ CLICKED suggestion:", data)
+	ReleaseLog.info("CLICKED suggestion: %s" % data)
 	_hide_suggestions()
 
 	if data["type"] == "element":
 		var symbol: String = data["symbol"]
-		print("🔸 Element symbol clicked:", symbol)
+		ReleaseLog.info("Element symbol clicked: %s" % symbol)
 		if atomic_data.has(symbol) and buttons_container.has_node(symbol):
 			var btn := buttons_container.get_node(symbol)
 			if btn is Button:
-				print("🔹 Triggering element zoom for", symbol)
+				ReleaseLog.info("Triggering element zoom for %s" % symbol)
 				_on_element_pressed(btn)
 
 	elif data["type"] == "compound":
 		var symbol: String = data["symbol"]
 		var compound_name: String = data["compound"]
-		print("🔸 Compound clicked:", compound_name, "of element:", symbol)
+		ReleaseLog.info("Compound clicked: %s of element: %s" % [compound_name, symbol])
 		if compounds_data.has(symbol):
 			for compound_variant in compounds_data[symbol]:
 				var compound: Dictionary = compound_variant
@@ -366,7 +432,7 @@ func _on_suggestion_clicked(data: Dictionary) -> void:
 					if buttons_container.has_node(symbol):
 						var btn := buttons_container.get_node(symbol)
 						if btn is Button:
-							print("🔹 Triggering compound zoom for", compound_name)
+							ReleaseLog.info("Triggering compound zoom for %s" % compound_name)
 							_on_element_pressed(btn)
 					break
 
@@ -390,7 +456,7 @@ func _on_search_pressed(_text := "") -> void:
 		_highlight_elements(found_elements)
 		
 	else:
-		print("⚠️ No compound found for query: ", query)
+		ReleaseLog.info("No compound found for query: %s" % query)
 		
 
 # === Highlight Elements ===

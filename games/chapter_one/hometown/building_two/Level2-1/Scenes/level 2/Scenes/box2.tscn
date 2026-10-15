@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ced30k2khrayc"]
 
 [ext_resource type="Script" uid="uid://bifr45aiq3f83" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level 2/Scripts/level2box.gd" id="1_50g83"]
-[ext_resource type="Texture2D" uid="uid://8ft3oo4at67o" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Items/Boxes/Box2/Idle.png" id="1_jsy84"]
+[ext_resource type="Texture2D" uid="uid://8ft3oo4at67o" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Items/Boxes/Box2/Idle.png" id="1_jsy84"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_50g83"]
 animations = [{

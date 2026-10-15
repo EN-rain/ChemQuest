@@ -1,20 +1,22 @@
-[gd_scene load_steps=20 format=3 uid="uid://db0vja4bs7bba"]
+[gd_scene load_steps=22 format=3 uid="uid://db0vja4bs7bba"]
 
-[ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_5bt5j"]
-[ext_resource type="Texture2D" uid="uid://d7ussfmcnynu" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Brown.png" id="2_dq8u4"]
+[ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_5bt5j"]
+[ext_resource type="Texture2D" uid="uid://d7ussfmcnynu" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Brown.png" id="2_dq8u4"]
 [ext_resource type="PackedScene" uid="uid://ccwl5qc2qyk48" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/player.tscn" id="3_3e2pj"]
 [ext_resource type="PackedScene" uid="uid://dximk72tncfof" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level 1/barrel.tscn" id="4_47hwt"]
 [ext_resource type="PackedScene" uid="uid://c4rsnmgirxf3u" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/density_gate.tscn" id="5_iehjv"]
 [ext_resource type="PackedScene" uid="uid://msdqh7vkellj" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level 1/crate.tscn" id="6_5t817"]
-[ext_resource type="FontFile" uid="uid://c4wd2u2xuk6i2" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/FONTS/LilitaOne-Regular.ttf" id="6_rjt48"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="6_rjt48"]
 [ext_resource type="Texture2D" uid="uid://dg67s8h8wjhv4" path="res://games/chapter_one/hometown/building_two/Level2-1/TouchControls/Mobile Buttons/Mobile Buttons/3.png" id="8_reedq"]
-[ext_resource type="AudioStream" uid="uid://dqjfmgf8uq2i2" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/LOL.mp3" id="9_3e2pj"]
+[ext_resource type="AudioStream" uid="uid://dqjfmgf8uq2i2" path="res://games/chapter_one/hometown/building_two/Level2-1/Assets/LOL.mp3" id="9_3e2pj"]
 [ext_resource type="Texture2D" uid="uid://b5hatnfak222f" path="res://games/chapter_one/hometown/building_two/Level2-1/TouchControls/Mobile Buttons/Mobile Buttons/4.png" id="9_roc5q"]
 [ext_resource type="Texture2D" uid="uid://dkpfm0a4jx5m4" path="res://games/chapter_one/hometown/building_two/Level2-1/TouchControls/Mobile Buttons/Mobile Buttons/2.png" id="10_7pd6i"]
-[ext_resource type="AudioStream" uid="uid://b8a6tvfjn4iby" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/correct.mp3" id="10_iehjv"]
-[ext_resource type="AudioStream" uid="uid://cmjtnh4ys1sat" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/wrong.mp3" id="11_5t817"]
+[ext_resource type="AudioStream" uid="uid://b8a6tvfjn4iby" path="res://games/chapter_one/hometown/building_two/Level2-1/Assets/correct.mp3" id="10_iehjv"]
+[ext_resource type="AudioStream" uid="uid://cmjtnh4ys1sat" path="res://games/chapter_one/hometown/building_two/Level2-1/Assets/wrong.mp3" id="11_5t817"]
 [ext_resource type="Texture2D" uid="uid://uq1njkuwctgj" path="res://games/chapter_one/hometown/building_two/Level2-1/TouchControls/Mobile Buttons/Mobile Buttons/5.png" id="11_uj3b3"]
 [ext_resource type="Texture2D" uid="uid://c4v6d6qofmea3" path="res://games/chapter_one/hometown/building_two/Level2-1/TouchControls/Mobile Buttons/Mobile Buttons/6.png" id="12_o0gh6"]
+[ext_resource type="Script" path="res://games/global/ResponsiveTouchLayout.gd" id="13_touch"]
+[ext_resource type="Script" path="res://games/global/ResponsiveCameraBounds.gd" id="14_cam"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21xkr"]
 texture = ExtResource("1_5bt5j")
@@ -233,6 +235,8 @@ position = Vector2(46, 0)
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(0.43559265, -18.30017)
 zoom = Vector2(4, 4)
+script = ExtResource("14_cam")
+authored_bounds = Rect2(-640, -360, 1280, 840)
 
 [node name="barrel" parent="." instance=ExtResource("4_47hwt")]
 position = Vector2(332, -145)
@@ -252,6 +256,7 @@ label_settings = SubResource("LabelSettings_reedq")
 position = Vector2(233, -128)
 
 [node name="MobileControls" type="CanvasLayer" parent="."]
+script = ExtResource("13_touch")
 
 [node name="Control" type="Control" parent="MobileControls"]
 layout_direction = 4

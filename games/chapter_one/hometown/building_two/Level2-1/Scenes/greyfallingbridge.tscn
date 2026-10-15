@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bbesvnybb44nn"]
 
 [ext_resource type="Script" uid="uid://dc7746opl1r7b" path="res://games/chapter_one/hometown/building_two/Level2-1/Scripts/falling_platform.gd" id="1_0dbg7"]
-[ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_k8s2v"]
+[ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_k8s2v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0dbg7"]
 atlas = ExtResource("2_k8s2v")

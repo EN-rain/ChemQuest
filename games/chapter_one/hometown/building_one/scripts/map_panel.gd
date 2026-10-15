@@ -97,7 +97,7 @@ func _stop_indicator_pulse() -> void:
 # --- Map buttons ---
 func _on_button_1_pressed() -> void:
 	MusicManager.stop_music()
-	MusicManager.play_music_by_id("button")
+	MusicManager.play_sfx("button")
 	var player = get_tree().get_first_node_in_group("Player")
 	if player:
 		player.can_move = false
@@ -105,7 +105,7 @@ func _on_button_1_pressed() -> void:
 		await FadeManager.fade_and_change("res://games/chapter_one/hometown/building_one/Level1/Lesson1/lesson_one.tscn")
 
 func _on_button_2_pressed() -> void:
-	MusicManager.play_music_by_id("button")
+	MusicManager.play_sfx("button")
 	if button2.disabled:
 		return
 	var player = get_tree().get_first_node_in_group("Player")
@@ -115,7 +115,7 @@ func _on_button_2_pressed() -> void:
 		await FadeManager.fade_and_change("res://games/chapter_one/hometown/building_one/Level1/Lesson2/lesson_two.tscn")
 
 func _on_button_3_pressed() -> void:
-	MusicManager.play_music_by_id("button")
+	MusicManager.play_sfx("button")
 	if button3.disabled:
 		return
 	var player = get_tree().get_first_node_in_group("Player")

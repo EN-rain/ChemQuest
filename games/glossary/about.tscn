@@ -1,14 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2606a6uumf3f"]
+[gd_scene load_steps=18 format=3 uid="uid://d2606a6uumf3f"]
 
 [ext_resource type="Script" uid="uid://cxjsr63oma5cd" path="res://games/glossary/about.gd" id="1_dm0lp"]
-[ext_resource type="Texture2D" uid="uid://dnb6gil3pddda" path="res://glossary/assets/mainbgx.png" id="1_pp48r"]
-[ext_resource type="FontFile" uid="uid://dhad2su8bcwal" path="res://glossary/assets/electrone.regular.ttf" id="2_k56y8"]
-[ext_resource type="Texture2D" uid="uid://c4fjichb8mddn" path="res://glossary/assets/shadow2.png" id="2_sx25x"]
-[ext_resource type="Texture2D" uid="uid://bl2nfu0wdrau3" path="res://glossary/assets/line.png" id="3_h6umi"]
-[ext_resource type="FontFile" uid="uid://44iffnbrlgyt" path="res://glossary/assets/LilitaOne-Regular.ttf" id="5_x5r8a"]
-[ext_resource type="FontFile" uid="uid://bsj8upn8vmpqh" path="res://glossary/assets/Roboto-BoldCondensed.ttf" id="6_x5r8a"]
+[ext_resource type="Texture2D" uid="uid://dnb6gil3pddda" path="res://games/glossary/assets/mainbgx.png" id="1_pp48r"]
+[ext_resource type="FontFile" uid="uid://8v6dmfjj68e3" path="res://assets/electrone.regular.ttf" id="2_k56y8"]
+[ext_resource type="Texture2D" uid="uid://c4fjichb8mddn" path="res://games/glossary/assets/shadow2.png" id="2_sx25x"]
+[ext_resource type="Texture2D" uid="uid://bl2nfu0wdrau3" path="res://games/glossary/assets/line.png" id="3_h6umi"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="5_x5r8a"]
+[ext_resource type="FontFile" uid="uid://dbn2eqhxy00rr" path="res://assets/Roboto-BoldCondensed.ttf" id="6_x5r8a"]
 [ext_resource type="LabelSettings" uid="uid://mf7oh2pkahx6" path="res://games/chapter_one/hometown/building_one/Level1/atom.tres" id="7_6ghn3"]
 [ext_resource type="Texture2D" uid="uid://b667yn0ou5sxj" path="res://assets/back.png" id="8_dm0lp"]
+[ext_resource type="Script" path="res://games/global/ResponsiveHudLayout.gd" id="9_resp_hud"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h6umi"]
 font = ExtResource("2_k56y8")
@@ -34,6 +35,7 @@ font_size = 60
 script = ExtResource("1_dm0lp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("9_resp_hud")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 modulate = Color(0.35, 0.35, 0.35, 1)

@@ -8,5 +8,5 @@ func _ready() -> void:
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		body.can_move = false
-		SpawnManager.set_spawn("from_hometown")
+		SpawnManager.set_spawn("default")
 		await FadeManager.fade_and_change("res://games/chapter_one/hometown/building_two/building_two.tscn")

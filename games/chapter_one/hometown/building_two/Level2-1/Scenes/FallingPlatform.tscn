@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dsifl2yu2mxlg"]
 
 [ext_resource type="Script" uid="uid://dc7746opl1r7b" path="res://games/chapter_one/hometown/building_two/Level2-1/Scripts/falling_platform.gd" id="1_ymylk"]
-[ext_resource type="Texture2D" uid="uid://bpgapumtg10l2" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Traps/Falling Platforms/On (32x10).png" id="2_ymylk"]
+[ext_resource type="Texture2D" uid="uid://bpgapumtg10l2" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Traps/Falling Platforms/On (32x10).png" id="2_ymylk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymylk"]
 size = Vector2(22, 8)

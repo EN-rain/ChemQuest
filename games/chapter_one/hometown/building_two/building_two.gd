@@ -26,6 +26,9 @@ func _ready() -> void:
 
 func _handle_player_spawn() -> void:
 	var spawn_name := SpawnManager.get_spawn()
+	if spawn_name.is_empty():
+		spawn_name = SaveManager.last_spawn
+	spawn_name = SpawnManager.normalize_spawn_name(spawn_name)
 	var spawn_marker: Marker2D = null
 
 	print("🏗️ BuildingTwo ready — SpawnManager returned:", spawn_name)
@@ -37,14 +40,19 @@ func _handle_player_spawn() -> void:
 		else:
 			print("⚠️ No spawn marker found for:", spawn_name)
 
-	var default_spawn: Vector2 = spawn_points.get_node("default").global_position
+	var default_marker: Marker2D = spawn_points.get_node("default") as Marker2D
+	var default_spawn: Vector2 = default_marker.global_position
+	var resolved_spawn_name := "default"
 
 	if spawn_marker:
+		resolved_spawn_name = spawn_name
 		player.global_position = spawn_marker.global_position
 		print("🎯 Player spawned at", spawn_marker.global_position, "via", spawn_name)
 	else:
 		player.global_position = default_spawn
 		print("⚠️ Default spawn used at", default_spawn)
+	SpawnManager.clear_pending()
+	SaveManager.save_checkpoint(scene_file_path, resolved_spawn_name)
 
 
 func _check_player_feedback() -> void:

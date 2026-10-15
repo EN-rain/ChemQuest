@@ -1,43 +1,43 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbgv24iviouef"]
+[gd_scene format=3 uid="uid://cpwadvx0owdl5"]
 
-[ext_resource type="Script" uid="uid://dy5w5ehjqck8r" path="res://scenes/levels/mini_levels/PrecisionAccuracy/target_5.gd" id="1_gp3a3"]
-[ext_resource type="Texture2D" uid="uid://dtic0826twd85" path="res://scenes/levels/mini_levels/PrecisionAccuracy/imgs/bullseye.png" id="2_wxvyc"]
-[ext_resource type="Script" uid="uid://c88mjes27s4ta" path="res://scenes/levels/mini_levels/PrecisionAccuracy/score_1.gd" id="3_oickp"]
-[ext_resource type="Script" uid="uid://ml4gwd7f2ke4" path="res://scenes/levels/mini_levels/PrecisionAccuracy/score_2.gd" id="4_heb2r"]
-[ext_resource type="Script" uid="uid://bjbrnapd0xu63" path="res://scenes/levels/mini_levels/PrecisionAccuracy/score_3.gd" id="5_gxvrf"]
-[ext_resource type="Script" uid="uid://cp87p1h1e114o" path="res://scenes/levels/mini_levels/PrecisionAccuracy/score_4.gd" id="6_qwo5o"]
-[ext_resource type="Script" uid="uid://c1vwq21wlu5sg" path="res://scenes/levels/mini_levels/PrecisionAccuracy/score_5.gd" id="7_77lwv"]
+[ext_resource type="Script" uid="uid://b4m6egkmohs4o" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/target.gd" id="1_gp3a3"]
+[ext_resource type="Texture2D" uid="uid://dtic0826twd85" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/imgs/bullseye.png" id="2_wxvyc"]
+[ext_resource type="Script" uid="uid://c88mjes27s4ta" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/score_1.gd" id="3_oickp"]
+[ext_resource type="Script" uid="uid://ml4gwd7f2ke4" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/score_2.gd" id="4_heb2r"]
+[ext_resource type="Script" uid="uid://bjbrnapd0xu63" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/score_3.gd" id="5_gxvrf"]
+[ext_resource type="Script" uid="uid://cp87p1h1e114o" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/score_4.gd" id="6_qwo5o"]
+[ext_resource type="Script" uid="uid://c1vwq21wlu5sg" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/score_5.gd" id="7_77lwv"]
 
-[node name="Target5" type="Node2D"]
+[node name="Target5" type="Node2D" unique_id=754618597]
 script = ExtResource("1_gp3a3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2070887100]
 scale = Vector2(0.248, 0.25)
 texture = ExtResource("2_wxvyc")
 
-[node name="HitContainer" type="Node2D" parent="."]
+[node name="HitContainer" type="Node2D" parent="." unique_id=1248515477]
 
-[node name="Score1" type="Area2D" parent="."]
+[node name="Score1" type="Area2D" parent="." unique_id=1417332259]
 script = ExtResource("3_oickp")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Score1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Score1" unique_id=1657829598]
 
-[node name="Score2" type="Area2D" parent="."]
+[node name="Score2" type="Area2D" parent="." unique_id=1659831087]
 script = ExtResource("4_heb2r")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Score2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Score2" unique_id=456568680]
 
-[node name="Score3" type="Area2D" parent="."]
+[node name="Score3" type="Area2D" parent="." unique_id=1001571325]
 script = ExtResource("5_gxvrf")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Score3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Score3" unique_id=255082646]
 
-[node name="Score4" type="Area2D" parent="."]
+[node name="Score4" type="Area2D" parent="." unique_id=618627939]
 script = ExtResource("6_qwo5o")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Score4"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Score4" unique_id=1317989433]
 
-[node name="Score5" type="Area2D" parent="."]
+[node name="Score5" type="Area2D" parent="." unique_id=794581124]
 script = ExtResource("7_77lwv")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Score5"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Score5" unique_id=988911008]

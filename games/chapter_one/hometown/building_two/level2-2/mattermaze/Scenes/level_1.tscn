@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://h7xjxqosnbca"]
+[gd_scene load_steps=12 format=3 uid="uid://h7xjxqosnbca"]
 
 [ext_resource type="PackedScene" uid="uid://dhw7b2fvbnu6" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/lvl_gate2.tscn" id="1_evi0p"]
-[ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_vk57k"]
+[ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_vk57k"]
 [ext_resource type="PackedScene" uid="uid://dgwhrfr5nh03d" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/solid_gate.tscn" id="2_7p6j4"]
 [ext_resource type="PackedScene" uid="uid://bgwjxnripbj6o" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/player.tscn" id="2_8ffim"]
-[ext_resource type="Texture2D" uid="uid://cgpp4psq1hreu" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/Pixel Adventure 1/Free/Background/Blue.png" id="3_lsmp6"]
+[ext_resource type="Texture2D" uid="uid://cgpp4psq1hreu" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Blue.png" id="3_lsmp6"]
 [ext_resource type="PackedScene" uid="uid://be7dr37pqiwmk" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/liquid_gate.tscn" id="4_6444e"]
 [ext_resource type="PackedScene" uid="uid://dxwnxfl8qhvw0" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/gas_gate.tscn" id="5_6444e"]
+[ext_resource type="PackedScene" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/StateTouchControls.tscn" id="6_touch_controls"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evi0p"]
 texture = ExtResource("1_vk57k")
@@ -357,3 +358,5 @@ offset_top = -206.0
 offset_right = 1361.0
 offset_bottom = 921.0
 color = Color(1, 1, 1, 0)
+
+[node name="StateTouchControls" parent="." instance=ExtResource("6_touch_controls")]

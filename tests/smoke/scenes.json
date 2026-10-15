@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "active": [
+    {"id":"intro","path":"res://intro.tscn","role":"entry"},
+    {"id":"main_menu","path":"res://games/main.tscn","role":"menu"},
+    {"id":"chapter_one_cutscene","path":"res://games/chapter_one/visual_one.tscn","role":"transition"},
+    {"id":"hometown","path":"res://games/chapter_one/hometown/hometown.tscn","role":"hub"},
+    {"id":"building_one","path":"res://games/chapter_one/hometown/building_one/building_one.tscn","role":"hub"},
+    {"id":"building_two","path":"res://games/chapter_one/hometown/building_two/building_two.tscn","role":"hub"},
+    {"id":"lesson_one","path":"res://games/chapter_one/hometown/building_one/Level1/Lesson1/lesson_one.tscn","role":"lesson"},
+    {"id":"lesson_two","path":"res://games/chapter_one/hometown/building_one/Level1/Lesson2/lesson_two.tscn","role":"lesson"},
+    {"id":"lesson_three","path":"res://games/chapter_one/hometown/building_one/Level1/Lesson3/Lesson3.tscn","role":"lesson"},
+    {"id":"level_two","path":"res://games/chapter_one/hometown/building_one/Level2/Level2.tscn","role":"lesson"},
+    {"id":"level_three","path":"res://games/chapter_one/hometown/building_one/Level3/level_3.tscn","role":"lesson"},
+    {"id":"precision_accuracy","path":"res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/precision_accuracy.tscn","role":"lesson"},
+    {"id":"density_level_one","path":"res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level 1/level_1.tscn","role":"density"},
+    {"id":"density_level_two","path":"res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level_2.tscn","role":"density"},
+    {"id":"density_level_three","path":"res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level_3.tscn","role":"density"},
+    {"id":"states_main","path":"res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/main.tscn","role":"states"},
+    {"id":"states_level_one","path":"res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/level_1.tscn","role":"states"},
+    {"id":"states_level_two","path":"res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/level_2.tscn","role":"states"},
+    {"id":"states_level_three","path":"res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/level_3.tscn","role":"states"},
+    {"id":"glossary","path":"res://games/glossary/main.tscn","role":"glossary"},
+    {"id":"glossary_element_info","path":"res://games/glossary/element_info.tscn","role":"glossary"},
+    {"id":"glossary_about","path":"res://games/glossary/about.tscn","role":"about"},
+    {"id":"achievements","path":"res://games/achievements/achievements.tscn","role":"achievements"},
+    {"id":"reward","path":"res://games/achievements/reward/Reward.tscn","role":"reward"}
+  ],
+  "orphan_candidates": [
+    {"id":"root_glossary_legacy","path":"res://glossary/main.tscn","reason":"duplicate glossary tree; retain only for dependency review"},
+    {"id":"density_nested_copy","path":"res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Scenes/level 1/level_1.tscn","reason":"nested duplicate tree"},
+    {"id":"states_nested_copy","path":"res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/main.tscn","reason":"nested duplicate tree"}
+  ]
+}

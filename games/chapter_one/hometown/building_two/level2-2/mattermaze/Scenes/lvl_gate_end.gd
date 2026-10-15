@@ -4,6 +4,7 @@ extends Area2D
 @onready var fade_rect: ColorRect = $CanvasLayer/ColorRect
 
 var _finished := false
+var _gate_triggered := false
 
 
 func _ready() -> void:
@@ -13,8 +14,9 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if _finished or body.name != "Player":
+	if _finished or _gate_triggered or body.name != "Player":
 		return
+	_gate_triggered = true
 
 	print("Player reached the final gate.")
 	animated_sprite.play("finish")
@@ -22,12 +24,7 @@ func _on_body_entered(body: Node) -> void:
 
 
 func _on_flag_animation_finished() -> void:
-	if fade_rect:
-		var tween := create_tween()
-		tween.tween_property(fade_rect, "color:a", 1.0, 2.0)
-		tween.finished.connect(_return_to_building_two, CONNECT_ONE_SHOT)
-	else:
-		_return_to_building_two()
+	_return_to_building_two()
 
 
 func _return_to_building_two() -> void:

@@ -75,7 +75,7 @@ func interact() -> void:
 	var player = get_tree().get_first_node_in_group("Player")
 	if player:
 		player.can_move = false
-		SpawnManager.set_spawn("seperation_spawn")
+		SpawnManager.set_spawn("separation_spawn")
 		print("👉 Spawn set to shooting_spawn from shooting.gd")
 
 	await FadeManager.fade_and_change("res://games/chapter_one/hometown/building_one/Level3/level_3.tscn")

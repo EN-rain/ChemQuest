@@ -6,3 +6,7 @@
 # Editor crash-dumps and scene save temps (R3)
 *.tmp
 *.tscn*.tmp
+.DS_Store
+*.translation
+/tasks/manifests/*.csv.import
+/tasks/builds/

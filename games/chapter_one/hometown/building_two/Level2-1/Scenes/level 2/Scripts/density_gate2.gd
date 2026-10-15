@@ -6,6 +6,7 @@ extends Area2D
 # audio players aren't present in the scene tree.
 var correct: AudioStreamPlayer
 var wrong: AudioStreamPlayer
+var _finished := false
 
 func _ready() -> void:
 	add_to_group("DensityGate2")
@@ -32,6 +33,8 @@ func _initialize_bottle_challenge() -> void:
 
 
 func _on_body_entered(body: Node) -> void:
+	if _finished:
+		return
 	if not (body is RigidBody2D and body.has_method("get_density")):
 		return
 
@@ -41,6 +44,7 @@ func _on_body_entered(body: Node) -> void:
 	print("📏 Object Density: %.2f | Target: %.2f" % [density, goal])
 
 	if abs(density - goal) < 0.01:
+		_finished = true
 		print("✅ Correct Bottle Detected!")
 		modulate = Color.GREEN
 		if correct:
@@ -53,8 +57,7 @@ func _on_body_entered(body: Node) -> void:
 
 		# ✅ Add QuestManager safe progress
 		if QuestManager:
-			var scene_name := get_tree().current_scene.name
-			var level_num := int(scene_name.replace("level_", ""))
+			var level_num := _current_level_number()
 			QuestManager.advance_density_level(level_num)
 
 		# ✅ Save progress if SaveManager exists
@@ -72,6 +75,17 @@ func _on_body_entered(body: Node) -> void:
 		modulate = Color.RED
 		if wrong:
 			wrong.play()
+
+
+func _current_level_number() -> int:
+	var current_scene := get_tree().current_scene
+	if current_scene == null:
+		return 0
+	var file_name := current_scene.scene_file_path.get_file().get_basename()
+	var regex := RegEx.new()
+	regex.compile(r"(\d+)$")
+	var result := regex.search(file_name)
+	return int(result.get_string(1)) if result != null else 0
 
 
 func _go_to_level3() -> void:

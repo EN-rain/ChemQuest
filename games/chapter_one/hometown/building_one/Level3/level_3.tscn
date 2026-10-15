@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://da36wbi8kp5js"]
+[gd_scene load_steps=67 format=3 uid="uid://da36wbi8kp5js"]
 
 [ext_resource type="Texture2D" uid="uid://b4vc7e7hoipi4" path="res://games/chapter_one/hometown/building_one/imgs/Group 8 (1).png" id="1_vjr3j"]
 [ext_resource type="Texture2D" uid="uid://2yhf8q8r7uxh" path="res://games/chapter_one/hometown/building_one/imgs/Rectangle 16.png" id="2_0o2us"]
@@ -32,6 +32,7 @@
 [ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="30_jx6yr"]
 [ext_resource type="Texture2D" uid="uid://dru53ilcwxgvi" path="res://games/chapter_one/hometown/building_one/Level1/imgs/red.png" id="31_80b2l"]
 [ext_resource type="Texture2D" uid="uid://frysx2k45p53" path="res://games/chapter_one/hometown/building_one/Level1/imgs/green.png" id="32_1l1dy"]
+[ext_resource type="Script" path="res://games/global/ResponsiveHudLayout.gd" id="33_resp_hud"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbbhl"]
 
@@ -196,6 +197,7 @@ grow_vertical = 2
 texture = ExtResource("3_a3ymi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("33_resp_hud")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15

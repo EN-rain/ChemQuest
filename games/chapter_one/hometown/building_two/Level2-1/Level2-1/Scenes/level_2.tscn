@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://dqjfmgf8uq2i2" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/LOL.mp3" id="13_vcilj"]
 [ext_resource type="Texture2D" uid="uid://dkpfm0a4jx5m4" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Treasure Hunters/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/2.png" id="14_il3gl"]
 [ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="14_j1itp"]
-[ext_resource type="FontFile" uid="uid://c4wd2u2xuk6i2" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/FONTS/LilitaOne-Regular.ttf" id="15_hj5x7"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="15_hj5x7"]
 [ext_resource type="Texture2D" uid="uid://uq1njkuwctgj" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Treasure Hunters/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/5.png" id="15_vv473"]
 [ext_resource type="Script" uid="uid://qoqv31khdwp8" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Scenes/level 1/data.gd" id="15_xhci7"]
 [ext_resource type="Texture2D" uid="uid://c4v6d6qofmea3" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Treasure Hunters/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/6.png" id="16_t074j"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://msdqh7vkellj"]
 
 [ext_resource type="Script" uid="uid://cdmkerlq2wht7" path="res://games/chapter_one/hometown/building_two/Level2-1/Scripts/crate.gd" id="1_i4r3v"]
-[ext_resource type="Texture2D" uid="uid://ckhew0de2xube" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Items/Boxes/Box3/Idle.png" id="2_i4r3v"]
+[ext_resource type="Texture2D" uid="uid://ckhew0de2xube" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Items/Boxes/Box3/Idle.png" id="2_i4r3v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rdp7h"]
 atlas = ExtResource("2_i4r3v")

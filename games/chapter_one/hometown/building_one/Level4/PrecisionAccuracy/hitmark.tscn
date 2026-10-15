@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://vt3jsbt4rtc4"]
+[gd_scene format=3 uid="uid://bfry2xn67ykia"]
 
-[ext_resource type="Texture2D" uid="uid://cieqvkr52ov7o" path="res://scenes/levels/mini_levels/PrecisionAccuracy/imgs/crosshair.png" id="1_pvyci"]
+[ext_resource type="Texture2D" uid="uid://cieqvkr52ov7o" path="res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/imgs/crosshair.png" id="1_pvyci"]
 
-[node name="Hitmark" type="Node2D"]
+[node name="Hitmark" type="Node2D" unique_id=1051348171]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2021098602]
 scale = Vector2(0.646875, 0.646875)
 texture = ExtResource("1_pvyci")

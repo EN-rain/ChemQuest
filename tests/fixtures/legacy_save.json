@@ -1,0 +1,10 @@
+{
+  "scene_path": "res://games/chapter_one/hometown/hometown.tscn",
+  "last_spawn": "default",
+  "quests": [
+    {"id": "find_wiz", "title": "The Lost Wizard", "description": "Find Wiz", "is_completed": false}
+  ],
+  "shown_feedback": [],
+  "density_progress": 1,
+  "states_progress": 1
+}

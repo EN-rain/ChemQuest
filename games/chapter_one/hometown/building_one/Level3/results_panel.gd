@@ -52,7 +52,7 @@ func _on_continue_pressed() -> void:
 func _on_go_back_pressed() -> void:
 	# Go back without marking as passed
 	SpawnManager.set_spawn("separation_spawn")
-	get_tree().change_scene_to_file("res://games/chapter_one/hometown/building_one/building_one.tscn")
+	await FadeManager.fade_and_change("res://games/chapter_one/hometown/building_one/building_one.tscn")
 
 func _on_retry_pressed() -> void:
 	get_tree().reload_current_scene()

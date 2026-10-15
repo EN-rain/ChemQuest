@@ -1,10 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://pdmrhg221il5"]
+[gd_scene load_steps=30 format=3 uid="uid://pdmrhg221il5"]
 
-[ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_cggpd"]
-[ext_resource type="Texture2D" uid="uid://d7ussfmcnynu" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Brown.png" id="2_055b2"]
+[ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_cggpd"]
+[ext_resource type="Texture2D" uid="uid://d7ussfmcnynu" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Brown.png" id="2_055b2"]
 [ext_resource type="PackedScene" uid="uid://ccwl5qc2qyk48" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/player.tscn" id="3_2mgoq"]
-[ext_resource type="Texture2D" uid="uid://dwom6lvdmwk4p" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Gray.png" id="3_055b2"]
-[ext_resource type="Texture2D" uid="uid://ih4r6si3ndxp" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="4_q0ycs"]
+[ext_resource type="Texture2D" uid="uid://dwom6lvdmwk4p" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Gray.png" id="3_055b2"]
+[ext_resource type="Texture2D" uid="uid://ih4r6si3ndxp" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="4_q0ycs"]
 [ext_resource type="PackedScene" uid="uid://c4rsnmgirxf3u" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/density_gate.tscn" id="5_42uki"]
 [ext_resource type="Script" uid="uid://cjq4lafi81bfy" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level 2/Scripts/density_gate2.gd" id="6_42uki"]
 [ext_resource type="PackedScene" uid="uid://ci05jfqne46r6" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level 2/Scenes/bottle.tscn" id="6_cggpd"]
@@ -14,11 +14,13 @@
 [ext_resource type="PackedScene" uid="uid://dcocv7u0p51xv" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/killzone.tscn" id="12_ait6c"]
 [ext_resource type="Texture2D" uid="uid://dg67s8h8wjhv4" path="res://games/chapter_one/hometown/building_two/Level2-1/TouchControls/Mobile Buttons/Mobile Buttons/3.png" id="12_ar4jk"]
 [ext_resource type="Texture2D" uid="uid://b5hatnfak222f" path="res://games/chapter_one/hometown/building_two/Level2-1/TouchControls/Mobile Buttons/Mobile Buttons/4.png" id="13_353jm"]
-[ext_resource type="AudioStream" uid="uid://dqjfmgf8uq2i2" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/LOL.mp3" id="13_vcilj"]
+[ext_resource type="AudioStream" uid="uid://dqjfmgf8uq2i2" path="res://games/chapter_one/hometown/building_two/Level2-1/Assets/LOL.mp3" id="13_vcilj"]
 [ext_resource type="Texture2D" uid="uid://dkpfm0a4jx5m4" path="res://games/chapter_one/hometown/building_two/Level2-1/TouchControls/Mobile Buttons/Mobile Buttons/2.png" id="14_il3gl"]
-[ext_resource type="FontFile" uid="uid://c4wd2u2xuk6i2" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/FONTS/LilitaOne-Regular.ttf" id="15_hj5x7"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="15_hj5x7"]
 [ext_resource type="Texture2D" uid="uid://uq1njkuwctgj" path="res://games/chapter_one/hometown/building_two/Level2-1/TouchControls/Mobile Buttons/Mobile Buttons/5.png" id="15_vv473"]
 [ext_resource type="Texture2D" uid="uid://c4v6d6qofmea3" path="res://games/chapter_one/hometown/building_two/Level2-1/TouchControls/Mobile Buttons/Mobile Buttons/6.png" id="16_t074j"]
+[ext_resource type="Script" path="res://games/global/ResponsiveTouchLayout.gd" id="17_touch"]
+[ext_resource type="Script" path="res://games/global/ResponsiveCameraBounds.gd" id="18_cam"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ait6c"]
 texture = ExtResource("1_cggpd")
@@ -345,6 +347,8 @@ position = Vector2(19, 365)
 [node name="Camera2D2" type="Camera2D" parent="player"]
 zoom = Vector2(3.63, 3.63)
 limit_bottom = 470
+script = ExtResource("18_cam")
+authored_bounds = Rect2(-640, -360, 2560, 1200)
 
 [node name="DensityGatetoNextLvL" parent="." instance=ExtResource("5_42uki")]
 position = Vector2(32, 111)
@@ -379,6 +383,7 @@ position = Vector2(90, 358)
 position = Vector2(60, 351)
 
 [node name="MobileControls" type="CanvasLayer" parent="."]
+script = ExtResource("17_touch")
 
 [node name="Control" type="Control" parent="MobileControls"]
 layout_mode = 3

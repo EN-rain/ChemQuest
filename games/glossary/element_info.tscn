@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://3hy6ngyfu4e2"]
 
-[ext_resource type="Script" uid="uid://7no78mc3pifk" path="res://glossary/element_info.gd" id="1_km50h"]
-[ext_resource type="FontFile" uid="uid://bsj8upn8vmpqh" path="res://glossary/assets/Roboto-BoldCondensed.ttf" id="3_bjf0r"]
+[ext_resource type="Script" path="res://games/glossary/element_info.gd" id="1_km50h"]
+[ext_resource type="FontFile" uid="uid://dbn2eqhxy00rr" path="res://assets/Roboto-BoldCondensed.ttf" id="3_bjf0r"]
 [ext_resource type="LabelSettings" uid="uid://cwxa7ban3sfcf" path="res://assets/mainmenu.tres" id="3_i7w07"]
 [ext_resource type="LabelSettings" uid="uid://mf7oh2pkahx6" path="res://games/chapter_one/hometown/building_one/Level1/atom.tres" id="3_xv2xm"]
 [ext_resource type="Texture2D" uid="uid://b667yn0ou5sxj" path="res://assets/back.png" id="4_y2115"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://b64pwym5r0cu7"]
+[gd_scene load_steps=59 format=3 uid="uid://b64pwym5r0cu7"]
 
 [ext_resource type="Texture2D" uid="uid://c4dijtmed7iiy" path="res://games/chapter_one/hometown/building_one/Level1/imgs/Dropzone.png" id="1_1b8d5"]
 [ext_resource type="Script" uid="uid://xt73kk2t27ko" path="res://games/chapter_one/hometown/building_one/Level1/Lesson1/control.gd" id="1_vmm40"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://bf8027jagoya5" path="res://games/chapter_one/hometown/building_one/imgs/Group 20.png" id="20_6ve3g"]
 [ext_resource type="Script" uid="uid://w5hbomlfknhx" path="res://games/chapter_one/hometown/building_one/Level1/Lesson1/guide.gd" id="23_l8qgy"]
 [ext_resource type="Texture2D" uid="uid://b2yygvqrn2k8c" path="res://games/chapter_one/hometown/building_one/imgs/question.png" id="25_51oc5"]
+[ext_resource type="Script" path="res://games/global/ResponsiveHudLayout.gd" id="26_resp_hud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tt6b4"]
 size = Vector2(606.5, 310)
@@ -189,6 +190,7 @@ texture = ExtResource("2_nw73u")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+script = ExtResource("26_resp_hud")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15

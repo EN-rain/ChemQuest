@@ -7,6 +7,13 @@ var goal_value: float = 0.0
 var initialized: bool = false
 
 
+func reset_state() -> void:
+	challenge_type = "density"
+	chosen_barrel_id = -1
+	goal_value = 0.0
+	initialized = false
+
+
 # Fix (R1): Get the GoalLabel node from the scene tree, or create a fallback
 # CanvasLayer + Label at the top of the screen if no scene provides one.
 # This keeps `setup_*_challenge()` working in any density scene variant

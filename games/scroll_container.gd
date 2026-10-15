@@ -13,7 +13,10 @@ var target_scroll: float = 0.0
 var snapping: bool = false
 var released: bool = false
 var fade_rect: ColorRect
-var current_display_name: String = ""
+var current_display_name: String = "Hometown"
+var _touch_started_in_carousel := false
+var _touch_scrolled := false
+var _touch_start_position := Vector2.ZERO
 
 
 func _ready() -> void:
@@ -22,6 +25,9 @@ func _ready() -> void:
 	# 🔹 Create a black overlay behind the background (for clean fades)
 	fade_rect = ColorRect.new()
 	fade_rect.color = Color.BLACK
+	# This is a visual-only fade overlay. Without IGNORE, its invisible
+	# full-screen rect intercepts GUI clicks (including DevButton).
+	fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	fade_rect.anchor_left = 0.0
 	fade_rect.anchor_top = 0.0
 	fade_rect.anchor_right = 1.0
@@ -40,9 +46,20 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		if event.pressed:
-			snapping = false
+			_touch_started_in_carousel = get_global_rect().has_point(event.position)
+			_touch_start_position = event.position
+			_touch_scrolled = false
+			if _touch_started_in_carousel:
+				snapping = false
 		else:
-			released = true
+			# A tap anywhere on the main menu must not select a carousel item
+			# and trigger a background fade. Snap only after an actual drag.
+			if _touch_started_in_carousel and _touch_scrolled:
+				released = true
+			_touch_started_in_carousel = false
+	elif event is InputEventScreenDrag and _touch_started_in_carousel:
+		if event.position.distance_to(_touch_start_position) >= 12.0:
+			_touch_scrolled = true
 
 
 func _process(delta: float) -> void:

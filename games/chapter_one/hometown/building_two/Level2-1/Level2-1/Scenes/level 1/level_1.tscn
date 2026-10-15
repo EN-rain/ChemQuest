@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://b5cnhakfofdc" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level 1/barrel.gd" id="5_e61hi"]
 [ext_resource type="PackedScene" uid="uid://c4rsnmgirxf3u" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/density_gate.tscn" id="5_iehjv"]
 [ext_resource type="Script" uid="uid://chcem7h1gauc2" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Scenes/level 1/barrel_3.gd" id="6_4aoe3"]
-[ext_resource type="FontFile" uid="uid://c4wd2u2xuk6i2" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/FONTS/LilitaOne-Regular.ttf" id="6_rjt48"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="6_rjt48"]
 [ext_resource type="Script" uid="uid://bppgqdfmabpja" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Scenes/level 1/goal_label.gd" id="7_fj4u0"]
 [ext_resource type="Texture2D" uid="uid://dg67s8h8wjhv4" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Treasure Hunters/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/3.png" id="8_reedq"]
 [ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="8_vaggq"]

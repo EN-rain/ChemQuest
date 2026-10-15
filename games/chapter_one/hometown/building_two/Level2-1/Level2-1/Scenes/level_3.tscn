@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c4rsnmgirxf3u" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/density_gate.tscn" id="10_jtv8s"]
 [ext_resource type="Script" uid="uid://wsja22xo34qp" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/density_gate.gd" id="11_3lsis"]
 [ext_resource type="AudioStream" uid="uid://bxj2clkj1ou57" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/correct.wav" id="13_dwxmf"]
-[ext_resource type="FontFile" uid="uid://c4wd2u2xuk6i2" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/FONTS/LilitaOne-Regular.ttf" id="13_xjeco"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="13_xjeco"]
 [ext_resource type="AudioStream" uid="uid://c2xgxm25hmxo7" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/wrong.wav" id="14_rr3wu"]
 [ext_resource type="Script" uid="uid://dhrlrjy507dfg" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level 3/assets/item2.gd" id="16_al6s4"]
 [ext_resource type="Script" uid="uid://cnp7s2tv2hsm0" path="res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level 3/assets/item1.gd" id="16_vl505"]

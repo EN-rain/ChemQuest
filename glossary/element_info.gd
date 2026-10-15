@@ -12,6 +12,8 @@ var element_symbol = ""
 var atomic_data = {}
 var compounds = []
 
+const FALLBACK_ELEMENT_IMAGE := "res://games/glossary/assets/elements/placeholder.svg"
+
 func set_element(symbol: String, atomic_info: Dictionary, compounds_info: Array):
 	element_symbol = symbol
 	atomic_data = atomic_info
@@ -45,8 +47,8 @@ func _load_element_image(symbol: String):
 	var path = "res://games/glossary/assets/elements/%s.png" % symbol
 	if ResourceLoader.exists(path):
 		img_element.texture = load(path)
-	else:
-		img_element.texture = load("res://assets/elements/placeholder.png")
+	elif ResourceLoader.exists(FALLBACK_ELEMENT_IMAGE):
+		img_element.texture = load(FALLBACK_ELEMENT_IMAGE)
 
 func _on_back_button_pressed() -> void:
 	queue_free()  # remove this info panel from memory

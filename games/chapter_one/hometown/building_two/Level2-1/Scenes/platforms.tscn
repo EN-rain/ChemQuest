@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ijt7scporj53"]
 
-[ext_resource type="Texture2D" uid="uid://bpgapumtg10l2" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Traps/Falling Platforms/On (32x10).png" id="1_o20dk"]
+[ext_resource type="Texture2D" uid="uid://bpgapumtg10l2" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Traps/Falling Platforms/On (32x10).png" id="1_o20dk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtyfn"]
 atlas = ExtResource("1_o20dk")

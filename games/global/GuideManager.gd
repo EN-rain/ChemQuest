@@ -54,7 +54,10 @@ func mark_seen(guide_id: String) -> void:
 	_config.set_value("guides", guide_id, true)
 	_config.save(_save_path)
 
-# 🔄 Optional: Reset all guides (for testing or debug)
+# Clear all once-per-playthrough guide flags, both in memory and on disk.
 func reset_all() -> void:
+	_load_data()
 	_config.clear()
-	_config.save(_save_path)
+	var error := _config.save(_save_path)
+	if error != OK:
+		push_error("GuideManager: could not reset guide history (error %d)." % error)

@@ -16,7 +16,9 @@ var sorted_stack: Array = []
 
 
 func _ready() -> void:
-	lesson3 = get_tree().get_root().get_node("Lesson3")
+	lesson3 = get_tree().current_scene
+	if not lesson3 or not lesson3.has_method("spawn_mixtures"):
+		lesson3 = get_tree().get_first_node_in_group("Lesson3")
 	finalize_button.visible = false
 	undo_button.visible = true
 	_update_sort_label()  # ✅ Initialize display

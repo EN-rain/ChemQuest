@@ -98,4 +98,4 @@ func increase_fire_zone_speed():
 
 func _on_home_pressed() -> void:
 	Scoring.reset_precision_accuracy_score()
-	get_tree().change_scene_to_file("res://scenes/levels/level_map/level_map.tscn")
+	await FadeManager.fade_and_change("res://games/chapter_one/hometown/building_one/building_one.tscn")

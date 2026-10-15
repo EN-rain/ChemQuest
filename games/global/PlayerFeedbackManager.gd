@@ -61,6 +61,10 @@ func set_shown_feedback(data: Array) -> void:
 	for item in data:
 		if typeof(item) == TYPE_STRING:
 			shown_feedback.append(item)
+
+
+func reset_progress() -> void:
+	shown_feedback.clear()
 	print("💬 Restored shown feedback keys:", shown_feedback)
 
 

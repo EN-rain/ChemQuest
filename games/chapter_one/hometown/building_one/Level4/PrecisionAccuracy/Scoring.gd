@@ -9,6 +9,11 @@ func set_last_scene(path: String) -> void:
 func reset_precision_accuracy_score() -> void:
 	precision_accuracy_score = 0
 
+
+func reset_progress() -> void:
+	precision_accuracy_score = 0
+	best_scores.clear()
+
 func update_best_score(game_id: String, score: int) -> int:
 	var best := best_scores.get(game_id, -9999) as int
 	if score > best:

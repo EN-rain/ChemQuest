@@ -35,4 +35,4 @@ func _on_continue_pressed() -> void:
 			push_warning("⚠ Quest id '%s' not found in quest.json" % after_id)
 
 	Scoring.reset_precision_accuracy_score()
-	get_tree().change_scene_to_file("res://games/chapter_one/hometown/building_one/building_one.tscn")
+	await FadeManager.fade_and_change("res://games/chapter_one/hometown/building_one/building_one.tscn")

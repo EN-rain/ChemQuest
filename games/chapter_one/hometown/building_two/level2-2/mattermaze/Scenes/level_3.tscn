@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://by0sqv8iw6spq"]
+[gd_scene load_steps=12 format=3 uid="uid://by0sqv8iw6spq"]
 
-[ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_ng0s0"]
-[ext_resource type="Texture2D" uid="uid://kksbskc5avq8" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Purple.png" id="2_53xsp"]
-[ext_resource type="PackedScene" uid="uid://bgwjxnripbj6o" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/player.tscn" id="2_g5cw1"]
-[ext_resource type="PackedScene" uid="uid://dxwnxfl8qhvw0" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/gas_gate.tscn" id="3_vwg62"]
-[ext_resource type="PackedScene" uid="uid://dgwhrfr5nh03d" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/solid_gate.tscn" id="4_qf6rc"]
-[ext_resource type="PackedScene" uid="uid://be7dr37pqiwmk" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/liquid_gate.tscn" id="5_53xsp"]
-[ext_resource type="PackedScene" uid="uid://4s637hiasn8h" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/lvl_gate_end.tscn" id="6_qf6rc"]
+[ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_ng0s0"]
+[ext_resource type="Texture2D" uid="uid://kksbskc5avq8" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Purple.png" id="2_53xsp"]
+[ext_resource type="PackedScene" uid="uid://bgwjxnripbj6o" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/player.tscn" id="2_g5cw1"]
+[ext_resource type="PackedScene" uid="uid://dxwnxfl8qhvw0" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/gas_gate.tscn" id="3_vwg62"]
+[ext_resource type="PackedScene" uid="uid://dgwhrfr5nh03d" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/solid_gate.tscn" id="4_qf6rc"]
+[ext_resource type="PackedScene" uid="uid://be7dr37pqiwmk" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/liquid_gate.tscn" id="5_53xsp"]
+[ext_resource type="PackedScene" uid="uid://4s637hiasn8h" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/lvl_gate_end.tscn" id="6_qf6rc"]
+[ext_resource type="PackedScene" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/StateTouchControls.tscn" id="7_touch_controls"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5cw1"]
 texture = ExtResource("1_ng0s0")
@@ -393,3 +394,5 @@ position = Vector2(73, 25)
 [node name="ColorRect" type="ColorRect" parent="LVLGateEnd/CanvasLayer"]
 offset_right = 1149.0
 offset_bottom = 653.0
+
+[node name="StateTouchControls" parent="." instance=ExtResource("7_touch_controls")]

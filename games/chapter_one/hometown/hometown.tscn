@@ -50,6 +50,8 @@
 [ext_resource type="Script" uid="uid://ko0g74gmb1cp" path="res://games/chapter_one/hometown/menu.gd" id="47_p1d33"]
 [ext_resource type="Script" uid="uid://fpndewmx5k5g" path="res://games/chapter_one/hometown/menu_panel.gd" id="49_nnlsi"]
 [ext_resource type="Script" uid="uid://ci001pc31ssla" path="res://games/chapter_one/hometown/scripts/hometown_tutorial.gd" id="52_i0q7j"]
+[ext_resource type="Script" uid="uid://cy2q3j0srnfyp" path="res://games/global/ResponsiveCameraBounds.gd" id="99_resp_cam"]
+[ext_resource type="Script" uid="uid://jav3kox5bad" path="res://games/global/ResponsiveHudLayout.gd" id="99_resp_hud"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xnqja"]
 texture = ExtResource("1_nktmq")
@@ -3960,8 +3962,11 @@ collision_mask = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1861379317]
 zoom = Vector2(0.6, 0.6)
+script = ExtResource("99_resp_cam")
+authored_bounds = Rect2(-2724, -2704, 5183, 5499)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1205505167]
+script = ExtResource("99_resp_hud")
 
 [node name="BackButton" type="Button" parent="CanvasLayer" unique_id=703554352]
 offset_left = 2.0

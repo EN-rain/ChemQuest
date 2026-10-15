@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dsri2axikdpxv"]
 
 [ext_resource type="Script" uid="uid://dc7746opl1r7b" path="res://games/chapter_one/hometown/building_two/Level2-1/Scripts/falling_platform.gd" id="1_sn5un"]
-[ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_sn5un"]
+[ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_sn5un"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymylk"]
 size = Vector2(47, 8)

@@ -21,6 +21,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+DevModeManager="*res://games/global/DevModeManager.gd"
+ResponsiveLayout="*res://games/global/ResponsiveLayout.gd"
 FadeManager="*res://games/global/FadeManager.gd"
 QuestManager="*res://games/global/QuestManager.gd"
 DialogueManager="*res://games/global/DialogueManager.gd"
@@ -31,7 +33,6 @@ SaveManager="*res://games/global/SaveManager.gd"
 Scoring="*res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/Scoring.gd"
 LessonManager="*res://games/chapter_one/hometown/building_one/LessonManager.gd"
 ElementColorDB="*res://games/chapter_one/hometown/building_one/ElementColorDB.gd"
-Level2Manager="*res://games/chapter_one/hometown/building_one/Level2/Level2Manager.gd"
 GuideManager="*res://games/global/GuideManager.gd"
 PlayerFeedbackManager="*res://games/global/PlayerFeedbackManager.gd"
 ChallengeManager="*res://games/global/DensityChallengeManager.gd"
@@ -43,6 +44,10 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/auvrynt_bridge/plugin.cfg")
 
 [global_group]
 

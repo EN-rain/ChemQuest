@@ -1,11 +1,11 @@
 [gd_scene load_steps=41 format=3 uid="uid://ccwl5qc2qyk48"]
 
 [ext_resource type="Script" uid="uid://bilhj25r5ujlu" path="res://games/chapter_one/hometown/building_two/Level2-1/Scripts/player.gd" id="1_fkybt"]
-[ext_resource type="Texture2D" uid="uid://dwuq06pnefn10" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Main Characters/Mask Dude/Jump (32x32).png" id="1_vgqql"]
-[ext_resource type="Texture2D" uid="uid://bhhm53f66u4tb" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Main Characters/Mask Dude/Fall (32x32).png" id="2_fkybt"]
-[ext_resource type="Texture2D" uid="uid://cuxaby51x67wx" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Main Characters/Mask Dude/Idle (32x32).png" id="3_x3wgy"]
-[ext_resource type="Texture2D" uid="uid://d3w2mbvua8v1y" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Main Characters/Mask Dude/Run (32x32).png" id="4_3smsa"]
-[ext_resource type="Texture2D" uid="uid://c3d5h80pvul1a" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Main Characters/Mask Dude/Double Jump (32x32).png" id="5_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://dwuq06pnefn10" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Main Characters/Mask Dude/Jump (32x32).png" id="1_vgqql"]
+[ext_resource type="Texture2D" uid="uid://bhhm53f66u4tb" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Main Characters/Mask Dude/Fall (32x32).png" id="2_fkybt"]
+[ext_resource type="Texture2D" uid="uid://cuxaby51x67wx" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Main Characters/Mask Dude/Idle (32x32).png" id="3_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://d3w2mbvua8v1y" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Main Characters/Mask Dude/Run (32x32).png" id="4_3smsa"]
+[ext_resource type="Texture2D" uid="uid://c3d5h80pvul1a" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Main Characters/Mask Dude/Double Jump (32x32).png" id="5_x3wgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
 atlas = ExtResource("2_fkybt")

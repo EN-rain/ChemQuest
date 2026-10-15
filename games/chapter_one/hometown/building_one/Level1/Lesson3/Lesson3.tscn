@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cvxd0pbxjgd7s"]
+[gd_scene load_steps=66 format=3 uid="uid://cvxd0pbxjgd7s"]
 
 [ext_resource type="Script" uid="uid://bvcjlc4mf8jc4" path="res://games/chapter_one/hometown/building_one/Level1/Lesson3/lesson_3.gd" id="1_1iaa8"]
 [ext_resource type="Script" uid="uid://dnepjw8kly6jh" path="res://games/chapter_one/hometown/building_one/Level3/back_panel.gd" id="1_qi8wb"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://d27w7ydxl1hhf" path="res://games/chapter_one/hometown/building_one/Level1/imgs/Rectangle 3.png" id="19_iccwr"]
 [ext_resource type="Texture2D" uid="uid://dru53ilcwxgvi" path="res://games/chapter_one/hometown/building_one/Level1/imgs/red.png" id="21_lrlri"]
 [ext_resource type="Texture2D" uid="uid://frysx2k45p53" path="res://games/chapter_one/hometown/building_one/Level1/imgs/green.png" id="23_07285"]
+[ext_resource type="Script" path="res://games/global/ResponsiveHudLayout.gd" id="24_resp_hud"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3mpa"]
 
@@ -165,6 +166,7 @@ grow_horizontal = 2
 texture = ExtResource("3_56ubk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("24_resp_hud")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15

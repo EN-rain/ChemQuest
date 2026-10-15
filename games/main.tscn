@@ -19,6 +19,28 @@
 [ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="10_7s6k0"]
 [ext_resource type="FontFile" uid="uid://8v6dmfjj68e3" path="res://assets/electrone.regular.ttf" id="14_vwgfs"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oohc0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yev2c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4raie"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_giuh7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xsx8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_effxp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lgmje"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_llh1f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_osr4p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5mo8y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qn45b"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a1pu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cbrdv"]
@@ -189,6 +211,39 @@ grow_vertical = 2
 texture = ExtResource("5_j0q6l")
 metadata/_edit_lock_ = true
 
+[node name="DevButton" type="Button" parent="CanvasLayer2" unique_id=987289028]
+z_index = 100
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -241.0
+offset_right = 204.0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oohc0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_yev2c")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4raie")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_giuh7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3xsx8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_effxp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_lgmje")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_llh1f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_osr4p")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5mo8y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qn45b")
+
+[node name="DevLabel" type="Label" parent="CanvasLayer2" unique_id=341439094]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -62.0
+offset_right = 210.0
+offset_bottom = -13.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "DEV MODE"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1224073356]
 
 [node name="MusicButton" type="TextureButton" parent="CanvasLayer" unique_id=228861345]
@@ -197,9 +252,10 @@ texture_filter = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -55.0
-offset_right = -15.0
-offset_bottom = 35.0
+offset_left = -67.0
+offset_top = 14.0
+offset_right = -27.0
+offset_bottom = 49.0
 grow_horizontal = 0
 scale = Vector2(1.5, 1.5)
 script = ExtResource("6_d63cy")

@@ -74,7 +74,9 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		if InteractionManager.current_interactable == self:
 			InteractionManager.current_interactable = null
-		interact_button.hide()
+			# The icon belongs to whichever Area2D currently owns the
+			# interaction. Exiting Wiz must not hide Book I's prompt.
+			interact_button.hide()
 
 func interact() -> void:
 	var player = get_tree().get_first_node_in_group("Player")
@@ -143,5 +145,5 @@ func _on_dialogue_finished() -> void:
 	var player = get_tree().get_first_node_in_group("Player")
 	if player: player.can_move = true
 
-	if area.get_overlapping_bodies().any(func(b): return b.is_in_group("Player")):
+	if InteractionManager.current_interactable == self and area.get_overlapping_bodies().any(func(b): return b.is_in_group("Player")):
 		interact_button.show()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dbac72tyo5w85"]
+[gd_scene load_steps=34 format=3 uid="uid://dbac72tyo5w85"]
 
 [ext_resource type="Texture2D" uid="uid://u300cismahhn" path="res://assets/mainbgx.png" id="1_o7gyv"]
 [ext_resource type="Script" uid="uid://dvco57vr2wels" path="res://games/achievements/reward/reward.gd" id="1_y50ux"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://5cs3muais5ul" path="res://assets/shadow2.png" id="4_y50ux"]
 [ext_resource type="Texture2D" uid="uid://dcqgu8kvpxbmp" path="res://games/achievements/reward/everynight.png" id="5_l4o0o"]
 [ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="6_ldrfa"]
+[ext_resource type="Script" path="res://games/global/ResponsiveSafeArea.gd" id="7_resp_safe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldrfa"]
 atlas = ExtResource("5_l4o0o")
@@ -182,6 +183,7 @@ texture = ExtResource("4_y50ux")
 metadata/_edit_lock_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+script = ExtResource("7_resp_safe")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

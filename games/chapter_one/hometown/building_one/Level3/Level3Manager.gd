@@ -45,6 +45,14 @@ func _save_data() -> void:
 		file.close()
 
 
+func reset_progress() -> void:
+	level3_data = {
+		"item_history": {},
+		"run_count": 0
+	}
+	_save_data()
+
+
 # ============================================================
 # 🧩 ITEM TRACKING
 # ============================================================

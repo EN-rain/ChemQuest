@@ -45,6 +45,16 @@ func _save_data() -> void:
 		file.store_string(JSON.stringify(lesson_data, "\t"))
 		file.close()
 
+
+func reset_progress() -> void:
+	lesson_data = {
+		"element_spawn_history": {},
+		"compound_spawn_history": {},
+		"run_count": 0,
+		"run_count_two": 0
+	}
+	_save_data()
+
 # ============================================================
 # 🧩 LESSON 1 – Element tracking
 # ============================================================

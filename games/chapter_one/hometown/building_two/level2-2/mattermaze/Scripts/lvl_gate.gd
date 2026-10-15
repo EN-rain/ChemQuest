@@ -4,6 +4,8 @@ extends Area2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var fade_rect: ColorRect = $"../CanvasLayer/FadeRect"
+var _gate_triggered := false
+var _transition_started := false
 
 func _ready() -> void:
 	connect("body_entered", Callable(self, "_on_body_entered"))
@@ -11,27 +13,24 @@ func _ready() -> void:
 		fade_rect.color = Color(0, 0, 0, 0) # Start fully transparent
 
 func _on_body_entered(body: Node) -> void:
-	if body.name != "Player":
+	if _gate_triggered or _transition_started or body.name != "Player":
 		return
+	_gate_triggered = true
 
 	print("Player reached the gate ✅")
 	animated_sprite.play("finish")
 	animated_sprite.animation_finished.connect(_on_flag_animation_finished, CONNECT_ONE_SHOT)
 
 func _on_flag_animation_finished() -> void:
-	if not fade_rect:
-		_load_next_level()
-		return
-
-	# Fade to black before loading next level
-	var tween := create_tween()
-	tween.tween_property(fade_rect, "color:a", 1.0, 1.0) # Fade out in 1 second
-	tween.finished.connect(_load_next_level, CONNECT_ONE_SHOT)
+	_load_next_level()
 
 func _load_next_level() -> void:
+	if _transition_started:
+		return
 	if next_scene_path.is_empty():
 		print("⚠ No next scene path set for this gate!")
 		return
 
 	print("Loading next scene: ", next_scene_path)
-	get_tree().change_scene_to_file(next_scene_path)
+	_transition_started = true
+	await FadeManager.fade_and_change(next_scene_path)

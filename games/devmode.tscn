@@ -1,0 +1,107 @@
+[gd_scene load_steps=2 format=3 uid="uid://fqeu2a65iixn"]
+
+[ext_resource type="Script" path="res://games/devmode.gd" id="1_dev"]
+
+[node name="Devmode" type="Control" unique_id=1616688990]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dev")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 126.0
+offset_bottom = 54.0
+text = "Back"
+
+[node name="DisableButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -205.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 54.0
+grow_horizontal = 0
+text = "Disable Dev Mode"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 60.0
+offset_right = 450.0
+offset_bottom = 90.0
+text = "Developer Mode - Puzzle Progression"
+
+[node name="ResetButton" type="Button" parent="."]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 98.0
+offset_right = 177.0
+offset_bottom = 139.0
+text = "Reset Progress"
+
+[node name="UnlockAllButton" type="Button" parent="."]
+layout_mode = 1
+offset_left = 196.0
+offset_top = 98.0
+offset_right = 365.0
+offset_bottom = 139.0
+text = "Unlock All Puzzles"
+
+[node name="PuzzleScroll" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 152.0
+offset_right = -16.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="PuzzleList" type="VBoxContainer" parent="PuzzleScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="StatusLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -56.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Checking puzzle progression..."
+
+[node name="ResetConfirmation" type="ConfirmationDialog" parent="."]
+title = "Reset Game Progress?"
+dialog_text = "This resets saved quests, puzzles, and the Continue checkpoint. A developer backup will be created first. Continue?"
+ok_button_text = "Reset Progress"
+
+[node name="LockConfirmation" type="ConfirmationDialog" parent="."]
+title = "Lock Puzzle And Later Progress?"
+dialog_text = "This puzzle and every later puzzle will be locked, and their completed quests will be rolled back. Continue?"
+ok_button_text = "Lock Puzzles"

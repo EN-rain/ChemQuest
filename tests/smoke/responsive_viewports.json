@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "viewports": [
+    {"id":"minimum_landscape","width":854,"height":480},
+    {"id":"tablet_4_3","width":1024,"height":768},
+    {"id":"reference_16_9","width":1280,"height":720},
+    {"id":"tablet_16_10","width":1280,"height":800},
+    {"id":"desktop_full_hd","width":1920,"height":1080},
+    {"id":"phone_wide","width":2400,"height":1080},
+    {"id":"desktop_ultrawide","width":2560,"height":1080},
+    {"id":"portrait_guard","width":720,"height":1280}
+  ]
+}

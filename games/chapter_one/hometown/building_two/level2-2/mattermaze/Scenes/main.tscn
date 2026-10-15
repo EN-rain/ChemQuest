@@ -1,19 +1,21 @@
-[gd_scene load_steps=27 format=3 uid="uid://cgm3jjvrmagg4"]
+[gd_scene load_steps=29 format=3 uid="uid://cgm3jjvrmagg4"]
 
-[ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://bgwjxnripbj6o" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/player.tscn" id="2_bo1nx"]
-[ext_resource type="Texture2D" uid="uid://cgpp4psq1hreu" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Blue.png" id="2_jkdf5"]
-[ext_resource type="Texture2D" uid="uid://d7ussfmcnynu" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Brown.png" id="3_wsu2k"]
-[ext_resource type="Texture2D" uid="uid://dwom6lvdmwk4p" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Gray.png" id="4_k12tt"]
-[ext_resource type="Texture2D" uid="uid://batuknaq11vqj" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Green.png" id="5_h1bgf"]
-[ext_resource type="PackedScene" uid="uid://dgwhrfr5nh03d" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/solid_gate.tscn" id="5_kry3j"]
-[ext_resource type="PackedScene" uid="uid://be7dr37pqiwmk" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/liquid_gate.tscn" id="6_6bp64"]
-[ext_resource type="FontFile" uid="uid://cfxccqsso15a5" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/LilitaOne-Regular.ttf" id="6_21xkr"]
-[ext_resource type="Texture2D" uid="uid://nhtls6c0l23w" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Pink.png" id="6_b3802"]
-[ext_resource type="PackedScene" uid="uid://cjn4wu1mwi3ff" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/lvl_gate.tscn" id="7_6bp64"]
-[ext_resource type="PackedScene" uid="uid://dxwnxfl8qhvw0" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/gas_gate.tscn" id="7_344ge"]
-[ext_resource type="Texture2D" uid="uid://kksbskc5avq8" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Purple.png" id="7_fevyy"]
-[ext_resource type="Texture2D" uid="uid://o5af6xhsmyux" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Yellow.png" id="8_hibaj"]
+[ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://bgwjxnripbj6o" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/player.tscn" id="2_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://cgpp4psq1hreu" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Blue.png" id="2_jkdf5"]
+[ext_resource type="Texture2D" uid="uid://d7ussfmcnynu" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Brown.png" id="3_wsu2k"]
+[ext_resource type="Texture2D" uid="uid://dwom6lvdmwk4p" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Gray.png" id="4_k12tt"]
+[ext_resource type="Texture2D" uid="uid://batuknaq11vqj" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Green.png" id="5_h1bgf"]
+[ext_resource type="PackedScene" uid="uid://dgwhrfr5nh03d" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/solid_gate.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://be7dr37pqiwmk" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/liquid_gate.tscn" id="6_6bp64"]
+[ext_resource type="FontFile" uid="uid://cfxccqsso15a5" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/LilitaOne-Regular.ttf" id="6_21xkr"]
+[ext_resource type="Texture2D" uid="uid://nhtls6c0l23w" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Pink.png" id="6_b3802"]
+[ext_resource type="PackedScene" uid="uid://cjn4wu1mwi3ff" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/lvl_gate.tscn" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://dxwnxfl8qhvw0" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/gas_gate.tscn" id="7_344ge"]
+[ext_resource type="Texture2D" uid="uid://kksbskc5avq8" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Purple.png" id="7_fevyy"]
+[ext_resource type="Texture2D" uid="uid://o5af6xhsmyux" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Yellow.png" id="8_hibaj"]
+[ext_resource type="Script" path="res://games/global/ResponsiveHudLayout.gd" id="9_resp_hud"]
+[ext_resource type="PackedScene" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/StateTouchControls.tscn" id="10_touch_controls"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bp64"]
 texture = ExtResource("1_jjgbg")
@@ -391,6 +393,7 @@ layer_1/tile_data = PackedInt32Array(65524, 458752, 0, 131060, 458752, 1, 196596
 position = Vector2(-359, -16)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+script = ExtResource("9_resp_hud")
 
 [node name="StateLabel" type="Label" parent="CanvasLayer2"]
 offset_right = 40.0
@@ -442,3 +445,5 @@ offset_left = -568.0
 offset_top = -206.0
 offset_right = 1361.0
 offset_bottom = 921.0
+
+[node name="StateTouchControls" parent="." instance=ExtResource("10_touch_controls")]

@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "active": [
+    {"id":"intro","path":"res://intro.tscn","critical":[{"path":"CanvasLayer/Button"},{"path":"CanvasLayer/Button/Label"}]},
+    {"id":"main_menu","path":"res://games/main.tscn","critical":[{"path":"CanvasLayer/MusicButton"},{"path":"CanvasLayer/VBoxContainer"},{"path":"CanvasLayer/VBoxContainer/NewGame"},{"path":"CanvasLayer/VBoxContainer/Continue"}]},
+    {"id":"chapter_one_cutscene","path":"res://games/chapter_one/visual_one.tscn","critical":[{"path":"CanvasLayer/MarginContainer/Control/Skip"},{"path":"CanvasLayer/MarginContainer/Control/PrologueLabel"},{"path":"CanvasLayer/MarginContainer/Control/Next"}]},
+    {"id":"hometown","path":"res://games/chapter_one/hometown/hometown.tscn","critical":[{"path":"CanvasLayer/BackButton"},{"path":"CanvasLayer/MapButton"},{"path":"CanvasLayer/MusicButton"},{"path":"CanvasLayer/Buttons/right","must_fit":false},{"path":"CanvasLayer/Buttons/left","must_fit":false}]},
+    {"id":"building_one","path":"res://games/chapter_one/hometown/building_one/building_one.tscn","critical":[{"path":"CanvasLayer/BackButton"},{"path":"CanvasLayer/MusicButton"},{"path":"CanvasLayer/DialogueBox"},{"path":"CanvasLayer/Control/interact","must_fit":false}]},
+    {"id":"building_two","path":"res://games/chapter_one/hometown/building_two/building_two.tscn","critical":[{"path":"CanvasLayer/BackButton"},{"path":"CanvasLayer/QuestPanel"},{"path":"CanvasLayer/DialogueBox"},{"path":"CanvasLayer/Control/interact","must_fit":false}]},
+    {"id":"lesson_one","path":"res://games/chapter_one/hometown/building_one/Level1/Lesson1/lesson_one.tscn","critical":[{"path":"CanvasLayer/MarginContainer/Control/MusicButton"},{"path":"CanvasLayer/MarginContainer/Control/ConfirmButton"},{"path":"DesignCanvas/Control/dropzone"}]},
+    {"id":"lesson_two","path":"res://games/chapter_one/hometown/building_one/Level1/Lesson2/lesson_two.tscn","critical":[{"path":"CanvasLayer/MarginContainer/Control/MusicButton"},{"path":"CanvasLayer/MarginContainer/Control/ConfirmButton"},{"path":"DesignCanvas/Control/dropzone"}]},
+    {"id":"lesson_three","path":"res://games/chapter_one/hometown/building_one/Level1/Lesson3/Lesson3.tscn","critical":[{"path":"CanvasLayer/MarginContainer/Control/MusicButton"},{"path":"CanvasLayer/MarginContainer/Control/BackButton"},{"path":"CanvasLayer/MarginContainer/Control/SpawnerPanel"}]},
+    {"id":"level_two","path":"res://games/chapter_one/hometown/building_one/Level2/Level2.tscn","critical":[{"path":"CanvasLayer/MarginContainer/Control/MusicButton"},{"path":"CanvasLayer/MarginContainer/Control/BackButton"},{"path":"CanvasLayer/MarginContainer/Control/Situation"}]},
+    {"id":"level_three","path":"res://games/chapter_one/hometown/building_one/Level3/level_3.tscn","critical":[{"path":"CanvasLayer/MarginContainer/Control/MusicButton"},{"path":"CanvasLayer/MarginContainer/Control/BackButton"},{"path":"CanvasLayer/MarginContainer/Control/Spawner/Spawner/bgml"}]},
+    {"id":"precision_accuracy","path":"res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/precision_accuracy.tscn","critical":[{"path":"UI/MusicButton"},{"path":"UI/FireButton/Sprite2D"},{"path":"DesignCanvas/Legend"}]},
+    {"id":"density_level_one","path":"res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level 1/level_1.tscn","critical":[{"path":"MobileControls/Control/Left","must_fit":true},{"path":"MobileControls/Control/Right","must_fit":true},{"path":"MobileControls/Control/Jump","must_fit":true}]},
+    {"id":"density_level_two","path":"res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level_2.tscn","critical":[{"path":"MobileControls/Control/Left","must_fit":true},{"path":"MobileControls/Control/Right","must_fit":true},{"path":"MobileControls/Control/Jump","must_fit":true}]},
+    {"id":"density_level_three","path":"res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level_3.tscn","critical":[{"path":"MobileControls/Control/Left","must_fit":true},{"path":"MobileControls/Control/Right","must_fit":true},{"path":"MobileControls/Control/Jump","must_fit":true}]},
+    {"id":"states_main","path":"res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/main.tscn","critical":[{"path":"CanvasLayer/FadeRect","must_fit":false},{"path":"CanvasLayer2/StateLabel"}]},
+    {"id":"states_level_one","path":"res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/level_1.tscn","critical":[{"path":"CanvasLayer/FadeRect","must_fit":false}]},
+    {"id":"states_level_two","path":"res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/level_2.tscn","critical":[]},
+    {"id":"states_level_three","path":"res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/level_3.tscn","critical":[{"path":"LVLGateEnd/CanvasLayer/ColorRect","must_fit":false}]},
+    {"id":"glossary","path":"res://games/glossary/main.tscn","critical":[{"path":"TableImage","must_fit":false},{"path":"SearchBar/SearchInput"},{"path":"SuggestionsPanel","must_fit":false}]},
+    {"id":"glossary_element_info","path":"res://games/glossary/element_info.tscn","critical":[{"path":"Control/ElementImage","must_fit":false},{"path":"Control/Name"},{"path":"Control/CompoundsList","must_fit":false},{"path":"Control/BackButton"}]},
+    {"id":"glossary_about","path":"res://games/glossary/about.tscn","critical":[{"path":"CanvasLayer/BackButton"},{"path":"CanvasLayer/VBoxContainer"},{"path":"CanvasLayer/VBoxContainer/HBoxContainer2/Label3"}]},
+    {"id":"achievements","path":"res://games/achievements/achievements.tscn","critical":[{"path":"CanvasLayer/MarginContainer/Control/BackButton"},{"path":"CanvasLayer/MarginContainer/Control/title"},{"path":"CanvasLayer/MarginContainer/Control/ScrollContainer"}]},
+    {"id":"reward","path":"res://games/achievements/reward/Reward.tscn","critical":[{"path":"CanvasLayer/MarginContainer/Control"},{"path":"CanvasLayer/MarginContainer/Control/Button"}]}
+  ]
+}

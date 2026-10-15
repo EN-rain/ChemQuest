@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://b0m8887tqy5gf" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Main Characters/Ninja Frog/Idle (32x32).png" id="24_6mv7l"]
 [ext_resource type="FontFile" uid="uid://dbn2eqhxy00rr" path="res://assets/Roboto-BoldCondensed.ttf" id="27_5x8qw"]
 [ext_resource type="LabelSettings" uid="uid://mf7oh2pkahx6" path="res://games/chapter_one/hometown/building_one/Level1/atom.tres" id="27_jj8n3"]
+[ext_resource type="Script" path="res://games/global/ResponsiveCameraBounds.gd" id="99_resp_cam"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yge20"]
 size = Vector2(294, 60)
@@ -369,6 +370,8 @@ position = Vector2(999, 906)
 
 [node name="Camera2D" type="Camera2D" parent="World/Player" unique_id=858324987]
 zoom = Vector2(0.6, 0.6)
+script = ExtResource("99_resp_cam")
+authored_bounds = Rect2(-768, -768, 3072, 2304)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="World" unique_id=141257696]
 
@@ -599,13 +602,14 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -103.0
-offset_top = -34.0
+offset_top = 8.0
 offset_right = -2.0
-offset_bottom = 1.0
+offset_bottom = 43.0
 grow_horizontal = 0
 
 [node name="Label" type="Label" parent="CanvasLayer/DialogueBox/SkipButton" unique_id=383720546]
 layout_mode = 1
+mouse_filter = 2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

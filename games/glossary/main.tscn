@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://8so0sts8wvqr"]
 
-[ext_resource type="Script" uid="uid://dyxdmfiosiv6m" path="res://glossary/main.gd" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://bv25i4uilt8md" path="res://glossary/TE.png" id="1_ig7tw"]
+[ext_resource type="Script" path="res://games/glossary/main.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://bv25i4uilt8md" path="res://games/glossary/TE.png" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dpvesjw8piav" path="res://games/glossary/back_button.gd" id="3_p5r6q"]
 [ext_resource type="LabelSettings" uid="uid://mf7oh2pkahx6" path="res://games/chapter_one/hometown/building_one/Level1/atom.tres" id="4_065yh"]
 [ext_resource type="Texture2D" uid="uid://b667yn0ou5sxj" path="res://assets/back.png" id="5_ces5r"]

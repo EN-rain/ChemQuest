@@ -37,14 +37,16 @@ func show_results(correct: int, _wrong_items: Array) -> void:
 		pass_label.text = "You passed!"
 		continue_btn.visible = true
 
-		if QuestManager.has_quest("after_book2") and not QuestManager.is_quest_completed("after_book2"):
-			QuestManager.complete_quest("after_book2")
+		if QuestManager.has_quest("finish_book3") and not QuestManager.is_quest_completed("finish_book3"):
+			QuestManager.complete_quest("finish_book3")
 
-			var next_quest = QuestManager.get_quest_template("desk_quiz")
+			var next_quest = QuestManager.get_quest_template("after_book3")
 			if next_quest:
 				QuestManager.add_quest(next_quest)
 
-		%QuestPanel.show_latest_quest()
+		var quest_panel := get_node_or_null("%QuestPanel")
+		if quest_panel != null and quest_panel.has_method("show_latest_quest"):
+			quest_panel.show_latest_quest()
 	else:
 		pass_label.text = "\n12 is the passing score.\nTry again!"
 		label.text = base_text

@@ -1,10 +1,12 @@
 extends Area2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var fade_rect: ColorRect = %FadeSfx
+@onready var fade_rect: ColorRect = get_node_or_null("%FadeSfx") as ColorRect
 
 # 🧠 This will store the detected current level number
 var level_number: int = 0
+var _gate_triggered := false
+var _transition_started := false
 
 func _ready() -> void:
 	
@@ -29,8 +31,9 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if body.name != "Player":
+	if _gate_triggered or _transition_started or body.name != "Player":
 		return
+	_gate_triggered = true
 
 	print("Player reached the gate ✅ Level:", level_number)
 	animated_sprite.play("finish")
@@ -38,15 +41,12 @@ func _on_body_entered(body: Node) -> void:
 
 
 func _on_flag_animation_finished() -> void:
-	if fade_rect:
-		var tween := create_tween()
-		tween.tween_property(fade_rect, "color:a", 1.0, 1.0)
-		tween.finished.connect(_load_next_level, CONNECT_ONE_SHOT)
-	else:
-		_load_next_level()
+	_load_next_level()
 
 
 func _load_next_level() -> void:
+	if _transition_started:
+		return
 	var current_scene := get_tree().current_scene
 	var current_name := current_scene.name
 	var next_scene_path := ""
@@ -72,4 +72,5 @@ func _load_next_level() -> void:
 		QuestManager.advance_states_level(completed_level_number)
 
 	print("➡ Loading next scene:", next_scene_path)
-	get_tree().change_scene_to_file(next_scene_path)
+	_transition_started = true
+	await FadeManager.fade_and_change(next_scene_path)

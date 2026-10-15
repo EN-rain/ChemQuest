@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bkn7gjma3qbm7" path="res://games/chapter_one/hometown/building_two/level/Scenes/main.gd" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://bo3txpx740rj0" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Assets/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="2_idj7w"]
-[ext_resource type="FontFile" uid="uid://dhbkof0yy71s7" path="res://games/chapter_one/hometown/building_two/level/Assets/FONTS/LilitaOne-Regular.ttf" id="3_kln2b"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="3_kln2b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_idj7w"]
 font = ExtResource("3_kln2b")

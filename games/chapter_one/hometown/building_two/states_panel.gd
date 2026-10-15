@@ -57,7 +57,7 @@ func _unlock_button(btn: Button) -> void:
 func _on_level_1_pressed() -> void:
 	MusicManager.stop_music()
 	await FadeManager.fade_and_change(
-		"res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/level_1.tscn"
+		"res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/main.tscn"
 	)
 	_update_states_levels()
 

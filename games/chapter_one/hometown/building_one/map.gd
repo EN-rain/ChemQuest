@@ -24,6 +24,10 @@ func _ready() -> void:
 
 func _on_quest_changed(_quest: Quest) -> void:
 	_update_indicator_state()
+	# The player can enter this Area2D before Wiz's first quest unlocks
+	# the books. Quest completion does not emit body_entered a second time,
+	# so re-evaluate the shared interaction icon on every quest change.
+	refresh_interaction_prompt()
 
 func _update_indicator_state() -> void:
 	if _has_active_target_quest():
@@ -65,7 +69,7 @@ func _on_body_exited(body: Node2D) -> void:
 		player_in_range = false
 		if InteractionManager.current_interactable == self:
 			InteractionManager.current_interactable = null
-		%interact.hide()
+			%interact.hide()
 
 func refresh_interaction_prompt() -> void:
 	if player_in_range and QuestManager.is_quest_completed("find_wiz"):
