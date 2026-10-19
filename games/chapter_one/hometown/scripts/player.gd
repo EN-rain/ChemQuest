@@ -11,9 +11,18 @@ var last_tap_dir := ""
 const DOUBLE_TAP_TIME := 0.3
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var footstep: AudioStreamPlayer = $AudioStreamPlayer  #  your footstep node
+@onready var nav_arrow: Node2D = get_node_or_null("NavArrow")
 
 var last_anim_dir := "down"
 var first_pressed_dir := ""
+
+
+func _ready() -> void:
+	if nav_arrow == null:
+		var arrow_scene: PackedScene = load("res://games/chapter_one/hometown/nav_arrow.tscn")
+		if arrow_scene != null:
+			nav_arrow = arrow_scene.instantiate() as Node2D
+			add_child(nav_arrow)
 
 func _physics_process(_delta: float) -> void:
 	if not can_move:
