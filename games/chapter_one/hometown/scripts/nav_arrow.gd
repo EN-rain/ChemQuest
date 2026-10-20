@@ -160,27 +160,80 @@ func _refresh_target() -> void:
 		target_node = null
 		return
 
-	# Requirement:
-	# - arrow will show only on find_wiz and find_christofe
-	# - find_wiz arrow will point into the BuildingOneEntry
-	# - find_christofe to GoBack after going outside it will point to BuildingTwoEntry
-	var is_find_wiz: bool = quest_mgr.has_quest("find_wiz") and not quest_mgr.is_quest_completed("find_wiz")
-	var is_find_christofe: bool = quest_mgr.has_quest("find_christofe") and not quest_mgr.is_quest_completed("find_christofe")
+	var latest_quest: Quest = quest_mgr.get_latest_incomplete_quest()
+	if latest_quest == null:
+		target_node = null
+		if is_visible_state:
+			_animate_out()
+		return
 
+	var quest_id := latest_quest.id
 	var new_target: Node2D = null
 
-	if is_find_wiz:
-		new_target = _find_node_by_name(current_scene, "BuildingOneEntry")
-	elif is_find_christofe:
-		# In building_one, point to GoBack doorway
-		var go_back := _find_node_by_name(current_scene, "GoBack")
-		if go_back != null:
+	# Scene context identification
+	var b1_entry := _find_node_by_name(current_scene, "BuildingOneEntry")
+	var b2_entry := _find_node_by_name(current_scene, "BuildingTwoEntry")
+	var is_in_hometown := (b1_entry != null or b2_entry != null)
+	var is_in_building_one := _find_node_by_name(current_scene, "Wiz") != null
+	var is_in_building_two := _find_node_by_name(current_scene, "Christofe") != null
+	var go_back := _find_node_by_name(current_scene, "GoBack")
+
+	# Group 1: Building One quests (Wiz, Books, Desk, Separation, Accuracy)
+	const B1_QUESTS := [
+		"find_wiz",
+		"read_books",
+		"finish_book1",
+		"after_book1",
+		"finish_book2",
+		"after_book2",
+		"desk_quiz",
+		"after_desk_quiz",
+		"finish_book3",
+		"after_book3",
+		"separation_methods",
+		"separation_methods_after",
+		"accuracy_vs_precision",
+		"after_accuracy_vs_precision"
+	]
+
+	# Group 2: Building Two quests (Christofe, Density, States)
+	const B2_QUESTS := [
+		"find_christofe",
+		"density_measurement",
+		"after_density_measurement",
+		"states_of_matter",
+		"after_states_of_matter"
+	]
+
+	if quest_id in B1_QUESTS:
+		if is_in_hometown:
+			new_target = b1_entry
+		elif is_in_building_two:
 			new_target = go_back
-		else:
-			# Outside in hometown, point to BuildingTwoEntry
-			new_target = _find_node_by_name(current_scene, "BuildingTwoEntry")
-	else:
-		new_target = null
+		elif is_in_building_one:
+			match quest_id:
+				"find_wiz", "after_book1", "after_book2", "after_desk_quiz", "after_book3", "separation_methods_after", "after_accuracy_vs_precision":
+					new_target = _find_node_by_name(current_scene, "Wiz")
+				"read_books", "finish_book1", "finish_book2", "finish_book3":
+					new_target = _find_node_by_name(current_scene, "LevelOne")
+				"desk_quiz":
+					new_target = _find_node_by_name(current_scene, "LevelTwo")
+				"separation_methods":
+					new_target = _find_node_by_name(current_scene, "LevelThree")
+				"accuracy_vs_precision":
+					new_target = _find_node_by_name(current_scene, "LevelFour")
+
+	elif quest_id in B2_QUESTS:
+		if is_in_hometown:
+			new_target = b2_entry
+		elif is_in_building_one:
+			new_target = go_back
+		elif is_in_building_two:
+			match quest_id:
+				"find_christofe", "after_density_measurement", "after_states_of_matter":
+					new_target = _find_node_by_name(current_scene, "Christofe")
+				"density_measurement", "states_of_matter":
+					new_target = _find_node_by_name(current_scene, "Game")
 
 	target_node = new_target
 
