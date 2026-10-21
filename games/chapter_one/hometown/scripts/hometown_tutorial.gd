@@ -306,7 +306,7 @@ func _show_control_election() -> void:
 	_election_card = PanelContainer.new()
 	_election_card.name = "ElectionCard"
 	_election_card.mouse_filter = Control.MOUSE_FILTER_STOP
-	_election_card.custom_minimum_size = Vector2(520, 240)
+	_election_card.custom_minimum_size = Vector2(560, 310)
 
 	var card_style := StyleBoxFlat.new()
 	card_style.bg_color = Color(0.08, 0.08, 0.08, 0.96)
@@ -335,7 +335,7 @@ func _show_control_election() -> void:
 	sub_lbl.text = "Select your preferred mobile movement controls:"
 	if roboto_font != null:
 		sub_lbl.add_theme_font_override("font", roboto_font)
-	sub_lbl.add_theme_font_size_override("font_size", 16)
+	sub_lbl.add_theme_font_size_override("font_size", 15)
 	sub_lbl.add_theme_color_override("font_color", Color(0.75, 0.75, 0.75))
 	sub_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(sub_lbl)
@@ -348,16 +348,16 @@ func _show_control_election() -> void:
 	var btn_normal := StyleBoxFlat.new()
 	btn_normal.bg_color = Color(0.14, 0.14, 0.14, 0.9)
 	btn_normal.set_border_width_all(0)
-	btn_normal.set_corner_radius_all(12)
+	btn_normal.set_corner_radius_all(14)
 
 	var btn_hover := StyleBoxFlat.new()
 	btn_hover.bg_color = Color(0.24, 0.24, 0.24, 0.95)
 	btn_hover.set_border_width_all(0)
-	btn_hover.set_corner_radius_all(12)
+	btn_hover.set_corner_radius_all(14)
 
 	# 1. ARROWS BUTTON
 	var arrows_btn := Button.new()
-	arrows_btn.custom_minimum_size = Vector2(220, 88)
+	arrows_btn.custom_minimum_size = Vector2(230, 175)
 	arrows_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	arrows_btn.add_theme_stylebox_override("normal", btn_normal)
 	arrows_btn.add_theme_stylebox_override("hover", btn_hover)
@@ -369,14 +369,19 @@ func _show_control_election() -> void:
 	arrows_vbox.anchor_right = 1.0
 	arrows_vbox.anchor_bottom = 1.0
 	arrows_vbox.alignment = BoxContainer.ALIGNMENT_CENTER
-	arrows_vbox.add_theme_constant_override("separation", 4)
+	arrows_vbox.add_theme_constant_override("separation", 6)
 	arrows_btn.add_child(arrows_vbox)
+
+	var dpad_center := CenterContainer.new()
+	dpad_center.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	dpad_center.add_child(_create_dpad_preview())
+	arrows_vbox.add_child(dpad_center)
 
 	var arr_lbl := Label.new()
 	arr_lbl.text = "ARROWS (D-PAD)"
 	if font != null:
 		arr_lbl.add_theme_font_override("font", font)
-	arr_lbl.add_theme_font_size_override("font_size", 20)
+	arr_lbl.add_theme_font_size_override("font_size", 18)
 	arr_lbl.add_theme_color_override("font_color", Color(1, 1, 1))
 	arr_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	arrows_vbox.add_child(arr_lbl)
@@ -385,7 +390,7 @@ func _show_control_election() -> void:
 	arr_sub.text = "4 directional buttons"
 	if roboto_font != null:
 		arr_sub.add_theme_font_override("font", roboto_font)
-	arr_sub.add_theme_font_size_override("font_size", 14)
+	arr_sub.add_theme_font_size_override("font_size", 13)
 	arr_sub.add_theme_color_override("font_color", Color(0.7, 0.7, 0.7))
 	arr_sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	arrows_vbox.add_child(arr_sub)
@@ -395,7 +400,7 @@ func _show_control_election() -> void:
 
 	# 2. JOYSTICK BUTTON
 	var joy_btn := Button.new()
-	joy_btn.custom_minimum_size = Vector2(220, 88)
+	joy_btn.custom_minimum_size = Vector2(230, 175)
 	joy_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	joy_btn.add_theme_stylebox_override("normal", btn_normal)
 	joy_btn.add_theme_stylebox_override("hover", btn_hover)
@@ -407,14 +412,19 @@ func _show_control_election() -> void:
 	joy_vbox.anchor_right = 1.0
 	joy_vbox.anchor_bottom = 1.0
 	joy_vbox.alignment = BoxContainer.ALIGNMENT_CENTER
-	joy_vbox.add_theme_constant_override("separation", 4)
+	joy_vbox.add_theme_constant_override("separation", 6)
 	joy_btn.add_child(joy_vbox)
+
+	var joy_center := CenterContainer.new()
+	joy_center.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	joy_center.add_child(_create_joystick_preview())
+	joy_vbox.add_child(joy_center)
 
 	var joy_lbl := Label.new()
 	joy_lbl.text = "VIRTUAL JOYSTICK"
 	if font != null:
 		joy_lbl.add_theme_font_override("font", font)
-	joy_lbl.add_theme_font_size_override("font_size", 20)
+	joy_lbl.add_theme_font_size_override("font_size", 18)
 	joy_lbl.add_theme_color_override("font_color", Color(1, 1, 1))
 	joy_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	joy_vbox.add_child(joy_lbl)
@@ -423,7 +433,7 @@ func _show_control_election() -> void:
 	joy_sub.text = "Fluid 360° analog stick"
 	if roboto_font != null:
 		joy_sub.add_theme_font_override("font", roboto_font)
-	joy_sub.add_theme_font_size_override("font_size", 14)
+	joy_sub.add_theme_font_size_override("font_size", 13)
 	joy_sub.add_theme_color_override("font_color", Color(0.7, 0.7, 0.7))
 	joy_sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	joy_vbox.add_child(joy_sub)
@@ -435,7 +445,101 @@ func _show_control_election() -> void:
 
 	# Center the election card in viewport
 	var vp_size := get_viewport_rect().size
-	_election_card.position = (vp_size - Vector2(520, 240)) * 0.5
+	_election_card.position = (vp_size - Vector2(560, 310)) * 0.5
+
+
+func _create_dpad_preview() -> Control:
+	var container := Control.new()
+	container.custom_minimum_size = Vector2(72, 72)
+	container.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	var center_bg := ColorRect.new()
+	center_bg.color = Color(0.18, 0.18, 0.18, 0.6)
+	center_bg.position = Vector2(24, 24)
+	center_bg.size = Vector2(24, 24)
+	center_bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	container.add_child(center_bg)
+
+	var tex_up: Texture2D = load("res://assets/buttons/up.png") if ResourceLoader.exists("res://assets/buttons/up.png") else null
+	var tex_down: Texture2D = load("res://assets/buttons/down.png") if ResourceLoader.exists("res://assets/buttons/down.png") else null
+	var tex_left: Texture2D = load("res://assets/buttons/left.png") if ResourceLoader.exists("res://assets/buttons/left.png") else null
+	var tex_right: Texture2D = load("res://assets/buttons/right.png") if ResourceLoader.exists("res://assets/buttons/right.png") else null
+
+	var rect_up := TextureRect.new()
+	rect_up.texture = tex_up
+	rect_up.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	rect_up.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	rect_up.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	rect_up.position = Vector2(24, 0)
+	rect_up.size = Vector2(24, 24)
+	rect_up.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	container.add_child(rect_up)
+
+	var rect_down := TextureRect.new()
+	rect_down.texture = tex_down
+	rect_down.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	rect_down.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	rect_down.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	rect_down.position = Vector2(24, 48)
+	rect_down.size = Vector2(24, 24)
+	rect_down.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	container.add_child(rect_down)
+
+	var rect_left := TextureRect.new()
+	rect_left.texture = tex_left
+	rect_left.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	rect_left.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	rect_left.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	rect_left.position = Vector2(0, 24)
+	rect_left.size = Vector2(24, 24)
+	rect_left.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	container.add_child(rect_left)
+
+	var rect_right := TextureRect.new()
+	rect_right.texture = tex_right
+	rect_right.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	rect_right.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	rect_right.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	rect_right.position = Vector2(48, 24)
+	rect_right.size = Vector2(24, 24)
+	rect_right.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	container.add_child(rect_right)
+
+	return container
+
+
+func _create_joystick_preview() -> Control:
+	var container := Control.new()
+	container.custom_minimum_size = Vector2(72, 72)
+	container.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	var joy_base := Panel.new()
+	joy_base.custom_minimum_size = Vector2(64, 64)
+	joy_base.position = Vector2(4, 4)
+	joy_base.size = Vector2(64, 64)
+	joy_base.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	var base_style := StyleBoxFlat.new()
+	base_style.bg_color = Color(0.12, 0.12, 0.12, 0.75)
+	base_style.border_color = Color(1.0, 1.0, 1.0, 0.5)
+	base_style.set_border_width_all(2)
+	base_style.set_corner_radius_all(32)
+	joy_base.add_theme_stylebox_override("panel", base_style)
+	container.add_child(joy_base)
+
+	var joy_knob := Panel.new()
+	joy_knob.custom_minimum_size = Vector2(26, 26)
+	joy_knob.position = Vector2(19, 19)
+	joy_knob.size = Vector2(26, 26)
+	joy_knob.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	var knob_style := StyleBoxFlat.new()
+	knob_style.bg_color = Color(0.92, 0.92, 0.92, 0.95)
+	knob_style.set_corner_radius_all(13)
+	joy_knob.add_theme_stylebox_override("panel", knob_style)
+	joy_base.add_child(joy_knob)
+
+	return container
 
 
 func _on_election_selected(scheme: String) -> void:
