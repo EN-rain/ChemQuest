@@ -42,14 +42,14 @@ var _steps_data := [
 	},
 	{
 		"badge": "STEP 3 OF 4",
-		"headline": "Tap to Fire",
-		"text": "• Tap the FIRE button to take your shot when aligned!\n• You have 5 shots to prove your mastery of precision and accuracy.",
+		"headline": "Tap to Shoot",
+		"text": "• Tap the SHOOT button to take your shot when aligned!\n• You have 5 shots to prove your mastery of precision and accuracy.",
 		"target": "fire"
 	},
 	{
 		"badge": "STEP 4 OF 4",
 		"headline": "Precision vs Accuracy",
-		"text": "• Accuracy is how close your shots land to the bullseye.\n• Precision is how tightly grouped your 5 shots are together!\n• Tap (?) anytime for a reminder.",
+		"text": "• Review the guide on the right: Accuracy is how close shots land to the bullseye.\n• Precision is how tightly grouped your shots are together!",
 		"target": "score"
 	}
 ]
@@ -285,6 +285,11 @@ func _set_gameplay_paused(paused: bool) -> void:
 		pa = get_tree().current_scene.find_child("PAManager", true, false) as Node2D
 	if pa != null:
 		pa.set_physics_process(not paused)
+	var btn := get_node_or_null("%FireButton") as Button
+	if btn == null and get_tree() != null and get_tree().current_scene != null:
+		btn = get_tree().current_scene.find_child("FireButton", true, false) as Button
+	if btn != null:
+		btn.disabled = paused
 
 
 func _process(delta: float) -> void:
@@ -356,43 +361,43 @@ func _on_viewport_size_changed() -> void:
 func _calculate_target_box(target_type: String, vp_size: Vector2) -> Vector4:
 	match target_type:
 		"target":
-			var tgt_node := get_node_or_null("%TargetManager") as Node2D
-			if tgt_node == null:
-				tgt_node = get_tree().current_scene.find_child("TargetManager", true, false) as Node2D
-			if tgt_node != null:
-				var r := Rect2(tgt_node.global_position - Vector2(140.0, 140.0), Vector2(280.0, 280.0)).grow(18.0)
-				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
-			var fallback_t := Rect2(Vector2(vp_size.x * 0.5 - 140.0, vp_size.y * 0.35 - 140.0), Vector2(280.0, 280.0)).grow(18.0)
-			return Vector4(fallback_t.position.x, fallback_t.position.y, fallback_t.size.x, fallback_t.size.y)
+			var t3 := get_node_or_null("%Target3") as Node2D
+			if t3 == null and get_tree() != null and get_tree().current_scene != null:
+				t3 = get_tree().current_scene.find_child("Target3", true, false) as Node2D
+			var center: Vector2 = t3.global_position if t3 != null else Vector2(vp_size.x * 0.5 + 20.0, vp_size.y * 0.5 - 96.0)
+			var r := Rect2(center - Vector2(100.0, 100.0), Vector2(200.0, 200.0)).grow(12.0)
+			return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
 
 		"crosshair":
 			var bound := get_node_or_null("%FireZoneBoundary") as Control
-			if bound == null:
+			if bound == null and get_tree() != null and get_tree().current_scene != null:
 				bound = get_tree().current_scene.find_child("FireZoneBoundary", true, false) as Control
 			if bound != null:
-				var r := bound.get_global_rect().grow(16.0)
+				var r := bound.get_global_rect().grow(22.0)
 				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
-			var fallback_c := Rect2(Vector2((vp_size.x - 720.0) * 0.5, vp_size.y * 0.65), Vector2(720.0, 50.0)).grow(16.0)
+			var fallback_c := Rect2(Vector2(vp_size.x * 0.5 - 60.0, vp_size.y * 0.5 - 115.0), Vector2(195.0, 85.0)).grow(16.0)
 			return Vector4(fallback_c.position.x, fallback_c.position.y, fallback_c.size.x, fallback_c.size.y)
 
 		"fire":
 			var fire_btn := get_node_or_null("%FireButton") as Control
-			if fire_btn == null:
+			if fire_btn == null and get_tree() != null and get_tree().current_scene != null:
 				fire_btn = get_tree().current_scene.find_child("FireButton", true, false) as Control
-			if fire_btn != null and fire_btn.visible:
-				var r := fire_btn.get_global_rect().grow(16.0)
-				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
-			var fallback_f := Rect2(Vector2(vp_size.x - 220.0, vp_size.y - 180.0), Vector2(160.0, 140.0)).grow(16.0)
+			if fire_btn != null:
+				var spr := fire_btn.get_node_or_null("Sprite2D") as Control
+				if spr != null:
+					var r := spr.get_global_rect().grow(12.0)
+					return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
+			var fallback_f := Rect2(Vector2((vp_size.x - 300.0) * 0.5, vp_size.y - 122.0), Vector2(300.0, 105.0)).grow(12.0)
 			return Vector4(fallback_f.position.x, fallback_f.position.y, fallback_f.size.x, fallback_f.size.y)
 
 		"score":
-			var sc_disp := get_node_or_null("%ScoreDisplay") as Control
-			if sc_disp == null:
-				sc_disp = get_tree().current_scene.find_child("ScoreDisplay", true, false) as Control
-			if sc_disp != null:
-				var r := sc_disp.get_global_rect().grow(16.0)
+			var legend: Control = null
+			if get_tree() != null and get_tree().current_scene != null:
+				legend = get_tree().current_scene.find_child("Legend", true, false) as Control
+			if legend != null:
+				var r := legend.get_global_rect().grow(10.0)
 				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
-			var fallback_s := Rect2(Vector2(30.0, 80.0), Vector2(260.0, 220.0)).grow(16.0)
+			var fallback_s := Rect2(Vector2(vp_size.x - 235.0, vp_size.y * 0.5 - 220.0), Vector2(225.0, 420.0)).grow(10.0)
 			return Vector4(fallback_s.position.x, fallback_s.position.y, fallback_s.size.x, fallback_s.size.y)
 
 	return Vector4(0, 0, 0, 0)
@@ -405,27 +410,27 @@ func _calculate_card_position(target_type: String, vp_size: Vector2) -> Vector2:
 
 	match target_type:
 		"target":
-			# Target is center bullseye, position card in lower center or left
+			# Target is upper-center bullseye, position card in lower center
 			var x := clampf((vp_size.x - card_sz.x) * 0.5, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf(vp_size.y * 0.62, 30.0, vp_size.y - card_sz.y - 30.0)
+			var y := clampf(420.0, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
 		"crosshair":
-			# Target is firing zone strip across lower half, position card in upper half
+			# Target is crosshair zone (y ~ 240..340), position card in upper center
 			var x := clampf((vp_size.x - card_sz.x) * 0.5, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf(100.0, 30.0, vp_size.y - card_sz.y - 30.0)
+			var y := clampf(80.0, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
 		"fire":
-			# Target is bottom-right fire button, position card in center-left
-			var x := clampf(vp_size.x * 0.1, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf(vp_size.y * 0.45 - card_sz.y * 0.5, 30.0, vp_size.y - card_sz.y - 30.0)
+			# Target is bottom-center SHOOT button, position card in upper center
+			var x := clampf((vp_size.x - card_sz.x) * 0.5, 20.0, vp_size.x - card_sz.x - 20.0)
+			var y := clampf(140.0, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
 		"score":
-			# Target is top-left score display, position card in center-right
-			var x := clampf(vp_size.x * 0.52 - card_sz.x * 0.5 + 40.0, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf(140.0, 30.0, vp_size.y - card_sz.y - 30.0)
+			# Target is right Legend panel, position card cleanly on the left
+			var x := clampf(vp_size.x * 0.22, 20.0, vp_size.x - card_sz.x - 30.0)
+			var y := clampf((vp_size.y - card_sz.y) * 0.5, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
 	return (vp_size - card_sz) * 0.5
