@@ -23,6 +23,10 @@ func _ready() -> void:
 	# 💬 Feedback setup
 	_check_player_feedback()
 
+	var back_btn := get_node_or_null("CanvasLayer/BackButton") as Control
+	if back_btn != null:
+		back_btn.visible = false
+
 
 func _handle_player_spawn() -> void:
 	var spawn_name := SpawnManager.get_spawn()

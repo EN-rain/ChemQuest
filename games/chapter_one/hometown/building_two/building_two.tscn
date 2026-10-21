@@ -405,6 +405,7 @@ script = ExtResource("3_3banl")
 
 [node name="BackButton" type="Button" parent="CanvasLayer" unique_id=1046723648]
 unique_name_in_owner = true
+visible = false
 offset_left = 4.0
 offset_right = 228.0
 offset_bottom = 87.0

@@ -52,7 +52,8 @@ func _apply_layout() -> void:
 
 	var menu_button := _find_control("MenuButton", content)
 	if menu_button != null:
-		_set_global_position(menu_button, safe_rect.position + Vector2(0.0, _visual_size(back).y + control_gap))
+		var back_offset: float = _visual_size(back).y + control_gap if (back != null and back.visible) else 0.0
+		_set_global_position(menu_button, safe_rect.position + Vector2(0.0, back_offset))
 
 	var music := _find_control("MusicButton", content)
 	var map := _find_control("MapButton", content)

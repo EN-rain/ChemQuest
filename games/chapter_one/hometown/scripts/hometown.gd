@@ -48,7 +48,9 @@ func _ready() -> void:
 	SpawnManager.clear_pending()
 	SaveManager.save_checkpoint(scene_file_path, resolved_spawn)
 	_apply_control_scheme(_get_saved_control_scheme())
-	print("🌳 [Hometown] _ready() finished. Player pos=", %Player.global_position, " can_move=", %Player.can_move, " spawn=", resolved_spawn)
+	var back_btn := get_node_or_null("CanvasLayer/BackButton") as Control
+	if back_btn != null:
+		back_btn.visible = false
 
 	var ingamesettings_btn := get_node_or_null("CanvasLayer/ingamesettings") as BaseButton
 	var ingame_settings_panel := get_node_or_null("CanvasLayer/InGameSettings") as Control

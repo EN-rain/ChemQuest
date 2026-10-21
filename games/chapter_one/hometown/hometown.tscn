@@ -3972,6 +3972,7 @@ authored_bounds = Rect2(-2724, -2704, 5183, 5499)
 script = ExtResource("99_resp_hud")
 
 [node name="BackButton" type="Button" parent="CanvasLayer" unique_id=703554352]
+visible = false
 offset_left = 2.0
 offset_right = 226.0
 offset_bottom = 87.0
