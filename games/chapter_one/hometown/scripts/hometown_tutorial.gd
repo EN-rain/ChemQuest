@@ -88,6 +88,8 @@ func _ready() -> void:
 	call_deferred("_set_ingamesettings_visible", false)
 	_set_map_button_visible(false)
 	call_deferred("_set_map_button_visible", false)
+	_set_movement_controls_visible(false)
+	call_deferred("_set_movement_controls_visible", false)
 
 	_setup_audio()
 	_setup_spotlight_overlay()
@@ -837,6 +839,15 @@ func _set_map_button_visible(is_vis: bool) -> void:
 		map_btn = get_node_or_null("%MapButton") as Control
 	if map_btn != null:
 		map_btn.visible = is_vis
+
+
+func _set_movement_controls_visible(is_vis: bool) -> void:
+	var buttons_node := get_node_or_null("../Buttons") as Control
+	if buttons_node != null:
+		buttons_node.visible = is_vis
+	var joy_node := get_node_or_null("../VirtualJoystick") as Control
+	if joy_node != null:
+		joy_node.visible = is_vis
 
 
 func _input(event: InputEvent) -> void:

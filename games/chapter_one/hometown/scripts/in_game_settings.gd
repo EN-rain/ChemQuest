@@ -43,6 +43,35 @@ func _ready() -> void:
 	if review_btn != null:
 		review_btn.pressed.connect(_on_review_pressed)
 
+	if backdrop != null:
+		backdrop.mouse_filter = Control.MOUSE_FILTER_STOP
+		backdrop.gui_input.connect(_on_outside_input)
+
+	var center := get_node_or_null("CenterContainer") as Control
+	if center != null:
+		center.mouse_filter = Control.MOUSE_FILTER_PASS
+		center.gui_input.connect(_on_outside_input)
+
+
+func _on_outside_input(event: InputEvent) -> void:
+	if not visible:
+		return
+	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT) or \
+	   (event is InputEventScreenTouch and event.pressed):
+		if card != null and not card.get_global_rect().has_point(event.position):
+			get_viewport().set_input_as_handled()
+			close()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not visible:
+		return
+	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT) or \
+	   (event is InputEventScreenTouch and event.pressed):
+		if card != null and not card.get_global_rect().has_point(event.position):
+			get_viewport().set_input_as_handled()
+			close()
+
 
 func _init_card_styles() -> void:
 	_card_active = StyleBoxFlat.new()

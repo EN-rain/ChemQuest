@@ -28,6 +28,12 @@ func _ready() -> void:
 		var map_btn := get_node_or_null("CanvasLayer/MapButton") as Control
 		if map_btn != null:
 			map_btn.visible = false
+		var buttons := get_node_or_null("CanvasLayer/Buttons") as Control
+		if buttons != null:
+			buttons.visible = false
+		var joystick := get_node_or_null("CanvasLayer/VirtualJoystick") as Control
+		if joystick != null:
+			joystick.visible = false
 
 	var spawn_name := SpawnManager.get_spawn()
 	if spawn_name == "":
@@ -47,7 +53,15 @@ func _ready() -> void:
 
 	SpawnManager.clear_pending()
 	SaveManager.save_checkpoint(scene_file_path, resolved_spawn)
-	_apply_control_scheme(_get_saved_control_scheme())
+	if tutorial_done:
+		_apply_control_scheme(_get_saved_control_scheme())
+	else:
+		var btns := get_node_or_null("CanvasLayer/Buttons") as Control
+		if btns != null:
+			btns.visible = false
+		var joy := get_node_or_null("CanvasLayer/VirtualJoystick") as Control
+		if joy != null:
+			joy.visible = false
 	var back_btn := get_node_or_null("CanvasLayer/BackButton") as Control
 	if back_btn != null:
 		back_btn.visible = false
@@ -70,8 +84,6 @@ func _has_chosen_controls() -> bool:
 	if has_node("/root/GuideManager"):
 		if GuideManager.has_seen("hometown_controls_tutorial") or GuideManager.has_seen("hometown_tutorial"):
 			return true
-	if has_node("/root/SaveManager") and SaveManager.has_continue_checkpoint():
-		return true
 	return false
 
 
