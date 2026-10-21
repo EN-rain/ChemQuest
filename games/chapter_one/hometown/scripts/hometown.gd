@@ -25,6 +25,9 @@ func _ready() -> void:
 		tutorial_done = true
 	if not tutorial_done:
 		%QuestPanel.visible = false
+		var map_btn := get_node_or_null("CanvasLayer/MapButton") as Control
+		if map_btn != null:
+			map_btn.visible = false
 
 	var spawn_name := SpawnManager.get_spawn()
 	if spawn_name == "":

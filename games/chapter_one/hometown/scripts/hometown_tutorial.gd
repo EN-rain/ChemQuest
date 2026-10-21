@@ -76,6 +76,7 @@ func _ready() -> void:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		_set_quest_panel_visible(true)
 		_set_ingamesettings_visible(true)
+		_set_map_button_visible(true)
 		var hometown := get_node_or_null("../..")
 		if hometown != null and hometown.has_method("_apply_control_scheme"):
 			hometown.call("_apply_control_scheme", _get_saved_control_scheme())
@@ -86,6 +87,8 @@ func _ready() -> void:
 	call_deferred("_set_quest_panel_visible", false)
 	_set_ingamesettings_visible(false)
 	call_deferred("_set_ingamesettings_visible", false)
+	_set_map_button_visible(false)
+	call_deferred("_set_map_button_visible", false)
 
 	_setup_audio()
 	_setup_spotlight_overlay()
@@ -335,6 +338,7 @@ func _show_control_election() -> void:
 		joystick_node.visible = false
 	_set_quest_panel_visible(false)
 	_set_ingamesettings_visible(false)
+	_set_map_button_visible(false)
 
 	var font: Font = null
 	if ResourceLoader.exists(FONT_PATH):
@@ -616,6 +620,8 @@ func _on_election_selected(scheme: String) -> void:
 	if has_node("/root/GuideManager") and GuideManager.has_seen(GUIDE_ID):
 		is_tutorial_active = false
 		_set_quest_panel_visible(true)
+		_set_ingamesettings_visible(true)
+		_set_map_button_visible(true)
 		visible = false
 		_is_active = false
 		return
@@ -633,6 +639,8 @@ func _start_tutorial() -> void:
 	_current_step = 0
 	_input_cooldown = 0.35
 	_set_quest_panel_visible(false)
+	_set_ingamesettings_visible(false)
+	_set_map_button_visible(false)
 	if _card != null:
 		_card.visible = true
 	_show_step_index(0, true)
@@ -788,6 +796,7 @@ func _finish_tutorial() -> void:
 
 	_set_quest_panel_visible(true)
 	_set_ingamesettings_visible(true)
+	_set_map_button_visible(true)
 	_play_sfx(1.4)
 	screen_pressed.emit()
 
@@ -814,6 +823,7 @@ func _on_skip_pressed() -> void:
 
 	_set_quest_panel_visible(true)
 	_set_ingamesettings_visible(true)
+	_set_map_button_visible(true)
 	screen_pressed.emit()
 	visible = false
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -829,6 +839,14 @@ func _set_ingamesettings_visible(is_vis: bool) -> void:
 	var settings_btn := get_node_or_null("../ingamesettings") as Control
 	if settings_btn != null:
 		settings_btn.visible = is_vis
+
+
+func _set_map_button_visible(is_vis: bool) -> void:
+	var map_btn := get_node_or_null("../MapButton") as Control
+	if map_btn == null:
+		map_btn = get_node_or_null("%MapButton") as Control
+	if map_btn != null:
+		map_btn.visible = is_vis
 
 
 func _input(event: InputEvent) -> void:
