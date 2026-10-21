@@ -37,6 +37,24 @@ func _ready() -> void:
 
 	SpawnManager.clear_pending()
 	SaveManager.save_checkpoint(scene_file_path, resolved_spawn)
+	_apply_control_scheme(_get_saved_control_scheme())
+
+
+func _get_saved_control_scheme() -> String:
+	var config := ConfigFile.new()
+	if config.load("user://settings.cfg") == OK:
+		return String(config.get_value("controls", "type", "arrows"))
+	return "arrows"
+
+
+func _apply_control_scheme(scheme: String) -> void:
+	var is_arrows := (scheme == "arrows")
+	var buttons := get_node_or_null("CanvasLayer/Buttons") as Control
+	if buttons != null:
+		buttons.visible = is_arrows
+	var joystick := get_node_or_null("CanvasLayer/VirtualJoystick") as Control
+	if joystick != null:
+		joystick.visible = not is_arrows
 
 
 func _check_after_states_quest() -> bool:

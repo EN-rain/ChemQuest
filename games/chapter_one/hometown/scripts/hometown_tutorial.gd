@@ -5,6 +5,7 @@ signal screen_pressed
 const GUIDE_ID := "hometown_controls_tutorial"
 const TALK_SOUND_PATH := "res://games/global/music/talk.mp3"
 const FONT_PATH := "res://assets/LilitaOne-Regular.ttf"
+const ROBOTO_FONT_PATH := "res://assets/Roboto-BoldCondensed.ttf"
 
 # Legacy compatibility constants
 const TUTORIAL_ANIMATION := "tutorial_anim"
@@ -15,6 +16,7 @@ var _current_step := 0
 var _total_steps := 2
 var _is_active := false
 var _is_animating := false
+var _is_election_active := false
 var _pulse_timer := 0.0
 
 # Spotlight Shader Overlay
@@ -24,6 +26,7 @@ var _current_spot_rect := Vector4.ZERO
 
 # UI Controls created dynamically
 var _card: PanelContainer
+var _election_card: PanelContainer
 var _header_label: Label
 var _step_badge: Label
 var _skip_button: Button
@@ -68,7 +71,44 @@ func _ready() -> void:
 	_setup_audio()
 	_setup_spotlight_overlay()
 	_setup_ui()
-	_start_tutorial()
+
+	if _has_chosen_controls():
+		var scheme := _get_saved_control_scheme()
+		_update_step1_data(scheme)
+		_start_tutorial()
+	else:
+		_show_control_election()
+
+
+func _has_chosen_controls() -> bool:
+	var config := ConfigFile.new()
+	if config.load("user://settings.cfg") == OK:
+		return bool(config.get_value("controls", "chosen", false))
+	return false
+
+
+func _get_saved_control_scheme() -> String:
+	var config := ConfigFile.new()
+	if config.load("user://settings.cfg") == OK:
+		return String(config.get_value("controls", "type", "arrows"))
+	return "arrows"
+
+
+func _update_step1_data(scheme: String) -> void:
+	if scheme == "joystick":
+		_steps_data[0] = {
+			"badge": "STEP 1 OF 2",
+			"headline": "Moving Your Character",
+			"text": "• Drag the virtual joystick to move in any direction.\n• Push toward the edge to run!",
+			"target": "joystick"
+		}
+	else:
+		_steps_data[0] = {
+			"badge": "STEP 1 OF 2",
+			"headline": "Moving Your Character",
+			"text": "• Tap or hold the direction buttons to move.\n• Double-tap any direction to run!",
+			"target": "buttons"
+		}
 
 
 func _setup_audio() -> void:
@@ -151,6 +191,7 @@ func _setup_ui() -> void:
 	card_style.content_margin_top = 20
 	card_style.content_margin_bottom = 20
 	_card.add_theme_stylebox_override("panel", card_style)
+	_card.visible = false
 	add_child(_card)
 
 	var vbox := VBoxContainer.new()
@@ -233,10 +274,195 @@ func _setup_ui() -> void:
 	footer_hbox.add_child(_prompt_label)
 
 
+# -------------------------------------------------------------------------
+# Control Election Dialog (Arrows vs Joystick)
+# -------------------------------------------------------------------------
+func _show_control_election() -> void:
+	visible = true
+	_is_election_active = true
+	if _spotlight_material != null:
+		_spotlight_material.set_shader_parameter("target_rect", Vector4.ZERO)
+
+	var font: Font = null
+	if ResourceLoader.exists(FONT_PATH):
+		font = load(FONT_PATH)
+	var roboto_font: Font = null
+	if ResourceLoader.exists(ROBOTO_FONT_PATH):
+		roboto_font = load(ROBOTO_FONT_PATH)
+
+	_election_card = PanelContainer.new()
+	_election_card.name = "ElectionCard"
+	_election_card.mouse_filter = Control.MOUSE_FILTER_STOP
+	_election_card.custom_minimum_size = Vector2(520, 240)
+
+	var card_style := StyleBoxFlat.new()
+	card_style.bg_color = Color(0.08, 0.08, 0.08, 0.96)
+	card_style.set_border_width_all(0)
+	card_style.set_corner_radius_all(16)
+	card_style.content_margin_left = 28
+	card_style.content_margin_right = 28
+	card_style.content_margin_top = 22
+	card_style.content_margin_bottom = 22
+	_election_card.add_theme_stylebox_override("panel", card_style)
+
+	var vbox := VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 14)
+	_election_card.add_child(vbox)
+
+	var title_lbl := Label.new()
+	title_lbl.text = "CHOOSE YOUR CONTROLS"
+	if font != null:
+		title_lbl.add_theme_font_override("font", font)
+	title_lbl.add_theme_font_size_override("font_size", 24)
+	title_lbl.add_theme_color_override("font_color", Color(1, 1, 1))
+	title_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	vbox.add_child(title_lbl)
+
+	var sub_lbl := Label.new()
+	sub_lbl.text = "Select your preferred mobile movement controls:"
+	if roboto_font != null:
+		sub_lbl.add_theme_font_override("font", roboto_font)
+	sub_lbl.add_theme_font_size_override("font_size", 16)
+	sub_lbl.add_theme_color_override("font_color", Color(0.75, 0.75, 0.75))
+	sub_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	vbox.add_child(sub_lbl)
+
+	var hbox := HBoxContainer.new()
+	hbox.add_theme_constant_override("separation", 16)
+	hbox.alignment = BoxContainer.ALIGNMENT_CENTER
+	vbox.add_child(hbox)
+
+	var btn_normal := StyleBoxFlat.new()
+	btn_normal.bg_color = Color(0.14, 0.14, 0.14, 0.9)
+	btn_normal.set_border_width_all(0)
+	btn_normal.set_corner_radius_all(12)
+
+	var btn_hover := StyleBoxFlat.new()
+	btn_hover.bg_color = Color(0.24, 0.24, 0.24, 0.95)
+	btn_hover.set_border_width_all(0)
+	btn_hover.set_corner_radius_all(12)
+
+	# 1. ARROWS BUTTON
+	var arrows_btn := Button.new()
+	arrows_btn.custom_minimum_size = Vector2(220, 88)
+	arrows_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	arrows_btn.add_theme_stylebox_override("normal", btn_normal)
+	arrows_btn.add_theme_stylebox_override("hover", btn_hover)
+	arrows_btn.add_theme_stylebox_override("pressed", btn_hover)
+	arrows_btn.add_theme_stylebox_override("focus", btn_hover)
+
+	var arrows_vbox := VBoxContainer.new()
+	arrows_vbox.anchors_preset = Control.PRESET_FULL_RECT
+	arrows_vbox.anchor_right = 1.0
+	arrows_vbox.anchor_bottom = 1.0
+	arrows_vbox.alignment = BoxContainer.ALIGNMENT_CENTER
+	arrows_vbox.add_theme_constant_override("separation", 4)
+	arrows_btn.add_child(arrows_vbox)
+
+	var arr_lbl := Label.new()
+	arr_lbl.text = "ARROWS (D-PAD)"
+	if font != null:
+		arr_lbl.add_theme_font_override("font", font)
+	arr_lbl.add_theme_font_size_override("font_size", 20)
+	arr_lbl.add_theme_color_override("font_color", Color(1, 1, 1))
+	arr_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	arrows_vbox.add_child(arr_lbl)
+
+	var arr_sub := Label.new()
+	arr_sub.text = "4 directional buttons"
+	if roboto_font != null:
+		arr_sub.add_theme_font_override("font", roboto_font)
+	arr_sub.add_theme_font_size_override("font_size", 14)
+	arr_sub.add_theme_color_override("font_color", Color(0.7, 0.7, 0.7))
+	arr_sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	arrows_vbox.add_child(arr_sub)
+
+	arrows_btn.pressed.connect(func(): _on_election_selected("arrows"))
+	hbox.add_child(arrows_btn)
+
+	# 2. JOYSTICK BUTTON
+	var joy_btn := Button.new()
+	joy_btn.custom_minimum_size = Vector2(220, 88)
+	joy_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	joy_btn.add_theme_stylebox_override("normal", btn_normal)
+	joy_btn.add_theme_stylebox_override("hover", btn_hover)
+	joy_btn.add_theme_stylebox_override("pressed", btn_hover)
+	joy_btn.add_theme_stylebox_override("focus", btn_hover)
+
+	var joy_vbox := VBoxContainer.new()
+	joy_vbox.anchors_preset = Control.PRESET_FULL_RECT
+	joy_vbox.anchor_right = 1.0
+	joy_vbox.anchor_bottom = 1.0
+	joy_vbox.alignment = BoxContainer.ALIGNMENT_CENTER
+	joy_vbox.add_theme_constant_override("separation", 4)
+	joy_btn.add_child(joy_vbox)
+
+	var joy_lbl := Label.new()
+	joy_lbl.text = "VIRTUAL JOYSTICK"
+	if font != null:
+		joy_lbl.add_theme_font_override("font", font)
+	joy_lbl.add_theme_font_size_override("font_size", 20)
+	joy_lbl.add_theme_color_override("font_color", Color(1, 1, 1))
+	joy_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	joy_vbox.add_child(joy_lbl)
+
+	var joy_sub := Label.new()
+	joy_sub.text = "Fluid 360° analog stick"
+	if roboto_font != null:
+		joy_sub.add_theme_font_override("font", roboto_font)
+	joy_sub.add_theme_font_size_override("font_size", 14)
+	joy_sub.add_theme_color_override("font_color", Color(0.7, 0.7, 0.7))
+	joy_sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	joy_vbox.add_child(joy_sub)
+
+	joy_btn.pressed.connect(func(): _on_election_selected("joystick"))
+	hbox.add_child(joy_btn)
+
+	add_child(_election_card)
+
+	# Center the election card in viewport
+	var vp_size := get_viewport_rect().size
+	_election_card.position = (vp_size - Vector2(520, 240)) * 0.5
+
+
+func _on_election_selected(scheme: String) -> void:
+	_is_election_active = false
+	_play_sfx(1.1)
+
+	# Save persistent control choice
+	var config := ConfigFile.new()
+	config.load("user://settings.cfg")
+	config.set_value("controls", "type", scheme)
+	config.set_value("controls", "chosen", true)
+	config.save("user://settings.cfg")
+
+	# Update Hometown controls display
+	var hometown := get_node_or_null("../..")
+	if hometown != null and hometown.has_method("_apply_control_scheme"):
+		hometown.call("_apply_control_scheme", scheme)
+	else:
+		var buttons := get_node_or_null("../Buttons") as Control
+		if buttons != null:
+			buttons.visible = (scheme == "arrows")
+		var joystick := get_node_or_null("../VirtualJoystick") as Control
+		if joystick != null:
+			joystick.visible = (scheme != "arrows")
+
+	if _election_card != null:
+		_election_card.queue_free()
+		_election_card = null
+
+	# Prepare and launch movement tutorial
+	_update_step1_data(scheme)
+	_start_tutorial()
+
+
 func _start_tutorial() -> void:
 	visible = true
 	_is_active = true
 	_current_step = 0
+	if _card != null:
+		_card.visible = true
 	if has_node("/root/GuideManager"):
 		GuideManager.mark_seen(GUIDE_ID)
 	_show_step_index(0, true)
@@ -298,7 +524,7 @@ func _calculate_target_box(target_type: String, vp_size: Vector2) -> Vector4:
 	match target_type:
 		"buttons":
 			var buttons_node: Control = get_node_or_null("../Buttons") as Control
-			if buttons_node != null:
+			if buttons_node != null and buttons_node.visible:
 				var min_pos := Vector2(100000, 100000)
 				var max_pos := Vector2(-100000, -100000)
 				for child in buttons_node.get_children():
@@ -316,6 +542,14 @@ func _calculate_target_box(target_type: String, vp_size: Vector2) -> Vector4:
 					return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
 			var fallback := Rect2(Vector2(20, vp_size.y - 440), Vector2(340, 360)).grow(16.0)
 			return Vector4(fallback.position.x, fallback.position.y, fallback.size.x, fallback.size.y)
+
+		"joystick":
+			var joy_node: Control = get_node_or_null("../VirtualJoystick") as Control
+			if joy_node != null and joy_node.visible:
+				var r := Rect2(joy_node.global_position, joy_node.size).grow(16.0)
+				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
+			var fallback_j := Rect2(Vector2(50, vp_size.y - 410), Vector2(190, 190)).grow(16.0)
+			return Vector4(fallback_j.position.x, fallback_j.position.y, fallback_j.size.x, fallback_j.size.y)
 
 		"quest":
 			var quest_node: Control = get_node_or_null("../QuestPanel") as Control
@@ -336,8 +570,8 @@ func _calculate_card_position(target_type: String, vp_size: Vector2) -> Vector2:
 		card_sz = Vector2(480, 200)
 
 	match target_type:
-		"buttons":
-			# Position card in center-right so bottom-left buttons and spotlight are clear
+		"buttons", "joystick":
+			# Position card in center-right so bottom-left controls and spotlight are clear
 			var x := clampf(vp_size.x * 0.55 - card_sz.x * 0.5 + 40, 20.0, vp_size.x - card_sz.x - 20.0)
 			var y := clampf(vp_size.y * 0.55 - card_sz.y * 0.5, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
@@ -386,6 +620,8 @@ func _on_skip_pressed() -> void:
 
 func _input(event: InputEvent) -> void:
 	if not visible or not _is_active:
+		return
+	if _is_election_active:
 		return
 
 	# Advance on click or touch

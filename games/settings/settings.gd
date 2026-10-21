@@ -115,6 +115,7 @@ func _set_control_scheme(scheme: String, save: bool = true) -> void:
 
 	if save:
 		_save_setting("controls", "type", scheme)
+		_save_setting("controls", "chosen", true)
 
 
 func _save_setting(section: String, key: String, value: Variant) -> void:

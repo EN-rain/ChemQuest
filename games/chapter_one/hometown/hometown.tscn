@@ -52,6 +52,7 @@
 [ext_resource type="Script" uid="uid://ci001pc31ssla" path="res://games/chapter_one/hometown/scripts/hometown_tutorial.gd" id="52_i0q7j"]
 [ext_resource type="Script" uid="uid://cy2q3j0srnfyp" path="res://games/global/ResponsiveCameraBounds.gd" id="99_resp_cam"]
 [ext_resource type="Script" uid="uid://jav3kox5bad" path="res://games/global/ResponsiveHudLayout.gd" id="99_resp_hud"]
+[ext_resource type="PackedScene" path="res://games/global/virtual_joystick.tscn" id="100_vjoy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xnqja"]
 texture = ExtResource("1_nktmq")
@@ -4108,6 +4109,7 @@ texture_on = ExtResource("27_tks3h")
 texture_off = ExtResource("28_8ch1g")
 
 [node name="Buttons" type="Control" parent="CanvasLayer" unique_id=1425146322]
+visible = false
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -4141,6 +4143,18 @@ position = Vector2(141, -200)
 scale = Vector2(7, 7)
 texture_normal = ExtResource("6_5dwux")
 action = "down"
+
+[node name="VirtualJoystick" parent="CanvasLayer" unique_id=2081943810 instance=ExtResource("100_vjoy")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = -395.0
+offset_right = 230.0
+offset_bottom = -225.0
+grow_vertical = 0
 
 [node name="BackPanel" type="Panel" parent="CanvasLayer" unique_id=1988736232]
 unique_name_in_owner = true
