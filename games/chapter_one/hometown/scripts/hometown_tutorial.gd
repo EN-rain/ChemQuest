@@ -6,18 +6,21 @@ const GUIDE_ID := "hometown_controls_tutorial"
 const TALK_SOUND_PATH := "res://games/global/music/talk.mp3"
 const FONT_PATH := "res://assets/LilitaOne-Regular.ttf"
 
-# Animation stops from tutorial_anim
+# Legacy compatibility constants
 const TUTORIAL_ANIMATION := "tutorial_anim"
 const FIRST_STOP := 1.0
 const SECOND_STOP := 2.0
-
-@onready var animation_player: AnimationPlayer = $Panel/AnimationPlayer
 
 var _current_step := 0
 var _total_steps := 2
 var _is_active := false
 var _is_animating := false
 var _pulse_timer := 0.0
+
+# Spotlight Shader Overlay
+var _spotlight_overlay: ColorRect
+var _spotlight_material: ShaderMaterial
+var _current_spot_rect := Vector4.ZERO
 
 # UI Controls created dynamically
 var _card: PanelContainer
@@ -34,15 +37,13 @@ var _steps_data := [
 		"badge": "STEP 1 OF 2",
 		"headline": "Moving Your Character",
 		"text": "• Tap or hold the direction buttons to move.\n• Double-tap any direction to run!",
-		"target": "buttons",
-		"stop_time": FIRST_STOP
+		"target": "buttons"
 	},
 	{
 		"badge": "STEP 2 OF 2",
 		"headline": "Quest Tracker",
 		"text": "• The Quest Banner at the top displays your active objective.\n• Follow the quest instructions to progress through the story!",
-		"target": "quest",
-		"stop_time": SECOND_STOP
+		"target": "quest"
 	}
 ]
 
@@ -50,13 +51,12 @@ var _steps_data := [
 func _ready() -> void:
 	visible = false
 
-	# Ensure ShowCase polygon is visible for the cutout box animation
+	# Hide legacy polygon/label if present
 	var legacy_panel := get_node_or_null("Panel")
 	if legacy_panel != null:
 		var showcase := legacy_panel.get_node_or_null("ShowCase")
 		if showcase != null:
-			showcase.visible = true
-		# Hide the unstyled legacy label; our styled card replaces it
+			showcase.visible = false
 		var lbl := legacy_panel.get_node_or_null("Label")
 		if lbl != null:
 			lbl.visible = false
@@ -64,11 +64,9 @@ func _ready() -> void:
 	if has_node("/root/GuideManager") and GuideManager.has_seen(GUIDE_ID):
 		return
 
-	if animation_player == null or not animation_player.has_animation(TUTORIAL_ANIMATION):
-		return
-
-	# Setup modern monochrome UI and run tutorial flow
+	# Setup modern spotlight shader and monochrome card UI
 	_setup_audio()
+	_setup_spotlight_overlay()
 	_setup_ui()
 	_start_tutorial()
 
@@ -86,6 +84,45 @@ func _play_sfx(pitch: float = 1.0) -> void:
 	if _sfx_player != null and _sfx_player.stream != null:
 		_sfx_player.pitch_scale = pitch
 		_sfx_player.play()
+
+
+func _setup_spotlight_overlay() -> void:
+	var shader := Shader.new()
+	shader.code = """
+shader_type canvas_item;
+
+uniform vec4 target_rect;
+uniform float corner_radius = 16.0;
+uniform float feather = 8.0;
+uniform vec4 dim_color : source_color = vec4(0.0, 0.0, 0.0, 0.65);
+
+float rounded_box_sdf(vec2 center_pos, vec2 half_size, float radius) {
+    vec2 d = abs(center_pos) - half_size + vec2(radius);
+    return min(max(d.x, d.y), 0.0) + length(max(d, 0.0)) - radius;
+}
+
+void fragment() {
+    vec2 center = target_rect.xy + target_rect.zw * 0.5;
+    vec2 half_size = target_rect.zw * 0.5;
+    float dist = rounded_box_sdf(FRAGCOORD.xy - center, half_size, corner_radius);
+    float alpha = smoothstep(-feather, feather, dist);
+    COLOR = vec4(dim_color.rgb, dim_color.a * alpha);
+}
+"""
+	_spotlight_material = ShaderMaterial.new()
+	_spotlight_material.shader = shader
+	_spotlight_material.set_shader_parameter("corner_radius", 18.0)
+	_spotlight_material.set_shader_parameter("feather", 8.0)
+	_spotlight_material.set_shader_parameter("dim_color", Color(0.0, 0.0, 0.0, 0.65))
+
+	_spotlight_overlay = ColorRect.new()
+	_spotlight_overlay.name = "SpotlightOverlay"
+	_spotlight_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_spotlight_overlay.anchors_preset = Control.PRESET_FULL_RECT
+	_spotlight_overlay.anchor_right = 1.0
+	_spotlight_overlay.anchor_bottom = 1.0
+	_spotlight_overlay.material = _spotlight_material
+	add_child(_spotlight_overlay)
 
 
 func _setup_ui() -> void:
@@ -184,7 +221,7 @@ func _setup_ui() -> void:
 	_body_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	vbox.add_child(_body_label)
 
-	# Footer Row
+	# Footer Row (Mobile prompt)
 	var footer_hbox := HBoxContainer.new()
 	vbox.add_child(footer_hbox)
 
@@ -230,21 +267,14 @@ func _show_step_index(idx: int, immediate: bool = false) -> void:
 	_headline_label.text = data["headline"]
 	_body_label.text = data["text"]
 
-	var target_time: float = float(data["stop_time"])
-
-	# Move ShowCase box animation
-	if immediate:
-		animation_player.play(TUTORIAL_ANIMATION)
-		animation_player.seek(target_time, true)
-		animation_player.pause()
-	else:
-		await _play_until(target_time)
-
-	# Resolve and position card
 	var vp_size := get_viewport_rect().size
+	var target_box := _calculate_target_box(data["target"], vp_size)
 	var card_target_pos := _calculate_card_position(data["target"], vp_size)
 
 	if immediate:
+		_current_spot_rect = target_box
+		if _spotlight_material != null:
+			_spotlight_material.set_shader_parameter("target_rect", target_box)
 		_card.position = card_target_pos
 		_card.modulate.a = 0.0
 		var tween := create_tween()
@@ -252,19 +282,53 @@ func _show_step_index(idx: int, immediate: bool = false) -> void:
 		_is_animating = false
 	else:
 		var tween := create_tween().set_parallel(true)
-		tween.tween_property(_card, "position", card_target_pos, 0.3).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		# Smoothly glide the spotlight cutout to the new target
+		tween.tween_method(func(v: Vector4):
+			_current_spot_rect = v
+			if _spotlight_material != null:
+				_spotlight_material.set_shader_parameter("target_rect", v)
+		, _current_spot_rect, target_box, 0.35).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+
+		# Smoothly reposition the card
+		tween.tween_property(_card, "position", card_target_pos, 0.35).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		tween.tween_property(_card, "modulate:a", 1.0, 0.2)
 		tween.chain().tween_callback(func(): _is_animating = false)
 
 
-func _play_until(time: float) -> void:
-	var start_time := animation_player.current_animation_position
-	animation_player.play(TUTORIAL_ANIMATION)
-	animation_player.seek(start_time, true)
-	while animation_player.current_animation_position < time and animation_player.is_playing():
-		await get_tree().process_frame
-	animation_player.seek(time, true)
-	animation_player.pause()
+func _calculate_target_box(target_type: String, vp_size: Vector2) -> Vector4:
+	match target_type:
+		"buttons":
+			var buttons_node: Control = get_node_or_null("../Buttons") as Control
+			if buttons_node != null:
+				var min_pos := Vector2(100000, 100000)
+				var max_pos := Vector2(-100000, -100000)
+				for child in buttons_node.get_children():
+					if child is TouchScreenButton and child.visible:
+						var p: Vector2 = child.global_position
+						var sz: Vector2 = Vector2(16, 16) * child.scale.abs()
+						if child.texture_normal != null:
+							sz = child.texture_normal.get_size() * child.scale.abs()
+						min_pos.x = minf(min_pos.x, p.x)
+						min_pos.y = minf(min_pos.y, p.y)
+						max_pos.x = maxf(max_pos.x, p.x + sz.x)
+						max_pos.y = maxf(max_pos.y, p.y + sz.y)
+				if min_pos.x < max_pos.x and min_pos.y < max_pos.y:
+					var r := Rect2(min_pos, max_pos - min_pos).grow(16.0)
+					return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
+			var fallback := Rect2(Vector2(20, vp_size.y - 440), Vector2(340, 360)).grow(16.0)
+			return Vector4(fallback.position.x, fallback.position.y, fallback.size.x, fallback.size.y)
+
+		"quest":
+			var quest_node: Control = get_node_or_null("../QuestPanel") as Control
+			if quest_node != null:
+				var r: Rect2 = quest_node.get_global_rect()
+				if r.size.x > 0 and r.size.y > 0:
+					r = r.grow(12.0)
+					return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
+			var fallback_q := Rect2(Vector2((vp_size.x - 420) * 0.5, 20), Vector2(420, 90)).grow(12.0)
+			return Vector4(fallback_q.position.x, fallback_q.position.y, fallback_q.size.x, fallback_q.size.y)
+
+	return Vector4(0, 0, 0, 0)
 
 
 func _calculate_card_position(target_type: String, vp_size: Vector2) -> Vector2:
@@ -274,13 +338,13 @@ func _calculate_card_position(target_type: String, vp_size: Vector2) -> Vector2:
 
 	match target_type:
 		"buttons":
-			# Position card in center-right so bottom-left buttons and ShowCase cutout are unobstructed
+			# Position card in center-right so bottom-left buttons and spotlight are clear
 			var x := clampf(vp_size.x * 0.55 - card_sz.x * 0.5 + 40, 20.0, vp_size.x - card_sz.x - 20.0)
 			var y := clampf(vp_size.y * 0.55 - card_sz.y * 0.5, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
 		"quest":
-			# Position card in center below top quest banner and ShowCase cutout
+			# Position card in center below top quest banner and spotlight
 			var x := clampf((vp_size.x - card_sz.x) * 0.5, 20.0, vp_size.x - card_sz.x - 20.0)
 			var y := clampf(vp_size.y * 0.42 - card_sz.y * 0.5 + 30, 110.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
@@ -304,11 +368,6 @@ func _finish_tutorial() -> void:
 	_play_sfx(1.4)
 	screen_pressed.emit()
 
-	if animation_player != null and animation_player.has_animation(TUTORIAL_ANIMATION):
-		var animation := animation_player.get_animation(TUTORIAL_ANIMATION)
-		if animation_player.current_animation_position < animation.length:
-			await _play_until(animation.length)
-
 	var tween := create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.2)
 	tween.tween_callback(func():
@@ -322,8 +381,6 @@ func _on_skip_pressed() -> void:
 		return
 	_is_active = false
 	screen_pressed.emit()
-	if animation_player != null and animation_player.is_playing():
-		animation_player.stop()
 	visible = false
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 
