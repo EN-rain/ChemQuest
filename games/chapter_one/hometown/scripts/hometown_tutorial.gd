@@ -3,7 +3,6 @@ extends Control
 signal screen_pressed
 
 const GUIDE_ID := "hometown_controls_tutorial"
-const TALK_SOUND_PATH := "res://games/global/music/talk.mp3"
 const FONT_PATH := "res://assets/LilitaOne-Regular.ttf"
 const ROBOTO_FONT_PATH := "res://assets/Roboto-BoldCondensed.ttf"
 
@@ -157,18 +156,11 @@ func _update_step1_data(scheme: String) -> void:
 
 
 func _setup_audio() -> void:
-	if ResourceLoader.exists(TALK_SOUND_PATH):
-		_sfx_player = AudioStreamPlayer.new()
-		_sfx_player.stream = load(TALK_SOUND_PATH)
-		_sfx_player.bus = "Master"
-		_sfx_player.volume_db = -6.0
-		add_child(_sfx_player)
+	pass
 
 
-func _play_sfx(pitch: float = 1.0) -> void:
-	if _sfx_player != null and _sfx_player.stream != null:
-		_sfx_player.pitch_scale = pitch
-		_sfx_player.play()
+func _play_sfx(_pitch: float = 1.0) -> void:
+	pass
 
 
 func _setup_spotlight_overlay() -> void:
@@ -588,7 +580,6 @@ func _create_joystick_preview() -> Control:
 
 func _on_election_selected(scheme: String) -> void:
 	_is_election_active = false
-	_play_sfx(1.1)
 
 	# Save persistent control choice
 	var config := ConfigFile.new()
@@ -666,10 +657,10 @@ func _show_step_index(idx: int, immediate: bool = false) -> void:
 	_current_step = idx
 	_is_animating = true
 	_input_cooldown = 0.35
-	_play_sfx(1.0 + idx * 0.1)
 
 	# QuestPanel appears ONLY during step two (idx == 1)
 	_set_quest_panel_visible(idx == 1)
+	_set_map_button_visible(false)
 
 	var data: Dictionary = _steps_data[idx]
 	_step_badge.text = data["badge"]
@@ -797,7 +788,6 @@ func _finish_tutorial() -> void:
 	_set_quest_panel_visible(true)
 	_set_ingamesettings_visible(true)
 	_set_map_button_visible(true)
-	_play_sfx(1.4)
 	screen_pressed.emit()
 
 	var tween := create_tween()
