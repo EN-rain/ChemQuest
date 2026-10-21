@@ -48,8 +48,8 @@ var _steps_data := [
 	},
 	{
 		"badge": "STEP 4 OF 4",
-		"headline": "Confirm & Timer",
-		"text": "• Tap CONFIRM to check your answer before time runs out!\n• Tap the (?) button anytime if you need a reminder.",
+		"headline": "Timer & Score",
+		"text": "• Watch the countdown timer bar before time runs out!\n• Track your score and rounds here. Tap CONFIRM when ready!\n• Tap the (?) button anytime if you need a reminder.",
 		"target": "confirm"
 	}
 ]
@@ -416,11 +416,16 @@ func _calculate_target_box(target_type: String, vp_size: Vector2) -> Vector4:
 			return Vector4(fallback_d.position.x, fallback_d.position.y, fallback_d.size.x, fallback_d.size.y)
 
 		"confirm":
-			var confirm_btn := get_node_or_null("%ConfirmButton") as Control
-			if confirm_btn != null and confirm_btn.visible:
-				var r := confirm_btn.get_global_rect().grow(16.0)
+			var score_panel := get_node_or_null("%ScorePanel") as Control
+			if score_panel != null:
+				var sp_rect := score_panel.get_global_rect()
+				var x: float = maxf(16.0, sp_rect.position.x - 45.0)
+				var y: float = maxf(16.0, sp_rect.position.y - 52.0)
+				var w: float = maxf(380.0, sp_rect.size.x + 190.0)
+				var h: float = (vp_size.y - y) - 12.0
+				var r := Rect2(Vector2(x, y), Vector2(w, h)).grow(14.0)
 				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
-			var fallback_c := Rect2(Vector2((vp_size.x - 420) * 0.5, vp_size.y - 250), Vector2(420, 130)).grow(16.0)
+			var fallback_c := Rect2(Vector2(20.0, vp_size.y - 165.0), Vector2(400.0, 150.0)).grow(14.0)
 			return Vector4(fallback_c.position.x, fallback_c.position.y, fallback_c.size.x, fallback_c.size.y)
 
 	return Vector4(0, 0, 0, 0)
@@ -451,9 +456,9 @@ func _calculate_card_position(target_type: String, vp_size: Vector2) -> Vector2:
 			return Vector2(x, y)
 
 		"confirm":
-			# Target is bottom-center, position card above confirm button
-			var x := clampf((vp_size.x - card_sz.x) * 0.5, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf(vp_size.y - card_sz.y - 270.0, 30.0, vp_size.y - card_sz.y - 30.0)
+			# Target is bottom-left (Timer & Score in red mark), position card on center-right
+			var x := clampf(vp_size.x * 0.52 - card_sz.x * 0.5 + 40.0, 20.0, vp_size.x - card_sz.x - 20.0)
+			var y := clampf(vp_size.y * 0.45 - card_sz.y * 0.5, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
 	return (vp_size - card_sz) * 0.5
