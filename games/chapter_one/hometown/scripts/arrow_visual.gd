@@ -1,70 +1,89 @@
 extends Node2D
 
-const OUTLINE_COLOR := Color(0.02, 0.08, 0.22, 0.95)
-const FILL_COLOR := Color(0.0, 0.75, 1.0, 1.0)
-const HIGHLIGHT_COLOR := Color(0.8, 0.96, 1.0, 0.95)
-const CHEVRON_OUTLINE := Color(0.02, 0.08, 0.22, 0.85)
-const CHEVRON_FILL := Color(0.12, 0.58, 0.95, 0.85)
+# Sleek, modern pointer arrow silhouette
+var arrow_body := PackedVector2Array([
+	Vector2(22, 0),       # Tip
+	Vector2(5, -13),      # Upper arrowhead wing
+	Vector2(7, -5),       # Upper inner neck
+	Vector2(-14, -5),     # Upper shaft tail
+	Vector2(-10, 0),      # Tail notch
+	Vector2(-14, 5),      # Lower shaft tail
+	Vector2(7, 5),        # Lower inner neck
+	Vector2(5, 13)        # Lower arrowhead wing
+])
+
+const SHADOW_COLOR := Color(0.0, 0.0, 0.0, 0.28)
+const OUTLINE_COLOR := Color(0.15, 0.15, 0.18, 0.65)
+const WHITE_CORE := Color(1.0, 1.0, 1.0, 1.0)
+const GLOW_COLOR := Color(1.0, 1.0, 1.0)
+
+var _shadow_polys: Array[PackedVector2Array] = []
+var _outline_polys: Array[PackedVector2Array] = []
+var _glow_layers: Array[Dictionary] = []
+var _pulse: float = 0.0
+
+
+func _ready() -> void:
+	_generate_polygons()
+
+
+func _generate_polygons() -> void:
+	# Subtle drop shadow
+	_shadow_polys = Geometry2D.offset_polygon(arrow_body, 1.6, Geometry2D.JOIN_ROUND)
+
+	# Crisp contrast rim so white arrow remains readable on all bright/sand tiles
+	_outline_polys = Geometry2D.offset_polygon(arrow_body, 0.9, Geometry2D.JOIN_ROUND)
+
+	# Multi-stage soft white glow aura
+	_glow_layers.clear()
+	var glow_radii: Array[float] = [9.0, 6.0, 3.8, 2.0]
+	var glow_alphas: Array[float] = [0.08, 0.16, 0.30, 0.52]
+
+	for i in range(glow_radii.size()):
+		var polys := Geometry2D.offset_polygon(arrow_body, glow_radii[i], Geometry2D.JOIN_ROUND)
+		_glow_layers.append({
+			"polys": polys,
+			"base_alpha": glow_alphas[i]
+		})
+
+
+func _process(delta: float) -> void:
+	_pulse += delta * 3.8
+	queue_redraw()
 
 
 func _draw() -> void:
-	# 1. Trailing Chevron Outline (Bigger scale)
-	var chevron_outline := PackedVector2Array([
-		Vector2(-18, 0),
-		Vector2(-30, -12),
-		Vector2(-26.5, -15.5),
-		Vector2(-12.5, 0),
-		Vector2(-26.5, 15.5),
-		Vector2(-30, 12)
-	])
-	draw_colored_polygon(chevron_outline, CHEVRON_OUTLINE)
+	var pulse_factor := 0.78 + 0.22 * sin(_pulse)
 
-	# 2. Trailing Chevron Fill (Electric Blue)
-	var chevron_fill := PackedVector2Array([
-		Vector2(-19.5, 0),
-		Vector2(-28.5, -10.5),
-		Vector2(-25.5, -13),
-		Vector2(-15, 0),
-		Vector2(-25.5, 13),
-		Vector2(-28.5, 10.5)
-	])
-	draw_colored_polygon(chevron_fill, CHEVRON_FILL)
+	# 1. Ambient Drop Shadow (offset down-right for clean 3D separation)
+	var shadow_offset := Vector2(0, 1.5)
+	if _shadow_polys.size() > 0:
+		for poly in _shadow_polys:
+			var shifted := PackedVector2Array()
+			shifted.resize(poly.size())
+			for i in range(poly.size()):
+				shifted[i] = poly[i] + shadow_offset
+			draw_colored_polygon(shifted, SHADOW_COLOR)
+	else:
+		var shifted_body := PackedVector2Array()
+		shifted_body.resize(arrow_body.size())
+		for i in range(arrow_body.size()):
+			shifted_body[i] = arrow_body[i] + shadow_offset
+		draw_colored_polygon(shifted_body, SHADOW_COLOR)
 
-	# 3. Main Arrow Dark Outline (Bigger scale: ~65px length, 42px width)
-	var outline := PackedVector2Array([
-		Vector2(35, 0),
-		Vector2(5, -21),
-		Vector2(9, -9),
-		Vector2(-21, -9),
-		Vector2(-12, 0),
-		Vector2(-21, 9),
-		Vector2(9, 9),
-		Vector2(5, 21)
-	])
-	draw_colored_polygon(outline, OUTLINE_COLOR)
+	# 2. Outer Radiant Glowing Halo (Breathing white aura)
+	for layer in _glow_layers:
+		var alpha: float = layer["base_alpha"] * pulse_factor
+		var c := Color(GLOW_COLOR.r, GLOW_COLOR.g, GLOW_COLOR.b, alpha)
+		var polys: Array = layer["polys"]
+		for p in polys:
+			draw_colored_polygon(p, c)
 
-	# 4. Main Arrow Body (Vibrant Blue)
-	var body := PackedVector2Array([
-		Vector2(32, 0),
-		Vector2(7, -18),
-		Vector2(10.5, -6.5),
-		Vector2(-18, -6.5),
-		Vector2(-10.5, 0),
-		Vector2(-18, 6.5),
-		Vector2(10.5, 6.5),
-		Vector2(7, 18)
-	])
-	draw_colored_polygon(body, FILL_COLOR)
+	# 3. Contrast Rim (Keeps arrow crisp on light surfaces)
+	if _outline_polys.size() > 0:
+		for p in _outline_polys:
+			draw_colored_polygon(p, OUTLINE_COLOR)
 
-	# 5. Inner Core Highlight (Glow cyan-white)
-	var highlight := PackedVector2Array([
-		Vector2(25, 0),
-		Vector2(9, -8),
-		Vector2(12, -3),
-		Vector2(-5, -3),
-		Vector2(-2, 0),
-		Vector2(-5, 3),
-		Vector2(12, 3),
-		Vector2(9, 8)
-	])
-	draw_colored_polygon(highlight, HIGHLIGHT_COLOR)
+	# 4. Pure Crisp White Body
+	draw_colored_polygon(arrow_body, WHITE_CORE)
+
