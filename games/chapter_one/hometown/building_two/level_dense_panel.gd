@@ -61,7 +61,7 @@ func _unlock_button(btn: Button) -> void:
 func _on_level_1_pressed() -> void:
 	MusicManager.stop_music()
 	await FadeManager.fade_and_change(
-		"res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level 1/level_1.tscn"
+		"res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Scenes/level 1/level_1.tscn"
 	)
 	_update_density_levels()
 

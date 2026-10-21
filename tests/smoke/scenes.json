@@ -13,7 +13,7 @@
     {"id":"level_two","path":"res://games/chapter_one/hometown/building_one/Level2/Level2.tscn","role":"lesson"},
     {"id":"level_three","path":"res://games/chapter_one/hometown/building_one/Level3/level_3.tscn","role":"lesson"},
     {"id":"precision_accuracy","path":"res://games/chapter_one/hometown/building_one/Level4/PrecisionAccuracy/precision_accuracy.tscn","role":"lesson"},
-    {"id":"density_level_one","path":"res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level 1/level_1.tscn","role":"density"},
+    {"id":"density_level_one","path":"res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Scenes/level 1/level_1.tscn","role":"density"},
     {"id":"density_level_two","path":"res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level_2.tscn","role":"density"},
     {"id":"density_level_three","path":"res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level_3.tscn","role":"density"},
     {"id":"states_main","path":"res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/main.tscn","role":"states"},
@@ -28,7 +28,7 @@
   ],
   "orphan_candidates": [
     {"id":"root_glossary_legacy","path":"res://glossary/main.tscn","reason":"duplicate glossary tree; retain only for dependency review"},
-    {"id":"density_nested_copy","path":"res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Scenes/level 1/level_1.tscn","reason":"nested duplicate tree"},
+    {"id":"density_legacy_copy","path":"res://games/chapter_one/hometown/building_two/Level2-1/Scenes/level 1/level_1.tscn","reason":"legacy scene without full HUD; active scene is nested copy"},
     {"id":"states_nested_copy","path":"res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/level2-2/mattermaze/Scenes/main.tscn","reason":"nested duplicate tree"}
   ]
 }

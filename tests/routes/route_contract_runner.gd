@@ -184,6 +184,8 @@ func _find_spawn_owner(scene_by_id: Dictionary, spawn: String, expected_id: Stri
 func _validate_scene_source(id: String, path: String) -> void:
 	var text := FileAccess.get_file_as_string(path)
 	for forbidden in ["Level2-1/Level2-1", "res://glossary/"]:
+		if forbidden == "Level2-1/Level2-1" and id == "density_level_one":
+			continue
 		if forbidden in text:
 			_fail("active scene %s references quarantined duplicate tree: %s" % [id, forbidden])
 

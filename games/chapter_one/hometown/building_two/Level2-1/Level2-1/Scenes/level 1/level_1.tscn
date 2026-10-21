@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://db0vja4bs7bba"]
+[gd_scene load_steps=63 format=3 uid="uid://db0vja4bs7bba"]
 
 [ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_5bt5j"]
 [ext_resource type="Texture2D" uid="uid://d7ussfmcnynu" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Brown.png" id="2_dq8u4"]
@@ -28,6 +28,7 @@
 [ext_resource type="FontFile" uid="uid://dbn2eqhxy00rr" path="res://assets/Roboto-BoldCondensed.ttf" id="15_o0gh6"]
 [ext_resource type="AudioStream" uid="uid://bxj2clkj1ou57" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/correct.wav" id="27_1bl14"]
 [ext_resource type="AudioStream" uid="uid://c2xgxm25hmxo7" path="res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Assets/wrong.wav" id="28_g1nvi"]
+[ext_resource type="Script" path="res://games/global/ResponsiveTouchLayout.gd" id="29_touch"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21xkr"]
 texture = ExtResource("1_5bt5j")
@@ -408,6 +409,7 @@ shape = SubResource("RectangleShape2D_m5w3l")
 position = Vector2(317, 0)
 
 [node name="MobileControls" type="CanvasLayer" parent="."]
+script = ExtResource("29_touch")
 
 [node name="UiLabels" type="Control" parent="MobileControls"]
 layout_mode = 3
@@ -425,12 +427,14 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -133.5
-offset_right = 133.5
+offset_left = -250.0
+offset_right = 250.0
 offset_bottom = 70.0
 grow_horizontal = 2
 text = "GOAL: 5kg"
 label_settings = SubResource("LabelSettings_reedq")
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("7_fj4u0")
 
 [node name="GuideLabel" type="Label" parent="MobileControls/UiLabels"]
@@ -441,9 +445,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -169.5
-offset_top = -65.0
+offset_top = -74.0
 offset_right = 169.5
-offset_bottom = -26.0
+offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "HINT"
@@ -458,13 +462,14 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -169.5
-offset_top = -7.0
+offset_top = 0.0
 offset_right = 169.5
-offset_bottom = 32.0
+offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Density = Mass/Volume"
 label_settings = SubResource("LabelSettings_doqt5")
+horizontal_alignment = 1
 
 [node name="Panel2" type="Panel" parent="MobileControls/UiLabels"]
 layout_mode = 1
@@ -475,6 +480,7 @@ offset_top = -3.0
 offset_right = 232.0
 offset_bottom = 173.0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="MobileControls/UiLabels/Panel2"]
 layout_mode = 1
@@ -505,7 +511,8 @@ offset_right = 114.0
 offset_bottom = 85.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Player must carry the right item in the finish line."
+text = "Mass: --
+Volume: --"
 label_settings = SubResource("LabelSettings_fj4u0")
 autowrap_mode = 2
 script = ExtResource("10_3s821")
@@ -519,6 +526,7 @@ offset_top = -179.0
 offset_right = 232.0
 offset_bottom = -3.0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="MobileControls/UiLabels/Panel"]
 layout_mode = 1
@@ -714,12 +722,15 @@ texture_normal = ExtResource("12_o0gh6")
 action = "drop"
 
 [node name="Level1" type="Button" parent="MobileControls"]
+visible = false
 offset_right = 8.0
 offset_bottom = 8.0
+mouse_filter = 2
 
 [node name="Back" type="Button" parent="MobileControls"]
 offset_right = 210.0
 offset_bottom = 55.0
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lk36o")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vaggq")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_doqt5")
@@ -731,7 +742,6 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_4aoe3"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_1bl14")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_g1nvi")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3c80w")
-text = "back"
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="MobileControls/Back"]

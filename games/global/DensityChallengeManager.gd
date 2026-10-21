@@ -19,10 +19,13 @@ func reset_state() -> void:
 # This keeps `setup_*_challenge()` working in any density scene variant
 # without forcing every .tscn to manually add a GoalLabel node.
 func _get_or_create_goal_label() -> Label:
+	var fallback := get_tree().root.get_node_or_null("GoalLabelFallbackLayer")
 	var existing := get_tree().get_first_node_in_group("GoalLabel")
-	if existing is Label:
+	if existing is Label and (fallback == null or not fallback.is_ancestor_of(existing)):
+		if fallback:
+			fallback.queue_free()
 		return existing
-	if existing:
+	if existing and fallback != null and not fallback.is_ancestor_of(existing):
 		# Wrong type — replace with a proper Label.
 		existing.remove_from_group("GoalLabel")
 		existing.queue_free()
