@@ -59,17 +59,22 @@ func _apply_layout() -> void:
 	var settings_btn := _find_control("ingamesettings", content)
 
 	var current_right := safe_rect.end.x
-	if map != null:
+	if map != null and map.visible:
 		_set_global_position(map, Vector2(current_right - _visual_size(map).x, safe_rect.position.y))
 		current_right -= _visual_size(map).x + control_gap
 
-	if settings_btn != null:
+	if settings_btn != null and settings_btn.visible:
 		var btn_sz := _visual_size(settings_btn)
-		_set_global_position(settings_btn, Vector2(current_right - btn_sz.x, safe_rect.position.y + 6.0))
+		var map_h := _visual_size(map).y if (map != null and map.visible) else btn_sz.y
+		var btn_y := safe_rect.position.y + maxf(0.0, (map_h - btn_sz.y) * 0.5)
+		_set_global_position(settings_btn, Vector2(current_right - btn_sz.x, btn_y))
 		current_right -= btn_sz.x + control_gap
 
 	if music != null:
-		_set_global_position(music, Vector2(current_right - _visual_size(music).x, safe_rect.position.y))
+		if music.visible:
+			_set_global_position(music, Vector2(current_right - _visual_size(music).x, safe_rect.position.y))
+		else:
+			_set_global_position(music, safe_rect.position)
 
 	# QuestPanel positioning belongs to each .tscn scene. Do not override
 	# the editor-authored anchors, offsets, or position at runtime.
@@ -123,16 +128,16 @@ func _top_stack_height() -> float:
 	if content == null:
 		content = get_node_or_null("Control") as Control
 	var back := _find_control("BackButton", content)
-	if back != null:
+	if back != null and back.visible:
 		total = maxf(total, _visual_size(back).y)
 	var map := _find_control("MapButton", content)
-	if map != null:
+	if map != null and map.visible:
 		total = maxf(total, _visual_size(map).y)
 	var settings_btn := _find_control("ingamesettings", content)
-	if settings_btn != null:
+	if settings_btn != null and settings_btn.visible:
 		total = maxf(total, _visual_size(settings_btn).y)
 	var music := _find_control("MusicButton", content)
-	if music != null:
+	if music != null and music.visible:
 		total = maxf(total, _visual_size(music).y)
 	return total
 

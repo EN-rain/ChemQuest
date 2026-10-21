@@ -4100,17 +4100,19 @@ texture_filter = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -215.0
-offset_top = 8.0
-offset_right = -163.0
-offset_bottom = 60.0
+offset_left = -250.0
+offset_top = 16.0
+offset_right = -166.0
+offset_bottom = 100.0
 grow_horizontal = 0
+custom_minimum_size = Vector2(84, 84)
 ignore_texture_size = true
 stretch_mode = 5
 texture_normal = ExtResource("101_settings_icon")
 
 [node name="MusicButton" type="TextureButton" parent="CanvasLayer" unique_id=214997607]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 anchors_preset = 1
 anchor_left = 1.0

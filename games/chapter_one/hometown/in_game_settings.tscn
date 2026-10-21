@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cx6i1r2p0mqws"]
+[gd_scene format=3 uid="uid://cx6i1r2p0mqws"]
 
 [ext_resource type="Script" path="res://games/chapter_one/hometown/scripts/in_game_settings.gd" id="1_script"]
 [ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="2_lilita"]
