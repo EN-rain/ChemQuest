@@ -14,6 +14,8 @@ const FADE_LAYER := 90
 var fade_rect: ColorRect
 var _fade_layer: CanvasLayer
 var _transition_in_progress := false
+var _changing_scene := false
+var _fade_in_tween: Tween = null
 var _test_mode := false
 
 
@@ -60,11 +62,21 @@ func fade_and_change(scene_path: String, duration: float = 1.0) -> bool:
 		else:
 			push_error(invalid_message)
 		return false
-	if _transition_in_progress:
+
+	# Only reject if we are already actively reading/changing the scene file
+	if _changing_scene:
 		push_warning("FadeManager: ignoring concurrent transition to " + scene_path)
 		return false
 
+	# If the overlay is currently fading in from a previous transition, cancel it
+	# so we can immediately transition to the new destination.
+	if _fade_in_tween != null and _fade_in_tween.is_valid():
+		_fade_in_tween.kill()
+		_fade_in_tween = null
+
+	_changing_scene = true
 	_transition_in_progress = true
+	print("🎬 [FadeManager] Transition started -> ", scene_path, " input BLOCKED (fade_rect.mouse_filter=STOP)")
 	transition_started.emit(scene_path)
 	if has_node("/root/SpawnManager") and SpawnManager.has_method("validate_for_scene"):
 		SpawnManager.validate_for_scene(scene_path)
@@ -72,26 +84,38 @@ func fade_and_change(scene_path: String, duration: float = 1.0) -> bool:
 		SaveManager.save_before_transition(scene_path)
 	var actual_duration := 0.0 if _test_mode else maxf(0.0, duration)
 	fade_rect.mouse_filter = Control.MOUSE_FILTER_STOP
-	fade_rect.color = Color(0, 0, 0, 0)
+
+	var current_alpha: float = fade_rect.color.a
 	var tween := get_tree().create_tween()
-	tween.tween_property(fade_rect, "color", Color.BLACK, actual_duration)
-	await tween.finished
+	var fade_out_time := actual_duration * (1.0 - current_alpha)
+	if fade_out_time > 0.0:
+		tween.tween_property(fade_rect, "color", Color.BLACK, fade_out_time)
+		await tween.finished
+	else:
+		fade_rect.color = Color.BLACK
 
 	var error := get_tree().change_scene_to_file(scene_path)
+	_changing_scene = false
+
 	if error != OK:
 		push_error("FadeManager: scene change failed for %s (error %d)." % [scene_path, error])
-	else:
-		await get_tree().process_frame
+		fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_transition_in_progress = false
+		return false
+
+	await get_tree().process_frame
 
 	# Fade into the new scene instead of revealing it in one frame. The
 	# persistent overlay remains black while the new scene is initialized.
-	var fade_in := get_tree().create_tween()
-	fade_in.tween_property(fade_rect, "color", Color(0, 0, 0, 0), actual_duration)
-	await fade_in.finished
+	_fade_in_tween = get_tree().create_tween()
+	_fade_in_tween.tween_property(fade_rect, "color", Color(0, 0, 0, 0), actual_duration)
+	await _fade_in_tween.finished
+	_fade_in_tween = null
 	fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_transition_in_progress = false
-	transition_finished.emit(scene_path, error == OK)
-	return error == OK
+	print("🎬 [FadeManager] Transition finished -> ", scene_path, " input UNBLOCKED (fade_rect.mouse_filter=IGNORE)")
+	transition_finished.emit(scene_path, true)
+	return true
 
 
 func reload_current_scene(duration: float = 1.0) -> void:

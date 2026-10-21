@@ -45,6 +45,7 @@ func _ready() -> void:
 	SpawnManager.clear_pending()
 	SaveManager.save_checkpoint(scene_file_path, resolved_spawn)
 	_apply_control_scheme(_get_saved_control_scheme())
+	print("🌳 [Hometown] _ready() finished. Player pos=", %Player.global_position, " can_move=", %Player.can_move, " spawn=", resolved_spawn)
 
 	var ingamesettings_btn := get_node_or_null("CanvasLayer/ingamesettings") as BaseButton
 	var ingame_settings_panel := get_node_or_null("CanvasLayer/InGameSettings") as Control
@@ -92,6 +93,7 @@ func _apply_control_scheme(scheme: String) -> void:
 		buttons.visible = is_arrows
 	if joystick != null:
 		joystick.visible = not is_arrows
+	print("🎮 [Hometown] _apply_control_scheme: scheme=", scheme, " chosen=", _has_chosen_controls(), " buttons.visible=", buttons.visible if buttons else "null", " joystick.visible=", joystick.visible if joystick else "null")
 
 
 func _check_after_states_quest() -> bool:

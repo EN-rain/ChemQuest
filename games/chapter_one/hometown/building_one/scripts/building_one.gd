@@ -53,6 +53,7 @@ func _ready() -> void:
 
 	# 🎮 Controls & Settings
 	_apply_control_scheme(_get_saved_control_scheme())
+	print("🏠 [BuildingOne] _ready() finished. Player pos=", %Player.global_position, " can_move=", %Player.can_move, " spawn=", resolved_spawn_name)
 	var ingamesettings_btn := get_node_or_null("CanvasLayer/ingamesettings") as BaseButton
 	var ingame_settings_panel := get_node_or_null("CanvasLayer/InGameSettings") as Control
 	if ingamesettings_btn != null and ingame_settings_panel != null:
@@ -122,3 +123,4 @@ func _apply_control_scheme(scheme: String) -> void:
 		buttons.visible = is_arrows
 	if joystick != null:
 		joystick.visible = not is_arrows
+	print("🎮 [BuildingOne] _apply_control_scheme: scheme=", scheme, " buttons.visible=", buttons.visible if buttons else "null", " joystick.visible=", joystick.visible if joystick else "null")

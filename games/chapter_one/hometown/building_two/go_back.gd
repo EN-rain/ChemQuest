@@ -9,4 +9,6 @@ func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		body.can_move = false
 		SpawnManager.set_spawn("from_building_two")
-		await FadeManager.fade_and_change("res://games/chapter_one/hometown/hometown.tscn")
+		var ok: bool = await FadeManager.fade_and_change("res://games/chapter_one/hometown/hometown.tscn")
+		if not ok and is_instance_valid(body):
+			body.can_move = true

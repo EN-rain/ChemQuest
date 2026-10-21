@@ -2,8 +2,14 @@ extends CharacterBody2D
 
 @export var walk_speed: float = 300
 @export var run_speed: float = 600
-var can_move: bool = true
+var can_move: bool = true:
+	set(value):
+		if can_move != value:
+			print("🔒 [Player] can_move changed: ", can_move, " -> ", value, " at pos=", global_position)
+		can_move = value
 var is_running: bool = false
+var _logged_blocked: bool = false
+var _logged_moving: bool = false
 
 # Double-tap detection
 var last_tap_time := 0.0
@@ -18,6 +24,7 @@ var first_pressed_dir := ""
 
 
 func _ready() -> void:
+	print("🎮 [Player] _ready() at global_position=", global_position, " can_move=", can_move)
 	if nav_arrow == null:
 		var arrow_scene: PackedScene = load("res://games/chapter_one/hometown/nav_arrow.tscn")
 		if arrow_scene != null:
@@ -25,12 +32,30 @@ func _ready() -> void:
 			add_child(nav_arrow)
 
 func _physics_process(_delta: float) -> void:
+	var raw_input := Vector2(
+		Input.get_action_strength("right") - Input.get_action_strength("left"),
+		Input.get_action_strength("down") - Input.get_action_strength("up")
+	)
+
 	if not can_move:
+		if raw_input != Vector2.ZERO:
+			if not _logged_blocked:
+				_logged_blocked = true
+				print("⚠️ [Player] Movement input pressed (", raw_input, ") but can_move is FALSE! pos=", global_position)
+		else:
+			_logged_blocked = false
 		velocity = Vector2.ZERO
 		move_and_slide()
 		_play_idle()
 		_stop_footsteps()
 		return
+
+	if raw_input != Vector2.ZERO:
+		if not _logged_moving:
+			_logged_moving = true
+			print("🏃 [Player] Started moving: raw_input=", raw_input, " at pos=", global_position)
+	else:
+		_logged_moving = false
 
 	var direction := Vector2.ZERO
 
