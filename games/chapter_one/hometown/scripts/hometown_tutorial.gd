@@ -99,16 +99,15 @@ func _setup_ui() -> void:
 	_card.custom_minimum_size = Vector2(480, 210)
 
 	var card_style := StyleBoxFlat.new()
-	card_style.bg_color = Color(0.08, 0.11, 0.18, 0.95)
-	card_style.border_color = Color(0.28, 0.78, 1.0, 0.85)
-	card_style.set_border_width_all(2)
+	card_style.bg_color = Color(0.08, 0.08, 0.08, 0.95)
+	card_style.set_border_width_all(0)
 	card_style.set_corner_radius_all(14)
-	card_style.shadow_color = Color(0, 0, 0, 0.55)
-	card_style.shadow_size = 10
-	card_style.content_margin_left = 22
-	card_style.content_margin_right = 22
-	card_style.content_margin_top = 18
-	card_style.content_margin_bottom = 18
+	card_style.shadow_color = Color(0, 0, 0, 0.65)
+	card_style.shadow_size = 12
+	card_style.content_margin_left = 24
+	card_style.content_margin_right = 24
+	card_style.content_margin_top = 20
+	card_style.content_margin_bottom = 20
 	_card.add_theme_stylebox_override("panel", card_style)
 	add_child(_card)
 
@@ -125,7 +124,7 @@ func _setup_ui() -> void:
 	if font != null:
 		_header_label.add_theme_font_override("font", font)
 	_header_label.add_theme_font_size_override("font_size", 19)
-	_header_label.add_theme_color_override("font_color", Color(0.35, 0.85, 1.0))
+	_header_label.add_theme_color_override("font_color", Color(1.0, 1.0, 1.0))
 	header_hbox.add_child(_header_label)
 
 	var spacer := Control.new()
@@ -137,7 +136,7 @@ func _setup_ui() -> void:
 	if font != null:
 		_step_badge.add_theme_font_override("font", font)
 	_step_badge.add_theme_font_size_override("font_size", 14)
-	_step_badge.add_theme_color_override("font_color", Color(0.7, 0.85, 1.0, 0.75))
+	_step_badge.add_theme_color_override("font_color", Color(0.7, 0.7, 0.7))
 	header_hbox.add_child(_step_badge)
 
 	var badge_spacer := Control.new()
@@ -150,15 +149,15 @@ func _setup_ui() -> void:
 	if font != null:
 		_skip_button.add_theme_font_override("font", font)
 	_skip_button.add_theme_font_size_override("font_size", 13)
-	_skip_button.add_theme_color_override("font_color", Color(0.8, 0.85, 0.9, 0.7))
-	_skip_button.add_theme_color_override("font_hover_color", Color(1.0, 0.6, 0.6))
+	_skip_button.add_theme_color_override("font_color", Color(0.7, 0.7, 0.7))
+	_skip_button.add_theme_color_override("font_hover_color", Color(1.0, 1.0, 1.0))
 	_skip_button.pressed.connect(_on_skip_pressed)
 	header_hbox.add_child(_skip_button)
 
 	# Separator line
 	var sep := HSeparator.new()
 	var sep_style := StyleBoxLine.new()
-	sep_style.color = Color(0.28, 0.78, 1.0, 0.25)
+	sep_style.color = Color(1.0, 1.0, 1.0, 0.15)
 	sep_style.thickness = 1
 	sep.add_theme_stylebox_override("separator", sep_style)
 	vbox.add_child(sep)
@@ -168,14 +167,14 @@ func _setup_ui() -> void:
 	if font != null:
 		_headline_label.add_theme_font_override("font", font)
 	_headline_label.add_theme_font_size_override("font_size", 21)
-	_headline_label.add_theme_color_override("font_color", Color(1.0, 0.92, 0.52))
+	_headline_label.add_theme_color_override("font_color", Color(1.0, 1.0, 1.0))
 	vbox.add_child(_headline_label)
 
 	# Body text
 	_body_label = Label.new()
 	_body_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_body_label.add_theme_font_size_override("font_size", 15)
-	_body_label.add_theme_color_override("font_color", Color(0.92, 0.95, 1.0))
+	_body_label.add_theme_color_override("font_color", Color(0.9, 0.9, 0.9))
 	_body_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	vbox.add_child(_body_label)
 
@@ -186,7 +185,7 @@ func _setup_ui() -> void:
 	_prompt_label = Label.new()
 	_prompt_label.text = "▶ Tap anywhere or press Space to continue"
 	_prompt_label.add_theme_font_size_override("font_size", 13)
-	_prompt_label.add_theme_color_override("font_color", Color(0.75, 0.85, 0.95, 0.85))
+	_prompt_label.add_theme_color_override("font_color", Color(0.75, 0.75, 0.75))
 	_prompt_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_prompt_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	footer_hbox.add_child(_prompt_label)
@@ -214,9 +213,9 @@ func _process(delta: float) -> void:
 func _draw() -> void:
 	if not visible or not _is_active:
 		return
-	# Clean dimmed backdrop overlay without any blue borders or boxes on the scene
+	# Clean black dimmed backdrop overlay with no borders or blue colors
 	var vp_size := get_viewport_rect().size
-	draw_rect(Rect2(Vector2.ZERO, vp_size), Color(0.02, 0.04, 0.08, 0.65))
+	draw_rect(Rect2(Vector2.ZERO, vp_size), Color(0.0, 0.0, 0.0, 0.65))
 
 
 func _show_step_index(idx: int, immediate: bool = false) -> void:
