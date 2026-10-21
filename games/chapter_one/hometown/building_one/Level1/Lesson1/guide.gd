@@ -100,8 +100,11 @@ shader_type canvas_item;
 
 uniform vec4 target_rect;
 uniform float corner_radius = 18.0;
-uniform float feather = 8.0;
-uniform vec4 dim_color : source_color = vec4(0.0, 0.0, 0.0, 0.68);
+uniform float feather = 6.0;
+uniform vec4 dim_color : source_color = vec4(0.0, 0.0, 0.0, 0.72);
+uniform vec4 glow_color : source_color = vec4(0.92, 0.96, 1.0, 0.95);
+uniform float border_width = 2.2;
+uniform float glow_spread = 12.0;
 
 float rounded_box_sdf(vec2 center_pos, vec2 half_size, float radius) {
     vec2 d = abs(center_pos) - half_size + vec2(radius);
@@ -109,18 +112,49 @@ float rounded_box_sdf(vec2 center_pos, vec2 half_size, float radius) {
 }
 
 void fragment() {
-    vec2 center = target_rect.xy + target_rect.zw * 0.5;
-    vec2 half_size = target_rect.zw * 0.5;
-    float dist = rounded_box_sdf(FRAGCOORD.xy - center, half_size, corner_radius);
-    float alpha = smoothstep(-feather, feather, dist);
-    COLOR = vec4(dim_color.rgb, dim_color.a * alpha);
+    if (target_rect.z <= 1.0 || target_rect.w <= 1.0) {
+        COLOR = dim_color;
+    } else {
+        vec2 center = target_rect.xy + target_rect.zw * 0.5;
+        vec2 half_size = target_rect.zw * 0.5;
+        float dist = rounded_box_sdf(FRAGCOORD.xy - center, half_size, corner_radius);
+
+        // Dimming alpha outside the cutout
+        float dim_alpha = smoothstep(-feather, feather, dist);
+
+        // Dynamic pulse
+        float pulse = 0.78 + 0.22 * sin(TIME * 4.2);
+
+        // Core crisp border
+        float core = 1.0 - smoothstep(0.0, border_width, abs(dist));
+
+        // Outer and inner soft glow
+        float outer_glow = 0.0;
+        if (dist > 0.0) {
+            outer_glow = exp(-dist / glow_spread) * pulse * 0.85;
+        }
+        float inner_glow = 0.0;
+        if (dist <= 0.0) {
+            inner_glow = exp(dist / (glow_spread * 0.6)) * pulse * 0.35;
+        }
+
+        float halo = clamp(core * pulse + outer_glow + inner_glow, 0.0, 1.0);
+
+        // Combine dim background and glowing halo
+        vec3 col = mix(dim_color.rgb, glow_color.rgb, halo);
+        float alpha = clamp(dim_color.a * dim_alpha + halo * glow_color.a, 0.0, 1.0);
+        COLOR = vec4(col, alpha);
+    }
 }
 """
 	_spotlight_material = ShaderMaterial.new()
 	_spotlight_material.shader = shader
 	_spotlight_material.set_shader_parameter("corner_radius", 18.0)
-	_spotlight_material.set_shader_parameter("feather", 8.0)
-	_spotlight_material.set_shader_parameter("dim_color", Color(0.0, 0.0, 0.0, 0.68))
+	_spotlight_material.set_shader_parameter("feather", 6.0)
+	_spotlight_material.set_shader_parameter("dim_color", Color(0.0, 0.0, 0.0, 0.72))
+	_spotlight_material.set_shader_parameter("glow_color", Color(0.92, 0.96, 1.0, 0.95))
+	_spotlight_material.set_shader_parameter("border_width", 2.2)
+	_spotlight_material.set_shader_parameter("glow_spread", 12.0)
 
 	_spotlight_overlay = ColorRect.new()
 	_spotlight_overlay.name = "SpotlightOverlay"
