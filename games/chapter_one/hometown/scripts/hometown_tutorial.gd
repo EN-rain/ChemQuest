@@ -33,7 +33,7 @@ var _steps_data := [
 	{
 		"badge": "STEP 1 OF 2",
 		"headline": "Moving Your Character",
-		"text": "• Touch Controls: Tap or drag the direction buttons to walk. Double-tap any direction to run!\n• Keyboard: Use W, A, S, D or Arrow Keys to move. Hold Shift or double-tap to sprint.",
+		"text": "• Tap or hold the direction buttons to move.\n• Double-tap any direction to run!",
 		"target": "buttons"
 	},
 	{
@@ -183,7 +183,7 @@ func _setup_ui() -> void:
 	vbox.add_child(footer_hbox)
 
 	_prompt_label = Label.new()
-	_prompt_label.text = "▶ Tap anywhere or press Space to continue"
+	_prompt_label.text = "▶ Tap anywhere to continue"
 	_prompt_label.add_theme_font_size_override("font_size", 13)
 	_prompt_label.add_theme_color_override("font_color", Color(0.75, 0.75, 0.75))
 	_prompt_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
