@@ -17,6 +17,10 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="CHEMQuest"
 run/main_scene="uid://c4ucke4bxdkjy"
 config/features=PackedStringArray("4.6", "Mobile")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://icon.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=true
 config/icon="res://icon.svg"
 
 [autoload]
