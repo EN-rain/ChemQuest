@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://rkqrtp34sxea"]
+[gd_scene load_steps=24 format=3 uid="uid://rkqrtp34sxea"]
 
 [ext_resource type="Script" path="res://games/settings/settings.gd" id="1_setscript"]
 [ext_resource type="Texture2D" uid="uid://u300cismahhn" path="res://assets/mainbgx.png" id="2_mainbg"]
@@ -21,96 +21,110 @@ outline_color = Color(0, 0, 0, 1)
 font = ExtResource("4_electrone")
 font_size = 76
 outline_size = 12
-outline_color = Color(0.05, 0.05, 0.05, 0.95)
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
-bg_color = Color(0.07, 0.09, 0.13, 0.82)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.24, 0.32, 0.44, 0.85)
-corner_radius_top_left = 18
-corner_radius_top_right = 18
-corner_radius_bottom_right = 18
-corner_radius_bottom_left = 18
+bg_color = Color(0.07, 0.07, 0.07, 0.88)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="LabelSettings" id="LabelSettings_sound_title"]
+font = ExtResource("5_lilita")
+font_size = 24
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sound_pct"]
+font = ExtResource("5_lilita")
+font_size = 24
+font_color = Color(0.85, 0.85, 0.85, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider_bg"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider_fill"]
+bg_color = Color(0.9, 0.9, 0.9, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
-bg_color = Color(0.12, 0.16, 0.24, 0.9)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.30, 0.42, 0.58, 0.85)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
+bg_color = Color(0.14, 0.14, 0.14, 0.9)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
-bg_color = Color(0.18, 0.25, 0.38, 0.95)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.55, 0.75, 1, 1)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
+bg_color = Color(0.24, 0.24, 0.24, 0.95)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
-bg_color = Color(0.09, 0.12, 0.18, 0.95)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.25, 0.55, 0.85, 1)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
+bg_color = Color(0.08, 0.08, 0.08, 0.95)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [sub_resource type="LabelSettings" id="LabelSettings_btn_title"]
+font = ExtResource("5_lilita")
+font_size = 30
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_btn_sub"]
+font = ExtResource("6_roboto")
+font_size = 17
+font_color = Color(0.72, 0.72, 0.72, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal_panel"]
+bg_color = Color(0.08, 0.08, 0.08, 0.98)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="LabelSettings" id="LabelSettings_modal_title"]
 font = ExtResource("5_lilita")
 font_size = 34
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_btn_sub"]
+[sub_resource type="LabelSettings" id="LabelSettings_modal_sub"]
 font = ExtResource("6_roboto")
-font_size = 18
-font_color = Color(0.72, 0.84, 0.95, 0.85)
+font_size = 17
+font_color = Color(0.75, 0.75, 0.75, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal_panel"]
-bg_color = Color(0.06, 0.08, 0.13, 0.97)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.38, 0.55, 0.8, 0.95)
-corner_radius_top_left = 18
-corner_radius_top_right = 18
-corner_radius_bottom_right = 18
-corner_radius_bottom_left = 18
-
-[sub_resource type="LabelSettings" id="LabelSettings_modal_title"]
-font = ExtResource("5_lilita")
-font_size = 38
-outline_size = 6
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_item_header"]
+[sub_resource type="LabelSettings" id="LabelSettings_opt_title"]
 font = ExtResource("5_lilita")
 font_size = 22
-font_color = Color(0.45, 0.85, 1, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_item_desc"]
+[sub_resource type="LabelSettings" id="LabelSettings_opt_desc"]
 font = ExtResource("6_roboto")
+font_size = 16
+font_color = Color(0.7, 0.7, 0.7, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_badge"]
+font = ExtResource("5_lilita")
 font_size = 19
-font_color = Color(0.9, 0.93, 0.98, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Settings" type="Node2D"]
 script = ExtResource("1_setscript")
@@ -194,9 +208,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -300.0
-offset_top = 18.0
+offset_top = 14.0
 offset_right = 300.0
-offset_bottom = 100.0
+offset_bottom = 96.0
 grow_horizontal = 2
 text = "SETTINGS"
 label_settings = SubResource("LabelSettings_title")
@@ -204,7 +218,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/ContentRoot"]
-custom_minimum_size = Vector2(560, 360)
+custom_minimum_size = Vector2(560, 440)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -212,29 +226,71 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -280.0
-offset_top = -140.0
+offset_top = -180.0
 offset_right = 280.0
-offset_bottom = 250.0
+offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_card")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer"]
+[node name="CardMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer"]
 layout_mode = 2
-theme_override_constants/separation = 22
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 20
+
+[node name="CardVBox" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin"]
+layout_mode = 2
+theme_override_constants/separation = 14
 alignment = 1
 
-[node name="ControlsButton" type="Button" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(480, 80)
+[node name="SoundSection" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox"]
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_constants/separation = 6
+
+[node name="SoundHeader" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/SoundSection"]
+layout_mode = 2
+
+[node name="SoundTitle" type="Label" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/SoundSection/SoundHeader"]
+layout_mode = 2
+text = "SOUND VOLUME"
+label_settings = SubResource("LabelSettings_sound_title")
+
+[node name="Spacer" type="Control" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/SoundSection/SoundHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SoundPercent" type="Label" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/SoundSection/SoundHeader"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "80%"
+label_settings = SubResource("LabelSettings_sound_pct")
+
+[node name="SoundSlider" type="HSlider" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/SoundSection"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_slider_bg")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_slider_fill")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_slider_fill")
+value = 80.0
+
+[node name="Divider" type="ColorRect" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.25, 0.25, 0.25, 0.8)
+
+[node name="ControlsButton" type="Button" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
 
-[node name="VBox" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/VBoxContainer/ControlsButton"]
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/ControlsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -243,29 +299,29 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/VBoxContainer/ControlsButton/VBox"]
+[node name="Title" type="Label" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/ControlsButton/VBox"]
 layout_mode = 2
 text = "CONTROLS"
 label_settings = SubResource("LabelSettings_btn_title")
 horizontal_alignment = 1
 
-[node name="Sub" type="Label" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/VBoxContainer/ControlsButton/VBox"]
+[node name="ControlsSub" type="Label" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/ControlsButton/VBox"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Mobile touch movement & interactions"
+text = "Current: Normal Arrows"
 label_settings = SubResource("LabelSettings_btn_sub")
 horizontal_alignment = 1
 
-[node name="AchievementsButton" type="Button" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/VBoxContainer"]
+[node name="AchievementsButton" type="Button" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(480, 80)
+custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
 
-[node name="VBox" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/VBoxContainer/AchievementsButton"]
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/AchievementsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -274,29 +330,28 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/VBoxContainer/AchievementsButton/VBox"]
+[node name="Title" type="Label" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/AchievementsButton/VBox"]
 layout_mode = 2
 text = "ACHIEVEMENTS"
 label_settings = SubResource("LabelSettings_btn_title")
 horizontal_alignment = 1
 
-[node name="Sub" type="Label" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/VBoxContainer/AchievementsButton/VBox"]
+[node name="Sub" type="Label" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/AchievementsButton/VBox"]
 layout_mode = 2
 text = "Badges, quest rewards & milestones"
 label_settings = SubResource("LabelSettings_btn_sub")
 horizontal_alignment = 1
 
-[node name="AboutButton" type="Button" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/VBoxContainer"]
+[node name="AboutButton" type="Button" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(480, 80)
+custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
 
-[node name="VBox" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/VBoxContainer/AboutButton"]
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/AboutButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -305,13 +360,13 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/VBoxContainer/AboutButton/VBox"]
+[node name="Title" type="Label" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/AboutButton/VBox"]
 layout_mode = 2
 text = "ABOUT"
 label_settings = SubResource("LabelSettings_btn_title")
 horizontal_alignment = 1
 
-[node name="Sub" type="Label" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/VBoxContainer/AboutButton/VBox"]
+[node name="Sub" type="Label" parent="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/AboutButton/VBox"]
 layout_mode = 2
 text = "Game credits & scientific lore"
 label_settings = SubResource("LabelSettings_btn_sub")
@@ -334,120 +389,164 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.75)
+color = Color(0, 0, 0, 0.78)
 
 [node name="ModalPanel" type="PanelContainer" parent="CanvasLayer/ControlsModal"]
-custom_minimum_size = Vector2(720, 480)
+custom_minimum_size = Vector2(660, 390)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -360.0
-offset_top = -240.0
-offset_right = 360.0
-offset_bottom = 240.0
+offset_left = -330.0
+offset_top = -195.0
+offset_right = 330.0
+offset_bottom = 195.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_modal_panel")
 
 [node name="Margin" type="MarginContainer" parent="CanvasLayer/ControlsModal/ModalPanel"]
 layout_mode = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 24
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 22
 
 [node name="VBox" type="VBoxContainer" parent="CanvasLayer/ControlsModal/ModalPanel/Margin"]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 14
 
 [node name="ModalTitle" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox"]
 layout_mode = 2
-text = "TOUCH CONTROLS"
+text = "SELECT CONTROLS"
 label_settings = SubResource("LabelSettings_modal_title")
 horizontal_alignment = 1
 
-[node name="Divider" type="ColorRect" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox"]
-custom_minimum_size = Vector2(0, 2)
+[node name="ModalSub" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox"]
 layout_mode = 2
-color = Color(0.35, 0.5, 0.75, 0.7)
+text = "Choose your preferred mobile control style"
+label_settings = SubResource("LabelSettings_modal_sub")
+horizontal_alignment = 1
 
-[node name="ItemList" type="VBoxContainer" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox"]
+[node name="Divider" type="ColorRect" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.25, 0.25, 0.25, 0.8)
+
+[node name="OptionsList" type="VBoxContainer" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 14
+theme_override_constants/separation = 12
 alignment = 1
 
-[node name="MoveItem" type="VBoxContainer" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/ItemList"]
-layout_mode = 2
-theme_override_constants/separation = 2
-
-[node name="Header" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/ItemList/MoveItem"]
-layout_mode = 2
-text = "• Movement (Left & Right)"
-label_settings = SubResource("LabelSettings_item_header")
-
-[node name="Desc" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/ItemList/MoveItem"]
-layout_mode = 2
-text = "Tap or hold the on-screen arrow buttons on the bottom-left to walk."
-label_settings = SubResource("LabelSettings_item_desc")
-
-[node name="SprintItem" type="VBoxContainer" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/ItemList"]
-layout_mode = 2
-theme_override_constants/separation = 2
-
-[node name="Header" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/ItemList/SprintItem"]
-layout_mode = 2
-text = "• Sprint"
-label_settings = SubResource("LabelSettings_item_header")
-
-[node name="Desc" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/ItemList/SprintItem"]
-layout_mode = 2
-text = "Double-tap a direction button to sprint faster through town."
-label_settings = SubResource("LabelSettings_item_desc")
-
-[node name="InteractItem" type="VBoxContainer" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/ItemList"]
-layout_mode = 2
-theme_override_constants/separation = 2
-
-[node name="Header" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/ItemList/InteractItem"]
-layout_mode = 2
-text = "• Interact & Examine"
-label_settings = SubResource("LabelSettings_item_header")
-
-[node name="Desc" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/ItemList/InteractItem"]
-layout_mode = 2
-text = "Tap the on-screen Interact button or tap directly on NPCs and puzzle stations."
-label_settings = SubResource("LabelSettings_item_desc")
-
-[node name="QuestItem" type="VBoxContainer" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/ItemList"]
-layout_mode = 2
-theme_override_constants/separation = 2
-
-[node name="Header" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/ItemList/QuestItem"]
-layout_mode = 2
-text = "• Quest Journal"
-label_settings = SubResource("LabelSettings_item_header")
-
-[node name="Desc" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/ItemList/QuestItem"]
-layout_mode = 2
-text = "Tap the Quest scroll icon at the top of the screen anytime to track objectives."
-label_settings = SubResource("LabelSettings_item_desc")
-
-[node name="CloseControlsButton" type="Button" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox"]
+[node name="NormalArrowsBtn" type="Button" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(220, 52)
+custom_minimum_size = Vector2(0, 74)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("5_lilita")
-theme_override_font_sizes/font_size = 26
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
-text = "GOT IT"
+
+[node name="BtnMargin" type="MarginContainer" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/NormalArrowsBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_right = 18
+
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/NormalArrowsBtn/BtnMargin"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextVBox" type="VBoxContainer" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/NormalArrowsBtn/BtnMargin/HBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="OptTitle" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/NormalArrowsBtn/BtnMargin/HBox/TextVBox"]
+layout_mode = 2
+text = "NORMAL ARROWS"
+label_settings = SubResource("LabelSettings_opt_title")
+
+[node name="OptDesc" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/NormalArrowsBtn/BtnMargin/HBox/TextVBox"]
+layout_mode = 2
+text = "Fixed on-screen arrow buttons (D-Pad)"
+label_settings = SubResource("LabelSettings_opt_desc")
+
+[node name="Spacer" type="Control" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/NormalArrowsBtn/BtnMargin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NormalArrowsBadge" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/NormalArrowsBtn/BtnMargin/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "[ SELECTED ]"
+label_settings = SubResource("LabelSettings_badge")
+
+[node name="JoystickBtn" type="Button" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 74)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+
+[node name="BtnMargin" type="MarginContainer" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/JoystickBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_right = 18
+
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/JoystickBtn/BtnMargin"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextVBox" type="VBoxContainer" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/JoystickBtn/BtnMargin/HBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="OptTitle" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/JoystickBtn/BtnMargin/HBox/TextVBox"]
+layout_mode = 2
+text = "JOYSTICK"
+label_settings = SubResource("LabelSettings_opt_title")
+
+[node name="OptDesc" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/JoystickBtn/BtnMargin/HBox/TextVBox"]
+layout_mode = 2
+text = "Virtual analog stick for smooth 360° movement"
+label_settings = SubResource("LabelSettings_opt_desc")
+
+[node name="Spacer" type="Control" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/JoystickBtn/BtnMargin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="JoystickBadge" type="Label" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/JoystickBtn/BtnMargin/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "[ SELECT ]"
+label_settings = SubResource("LabelSettings_badge")
+
+[node name="CloseControlsButton" type="Button" parent="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_lilita")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+text = "DONE"
 
 [node name="FadeSfx" type="ColorRect" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -462,7 +561,10 @@ color = Color(0, 0, 0, 0)
 metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/ContentRoot/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/VBoxContainer/ControlsButton" to="." method="_on_controls_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/VBoxContainer/AchievementsButton" to="." method="_on_achievements_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/VBoxContainer/AboutButton" to="." method="_on_about_pressed"]
+[connection signal="value_changed" from="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/SoundSection/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/ControlsButton" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/AchievementsButton" to="." method="_on_achievements_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/ContentRoot/PanelContainer/CardMargin/CardVBox/AboutButton" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/NormalArrowsBtn" to="." method="_on_normal_arrows_pressed"]
+[connection signal="pressed" from="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/OptionsList/JoystickBtn" to="." method="_on_joystick_pressed"]
 [connection signal="pressed" from="CanvasLayer/ControlsModal/ModalPanel/Margin/VBox/CloseControlsButton" to="." method="_on_close_controls_pressed"]
