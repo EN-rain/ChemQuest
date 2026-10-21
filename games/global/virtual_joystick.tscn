@@ -22,6 +22,7 @@ corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
 [node name="VirtualJoystick" type="Control"]
+visible = false
 custom_minimum_size = Vector2(170, 170)
 layout_mode = 3
 anchors_preset = 0

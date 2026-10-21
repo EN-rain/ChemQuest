@@ -40,6 +40,13 @@ func _ready() -> void:
 	_apply_control_scheme(_get_saved_control_scheme())
 
 
+func _has_chosen_controls() -> bool:
+	var config := ConfigFile.new()
+	if config.load("user://settings.cfg") == OK:
+		return bool(config.get_value("controls", "chosen", false))
+	return false
+
+
 func _get_saved_control_scheme() -> String:
 	var config := ConfigFile.new()
 	if config.load("user://settings.cfg") == OK:
@@ -48,11 +55,19 @@ func _get_saved_control_scheme() -> String:
 
 
 func _apply_control_scheme(scheme: String) -> void:
-	var is_arrows := (scheme == "arrows")
 	var buttons := get_node_or_null("CanvasLayer/Buttons") as Control
+	var joystick := get_node_or_null("CanvasLayer/VirtualJoystick") as Control
+
+	if not _has_chosen_controls():
+		if buttons != null:
+			buttons.visible = false
+		if joystick != null:
+			joystick.visible = false
+		return
+
+	var is_arrows := (scheme == "arrows")
 	if buttons != null:
 		buttons.visible = is_arrows
-	var joystick := get_node_or_null("CanvasLayer/VirtualJoystick") as Control
 	if joystick != null:
 		joystick.visible = not is_arrows
 

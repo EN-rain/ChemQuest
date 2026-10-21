@@ -8,6 +8,7 @@ const BUILDING_ONE_SCENE := "res://games/chapter_one/hometown/building_one/build
 const BUILDING_TWO_SCENE := "res://games/chapter_one/hometown/building_two/building_two.tscn"
 const BACKUP_PATH := "user://devmode_progress_backup.json"
 const GUIDE_BACKUP_PATH := "user://devmode_guides_backup.cfg"
+const SETTINGS_BACKUP_PATH := "user://devmode_settings_backup.cfg"
 
 ## Ordered by when the player can first attempt each puzzle.
 const PUZZLES := [
@@ -387,7 +388,16 @@ func reset_progress() -> bool:
 	SaveManager.reset_for_new_game()
 	reset_all_pass_rates()
 	reset_all_quiz_counts()
+	_reset_control_config()
 	return true
+
+
+func _reset_control_config() -> void:
+	var config := ConfigFile.new()
+	if config.load("user://settings.cfg") == OK:
+		config.set_value("controls", "chosen", false)
+		config.set_value("controls", "type", "arrows")
+		config.save("user://settings.cfg")
 
 
 func _backup_current_progress() -> bool:
@@ -402,6 +412,9 @@ func _backup_current_progress() -> bool:
 	# Preserve it too, because Reset Progress now clears guide history.
 	if FileAccess.file_exists("user://guides.cfg"):
 		if not _backup_file("user://guides.cfg", GUIDE_BACKUP_PATH):
+			return false
+	if FileAccess.file_exists("user://settings.cfg"):
+		if not _backup_file("user://settings.cfg", SETTINGS_BACKUP_PATH):
 			return false
 	return true
 

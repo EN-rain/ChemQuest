@@ -64,6 +64,13 @@ func _ready() -> void:
 		if lbl != null:
 			lbl.visible = false
 
+	if not _has_chosen_controls():
+		_setup_audio()
+		_setup_spotlight_overlay()
+		_setup_ui()
+		_show_control_election()
+		return
+
 	if has_node("/root/GuideManager") and GuideManager.has_seen(GUIDE_ID):
 		return
 
@@ -72,12 +79,9 @@ func _ready() -> void:
 	_setup_spotlight_overlay()
 	_setup_ui()
 
-	if _has_chosen_controls():
-		var scheme := _get_saved_control_scheme()
-		_update_step1_data(scheme)
-		_start_tutorial()
-	else:
-		_show_control_election()
+	var scheme := _get_saved_control_scheme()
+	_update_step1_data(scheme)
+	_start_tutorial()
 
 
 func _has_chosen_controls() -> bool:
@@ -283,6 +287,14 @@ func _show_control_election() -> void:
 	if _spotlight_material != null:
 		_spotlight_material.set_shader_parameter("target_rect", Vector4.ZERO)
 
+	# Ensure controls are hidden while choosing
+	var buttons_node := get_node_or_null("../Buttons") as Control
+	if buttons_node != null:
+		buttons_node.visible = false
+	var joystick_node := get_node_or_null("../VirtualJoystick") as Control
+	if joystick_node != null:
+		joystick_node.visible = false
+
 	var font: Font = null
 	if ResourceLoader.exists(FONT_PATH):
 		font = load(FONT_PATH)
@@ -451,6 +463,12 @@ func _on_election_selected(scheme: String) -> void:
 	if _election_card != null:
 		_election_card.queue_free()
 		_election_card = null
+
+	# If tutorial was already seen before, do not re-run it
+	if has_node("/root/GuideManager") and GuideManager.has_seen(GUIDE_ID):
+		visible = false
+		_is_active = false
+		return
 
 	# Prepare and launch movement tutorial
 	_update_step1_data(scheme)

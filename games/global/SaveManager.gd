@@ -400,4 +400,11 @@ func reset_for_new_game() -> void:
 	else:
 		push_warning("SaveManager: could not reset mixture spawn history.")
 
+	# Reset control scheme election config so new game / reset asks the player again
+	var settings_cfg := ConfigFile.new()
+	if settings_cfg.load("user://settings.cfg") == OK:
+		settings_cfg.set_value("controls", "chosen", false)
+		settings_cfg.set_value("controls", "type", "arrows")
+		settings_cfg.save("user://settings.cfg")
+
 	save_now(NEW_GAME_SCENE_PATH)
