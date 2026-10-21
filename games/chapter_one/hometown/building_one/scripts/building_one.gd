@@ -49,8 +49,18 @@ func _ready() -> void:
 	# 💾 Save current spawn for continuation
 	SpawnManager.clear_pending()
 	SaveManager.save_checkpoint(scene_file_path, resolved_spawn_name)
-
 	SaveManager.save_game()
+
+	# 🎮 Controls & Settings
+	_apply_control_scheme(_get_saved_control_scheme())
+	var ingamesettings_btn := get_node_or_null("CanvasLayer/ingamesettings") as BaseButton
+	var ingame_settings_panel := get_node_or_null("CanvasLayer/InGameSettings") as Control
+	if ingamesettings_btn != null and ingame_settings_panel != null:
+		ingamesettings_btn.pressed.connect(func():
+			if MusicManager.has_method("play_sfx"):
+				MusicManager.play_sfx("button")
+			ingame_settings_panel.open()
+		)
 
 
 # ===============================
@@ -92,3 +102,24 @@ func _get_feedback_for_completed_quest() -> String:
 			return mapping[quest_id]
 
 	return ""
+
+
+# ===============================
+# 🎮 CONTROLS
+# ===============================
+func _get_saved_control_scheme() -> String:
+	var config := ConfigFile.new()
+	if config.load("user://settings.cfg") == OK:
+		return String(config.get_value("controls", "type", "arrows"))
+	return "arrows"
+
+
+func _apply_control_scheme(scheme: String) -> void:
+	var buttons := get_node_or_null("CanvasLayer/Buttons") as Control
+	var joystick := get_node_or_null("CanvasLayer/VirtualJoystick") as Control
+	var is_arrows := (scheme == "arrows")
+	if buttons != null:
+		buttons.visible = is_arrows
+	if joystick != null:
+		joystick.visible = not is_arrows
+

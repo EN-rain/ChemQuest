@@ -38,6 +38,9 @@
 [ext_resource type="Script" uid="uid://bcxgjll08sm1a" path="res://games/chapter_one/hometown/building_one/feedback_panel.gd" id="29_vifgx"]
 [ext_resource type="FontFile" uid="uid://dbn2eqhxy00rr" path="res://assets/Roboto-BoldCondensed.ttf" id="30_je333"]
 [ext_resource type="Script" path="res://games/global/ResponsiveCameraBounds.gd" id="99_resp_cam"]
+[ext_resource type="PackedScene" path="res://games/global/virtual_joystick.tscn" id="100_vjoy"]
+[ext_resource type="Texture2D" path="res://assets/settingsicon.png" id="101_settings_icon"]
+[ext_resource type="PackedScene" path="res://games/chapter_one/hometown/in_game_settings.tscn" id="102_ingame_settings"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_elk7l"]
 size = Vector2(294, 60)
@@ -334,8 +337,25 @@ authored_bounds = Rect2(-256, -256, 2304, 1856)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2044102911]
 script = ExtResource("1_ui")
 
+[node name="ingamesettings" type="TextureButton" parent="CanvasLayer" unique_id=987654322]
+unique_name_in_owner = true
+texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 100.0
+grow_horizontal = 0
+custom_minimum_size = Vector2(84, 84)
+ignore_texture_size = true
+stretch_mode = 5
+texture_normal = ExtResource("101_settings_icon")
+
 [node name="MusicButton" type="TextureButton" parent="CanvasLayer" unique_id=1449854142]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -351,6 +371,7 @@ texture_off = ExtResource("21_music_off")
 
 [node name="BackButton" type="Button" parent="CanvasLayer" unique_id=1751875513]
 unique_name_in_owner = true
+visible = false
 offset_left = 4.0
 offset_right = 228.0
 offset_bottom = 87.0
@@ -860,6 +881,10 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 metadata/_edit_lock_ = true
+
+[node name="VirtualJoystick" parent="CanvasLayer" instance=ExtResource("100_vjoy")]
+
+[node name="InGameSettings" parent="CanvasLayer" instance=ExtResource("102_ingame_settings")]
 
 [connection signal="body_entered" from="World/GoBack" to="World/GoBack" method="_on_body_entered"]
 [connection signal="body_entered" from="World/Furnitures/LevelOne" to="World/Furnitures/LevelOne" method="_on_body_entered"]
