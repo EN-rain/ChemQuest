@@ -34,6 +34,7 @@ var _headline_label: Label
 var _body_label: Label
 var _prompt_label: Label
 var _sfx_player: AudioStreamPlayer
+var _input_cooldown: float = 0.0
 
 var _steps_data := [
 	{
@@ -464,21 +465,25 @@ func _on_election_selected(scheme: String) -> void:
 		_election_card.queue_free()
 		_election_card = null
 
+	_input_cooldown = 0.4
+	get_viewport().set_input_as_handled()
+
 	# If tutorial was already seen before, do not re-run it
 	if has_node("/root/GuideManager") and GuideManager.has_seen(GUIDE_ID):
 		visible = false
 		_is_active = false
 		return
 
-	# Prepare and launch movement tutorial
+	# Prepare and launch movement tutorial deferred
 	_update_step1_data(scheme)
-	_start_tutorial()
+	call_deferred("_start_tutorial")
 
 
 func _start_tutorial() -> void:
 	visible = true
 	_is_active = true
 	_current_step = 0
+	_input_cooldown = 0.35
 	if _card != null:
 		_card.visible = true
 	if has_node("/root/GuideManager"):
@@ -489,6 +494,8 @@ func _start_tutorial() -> void:
 func _process(delta: float) -> void:
 	if not visible or not _is_active:
 		return
+	if _input_cooldown > 0.0:
+		_input_cooldown = maxf(0.0, _input_cooldown - delta)
 	_pulse_timer += delta * 4.0
 
 	if _prompt_label != null:
@@ -503,6 +510,7 @@ func _show_step_index(idx: int, immediate: bool = false) -> void:
 
 	_current_step = idx
 	_is_animating = true
+	_input_cooldown = 0.35
 	_play_sfx(1.0 + idx * 0.1)
 
 	var data: Dictionary = _steps_data[idx]
@@ -564,9 +572,12 @@ func _calculate_target_box(target_type: String, vp_size: Vector2) -> Vector4:
 		"joystick":
 			var joy_node: Control = get_node_or_null("../VirtualJoystick") as Control
 			if joy_node != null and joy_node.visible:
-				var r := Rect2(joy_node.global_position, joy_node.size).grow(16.0)
+				var target_ctrl: Control = joy_node.get_node_or_null("Base") as Control
+				if target_ctrl == null:
+					target_ctrl = joy_node
+				var r := Rect2(target_ctrl.global_position, target_ctrl.size).grow(16.0)
 				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
-			var fallback_j := Rect2(Vector2(50, vp_size.y - 410), Vector2(190, 190)).grow(16.0)
+			var fallback_j := Rect2(Vector2(40, vp_size.y - 200), Vector2(160, 160)).grow(16.0)
 			return Vector4(fallback_j.position.x, fallback_j.position.y, fallback_j.size.x, fallback_j.size.y)
 
 		"quest":
@@ -640,6 +651,8 @@ func _input(event: InputEvent) -> void:
 	if not visible or not _is_active:
 		return
 	if _is_election_active:
+		return
+	if _input_cooldown > 0.0:
 		return
 
 	# Advance on click or touch
