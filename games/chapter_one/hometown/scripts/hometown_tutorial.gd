@@ -70,8 +70,11 @@ func _ready() -> void:
 		is_tutorial_active = true
 		_set_quest_panel_visible(false)
 		call_deferred("_set_quest_panel_visible", false)
+		_set_ingamesettings_visible(false)
+		call_deferred("_set_ingamesettings_visible", false)
 	else:
 		is_tutorial_active = false
+		_set_ingamesettings_visible(true)
 
 	if not _has_chosen_controls():
 		_setup_audio()
@@ -305,6 +308,7 @@ func _show_control_election() -> void:
 	if joystick_node != null:
 		joystick_node.visible = false
 	_set_quest_panel_visible(false)
+	_set_ingamesettings_visible(false)
 
 	var font: Font = null
 	if ResourceLoader.exists(FONT_PATH):
@@ -751,6 +755,7 @@ func _finish_tutorial() -> void:
 	if has_node("/root/GuideManager"):
 		GuideManager.mark_seen(GUIDE_ID)
 	_set_quest_panel_visible(true)
+	_set_ingamesettings_visible(true)
 	_play_sfx(1.4)
 	screen_pressed.emit()
 
@@ -770,6 +775,7 @@ func _on_skip_pressed() -> void:
 	if has_node("/root/GuideManager"):
 		GuideManager.mark_seen(GUIDE_ID)
 	_set_quest_panel_visible(true)
+	_set_ingamesettings_visible(true)
 	screen_pressed.emit()
 	visible = false
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -779,6 +785,12 @@ func _set_quest_panel_visible(is_vis: bool) -> void:
 	var quest_node := get_node_or_null("../QuestPanel") as Control
 	if quest_node != null:
 		quest_node.visible = is_vis
+
+
+func _set_ingamesettings_visible(is_vis: bool) -> void:
+	var settings_btn := get_node_or_null("../ingamesettings") as Control
+	if settings_btn != null:
+		settings_btn.visible = is_vis
 
 
 func _input(event: InputEvent) -> void:

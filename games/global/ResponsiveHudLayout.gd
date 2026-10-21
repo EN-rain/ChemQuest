@@ -56,13 +56,20 @@ func _apply_layout() -> void:
 
 	var music := _find_control("MusicButton", content)
 	var map := _find_control("MapButton", content)
+	var settings_btn := _find_control("ingamesettings", content)
+
+	var current_right := safe_rect.end.x
 	if map != null:
-		_set_global_position(map, Vector2(safe_rect.end.x - _visual_size(map).x, safe_rect.position.y))
+		_set_global_position(map, Vector2(current_right - _visual_size(map).x, safe_rect.position.y))
+		current_right -= _visual_size(map).x + control_gap
+
+	if settings_btn != null:
+		var btn_sz := _visual_size(settings_btn)
+		_set_global_position(settings_btn, Vector2(current_right - btn_sz.x, safe_rect.position.y + 6.0))
+		current_right -= btn_sz.x + control_gap
+
 	if music != null:
-		var music_x := safe_rect.end.x - _visual_size(music).x
-		if map != null:
-			music_x = safe_rect.end.x - _visual_size(map).x - control_gap - _visual_size(music).x
-		_set_global_position(music, Vector2(music_x, safe_rect.position.y))
+		_set_global_position(music, Vector2(current_right - _visual_size(music).x, safe_rect.position.y))
 
 	# QuestPanel positioning belongs to each .tscn scene. Do not override
 	# the editor-authored anchors, offsets, or position at runtime.
@@ -121,6 +128,9 @@ func _top_stack_height() -> float:
 	var map := _find_control("MapButton", content)
 	if map != null:
 		total = maxf(total, _visual_size(map).y)
+	var settings_btn := _find_control("ingamesettings", content)
+	if settings_btn != null:
+		total = maxf(total, _visual_size(settings_btn).y)
 	var music := _find_control("MusicButton", content)
 	if music != null:
 		total = maxf(total, _visual_size(music).y)

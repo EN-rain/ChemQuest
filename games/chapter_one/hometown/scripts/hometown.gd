@@ -41,6 +41,15 @@ func _ready() -> void:
 	SaveManager.save_checkpoint(scene_file_path, resolved_spawn)
 	_apply_control_scheme(_get_saved_control_scheme())
 
+	var ingamesettings_btn := get_node_or_null("CanvasLayer/ingamesettings") as BaseButton
+	var ingame_settings_panel := get_node_or_null("CanvasLayer/InGameSettings") as Control
+	if ingamesettings_btn != null and ingame_settings_panel != null:
+		ingamesettings_btn.pressed.connect(func():
+			if MusicManager.has_method("play_sfx"):
+				MusicManager.play_sfx("button")
+			ingame_settings_panel.open()
+		)
+
 
 func _has_chosen_controls() -> bool:
 	var config := ConfigFile.new()

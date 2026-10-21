@@ -1,0 +1,257 @@
+[gd_scene load_steps=12 format=3 uid="uid://cx6i1r2p0mqws"]
+
+[ext_resource type="Script" path="res://games/chapter_one/hometown/scripts/in_game_settings.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="2_lilita"]
+[ext_resource type="FontFile" uid="uid://dbn2eqhxy00rr" path="res://assets/Roboto-BoldCondensed.ttf" id="3_roboto"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.08, 0.08, 0.08, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25, 0.25, 0.25, 0.8)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_norm"]
+bg_color = Color(0.14, 0.14, 0.14, 0.9)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.24, 0.24, 0.24, 0.95)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider_bg"]
+bg_color = Color(0.16, 0.16, 0.16, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider_fill"]
+bg_color = Color(0.85, 0.85, 0.85, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_danger_norm"]
+bg_color = Color(0.35, 0.12, 0.12, 0.9)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_danger_hover"]
+bg_color = Color(0.5, 0.16, 0.16, 0.95)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_primary_norm"]
+bg_color = Color(0.88, 0.88, 0.88, 0.95)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="InGameSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(560, 460)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="Margin" type="MarginContainer" parent="CenterContainer/Card"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Card/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Header" type="HBoxContainer" parent="CenterContainer/Card/Margin/VBox"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/Card/Margin/VBox/Header"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_lilita")
+theme_override_font_sizes/font_size = 24
+text = "SETTINGS"
+
+[node name="Spacer" type="Control" parent="CenterContainer/Card/Margin/VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="Button" parent="CenterContainer/Card/Margin/VBox/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_lilita")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_hover")
+text = "✕"
+
+[node name="Divider1" type="ColorRect" parent="CenterContainer/Card/Margin/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.25, 0.25, 0.25, 0.8)
+
+[node name="ControlsSection" type="VBoxContainer" parent="CenterContainer/Card/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SectionTitle" type="Label" parent="CenterContainer/Card/Margin/VBox/ControlsSection"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_lilita")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+text = "CONTROLS"
+
+[node name="ControlsHBox" type="HBoxContainer" parent="CenterContainer/Card/Margin/VBox/ControlsSection"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="ArrowsBtn" type="Button" parent="CenterContainer/Card/Margin/VBox/ControlsSection/ControlsHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 155)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="JoystickBtn" type="Button" parent="CenterContainer/Card/Margin/VBox/ControlsSection/ControlsHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 155)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Divider2" type="ColorRect" parent="CenterContainer/Card/Margin/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.25, 0.25, 0.25, 0.8)
+
+[node name="SoundSection" type="VBoxContainer" parent="CenterContainer/Card/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SoundHeader" type="HBoxContainer" parent="CenterContainer/Card/Margin/VBox/SoundSection"]
+layout_mode = 2
+
+[node name="SoundTitle" type="Label" parent="CenterContainer/Card/Margin/VBox/SoundSection/SoundHeader"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_lilita")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+text = "SOUND VOLUME"
+
+[node name="Spacer" type="Control" parent="CenterContainer/Card/Margin/VBox/SoundSection/SoundHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SoundPercent" type="Label" parent="CenterContainer/Card/Margin/VBox/SoundSection/SoundHeader"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_lilita")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+text = "80%"
+
+[node name="SoundSlider" type="HSlider" parent="CenterContainer/Card/Margin/VBox/SoundSection"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_slider_bg")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_slider_fill")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_slider_fill")
+value = 80.0
+
+[node name="Divider3" type="ColorRect" parent="CenterContainer/Card/Margin/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.25, 0.25, 0.25, 0.8)
+
+[node name="ActionsHBox" type="HBoxContainer" parent="CenterContainer/Card/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ReviewBtn" type="Button" parent="CenterContainer/Card/Margin/VBox/ActionsHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_lilita")
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 0.8)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_norm")
+text = "REVIEW"
+
+[node name="MainMenuBtn" type="Button" parent="CenterContainer/Card/Margin/VBox/ActionsHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_lilita")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_danger_norm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_danger_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_danger_norm")
+text = "MAIN MENU"
+
+[node name="ResumeBtn" type="Button" parent="CenterContainer/Card/Margin/VBox/ActionsHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_lilita")
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.1, 0.1, 0.1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_primary_norm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_primary_norm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_primary_norm")
+text = "RESUME"
