@@ -122,4 +122,3 @@ func _apply_control_scheme(scheme: String) -> void:
 		buttons.visible = is_arrows
 	if joystick != null:
 		joystick.visible = not is_arrows
-

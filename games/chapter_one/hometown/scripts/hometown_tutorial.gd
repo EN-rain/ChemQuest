@@ -115,7 +115,7 @@ func _update_step1_data(scheme: String) -> void:
 		_steps_data[0] = {
 			"badge": "STEP 1 OF 2",
 			"headline": "Moving Your Character",
-			"text": "• Drag the virtual joystick to move in any direction.\n• Push toward the edge to run!",
+			"text": "• Drag the joystick to move in any direction.\n• Push toward the edge to run!",
 			"target": "joystick"
 		}
 	else:
@@ -435,7 +435,7 @@ func _show_control_election() -> void:
 	joy_vbox.add_child(joy_center)
 
 	var joy_lbl := Label.new()
-	joy_lbl.text = "VIRTUAL JOYSTICK"
+	joy_lbl.text = "JOYSTICK"
 	if font != null:
 		joy_lbl.add_theme_font_override("font", font)
 	joy_lbl.add_theme_font_size_override("font_size", 18)

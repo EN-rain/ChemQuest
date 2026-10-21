@@ -121,6 +121,13 @@ func _apply_layout() -> void:
 	if state_label != null:
 		_set_global_position(state_label, safe_rect.position + Vector2(control_gap, control_gap))
 
+	var joystick := _find_control("VirtualJoystick", content)
+	if joystick != null:
+		var joy_sz := _visual_size(joystick)
+		if joy_sz.y <= 0.0:
+			joy_sz.y = 320.0
+		_set_global_position(joystick, Vector2(safe_rect.position.x, safe_rect.end.y - joy_sz.y))
+
 
 func _top_stack_height() -> float:
 	var total := 0.0

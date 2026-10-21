@@ -113,7 +113,7 @@ func _build_control_cards() -> void:
 		vbox.add_child(center)
 
 		var lbl := Label.new()
-		lbl.text = "VIRTUAL JOYSTICK"
+		lbl.text = "JOYSTICK"
 		if font != null:
 			lbl.add_theme_font_override("font", font)
 		lbl.add_theme_font_size_override("font_size", 18)
