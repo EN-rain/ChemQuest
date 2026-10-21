@@ -416,9 +416,9 @@ func _calculate_card_position(target_type: String, vp_size: Vector2) -> Vector2:
 			return Vector2(x, y)
 
 		"crosshair":
-			# Target is crosshair zone (y ~ 240..340), position card in upper center
+			# Target is crosshair zone (y ~ 240..340), position card cleanly in lower center
 			var x := clampf((vp_size.x - card_sz.x) * 0.5, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf(80.0, 30.0, vp_size.y - card_sz.y - 30.0)
+			var y := clampf(420.0, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
 		"fire":
