@@ -65,11 +65,13 @@ func _apply_responsive_layout() -> void:
 	var safe_rect: Rect2 = service.safe_rect
 	var music_button := get_node_or_null("CanvasLayer/MusicButton") as Control
 	if music_button != null:
+		music_button.visible = false
 		# The authored button is 64 design pixels and rendered at 1.5x.
 		# Position the transformed 96px visual inside the safe rectangle.
 		music_button.position = Vector2(safe_rect.end.x - 96.0, safe_rect.position.y)
 	var achieve_button := get_node_or_null("CanvasLayer/AchieveButton") as Control
 	if achieve_button != null:
+		achieve_button.visible = false
 		var achieve_size := achieve_button.size
 		if achieve_size.x <= 0.0 or achieve_size.y <= 0.0:
 			achieve_size = Vector2(112.0, 81.0)
@@ -132,7 +134,11 @@ func _on_chapter_1_pressed() -> void:
 
 func _on_about_pressed() -> void:
 	MusicManager.play_sfx("button")
-	await FadeManager.fade_and_change("res://games/glossary/about.tscn")
+	await FadeManager.fade_and_change("res://games/settings/settings.tscn")
+
+
+func _on_settings_pressed() -> void:
+	await _on_about_pressed()
 
 
 func _on_glossary_pressed() -> void:
