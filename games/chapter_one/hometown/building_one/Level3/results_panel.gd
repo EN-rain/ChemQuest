@@ -19,7 +19,7 @@ func _animate_panel_in() -> void:
 	tween.tween_property(self, "modulate:a", 1.0, 0.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.parallel().tween_property(self, "position:y", position.y - 80, 0.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
-func show_results(score: int, passed: bool) -> void:
+func show_results(score: int, passed: bool, pass_target: int = 12) -> void:
 	MusicManager.play_music_by_id("showresults")
 	visible = true
 	label.text = "%d" % score
@@ -38,7 +38,7 @@ func show_results(score: int, passed: bool) -> void:
 			if next_quest:
 				QuestManager.add_quest(next_quest)
 	else:
-		pass_label.text = "\n12 is the passing score.\nTry again!"
+		pass_label.text = "\n%d is the passing score.\nTry again!" % pass_target
 		continue_btn.visible = false
 		
 	visible = true

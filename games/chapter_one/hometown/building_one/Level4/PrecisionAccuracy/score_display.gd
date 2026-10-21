@@ -30,6 +30,10 @@ func _ready():
 		current_round = 1
 		Scoring.set_meta("current_round", current_round)
 
+	var dev_manager := get_node_or_null("/root/DevModeManager")
+	if dev_manager and dev_manager.has_method("get_quiz_count"):
+		max_score = int(dev_manager.call("get_quiz_count", "accuracy_vs_precision", 5))
+
 	_update_labels()
 
 
@@ -108,7 +112,12 @@ func show_results():
 
 
 func _handle_post_guess():
-	if score >= max_score:
+	var dev_manager := get_node_or_null("/root/DevModeManager")
+	var target_score: int = max_score
+	if dev_manager and dev_manager.has_method("get_pass_rate"):
+		target_score = int(dev_manager.call("get_pass_rate", "accuracy_vs_precision", max_score))
+
+	if score >= target_score:
 		# Show results and stop automatic restart
 		results_shown = true
 		results_panel.visible = true
@@ -120,7 +129,7 @@ func _handle_post_guess():
 
 		# Let ResultsPanel handle Continue button visibility
 		if results_panel.has_method("show_results"):
-			results_panel.show_results(score, max_score)
+			results_panel.show_results(score, max_score, target_score)
 
 	else:
 		# Retry same round if not full score

@@ -23,12 +23,19 @@ func _ready() -> void:
 	game_time.tick.connect(_on_timer_tick)
 	game_time.time_up.connect(_on_time_up)
 
-	round_label.text = "%d" % round_number
+	var dev_manager := get_node_or_null("/root/DevModeManager")
+	if dev_manager:
+		if dev_manager.has_method("get_quiz_count"):
+			max_rounds = int(dev_manager.call("get_quiz_count", "separation_methods", 15))
+		if dev_manager.has_method("get_pass_rate"):
+			passing_score = int(dev_manager.call("get_pass_rate", "separation_methods", 12))
+
+	round_label.text = "%d/%d" % [round_number, max_rounds]
 	score_label.text = "%d" % score
 
 	if spawner:
 		spawner.max_rounds = max_rounds
-		spawner.max_spawn_round = max_rounds - 3
+		spawner.max_spawn_round = max(max_rounds - 3, 1)
 		spawner.current_round = round_number
 
 	game_time.start_round()
@@ -221,10 +228,15 @@ func _end_game() -> void:
 	game_time.stop_round()
 	await get_tree().create_timer(0.5).timeout
 
-	var passed: bool = score >= passing_score
+	var effective_pass: int = passing_score
+	var dev_manager := get_node_or_null("/root/DevModeManager")
+	if dev_manager and dev_manager.has_method("get_pass_rate"):
+		effective_pass = int(dev_manager.call("get_pass_rate", "separation_methods", passing_score))
+
+	var passed: bool = score >= effective_pass
 	if result_panel and result_panel.has_method("show_results"):
-		# ✅ pass boolean, not array
-		result_panel.show_results(score, passed)
+		# ✅ pass boolean and target score
+		result_panel.show_results(score, passed, effective_pass)
 
 	if Level3Manager:
 		Level3Manager.increment_run_and_check_reset()

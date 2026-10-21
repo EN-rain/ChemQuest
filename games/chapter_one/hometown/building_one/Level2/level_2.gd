@@ -36,6 +36,13 @@ func _ready() -> void:
 	back_panel.resume_timer.connect(_on_resume_from_back_panel)
 	quiz_timer.timeout.connect(_on_timer_timeout)
 
+	var dev_manager := get_node_or_null("/root/DevModeManager")
+	if dev_manager:
+		if dev_manager.has_method("get_pass_rate"):
+			passing_score = int(dev_manager.call("get_pass_rate", "desk_quiz", 12))
+		if dev_manager.has_method("get_quiz_count"):
+			total_questions = int(dev_manager.call("get_quiz_count", "desk_quiz", 15))
+
 	results_panel.visible = false
 	update_labels()
 	load_questions()

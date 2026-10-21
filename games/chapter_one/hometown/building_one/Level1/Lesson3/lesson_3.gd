@@ -92,7 +92,10 @@ func increment_run_count() -> void:
 
 # --- Spawn mixtures (skip already correct ones) ---
 func spawn_mixtures(count: int, reset: bool = false):
-	const MAX_MIXTURES := 15
+	var max_mixtures := 15
+	var dev_manager := get_node_or_null("/root/DevModeManager")
+	if dev_manager and dev_manager.has_method("get_quiz_count"):
+		max_mixtures = int(dev_manager.call("get_quiz_count", "book3", 15))
 
 	# Determine total number of available mixtures dynamically
 	var max_data := 0
@@ -105,8 +108,8 @@ func spawn_mixtures(count: int, reset: bool = false):
 		return
 
 	# Prevent overfilling
-	if current_mixtures.size() >= MAX_MIXTURES:
-		print("⚠️ Spawn limit reached (" + str(MAX_MIXTURES) + ") — skipping spawn.")
+	if current_mixtures.size() >= max_mixtures:
+		print("⚠️ Spawn limit reached (" + str(max_mixtures) + ") — skipping spawn.")
 		return
 
 	# Reset current spawn pool if requested
@@ -120,7 +123,7 @@ func spawn_mixtures(count: int, reset: bool = false):
 	# Clean invalid references
 	current_mixtures = current_mixtures.filter(func(m): return is_instance_valid(m))
 
-	var remaining_slots := MAX_MIXTURES - current_mixtures.size()
+	var remaining_slots := max_mixtures - current_mixtures.size()
 	count = min(count, remaining_slots)
 
 	# Build list of available mixtures not yet used this session or marked complete

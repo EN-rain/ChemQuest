@@ -34,7 +34,12 @@ func _on_body_entered(body: Node) -> void:
 
 	print("📏 Object Density: %.2f | Target: %.2f" % [density, goal])
 
-	if abs(density - goal) < 0.01:
+	var pass_req: int = 1
+	var dev_manager := get_node_or_null("/root/DevModeManager")
+	if dev_manager and dev_manager.has_method("get_pass_rate"):
+		pass_req = int(dev_manager.call("get_pass_rate", "density_3", 1))
+
+	if pass_req == 0 or abs(density - goal) < 0.01:
 		print("✅ Correct item detected!")
 		_finished = true
 		modulate = Color.GREEN

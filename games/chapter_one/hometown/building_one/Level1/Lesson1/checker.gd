@@ -12,13 +12,17 @@ extends Node2D
 var atom_counts: Dictionary = {}
 var score: int = 0
 var current_round: int = 1
-const MAX_ROUNDS := 15
+var max_rounds: int = 15
 
 var elements_order: Array = []
 var placed_atoms: Array = [] #
 
 
 func _ready() -> void:
+	var dev_manager := get_node_or_null("/root/DevModeManager")
+	if dev_manager and dev_manager.has_method("get_quiz_count"):
+		max_rounds = int(dev_manager.call("get_quiz_count", "book1", 15))
+
 	var file = FileAccess.open("res://games/global/elements_order.json", FileAccess.READ)
 	if file:
 		var data = JSON.parse_string(file.get_as_text())
@@ -130,7 +134,7 @@ func _update_checker_label() -> void:
 
 func _update_score_label() -> void:
 	if score_label:
-		score_label.text = "%d\n%d/%d" % [score, current_round, MAX_ROUNDS]
+		score_label.text = "%d\n%d/%d" % [score, current_round, max_rounds]
 
 # --- Helper: enable/disable all atom input & dragging ---
 func _set_atoms_interaction(enabled: bool) -> void:
@@ -208,7 +212,7 @@ func _on_confirm_button_pressed() -> void:
 	MusicManager.resume_music()
 
 	current_round += 1
-	if current_round > MAX_ROUNDS:
+	if current_round > max_rounds:
 		_end_game()
 		return
 

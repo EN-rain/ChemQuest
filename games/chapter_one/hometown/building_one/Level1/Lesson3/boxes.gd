@@ -8,7 +8,7 @@ extends Control
 
 var placed_count: int = 0
 var correct_count: int = 0
-const TARGET_COUNT: int = 15
+var target_count: int = 15
 var mistakes: Array = []
 var finalized: bool = false
 var lesson3: Node = null
@@ -19,6 +19,10 @@ func _ready() -> void:
 	lesson3 = get_tree().current_scene
 	if not lesson3 or not lesson3.has_method("spawn_mixtures"):
 		lesson3 = get_tree().get_first_node_in_group("Lesson3")
+	var dev_manager := get_node_or_null("/root/DevModeManager")
+	if dev_manager and dev_manager.has_method("get_quiz_count"):
+		target_count = int(dev_manager.call("get_quiz_count", "book3", 15))
+
 	finalize_button.visible = false
 	undo_button.visible = true
 	_update_sort_label()  # ✅ Initialize display
@@ -55,11 +59,11 @@ func _snap_to_marker(mixture: Mixture, target_area: Area2D, expected_type: Strin
 
 # --- Called after a mixture finishes snapping to box ---
 func _on_mixture_sorted(mixture: Mixture, expected_type: String) -> void:
-	if mixture.locked or placed_count >= TARGET_COUNT:
+	if mixture.locked or placed_count >= target_count:
 		return
 
 	placed_count += 1
-	print("Placed:", placed_count, "/", TARGET_COUNT)
+	print("Placed:", placed_count, "/", target_count)
 
 	# Save previous state for Undo
 	sorted_stack.append({
@@ -84,7 +88,7 @@ func _on_mixture_sorted(mixture: Mixture, expected_type: String) -> void:
 	mixture.locked = true
 
 	# Spawn next mixture if under target
-	if not finalized and lesson3 and lesson3.has_method("spawn_mixtures") and placed_count < TARGET_COUNT:
+	if not finalized and lesson3 and lesson3.has_method("spawn_mixtures") and placed_count < target_count:
 		lesson3.spawn_mixtures(1, false)
 
 	_update_finalize_button()
@@ -93,13 +97,13 @@ func _on_mixture_sorted(mixture: Mixture, expected_type: String) -> void:
 
 # --- Show finalize button when 15 are placed ---
 func _update_finalize_button() -> void:
-	finalize_button.visible = placed_count >= TARGET_COUNT
+	finalize_button.visible = placed_count >= target_count
 
 
-# --- ✅ Update the “Sorted X / 15” label ---
+# --- ✅ Update the “Sorted X / Target” label ---
 func _update_sort_label() -> void:
 	if sort_label:
-		sort_label.text = "%d / %d" % [placed_count, TARGET_COUNT]
+		sort_label.text = "%d / %d" % [placed_count, target_count]
 
 
 # --- Called when player clicks Finalize ---

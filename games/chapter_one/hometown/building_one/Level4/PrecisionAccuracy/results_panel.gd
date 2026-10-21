@@ -193,25 +193,38 @@ func _send_result_to_scoredisplay(is_correct: bool, correct_str: String) -> void
 # -------------------------
 # Results + Continue logic
 # -------------------------
-func show_results(score: int, new_max: int) -> void:
+func show_results(score: int, new_max: int, pass_target: int = -1) -> void:
 	current_score = score
 	max_score = new_max
 	visible = true
 
-	if current_score >= 8:
+	var effective_pass: int = pass_target
+	if effective_pass < 0:
+		var dev_manager := get_node_or_null("/root/DevModeManager")
+		if dev_manager and dev_manager.has_method("get_pass_rate"):
+			effective_pass = int(dev_manager.call("get_pass_rate", "accuracy_vs_precision", 4))
+		else:
+			effective_pass = 4
+
+	if current_score >= effective_pass:
 		MusicManager.play_music_by_id("showresults")
 		continue_button.visible = true
 		result_label.text += "\n Perfect! %d/%d" % [current_score, max_score]
 	else:
 		continue_button.visible = false
-		result_label.text += "\nYou scored %d/%d" % [current_score, max_score]
+		result_label.text += "\nYou scored %d/%d (Pass score: %d)" % [current_score, max_score, effective_pass]
 
 # -------------------------
 # Continue button pressed
 # -------------------------
 func _on_continue_pressed() -> void:
+	var effective_pass: int = 4
+	var dev_manager := get_node_or_null("/root/DevModeManager")
+	if dev_manager and dev_manager.has_method("get_pass_rate"):
+		effective_pass = int(dev_manager.call("get_pass_rate", "accuracy_vs_precision", 4))
+
 	Scoring.update_best_score("game5", current_score)
-	if current_score >= 8:
+	if current_score >= effective_pass:
 		Scoring.unlock_level("game6")
 
 	var acc_id := "accuracy_vs_precision"

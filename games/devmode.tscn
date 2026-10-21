@@ -44,25 +44,81 @@ text = "Disable Dev Mode"
 layout_mode = 1
 offset_left = 16.0
 offset_top = 60.0
-offset_right = 450.0
+offset_right = 600.0
 offset_bottom = 90.0
-text = "Developer Mode - Puzzle Progression"
+text = "Developer Mode - Progression & Puzzle Pass Rates"
 
 [node name="ResetButton" type="Button" parent="."]
 layout_mode = 1
 offset_left = 16.0
 offset_top = 98.0
-offset_right = 177.0
+offset_right = 160.0
 offset_bottom = 139.0
 text = "Reset Progress"
 
 [node name="UnlockAllButton" type="Button" parent="."]
 layout_mode = 1
-offset_left = 196.0
+offset_left = 176.0
 offset_top = 98.0
-offset_right = 365.0
+offset_right = 340.0
 offset_bottom = 139.0
 text = "Unlock All Puzzles"
+
+[node name="ResetPassRatesButton" type="Button" parent="."]
+layout_mode = 1
+offset_left = 356.0
+offset_top = 98.0
+offset_right = 516.0
+offset_bottom = 139.0
+text = "Reset Pass Rates"
+
+[node name="GlobalPassContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 536.0
+offset_top = 98.0
+offset_right = 890.0
+offset_bottom = 139.0
+theme_override_constants/separation = 8
+
+[node name="GlobalPassLabel" type="Label" parent="GlobalPassContainer"]
+layout_mode = 2
+text = "Quick Pass %:"
+vertical_alignment = 1
+
+[node name="GlobalPassSpin" type="SpinBox" parent="GlobalPassContainer"]
+layout_mode = 2
+min_value = 5.0
+step = 5.0
+value = 80.0
+suffix = "%"
+
+[node name="ApplyGlobalPassButton" type="Button" parent="GlobalPassContainer"]
+layout_mode = 2
+text = "Apply to All"
+
+[node name="GlobalCountContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 906.0
+offset_top = 98.0
+offset_right = 1264.0
+offset_bottom = 139.0
+theme_override_constants/separation = 8
+
+[node name="GlobalCountLabel" type="Label" parent="GlobalCountContainer"]
+layout_mode = 2
+text = "Quick Questions:"
+vertical_alignment = 1
+
+[node name="GlobalCountSpin" type="SpinBox" parent="GlobalCountContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 50.0
+step = 1.0
+value = 15.0
+
+[node name="ApplyGlobalCountButton" type="Button" parent="GlobalCountContainer"]
+layout_mode = 2
+text = "Apply"
 
 [node name="PuzzleScroll" type="ScrollContainer" parent="."]
 layout_mode = 1

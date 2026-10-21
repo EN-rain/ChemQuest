@@ -209,6 +209,30 @@ func _run_dev_mode_contract() -> void:
 	_expect("unlock all sets prerequisites but not final puzzle completion", DevModeManager.unlock_all() and DevModeManager.get_unlocked_count() == 12 and QuestManager.completed_levels == [1, 2] and not QuestManager.is_quest_completed("states_of_matter"))
 	GuideManager.mark_seen("property_guide")
 	_expect("dev reset clears progress and guides", DevModeManager.reset_progress() and not SaveManager.has_continue_checkpoint() and DevModeManager.get_unlocked_count() == 0 and not GuideManager.has_seen("property_guide"))
+
+	# Pass rate contracts
+	DevModeManager.disable()
+	_expect("disabled dev mode returns default pass rate", DevModeManager.get_pass_rate("book1") == 12 and not DevModeManager.set_pass_rate("book1", 5))
+	DevModeManager.enable()
+	_expect("setting pass rate updates value", DevModeManager.set_pass_rate("book1", 6) and DevModeManager.get_pass_rate("book1") == 6)
+	_expect("setting pass rate by index updates value", DevModeManager.set_pass_rate_by_index(0, 7) and DevModeManager.get_pass_rate_by_index(0) == 7)
+	DevModeManager.apply_global_pass_percentage(60.0)
+	_expect("global percentage updates scored and goal puzzles", DevModeManager.get_pass_rate("book1") == 9 and DevModeManager.get_pass_rate("accuracy_vs_precision") == 3 and DevModeManager.get_pass_rate("density_1") == 1)
+	DevModeManager.apply_global_pass_percentage(0.0)
+	_expect("zero percentage enables auto pass on goal puzzles", DevModeManager.get_pass_rate("density_1") == 0 and DevModeManager.get_pass_rate("states_1") == 0)
+	DevModeManager.reset_all_pass_rates()
+	_expect("reset restores default pass rates", DevModeManager.get_pass_rate("book1") == 12 and DevModeManager.get_pass_rate("accuracy_vs_precision") == 4 and DevModeManager.get_pass_rate("density_1") == 1)
+
+	# Quiz count contracts
+	DevModeManager.disable()
+	_expect("disabled dev mode returns default quiz count", DevModeManager.get_quiz_count("book1") == 15 and not DevModeManager.set_quiz_count("book1", 5))
+	DevModeManager.enable()
+	_expect("setting quiz count updates value", DevModeManager.set_quiz_count("book1", 8) and DevModeManager.get_quiz_count("book1") == 8)
+	_expect("setting quiz count by index updates value", DevModeManager.set_quiz_count_by_index(0, 10) and DevModeManager.get_quiz_count_by_index(0) == 10)
+	DevModeManager.apply_global_quiz_count(5)
+	_expect("global quiz count sets 5 across all puzzles", DevModeManager.get_quiz_count("book1") == 5 and DevModeManager.get_quiz_count("book2") == 5 and DevModeManager.get_quiz_count("desk_quiz") == 5)
+	DevModeManager.reset_all_quiz_counts()
+	_expect("reset restores default quiz counts", DevModeManager.get_quiz_count("book1") == 15 and DevModeManager.get_quiz_count("accuracy_vs_precision") == 5)
 	DevModeManager.disable()
 
 

@@ -27,7 +27,12 @@ func show_results(correct: int, _wrong_items: Array) -> void:
 	MusicManager.play_music_by_id("showresults")
 	var base_text = "%d" % [correct]
 
-	if correct >= 12: # Passing score
+	var pass_score: int = 12
+	var dev_manager := get_node_or_null("/root/DevModeManager")
+	if dev_manager and dev_manager.has_method("get_pass_rate"):
+		pass_score = int(dev_manager.call("get_pass_rate", "book2", 12))
+
+	if correct >= pass_score: # Passing score
 		label.text = base_text
 		pass_label.text = "You passed!"
 		continue_btn.visible = true
@@ -40,7 +45,7 @@ func show_results(correct: int, _wrong_items: Array) -> void:
 			if next_quest:
 				QuestManager.add_quest(next_quest)
 	else:
-		pass_label.text = "\n12 is the passing score.\nTry again!"
+		pass_label.text = "\n%d is the passing score.\nTry again!" % pass_score
 		label.text = base_text
 		continue_btn.visible = false
 
