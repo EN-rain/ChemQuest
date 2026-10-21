@@ -3,27 +3,44 @@ extends Node2D
 static var active_control_type: String = "arrows"
 
 @onready var fade_sfx: ColorRect = %FadeSfx
-@onready var controls_modal: Control = %ControlsModal
+
+# Controls radio selection
+@onready var arrow_btn: Button = %ArrowBtn
+@onready var joystick_btn: Button = %JoystickBtn
+@onready var arrow_radio_dot: Control = %ArrowRadioDot
+@onready var joystick_radio_dot: Control = %JoystickRadioDot
+@onready var arrow_radio_ring: Panel = %ArrowRadioRing
+@onready var joystick_radio_ring: Panel = %JoystickRadioRing
 
 # Sound controls
 @onready var sound_slider: HSlider = %SoundSlider
 @onready var sound_percent: Label = %SoundPercent
 
-# Controls modal elements
-@onready var controls_sub: Label = %ControlsSub
-@onready var normal_arrows_btn: Button = %NormalArrowsBtn
-@onready var joystick_btn: Button = %JoystickBtn
-@onready var normal_arrows_badge: Label = %NormalArrowsBadge
-@onready var joystick_badge: Label = %JoystickBadge
+# Radio ring styles
+var _ring_active: StyleBoxFlat
+var _ring_inactive: StyleBoxFlat
 
 
 func _ready() -> void:
 	if fade_sfx != null:
 		FadeManager.setup(fade_sfx)
-	if controls_modal != null:
-		controls_modal.visible = false
 
+	_init_radio_styles()
 	_load_settings()
+
+
+func _init_radio_styles() -> void:
+	_ring_active = StyleBoxFlat.new()
+	_ring_active.bg_color = Color(0.18, 0.18, 0.18, 1.0)
+	_ring_active.border_color = Color(1.0, 1.0, 1.0, 1.0)
+	_ring_active.set_border_width_all(2)
+	_ring_active.set_corner_radius_all(12)
+
+	_ring_inactive = StyleBoxFlat.new()
+	_ring_inactive.bg_color = Color(0.12, 0.12, 0.12, 1.0)
+	_ring_inactive.border_color = Color(0.45, 0.45, 0.45, 1.0)
+	_ring_inactive.set_border_width_all(2)
+	_ring_inactive.set_corner_radius_all(12)
 
 
 func _load_settings() -> void:
@@ -71,12 +88,12 @@ func _apply_sound_volume(value: float, save: bool = true) -> void:
 		_save_setting("audio", "sound_volume", value)
 
 
-func _on_normal_arrows_pressed() -> void:
+func _on_arrow_btn_pressed() -> void:
 	MusicManager.play_sfx("button")
 	_set_control_scheme("arrows", true)
 
 
-func _on_joystick_pressed() -> void:
+func _on_joystick_btn_pressed() -> void:
 	MusicManager.play_sfx("button")
 	_set_control_scheme("joystick", true)
 
@@ -85,15 +102,16 @@ func _set_control_scheme(scheme: String, save: bool = true) -> void:
 	active_control_type = scheme
 	var is_arrows := (scheme == "arrows")
 
-	if normal_arrows_badge != null:
-		normal_arrows_badge.text = "[ SELECTED ]" if is_arrows else "[ SELECT ]"
-		normal_arrows_badge.modulate = Color(1.0, 1.0, 1.0, 1.0) if is_arrows else Color(0.5, 0.5, 0.5, 0.7)
-	if joystick_badge != null:
-		joystick_badge.text = "[ SELECTED ]" if not is_arrows else "[ SELECT ]"
-		joystick_badge.modulate = Color(1.0, 1.0, 1.0, 1.0) if not is_arrows else Color(0.5, 0.5, 0.5, 0.7)
+	if arrow_radio_dot != null:
+		arrow_radio_dot.visible = is_arrows
+	if joystick_radio_dot != null:
+		joystick_radio_dot.visible = not is_arrows
 
-	if controls_sub != null:
-		controls_sub.text = "Current: Normal Arrows" if is_arrows else "Current: Joystick"
+	if _ring_active != null and _ring_inactive != null:
+		if arrow_radio_ring != null:
+			arrow_radio_ring.add_theme_stylebox_override("panel", _ring_active if is_arrows else _ring_inactive)
+		if joystick_radio_ring != null:
+			joystick_radio_ring.add_theme_stylebox_override("panel", _ring_inactive if is_arrows else _ring_active)
 
 	if save:
 		_save_setting("controls", "type", scheme)
@@ -116,18 +134,6 @@ static func get_control_type() -> String:
 func _on_back_button_pressed() -> void:
 	MusicManager.play_sfx("button")
 	await FadeManager.fade_and_change("res://games/main.tscn")
-
-
-func _on_controls_pressed() -> void:
-	MusicManager.play_sfx("button")
-	if controls_modal != null:
-		controls_modal.visible = true
-
-
-func _on_close_controls_pressed() -> void:
-	MusicManager.play_sfx("button")
-	if controls_modal != null:
-		controls_modal.visible = false
 
 
 func _on_achievements_pressed() -> void:
