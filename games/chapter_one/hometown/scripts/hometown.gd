@@ -18,6 +18,8 @@ func _ready() -> void:
 
 	# Normal hometown logic
 	%QuestPanel.show_latest_quest()
+	if has_node("/root/GuideManager") and not GuideManager.has_seen("hometown_tutorial"):
+		%QuestPanel.visible = false
 
 	var spawn_name := SpawnManager.get_spawn()
 	if spawn_name == "":

@@ -65,6 +65,10 @@ func _ready() -> void:
 		if lbl != null:
 			lbl.visible = false
 
+	if not _has_chosen_controls() or not (has_node("/root/GuideManager") and GuideManager.has_seen(GUIDE_ID)):
+		_set_quest_panel_visible(false)
+		call_deferred("_set_quest_panel_visible", false)
+
 	if not _has_chosen_controls():
 		_setup_audio()
 		_setup_spotlight_overlay()
@@ -288,13 +292,14 @@ func _show_control_election() -> void:
 	if _spotlight_material != null:
 		_spotlight_material.set_shader_parameter("target_rect", Vector4.ZERO)
 
-	# Ensure controls are hidden while choosing
+	# Ensure controls and QuestPanel are hidden while choosing
 	var buttons_node := get_node_or_null("../Buttons") as Control
 	if buttons_node != null:
 		buttons_node.visible = false
 	var joystick_node := get_node_or_null("../VirtualJoystick") as Control
 	if joystick_node != null:
 		joystick_node.visible = false
+	_set_quest_panel_visible(false)
 
 	var font: Font = null
 	if ResourceLoader.exists(FONT_PATH):
@@ -574,6 +579,7 @@ func _on_election_selected(scheme: String) -> void:
 
 	# If tutorial was already seen before, do not re-run it
 	if has_node("/root/GuideManager") and GuideManager.has_seen(GUIDE_ID):
+		_set_quest_panel_visible(true)
 		visible = false
 		_is_active = false
 		return
@@ -588,6 +594,7 @@ func _start_tutorial() -> void:
 	_is_active = true
 	_current_step = 0
 	_input_cooldown = 0.35
+	_set_quest_panel_visible(false)
 	if _card != null:
 		_card.visible = true
 	if has_node("/root/GuideManager"):
@@ -616,6 +623,9 @@ func _show_step_index(idx: int, immediate: bool = false) -> void:
 	_is_animating = true
 	_input_cooldown = 0.35
 	_play_sfx(1.0 + idx * 0.1)
+
+	# QuestPanel appears ONLY during step two (idx == 1)
+	_set_quest_panel_visible(idx == 1)
 
 	var data: Dictionary = _steps_data[idx]
 	_step_badge.text = data["badge"]
@@ -731,6 +741,7 @@ func _finish_tutorial() -> void:
 	if not _is_active:
 		return
 	_is_active = false
+	_set_quest_panel_visible(true)
 	_play_sfx(1.4)
 	screen_pressed.emit()
 
@@ -746,9 +757,16 @@ func _on_skip_pressed() -> void:
 	if not _is_active:
 		return
 	_is_active = false
+	_set_quest_panel_visible(true)
 	screen_pressed.emit()
 	visible = false
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
+func _set_quest_panel_visible(is_vis: bool) -> void:
+	var quest_node := get_node_or_null("../QuestPanel") as Control
+	if quest_node != null:
+		quest_node.visible = is_vis
 
 
 func _input(event: InputEvent) -> void:
