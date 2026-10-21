@@ -1,7 +1,11 @@
+class_name VirtualJoystick
 extends Control
 
 ## Virtual touch joystick with dynamic touch area for mobile character movement.
 ## Simulates "left", "right", "up", "down" input actions.
+
+static var is_active: bool = false
+static var is_joystick_running: bool = false
 
 @export var clamp_radius: float = 55.0
 @export var deadzone: float = 0.18
@@ -69,6 +73,7 @@ func _gui_input(event: InputEvent) -> void:
 func _start_drag(touch_id: int, touch_pos: Vector2) -> void:
 	_is_dragging = true
 	_touch_id = touch_id
+	is_active = true
 
 	if _tween != null and _tween.is_valid():
 		_tween.kill()
@@ -106,32 +111,63 @@ func _process_drag(touch_pos: Vector2) -> void:
 
 
 func _update_actions(vector: Vector2) -> void:
-	# Horizontal
-	if vector.x > deadzone:
-		Input.action_press("right")
-		Input.action_release("left")
-	elif vector.x < -deadzone:
-		Input.action_press("left")
-		Input.action_release("right")
-	else:
-		Input.action_release("left")
-		Input.action_release("right")
+	if vector.length() < deadzone:
+		_release_all_actions()
+		is_joystick_running = false
+		return
 
-	# Vertical
-	if vector.y > deadzone:
-		Input.action_press("down")
-		Input.action_release("up")
-	elif vector.y < -deadzone:
-		Input.action_press("up")
-		Input.action_release("down")
+	is_active = true
+	is_joystick_running = (vector.length() >= 0.72)
+
+	var angle_deg := rad_to_deg(vector.angle()) # -180 to 180
+	var press_left := false
+	var press_right := false
+	var press_up := false
+	var press_down := false
+
+	# 8-directional sectors (45 degrees each):
+	# Pure horizontal/vertical get a dedicated +/-22.5° cone so moving left never veers up.
+	if angle_deg >= -22.5 and angle_deg < 22.5:
+		press_right = true
+	elif angle_deg >= 22.5 and angle_deg < 67.5:
+		press_right = true
+		press_down = true
+	elif angle_deg >= 67.5 and angle_deg < 112.5:
+		press_down = true
+	elif angle_deg >= 112.5 and angle_deg < 157.5:
+		press_down = true
+		press_left = true
+	elif angle_deg >= 157.5 or angle_deg < -157.5:
+		press_left = true
+	elif angle_deg >= -157.5 and angle_deg < -112.5:
+		press_left = true
+		press_up = true
+	elif angle_deg >= -112.5 and angle_deg < -67.5:
+		press_up = true
+	elif angle_deg >= -67.5 and angle_deg < -22.5:
+		press_up = true
+		press_right = true
+
+	_apply_action("left", press_left)
+	_apply_action("right", press_right)
+	_apply_action("up", press_up)
+	_apply_action("down", press_down)
+
+
+func _apply_action(action: String, pressed: bool) -> void:
+	if pressed:
+		if not Input.is_action_pressed(action):
+			Input.action_press(action)
 	else:
-		Input.action_release("up")
-		Input.action_release("down")
+		if Input.is_action_pressed(action):
+			Input.action_release(action)
 
 
 func _stop_drag() -> void:
 	_is_dragging = false
 	_touch_id = -1
+	is_active = false
+	is_joystick_running = false
 	_reset_knob()
 	_release_all_actions()
 
@@ -153,7 +189,13 @@ func _reset_knob() -> void:
 
 
 func _release_all_actions() -> void:
-	Input.action_release("left")
-	Input.action_release("right")
-	Input.action_release("up")
-	Input.action_release("down")
+	is_active = false
+	is_joystick_running = false
+	if Input.is_action_pressed("left"):
+		Input.action_release("left")
+	if Input.is_action_pressed("right"):
+		Input.action_release("right")
+	if Input.is_action_pressed("up"):
+		Input.action_release("up")
+	if Input.is_action_pressed("down"):
+		Input.action_release("down")

@@ -53,6 +53,15 @@ func _physics_process(_delta: float) -> void:
 	elif Input.is_action_just_pressed("right"):
 		first_pressed_dir = "right"
 
+	# If first_pressed_dir is no longer held or its axis is zero, clear it
+	if first_pressed_dir != "":
+		if not Input.is_action_pressed(first_pressed_dir):
+			first_pressed_dir = ""
+		elif (first_pressed_dir == "up" or first_pressed_dir == "down") and direction.y == 0:
+			first_pressed_dir = ""
+		elif (first_pressed_dir == "left" or first_pressed_dir == "right") and direction.x == 0:
+			first_pressed_dir = ""
+
 	# If all keys released, reset
 	if direction == Vector2.ZERO:
 		first_pressed_dir = ""
@@ -60,23 +69,25 @@ func _physics_process(_delta: float) -> void:
 	else:
 		_play_footsteps()
 
-	# === Double-tap detection ===
+	# === Running detection ===
 	var current_dir := _get_input_direction_name(direction)
-	var now := Time.get_ticks_msec() / 1000.0
-
-	if current_dir != "":
-		if Input.is_action_just_pressed(current_dir):
-			if current_dir == last_tap_dir and (now - last_tap_time) < DOUBLE_TAP_TIME:
-				is_running = true
-				print("🏃 Running:", current_dir)
-			else:
-				is_running = false
-			last_tap_dir = current_dir
-			last_tap_time = now
-		elif Input.is_action_pressed(current_dir) and is_running:
-			is_running = true
+	if VirtualJoystick.is_active:
+		is_running = VirtualJoystick.is_joystick_running
 	else:
-		is_running = false
+		# Double-tap detection for arrows / keyboard
+		var now := Time.get_ticks_msec() / 1000.0
+		if current_dir != "":
+			if Input.is_action_just_pressed(current_dir):
+				if current_dir == last_tap_dir and (now - last_tap_time) < DOUBLE_TAP_TIME:
+					is_running = true
+				else:
+					is_running = false
+				last_tap_dir = current_dir
+				last_tap_time = now
+			elif Input.is_action_pressed(current_dir) and is_running:
+				is_running = true
+		else:
+			is_running = false
 
 	# === Apply movement (supports diagonals) ===
 	var speed = run_speed if is_running else walk_speed
@@ -87,7 +98,12 @@ func _physics_process(_delta: float) -> void:
 	if direction == Vector2.ZERO:
 		_play_idle()
 	else:
-		_play_movement(first_pressed_dir if first_pressed_dir != "" else current_dir)
+		var anim_target_dir := current_dir
+		if first_pressed_dir != "" and Input.is_action_pressed(first_pressed_dir):
+			if (first_pressed_dir in ["left", "right"] and direction.x != 0) or \
+			   (first_pressed_dir in ["up", "down"] and direction.y != 0):
+				anim_target_dir = first_pressed_dir
+		_play_movement(anim_target_dir)
 
 # === Animation Functions ===
 func _play_idle() -> void:
@@ -125,8 +141,20 @@ func _stop_footsteps() -> void:
 func _get_input_direction_name(direction: Vector2) -> String:
 	if abs(direction.x) > abs(direction.y):
 		return "right" if direction.x > 0 else "left"
-	elif abs(direction.y) > 0:
+	elif abs(direction.y) > abs(direction.x):
 		return "down" if direction.y > 0 else "up"
+	elif direction != Vector2.ZERO:
+		# Diagonal tie: preserve last anim direction if active on that axis
+		if last_anim_dir == "left" and direction.x < 0:
+			return "left"
+		if last_anim_dir == "right" and direction.x > 0:
+			return "right"
+		if last_anim_dir == "up" and direction.y < 0:
+			return "up"
+		if last_anim_dir == "down" and direction.y > 0:
+			return "down"
+		# Default tie breaker: horizontal
+		return "right" if direction.x > 0 else "left"
 	return ""
 
 # 🔇 Toggle footstep sounds on/off
