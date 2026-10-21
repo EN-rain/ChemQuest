@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cgm3jjvrmagg4"]
+[gd_scene load_steps=30 format=3 uid="uid://cgm3jjvrmagg4"]
 
 [ext_resource type="Texture2D" uid="uid://bg7eujlnymkqy" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://bgwjxnripbj6o" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/player.tscn" id="2_bo1nx"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://o5af6xhsmyux" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Assets/Pixel Adventure 1/Free/Background/Yellow.png" id="8_hibaj"]
 [ext_resource type="Script" path="res://games/global/ResponsiveHudLayout.gd" id="9_resp_hud"]
 [ext_resource type="PackedScene" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/StateTouchControls.tscn" id="10_touch_controls"]
+[ext_resource type="Script" path="res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/states_guide.gd" id="11_states_guide"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bp64"]
 texture = ExtResource("1_jjgbg")
@@ -447,3 +448,16 @@ offset_right = 1361.0
 offset_bottom = 921.0
 
 [node name="StateTouchControls" parent="." instance=ExtResource("10_touch_controls")]
+
+[node name="GuideLayer" type="CanvasLayer" parent="."]
+layer = 30
+
+[node name="StatesGuide" type="Control" parent="GuideLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_states_guide")
