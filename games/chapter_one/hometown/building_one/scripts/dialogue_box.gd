@@ -15,8 +15,10 @@ var end_delay := 1.0          # wait after last line before hiding
 var _line_token: int = 0
 var _dialogue_active := false
 var _movement_controls: Control
+var _joystick_controls: Control
 var _interaction_controls: Control
 var _movement_was_visible := false
+var _joystick_was_visible := false
 var _interaction_was_visible := false
 
 signal dialogue_finished
@@ -149,10 +151,14 @@ func _on_skip_pressed() -> void:
 func _hide_gameplay_controls() -> void:
 	var canvas := get_parent()
 	_movement_controls = canvas.get_node_or_null("Buttons") as Control
+	_joystick_controls = canvas.get_node_or_null("VirtualJoystick") as Control
 	_interaction_controls = canvas.get_node_or_null("Control") as Control
 	if _movement_controls:
 		_movement_was_visible = _movement_controls.visible
 		_movement_controls.hide()
+	if _joystick_controls:
+		_joystick_was_visible = _joystick_controls.visible
+		_joystick_controls.hide()
 	if _interaction_controls:
 		_interaction_was_visible = _interaction_controls.visible
 		_interaction_controls.hide()
@@ -161,5 +167,7 @@ func _hide_gameplay_controls() -> void:
 func _restore_gameplay_controls() -> void:
 	if is_instance_valid(_movement_controls):
 		_movement_controls.visible = _movement_was_visible
+	if is_instance_valid(_joystick_controls):
+		_joystick_controls.visible = _joystick_was_visible
 	if is_instance_valid(_interaction_controls):
 		_interaction_controls.visible = _interaction_was_visible

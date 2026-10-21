@@ -27,6 +27,17 @@ func _ready() -> void:
 	if back_btn != null:
 		back_btn.visible = false
 
+	# 🎮 Controls & Settings
+	_apply_control_scheme(_get_saved_control_scheme())
+	var ingamesettings_btn := get_node_or_null("CanvasLayer/ingamesettings") as BaseButton
+	var ingame_settings_panel := get_node_or_null("CanvasLayer/InGameSettings") as Control
+	if ingamesettings_btn != null and ingame_settings_panel != null:
+		ingamesettings_btn.pressed.connect(func():
+			if MusicManager.has_method("play_sfx"):
+				MusicManager.play_sfx("button")
+			ingame_settings_panel.open()
+		)
+
 
 func _handle_player_spawn() -> void:
 	var spawn_name := SpawnManager.get_spawn()
@@ -90,3 +101,25 @@ func _get_feedback_for_completed_quest() -> String:
 			return mapping[quest_id]
 
 	return ""
+
+
+# ===============================
+# 🎮 CONTROLS
+# ===============================
+func _get_saved_control_scheme() -> String:
+	var config := ConfigFile.new()
+	if config.load("user://settings.cfg") == OK:
+		return String(config.get_value("controls", "type", "arrows"))
+	return "arrows"
+
+
+func _apply_control_scheme(scheme: String) -> void:
+	var buttons := get_node_or_null("CanvasLayer/Buttons") as Control
+	var joystick := get_node_or_null("CanvasLayer/VirtualJoystick") as Control
+	var is_arrows := (scheme == "arrows")
+	if buttons != null:
+		buttons.visible = is_arrows
+	if joystick != null:
+		joystick.visible = not is_arrows
+	print("🎮 [BuildingTwo] _apply_control_scheme: scheme=", scheme, " buttons.visible=", buttons.visible if buttons else "null", " joystick.visible=", joystick.visible if joystick else "null")
+
