@@ -145,8 +145,7 @@ func _setup_ui() -> void:
 	card_style.bg_color = Color(0.08, 0.08, 0.08, 0.95)
 	card_style.set_border_width_all(0)
 	card_style.set_corner_radius_all(14)
-	card_style.shadow_color = Color(0, 0, 0, 0.65)
-	card_style.shadow_size = 12
+	card_style.shadow_size = 0
 	card_style.content_margin_left = 24
 	card_style.content_margin_right = 24
 	card_style.content_margin_top = 20
