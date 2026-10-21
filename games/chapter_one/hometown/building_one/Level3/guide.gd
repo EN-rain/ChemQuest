@@ -30,27 +30,27 @@ var _prompt_label: Label
 var _steps_data := [
 	{
 		"badge": "STEP 1 OF 4",
-		"headline": "Mixture to Separate",
-		"text": "• Study the mixture displayed in the active dish at the center.\n• Identify what physical properties differentiate its ingredients!",
-		"target": "spawner"
+		"headline": "Mixtures to Separate",
+		"text": "• Mixtures (e.g. Wheat Husk, Iron Nuts & Bolts, Muddy Water) appear on the left tray.\n• Drag any mixture card into the center dish to begin separating it!",
+		"target": "tray"
 	},
 	{
 		"badge": "STEP 2 OF 4",
-		"headline": "Separation Tools",
-		"text": "• Tap the matching separation tool: Filtration, Magnetism, Evaporation, Decantation, or Sieving!\n• Each tool separates based on physical properties.",
-		"target": "tools"
+		"headline": "Active Separation Dish",
+		"text": "• Dropping a mixture here activates it for separation.\n• Observe its components to determine what physical properties differ!",
+		"target": "dish"
 	},
 	{
 		"badge": "STEP 3 OF 4",
-		"headline": "Collection Vessels",
-		"text": "• Separated components are cleanly filtered into the collection holder.\n• Pick the correct tool sequence to complete the separation!",
-		"target": "holder"
+		"headline": "Separation Tools",
+		"text": "• Tap the matching separation tool: Filtration, Magnetism, Evaporation, Decantation, or Sieving!\n• Each tool separates mixtures based on physical properties.",
+		"target": "tools"
 	},
 	{
 		"badge": "STEP 4 OF 4",
-		"headline": "Timer & Progress",
-		"text": "• Watch the countdown timer bar before time runs out!\n• Track your score and rounds. Tap (?) anytime for a reminder!",
-		"target": "timer"
+		"headline": "Guide, Timer & Score",
+		"text": "• Use this Reference Guide on the right to review what each tool separates!\n• Solve each mixture before the countdown timer hits 0. Track rounds and score to pass!",
+		"target": "legend"
 	}
 ]
 
@@ -280,18 +280,26 @@ func _start_tutorial() -> void:
 
 
 func _pause_game_timer() -> void:
-	var timer_node: Node = get_node_or_null("%GameTimer")
-	if timer_node and timer_node.has_method("pause_timer"):
-		timer_node.pause_timer()
+	var timer_child := get_node_or_null("%Timer") as Timer
+	if timer_child == null:
+		var gt := get_node_or_null("%GameTimer")
+		if gt != null and gt.has_node("Timer"):
+			timer_child = gt.get_node("Timer") as Timer
+	if timer_child != null:
+		timer_child.set_paused(true)
 
 
 func _resume_game_timer() -> void:
-	var timer_node: Node = get_node_or_null("%GameTimer")
-	if timer_node:
-		if timer_node.get("running") and timer_node.has_method("resume_timer"):
-			timer_node.resume_timer()
-		elif timer_node.has_method("start_timer"):
-			timer_node.start_timer()
+	var timer_child := get_node_or_null("%Timer") as Timer
+	if timer_child == null:
+		var gt := get_node_or_null("%GameTimer")
+		if gt != null and gt.has_node("Timer"):
+			timer_child = gt.get_node("Timer") as Timer
+	if timer_child != null:
+		if timer_child.is_stopped():
+			timer_child.start()
+		else:
+			timer_child.set_paused(false)
 
 
 func _process(delta: float) -> void:
@@ -362,48 +370,42 @@ func _on_viewport_size_changed() -> void:
 
 func _calculate_target_box(target_type: String, vp_size: Vector2) -> Vector4:
 	match target_type:
-		"spawner":
-			var sp_node := get_node_or_null("%Spawner") as Control
-			if sp_node == null:
-				sp_node = get_tree().current_scene.find_child("Spawner", true, false) as Control
-			if sp_node != null:
-				var r := sp_node.get_global_rect().grow(16.0)
+		"tray", "spawner":
+			var sp_panel := get_node_or_null("%SpawnPanel") as Control
+			if sp_panel != null:
+				var bgml := sp_panel.get_parent() as Control
+				if bgml != null:
+					var r := bgml.get_global_rect().grow(8.0)
+					return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
+				var r := sp_panel.get_global_rect().grow(14.0)
 				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
-			var fallback_s := Rect2(Vector2((vp_size.x - 300.0) * 0.5, vp_size.y * 0.25), Vector2(300.0, 200.0)).grow(16.0)
-			return Vector4(fallback_s.position.x, fallback_s.position.y, fallback_s.size.x, fallback_s.size.y)
+			var fallback_tray := Rect2(Vector2(14.0, (vp_size.y - 425.0) * 0.5), Vector2(285.0, 425.0)).grow(8.0)
+			return Vector4(fallback_tray.position.x, fallback_tray.position.y, fallback_tray.size.x, fallback_tray.size.y)
+
+		"dish", "holder":
+			var center := Vector2(vp_size.x * 0.5, vp_size.y * 0.5)
+			var r := Rect2(Vector2(center.x - 162.0, center.y - 255.0), Vector2(324.0, 338.0)).grow(10.0)
+			return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
 
 		"tools":
-			var btns_node := get_node_or_null("%Buttons") as Control
-			if btns_node == null:
-				btns_node = get_tree().current_scene.find_child("Buttons", true, false) as Control
-			if btns_node != null:
-				var r := btns_node.get_global_rect().grow(16.0)
+			var hbox := get_node_or_null("%Buttons/HBoxContainer") as Control
+			if hbox != null:
+				var r := hbox.get_global_rect()
+				r.size.y += 34.0
+				r = r.grow(10.0)
 				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
-			var fallback_t := Rect2(Vector2((vp_size.x - 680.0) * 0.5, vp_size.y * 0.55), Vector2(680.0, 110.0)).grow(16.0)
+			var fallback_t := Rect2(Vector2((vp_size.x - 760.0) * 0.5, vp_size.y - 198.0), Vector2(760.0, 158.0)).grow(10.0)
 			return Vector4(fallback_t.position.x, fallback_t.position.y, fallback_t.size.x, fallback_t.size.y)
 
-		"holder":
-			var h_node := get_node_or_null("%Holder") as Control
-			if h_node == null:
-				h_node = get_tree().current_scene.find_child("Holder", true, false) as Control
-			if h_node != null:
-				var r := h_node.get_global_rect().grow(16.0)
+		"legend", "timer":
+			var legend := get_node_or_null("%Legend") as Control
+			if legend == null and get_tree() != null and get_tree().current_scene != null:
+				legend = get_tree().current_scene.find_child("Legend", true, false) as Control
+			if legend != null:
+				var r := legend.get_global_rect().grow(10.0)
 				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
-			var fallback_h := Rect2(Vector2(vp_size.x - 320.0, vp_size.y * 0.3), Vector2(260.0, 220.0)).grow(16.0)
-			return Vector4(fallback_h.position.x, fallback_h.position.y, fallback_h.size.x, fallback_h.size.y)
-
-		"timer":
-			var score_panel := get_node_or_null("%ScorePanel") as Control
-			if score_panel != null:
-				var sp_rect := score_panel.get_global_rect()
-				var x: float = maxf(16.0, sp_rect.position.x - 45.0)
-				var y: float = maxf(16.0, sp_rect.position.y - 52.0)
-				var w: float = maxf(380.0, sp_rect.size.x + 190.0)
-				var h: float = (vp_size.y - y) - 12.0
-				var r := Rect2(Vector2(x, y), Vector2(w, h)).grow(14.0)
-				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
-			var fallback_timer := Rect2(Vector2(20.0, vp_size.y - 165.0), Vector2(400.0, 150.0)).grow(14.0)
-			return Vector4(fallback_timer.position.x, fallback_timer.position.y, fallback_timer.size.x, fallback_timer.size.y)
+			var fallback_l := Rect2(Vector2(vp_size.x - 290.0, vp_size.y * 0.5 - 245.0), Vector2(265.0, 365.0)).grow(10.0)
+			return Vector4(fallback_l.position.x, fallback_l.position.y, fallback_l.size.x, fallback_l.size.y)
 
 	return Vector4(0, 0, 0, 0)
 
@@ -414,24 +416,28 @@ func _calculate_card_position(target_type: String, vp_size: Vector2) -> Vector2:
 		card_sz = Vector2(480, 200)
 
 	match target_type:
-		"spawner":
+		"tray", "spawner":
+			# Target is left panel (x: 14..300), position card cleanly to the right
+			var x := clampf(330.0, 20.0, vp_size.x - card_sz.x - 20.0)
+			var y := clampf((vp_size.y - card_sz.y) * 0.5, 30.0, vp_size.y - card_sz.y - 30.0)
+			return Vector2(x, y)
+
+		"dish", "holder":
+			# Target is center dish (x: 470..810, y: 95..440), position card in center bottom
 			var x := clampf((vp_size.x - card_sz.x) * 0.5, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf(vp_size.y * 0.55, 30.0, vp_size.y - card_sz.y - 30.0)
+			var y := clampf(475.0, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
 		"tools":
+			# Target is bottom row (y: 520..680), position card in top center
 			var x := clampf((vp_size.x - card_sz.x) * 0.5, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf(90.0, 30.0, vp_size.y - card_sz.y - 30.0)
+			var y := clampf(120.0, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
-		"holder":
-			var x := clampf(vp_size.x * 0.08, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf(vp_size.y * 0.35, 30.0, vp_size.y - card_sz.y - 30.0)
-			return Vector2(x, y)
-
-		"timer":
-			var x := clampf(vp_size.x * 0.52 - card_sz.x * 0.5 + 40.0, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf(vp_size.y * 0.45 - card_sz.y * 0.5, 30.0, vp_size.y - card_sz.y - 30.0)
+		"legend", "timer":
+			# Target is right Legend panel (x: 985..1265), position card cleanly on the left
+			var x := clampf(vp_size.x * 0.22, 20.0, vp_size.x - card_sz.x - 30.0)
+			var y := clampf((vp_size.y - card_sz.y) * 0.5, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
 	return (vp_size - card_sz) * 0.5

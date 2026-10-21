@@ -48,8 +48,8 @@ var _steps_data := [
 	},
 	{
 		"badge": "STEP 4 OF 4",
-		"headline": "Finalize & Timer",
-		"text": "• Sort all mixtures and tap FINALIZE before the timer expires!\n• Tap UNDO if you need to fix a drop. Tap (?) anytime for help!",
+		"headline": "Timer & Finalize",
+		"text": "• Watch the countdown timer across the bottom bar before time expires!\n• Sort all 15 mixtures, tap FINALIZE when done, or UNDO to fix a drop.",
 		"target": "finalize"
 	}
 ]
@@ -363,36 +363,45 @@ func _on_viewport_size_changed() -> void:
 func _calculate_target_box(target_type: String, vp_size: Vector2) -> Vector4:
 	match target_type:
 		"spawner":
-			var sp_panel := get_node_or_null("%SpawnerPanel") as Control
-			if sp_panel != null:
-				var r := sp_panel.get_global_rect().grow(16.0)
-				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
-			var fallback_s := Rect2(Vector2((vp_size.x - 760.0) * 0.5, vp_size.y * 0.5 - 190.0), Vector2(760.0, 60.0)).grow(16.0)
-			return Vector4(fallback_s.position.x, fallback_s.position.y, fallback_s.size.x, fallback_s.size.y)
+			var top_y := 95.0
+			var bot_y := 395.0
+			var w := minf(1060.0, vp_size.x - 90.0)
+			var x := (vp_size.x - w) * 0.5
+			var r := Rect2(Vector2(x, top_y), Vector2(w, bot_y - top_y)).grow(8.0)
+			return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
 
 		"homogeneous":
 			var hom_node := get_node_or_null("%Homogeneous") as Node2D
 			if hom_node != null:
-				var r := Rect2(hom_node.global_position - Vector2(100.0, 120.0), Vector2(200.0, 200.0)).grow(16.0)
+				var pos := hom_node.global_position
+				var r := Rect2(Vector2(pos.x - 120.0, pos.y - 125.0), Vector2(240.0, 275.0)).grow(10.0)
 				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
-			var fallback_h := Rect2(Vector2(vp_size.x * 0.5 - 360.0, vp_size.y * 0.5 + 40.0), Vector2(200.0, 200.0)).grow(16.0)
+			var fallback_h := Rect2(Vector2(vp_size.x * 0.5 - 380.0, vp_size.y * 0.5 - 10.0), Vector2(240.0, 275.0)).grow(10.0)
 			return Vector4(fallback_h.position.x, fallback_h.position.y, fallback_h.size.x, fallback_h.size.y)
 
 		"heterogeneous":
 			var het_node := get_node_or_null("%Heterogeneous") as Node2D
 			if het_node != null:
-				var r := Rect2(het_node.global_position - Vector2(100.0, 120.0), Vector2(200.0, 200.0)).grow(16.0)
+				var pos := het_node.global_position
+				var r := Rect2(Vector2(pos.x - 120.0, pos.y - 125.0), Vector2(240.0, 275.0)).grow(10.0)
 				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
-			var fallback_het := Rect2(Vector2(vp_size.x * 0.5 + 160.0, vp_size.y * 0.5 + 40.0), Vector2(200.0, 200.0)).grow(16.0)
+			var fallback_het := Rect2(Vector2(vp_size.x * 0.5 + 140.0, vp_size.y * 0.5 - 10.0), Vector2(240.0, 275.0)).grow(10.0)
 			return Vector4(fallback_het.position.x, fallback_het.position.y, fallback_het.size.x, fallback_het.size.y)
 
 		"finalize":
-			var fin_btn := get_node_or_null("%FinalizeButton") as Control
-			if fin_btn != null and fin_btn.visible:
-				var r := fin_btn.get_global_rect().grow(16.0)
-				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
-			var fallback_f := Rect2(Vector2((vp_size.x - 240.0) * 0.5, vp_size.y - 120.0), Vector2(240.0, 75.0)).grow(16.0)
-			return Vector4(fallback_f.position.x, fallback_f.position.y, fallback_f.size.x, fallback_f.size.y)
+			var tb := get_node_or_null("%GameTimer/TimeBar") as ProgressBar
+			var x := 20.0
+			var w := vp_size.x - 40.0
+			var y := vp_size.y - 82.0
+			var h := 70.0
+			if tb != null:
+				var tb_r := tb.get_global_rect()
+				x = maxf(16.0, tb_r.position.x - 36.0)
+				w = minf(vp_size.x - 32.0, tb_r.size.x + 72.0)
+				y = maxf(16.0, tb_r.position.y - 28.0)
+				h = (vp_size.y - y) - 10.0
+			var r := Rect2(Vector2(x, y), Vector2(w, h)).grow(8.0)
+			return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
 
 	return Vector4(0, 0, 0, 0)
 
@@ -404,25 +413,25 @@ func _calculate_card_position(target_type: String, vp_size: Vector2) -> Vector2:
 
 	match target_type:
 		"spawner":
-			# Target is center-top, position card in center-bottom
+			# Target is upper cards area, position card cleanly in lower center
 			var x := clampf((vp_size.x - card_sz.x) * 0.5, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf(vp_size.y * 0.55, 30.0, vp_size.y - card_sz.y - 30.0)
+			var y := clampf(415.0, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
 		"homogeneous":
 			# Target is bottom-left box, position card in top-right
-			var x := clampf(vp_size.x * 0.52 - card_sz.x * 0.5 + 40.0, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf(110.0, 30.0, vp_size.y - card_sz.y - 30.0)
+			var x := clampf(vp_size.x * 0.55, 20.0, vp_size.x - card_sz.x - 30.0)
+			var y := clampf(140.0, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
 		"heterogeneous":
 			# Target is bottom-right box, position card in top-left
-			var x := clampf(vp_size.x * 0.1, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf(110.0, 30.0, vp_size.y - card_sz.y - 30.0)
+			var x := clampf(vp_size.x * 0.12, 20.0, vp_size.x - card_sz.x - 30.0)
+			var y := clampf(140.0, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
 		"finalize":
-			# Target is bottom-center finalize button, position card in center-top
+			# Target is full bottom time bar, position card in upper center
 			var x := clampf((vp_size.x - card_sz.x) * 0.5, 20.0, vp_size.x - card_sz.x - 20.0)
 			var y := clampf(130.0, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
