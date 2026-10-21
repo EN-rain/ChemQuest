@@ -13,6 +13,7 @@ var bob_time: float = 0.0
 var fade_tween: Tween = null
 var player: CharacterBody2D = null
 var _initialized_on_spawn: bool = false
+var _was_tutorial_active: bool = false
 
 
 func _ready() -> void:
@@ -38,14 +39,54 @@ func _ready() -> void:
 func _setup_on_spawn() -> void:
 	_refresh_target()
 	_initialized_on_spawn = true
-	# Requirement: Arrow shows immediately after spawn if a valid quest target exists
-	if target_node != null:
+	_was_tutorial_active = _is_tutorial_active()
+	# Requirement: Arrow shows immediately after spawn if tutorial is not active and a valid quest target exists
+	if not _was_tutorial_active and target_node != null:
 		_animate_in()
+
+
+func _is_tutorial_active() -> bool:
+	var tree := get_tree()
+	var root := tree.current_scene if tree != null else null
+	if root != null:
+		var tutorial := root.get_node_or_null("CanvasLayer/Tutorial")
+		if tutorial != null:
+			if tutorial.visible:
+				return true
+			if bool(tutorial.get("is_tutorial_active")):
+				return true
+			if bool(tutorial.get("_is_active")):
+				return true
+			if bool(tutorial.get("_is_election_active")):
+				return true
+	if has_node("/root/GuideManager"):
+		var guide_mgr := get_node("/root/GuideManager")
+		if guide_mgr != null and guide_mgr.has_method("has_seen") and not guide_mgr.has_seen("hometown_controls_tutorial"):
+			return true
+	var config := ConfigFile.new()
+	if config.load("user://settings.cfg") == OK:
+		if not bool(config.get_value("controls", "chosen", false)):
+			return true
+	return false
 
 
 func _physics_process(delta: float) -> void:
 	if not _initialized_on_spawn:
 		return
+
+	if _is_tutorial_active():
+		_was_tutorial_active = true
+		idle_time = 0.0
+		if is_visible_state:
+			_animate_out()
+		return
+
+	# Transition: Tutorial just completed or skipped
+	if _was_tutorial_active:
+		_was_tutorial_active = false
+		idle_time = 0.0
+		if target_node != null and not is_visible_state:
+			_animate_in()
 
 	if target_node == null or not is_instance_valid(target_node):
 		if is_visible_state:
@@ -145,7 +186,7 @@ func _animate_out() -> void:
 
 func _on_quest_changed(_quest: Variant = null) -> void:
 	_refresh_target()
-	if target_node != null and idle_time >= idle_threshold_seconds and not is_visible_state:
+	if not _is_tutorial_active() and target_node != null and idle_time >= idle_threshold_seconds and not is_visible_state:
 		_animate_in()
 
 

@@ -35,6 +35,7 @@ var _body_label: Label
 var _prompt_label: Label
 var _sfx_player: AudioStreamPlayer
 var _input_cooldown: float = 0.0
+static var is_tutorial_active: bool = false
 
 var _steps_data := [
 	{
@@ -66,8 +67,11 @@ func _ready() -> void:
 			lbl.visible = false
 
 	if not _has_chosen_controls() or not (has_node("/root/GuideManager") and GuideManager.has_seen(GUIDE_ID)):
+		is_tutorial_active = true
 		_set_quest_panel_visible(false)
 		call_deferred("_set_quest_panel_visible", false)
+	else:
+		is_tutorial_active = false
 
 	if not _has_chosen_controls():
 		_setup_audio()
@@ -287,6 +291,7 @@ func _setup_ui() -> void:
 # Control Election Dialog (Arrows vs Joystick)
 # -------------------------------------------------------------------------
 func _show_control_election() -> void:
+	is_tutorial_active = true
 	visible = true
 	_is_election_active = true
 	if _spotlight_material != null:
@@ -579,17 +584,20 @@ func _on_election_selected(scheme: String) -> void:
 
 	# If tutorial was already seen before, do not re-run it
 	if has_node("/root/GuideManager") and GuideManager.has_seen(GUIDE_ID):
+		is_tutorial_active = false
 		_set_quest_panel_visible(true)
 		visible = false
 		_is_active = false
 		return
 
 	# Prepare and launch movement tutorial deferred
+	is_tutorial_active = true
 	_update_step1_data(scheme)
 	call_deferred("_start_tutorial")
 
 
 func _start_tutorial() -> void:
+	is_tutorial_active = true
 	visible = true
 	_is_active = true
 	_current_step = 0
@@ -597,8 +605,6 @@ func _start_tutorial() -> void:
 	_set_quest_panel_visible(false)
 	if _card != null:
 		_card.visible = true
-	if has_node("/root/GuideManager"):
-		GuideManager.mark_seen(GUIDE_ID)
 	_show_step_index(0, true)
 
 
@@ -741,6 +747,9 @@ func _finish_tutorial() -> void:
 	if not _is_active:
 		return
 	_is_active = false
+	is_tutorial_active = false
+	if has_node("/root/GuideManager"):
+		GuideManager.mark_seen(GUIDE_ID)
 	_set_quest_panel_visible(true)
 	_play_sfx(1.4)
 	screen_pressed.emit()
@@ -757,6 +766,9 @@ func _on_skip_pressed() -> void:
 	if not _is_active:
 		return
 	_is_active = false
+	is_tutorial_active = false
+	if has_node("/root/GuideManager"):
+		GuideManager.mark_seen(GUIDE_ID)
 	_set_quest_panel_visible(true)
 	screen_pressed.emit()
 	visible = false
