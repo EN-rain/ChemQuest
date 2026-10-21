@@ -6,12 +6,12 @@ const GUIDE_ID := "hometown_controls_tutorial"
 const TALK_SOUND_PATH := "res://games/global/music/talk.mp3"
 const FONT_PATH := "res://assets/LilitaOne-Regular.ttf"
 
-# Legacy compatibility constants
+# Animation stops from tutorial_anim
 const TUTORIAL_ANIMATION := "tutorial_anim"
 const FIRST_STOP := 1.0
 const SECOND_STOP := 2.0
-const FIRST_TEXT := "Use these controls to move, and double tap any direction to run."
-const SECOND_TEXT := "Follow this quest to progress"
+
+@onready var animation_player: AnimationPlayer = $Panel/AnimationPlayer
 
 var _current_step := 0
 var _total_steps := 2
@@ -34,13 +34,15 @@ var _steps_data := [
 		"badge": "STEP 1 OF 2",
 		"headline": "Moving Your Character",
 		"text": "• Tap or hold the direction buttons to move.\n• Double-tap any direction to run!",
-		"target": "buttons"
+		"target": "buttons",
+		"stop_time": FIRST_STOP
 	},
 	{
 		"badge": "STEP 2 OF 2",
 		"headline": "Quest Tracker",
 		"text": "• The Quest Banner at the top displays your active objective.\n• Follow the quest instructions to progress through the story!",
-		"target": "quest"
+		"target": "quest",
+		"stop_time": SECOND_STOP
 	}
 ]
 
@@ -48,12 +50,13 @@ var _steps_data := [
 func _ready() -> void:
 	visible = false
 
-	# Hide legacy placeholder children if present
+	# Ensure ShowCase polygon is visible for the cutout box animation
 	var legacy_panel := get_node_or_null("Panel")
 	if legacy_panel != null:
 		var showcase := legacy_panel.get_node_or_null("ShowCase")
 		if showcase != null:
-			showcase.visible = false
+			showcase.visible = true
+		# Hide the unstyled legacy label; our styled card replaces it
 		var lbl := legacy_panel.get_node_or_null("Label")
 		if lbl != null:
 			lbl.visible = false
@@ -61,7 +64,10 @@ func _ready() -> void:
 	if has_node("/root/GuideManager") and GuideManager.has_seen(GUIDE_ID):
 		return
 
-	# Setup modern UI and activate
+	if animation_player == null or not animation_player.has_animation(TUTORIAL_ANIMATION):
+		return
+
+	# Setup modern monochrome UI and run tutorial flow
 	_setup_audio()
 	_setup_ui()
 	_start_tutorial()
@@ -92,11 +98,11 @@ func _setup_ui() -> void:
 	if ResourceLoader.exists(FONT_PATH):
 		font = load(FONT_PATH)
 
-	# Main Tutorial Card Container
+	# Main Tutorial Card Container (Pure Black & White, No Borders)
 	_card = PanelContainer.new()
 	_card.name = "TutorialCard"
 	_card.mouse_filter = Control.MOUSE_FILTER_STOP
-	_card.custom_minimum_size = Vector2(480, 210)
+	_card.custom_minimum_size = Vector2(480, 200)
 
 	var card_style := StyleBoxFlat.new()
 	card_style.bg_color = Color(0.08, 0.08, 0.08, 0.95)
@@ -178,7 +184,7 @@ func _setup_ui() -> void:
 	_body_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	vbox.add_child(_body_label)
 
-	# Footer Row (Clean prompt only, no dots)
+	# Footer Row
 	var footer_hbox := HBoxContainer.new()
 	vbox.add_child(footer_hbox)
 
@@ -210,14 +216,6 @@ func _process(delta: float) -> void:
 		_prompt_label.modulate.a = alpha
 
 
-func _draw() -> void:
-	if not visible or not _is_active:
-		return
-	# Clean black dimmed backdrop overlay with no borders or blue colors
-	var vp_size := get_viewport_rect().size
-	draw_rect(Rect2(Vector2.ZERO, vp_size), Color(0.0, 0.0, 0.0, 0.65))
-
-
 func _show_step_index(idx: int, immediate: bool = false) -> void:
 	if idx < 0 or idx >= _steps_data.size():
 		_finish_tutorial()
@@ -232,7 +230,17 @@ func _show_step_index(idx: int, immediate: bool = false) -> void:
 	_headline_label.text = data["headline"]
 	_body_label.text = data["text"]
 
-	# Resolve card position
+	var target_time: float = float(data["stop_time"])
+
+	# Move ShowCase box animation
+	if immediate:
+		animation_player.play(TUTORIAL_ANIMATION)
+		animation_player.seek(target_time, true)
+		animation_player.pause()
+	else:
+		await _play_until(target_time)
+
+	# Resolve and position card
 	var vp_size := get_viewport_rect().size
 	var card_target_pos := _calculate_card_position(data["target"], vp_size)
 
@@ -249,22 +257,32 @@ func _show_step_index(idx: int, immediate: bool = false) -> void:
 		tween.chain().tween_callback(func(): _is_animating = false)
 
 
+func _play_until(time: float) -> void:
+	var start_time := animation_player.current_animation_position
+	animation_player.play(TUTORIAL_ANIMATION)
+	animation_player.seek(start_time, true)
+	while animation_player.current_animation_position < time and animation_player.is_playing():
+		await get_tree().process_frame
+	animation_player.seek(time, true)
+	animation_player.pause()
+
+
 func _calculate_card_position(target_type: String, vp_size: Vector2) -> Vector2:
-	var card_sz := _card.size if _card != null else Vector2(480, 210)
+	var card_sz := _card.size if _card != null else Vector2(480, 200)
 	if card_sz.x <= 0 or card_sz.y <= 0:
-		card_sz = Vector2(480, 210)
+		card_sz = Vector2(480, 200)
 
 	match target_type:
 		"buttons":
-			# Position card in center-right so bottom-left buttons are completely unobstructed
+			# Position card in center-right so bottom-left buttons and ShowCase cutout are unobstructed
 			var x := clampf(vp_size.x * 0.55 - card_sz.x * 0.5 + 40, 20.0, vp_size.x - card_sz.x - 20.0)
 			var y := clampf(vp_size.y * 0.55 - card_sz.y * 0.5, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
 		"quest":
-			# Position card in center below top quest banner
+			# Position card in center below top quest banner and ShowCase cutout
 			var x := clampf((vp_size.x - card_sz.x) * 0.5, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf(vp_size.y * 0.4 - card_sz.y * 0.5 + 30, 110.0, vp_size.y - card_sz.y - 30.0)
+			var y := clampf(vp_size.y * 0.42 - card_sz.y * 0.5 + 30, 110.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
 	return (vp_size - card_sz) * 0.5
@@ -286,6 +304,11 @@ func _finish_tutorial() -> void:
 	_play_sfx(1.4)
 	screen_pressed.emit()
 
+	if animation_player != null and animation_player.has_animation(TUTORIAL_ANIMATION):
+		var animation := animation_player.get_animation(TUTORIAL_ANIMATION)
+		if animation_player.current_animation_position < animation.length:
+			await _play_until(animation.length)
+
 	var tween := create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.2)
 	tween.tween_callback(func():
@@ -295,7 +318,14 @@ func _finish_tutorial() -> void:
 
 
 func _on_skip_pressed() -> void:
-	_finish_tutorial()
+	if not _is_active:
+		return
+	_is_active = false
+	screen_pressed.emit()
+	if animation_player != null and animation_player.is_playing():
+		animation_player.stop()
+	visible = false
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 
 func _input(event: InputEvent) -> void:
@@ -311,7 +341,7 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		return
 
-	# Advance on Space or Enter; Skip on Escape
+	# Advance on Space or Enter; Skip on Escape (for testing)
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_SPACE or event.keycode == KEY_ENTER:
 			_next_step()
