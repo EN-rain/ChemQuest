@@ -66,40 +66,66 @@ func _ready() -> void:
 		if lbl != null:
 			lbl.visible = false
 
-	if not _has_chosen_controls() or not (has_node("/root/GuideManager") and GuideManager.has_seen(GUIDE_ID)):
-		is_tutorial_active = true
-		_set_quest_panel_visible(false)
-		call_deferred("_set_quest_panel_visible", false)
-		_set_ingamesettings_visible(false)
-		call_deferred("_set_ingamesettings_visible", false)
-	else:
+	# If tutorial was already completed or player is continuing a saved game
+	if _is_tutorial_completed():
+		_mark_tutorial_seen()
 		is_tutorial_active = false
+		_is_active = false
+		_is_election_active = false
+		visible = false
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_set_quest_panel_visible(true)
 		_set_ingamesettings_visible(true)
-
-	if not _has_chosen_controls():
-		_setup_audio()
-		_setup_spotlight_overlay()
-		_setup_ui()
-		_show_control_election()
+		var hometown := get_node_or_null("../..")
+		if hometown != null and hometown.has_method("_apply_control_scheme"):
+			hometown.call("_apply_control_scheme", _get_saved_control_scheme())
 		return
 
-	if has_node("/root/GuideManager") and GuideManager.has_seen(GUIDE_ID):
-		return
+	is_tutorial_active = true
+	_set_quest_panel_visible(false)
+	call_deferred("_set_quest_panel_visible", false)
+	_set_ingamesettings_visible(false)
+	call_deferred("_set_ingamesettings_visible", false)
 
-	# Setup modern spotlight shader and monochrome card UI
 	_setup_audio()
 	_setup_spotlight_overlay()
 	_setup_ui()
+
+	if not _has_chosen_controls():
+		_show_control_election()
+		return
 
 	var scheme := _get_saved_control_scheme()
 	_update_step1_data(scheme)
 	_start_tutorial()
 
 
+func _is_tutorial_completed() -> bool:
+	if has_node("/root/GuideManager"):
+		if GuideManager.has_seen(GUIDE_ID) or GuideManager.has_seen("hometown_tutorial"):
+			return true
+	if has_node("/root/SaveManager"):
+		if SaveManager.has_continue_checkpoint():
+			return true
+	if has_node("/root/QuestManager"):
+		if QuestManager.is_quest_completed("find_wiz") or QuestManager.is_quest_completed("read_books"):
+			return true
+	return false
+
+
+func _mark_tutorial_seen() -> void:
+	if has_node("/root/GuideManager"):
+		GuideManager.mark_seen(GUIDE_ID)
+		GuideManager.mark_seen("hometown_tutorial")
+
+
 func _has_chosen_controls() -> bool:
 	var config := ConfigFile.new()
 	if config.load("user://settings.cfg") == OK:
-		return bool(config.get_value("controls", "chosen", false))
+		if config.has_section_key("controls", "chosen"):
+			return bool(config.get_value("controls", "chosen", false))
+	if _is_tutorial_completed():
+		return true
 	return false
 
 
@@ -752,8 +778,14 @@ func _finish_tutorial() -> void:
 		return
 	_is_active = false
 	is_tutorial_active = false
-	if has_node("/root/GuideManager"):
-		GuideManager.mark_seen(GUIDE_ID)
+	_mark_tutorial_seen()
+	var config := ConfigFile.new()
+	config.load("user://settings.cfg")
+	config.set_value("controls", "chosen", true)
+	if not config.has_section_key("controls", "type"):
+		config.set_value("controls", "type", _get_saved_control_scheme())
+	config.save("user://settings.cfg")
+
 	_set_quest_panel_visible(true)
 	_set_ingamesettings_visible(true)
 	_play_sfx(1.4)
@@ -772,8 +804,14 @@ func _on_skip_pressed() -> void:
 		return
 	_is_active = false
 	is_tutorial_active = false
-	if has_node("/root/GuideManager"):
-		GuideManager.mark_seen(GUIDE_ID)
+	_mark_tutorial_seen()
+	var config := ConfigFile.new()
+	config.load("user://settings.cfg")
+	config.set_value("controls", "chosen", true)
+	if not config.has_section_key("controls", "type"):
+		config.set_value("controls", "type", _get_saved_control_scheme())
+	config.save("user://settings.cfg")
+
 	_set_quest_panel_visible(true)
 	_set_ingamesettings_visible(true)
 	screen_pressed.emit()

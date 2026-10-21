@@ -18,7 +18,12 @@ func _ready() -> void:
 
 	# Normal hometown logic
 	%QuestPanel.show_latest_quest()
-	if has_node("/root/GuideManager") and not GuideManager.has_seen("hometown_tutorial"):
+	var tutorial_done := false
+	if has_node("/root/GuideManager"):
+		tutorial_done = GuideManager.has_seen("hometown_tutorial") or GuideManager.has_seen("hometown_controls_tutorial")
+	if not tutorial_done and has_node("/root/SaveManager") and SaveManager.has_continue_checkpoint():
+		tutorial_done = true
+	if not tutorial_done:
 		%QuestPanel.visible = false
 
 	var spawn_name := SpawnManager.get_spawn()
@@ -54,7 +59,13 @@ func _ready() -> void:
 func _has_chosen_controls() -> bool:
 	var config := ConfigFile.new()
 	if config.load("user://settings.cfg") == OK:
-		return bool(config.get_value("controls", "chosen", false))
+		if config.has_section_key("controls", "chosen"):
+			return bool(config.get_value("controls", "chosen", false))
+	if has_node("/root/GuideManager"):
+		if GuideManager.has_seen("hometown_controls_tutorial") or GuideManager.has_seen("hometown_tutorial"):
+			return true
+	if has_node("/root/SaveManager") and SaveManager.has_continue_checkpoint():
+		return true
 	return false
 
 
