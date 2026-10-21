@@ -11,6 +11,7 @@ func _ready() -> void:
 	_check_lesson_three_progression_contract()
 	_check_spawn_contract()
 	_check_states_route_contract()
+	_check_nav_arrow_contract()
 
 	if _failures.is_empty():
 		print("PLAYABILITY_CONTRACT PASS")
@@ -54,6 +55,17 @@ func _check_states_route_contract() -> void:
 	_expect("States panel enters tutorial scene", panel.contains("mattermaze/Scenes/main.tscn"))
 	_expect("Canonical States player uses canonical script", not player_scene.contains("Level2-1/Level2-1/level2-2/mattermaze/Scripts/player.gd"))
 	_expect("Canonical States gate uses canonical script", not gate_scene.contains("Level2-1/Level2-1/level2-2/mattermaze/Scenes/lvl_gate_2.gd"))
+
+
+
+func _check_nav_arrow_contract() -> void:
+	var nav_src := FileAccess.get_file_as_string("res://games/chapter_one/hometown/scripts/nav_arrow.gd")
+	var b1_scene := FileAccess.get_file_as_string("res://games/chapter_one/hometown/building_one/building_one.tscn")
+	var ht_scene := FileAccess.get_file_as_string("res://games/chapter_one/hometown/hometown.tscn")
+	_expect("Building One scene has World/GoBack node", b1_scene.contains('[node name="GoBack" type="Area2D" parent="World"'))
+	_expect("Hometown scene has World/Buldings/BuildingTwoEntry node", ht_scene.contains('[node name="BuildingTwoEntry" type="Area2D" parent="World/Buldings"'))
+	_expect("NavArrow explicitly targets World/GoBack in Building One for find_christofe", nav_src.contains('quest_id == "find_christofe"') and nav_src.contains('new_target = go_back'))
+	_expect("NavArrow explicitly targets BuildingTwoEntry in Hometown for find_christofe", nav_src.contains('new_target = b2_entry'))
 
 
 func _expect(label: String, condition: bool) -> void:

@@ -89,9 +89,11 @@ func _physics_process(delta: float) -> void:
 			_animate_in()
 
 	if target_node == null or not is_instance_valid(target_node):
-		if is_visible_state:
-			_animate_out()
-		return
+		_refresh_target()
+		if target_node == null or not is_instance_valid(target_node):
+			if is_visible_state:
+				_animate_out()
+			return
 
 	# Detect if the player is actively moving
 	var is_moving := false
@@ -186,7 +188,7 @@ func _animate_out() -> void:
 
 func _on_quest_changed(_quest: Variant = null) -> void:
 	_refresh_target()
-	if not _is_tutorial_active() and target_node != null and idle_time >= idle_threshold_seconds and not is_visible_state:
+	if not _is_tutorial_active() and target_node != null and not is_visible_state:
 		_animate_in()
 
 
@@ -197,6 +199,12 @@ func _refresh_target() -> void:
 		return
 
 	var current_scene := get_tree().current_scene
+	if current_scene == null and player != null:
+		current_scene = player.get_parent()
+	if current_scene == null:
+		var tree := get_tree()
+		if tree != null and tree.root != null and tree.root.get_child_count() > 0:
+			current_scene = tree.root.get_child(tree.root.get_child_count() - 1)
 	if current_scene == null:
 		target_node = null
 		return
@@ -211,13 +219,36 @@ func _refresh_target() -> void:
 	var quest_id := latest_quest.id
 	var new_target: Node2D = null
 
-	# Scene context identification
-	var b1_entry := _find_node_by_name(current_scene, "BuildingOneEntry")
-	var b2_entry := _find_node_by_name(current_scene, "BuildingTwoEntry")
-	var is_in_hometown := (b1_entry != null or b2_entry != null)
-	var is_in_building_one := _find_node_by_name(current_scene, "Wiz") != null
-	var is_in_building_two := _find_node_by_name(current_scene, "Christofe") != null
-	var go_back := _find_node_by_name(current_scene, "GoBack")
+	# Scene context identification - check direct authored paths and recursive names
+	var b1_entry: Node2D = current_scene.get_node_or_null("World/Buldings/BuildingOneEntry") as Node2D
+	if b1_entry == null:
+		b1_entry = _find_node_by_name(current_scene, "BuildingOneEntry")
+
+	var b2_entry: Node2D = current_scene.get_node_or_null("World/Buldings/BuildingTwoEntry") as Node2D
+	if b2_entry == null:
+		b2_entry = _find_node_by_name(current_scene, "BuildingTwoEntry")
+
+	var go_back: Node2D = current_scene.get_node_or_null("World/GoBack") as Node2D
+	if go_back == null:
+		go_back = _find_node_by_name(current_scene, "GoBack")
+
+	var is_in_hometown := (
+		current_scene.name == "Hometown"
+		or current_scene.scene_file_path.ends_with("hometown.tscn")
+		or b1_entry != null
+		or b2_entry != null
+	)
+	var is_in_building_one := (
+		current_scene.name == "BuildingOne"
+		or current_scene.scene_file_path.ends_with("building_one.tscn")
+		or (go_back != null and not is_in_hometown and _find_node_by_name(current_scene, "Christofe") == null)
+		or _find_node_by_name(current_scene, "Wiz") != null
+	)
+	var is_in_building_two := (
+		current_scene.name == "BuildingTwo"
+		or current_scene.scene_file_path.ends_with("building_two.tscn")
+		or _find_node_by_name(current_scene, "Christofe") != null
+	)
 
 	# Group 1: Building One quests (Wiz, Books, Desk, Separation, Accuracy)
 	const B1_QUESTS := [
@@ -246,7 +277,15 @@ func _refresh_target() -> void:
 		"after_states_of_matter"
 	]
 
-	if quest_id in B1_QUESTS:
+	# Explicit targeting for find_christofe ("The Apprentice of the East")
+	if quest_id == "find_christofe":
+		if is_in_building_one:
+			new_target = go_back
+		elif is_in_hometown:
+			new_target = b2_entry
+		elif is_in_building_two:
+			new_target = _find_node_by_name(current_scene, "Christofe")
+	elif quest_id in B1_QUESTS:
 		if is_in_hometown:
 			new_target = b1_entry
 		elif is_in_building_two:
