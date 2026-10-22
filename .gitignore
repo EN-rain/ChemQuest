@@ -10,3 +10,6 @@
 *.translation
 /tasks/manifests/*.csv.import
 /tasks/builds/
+.serena
+.codex
+.agents

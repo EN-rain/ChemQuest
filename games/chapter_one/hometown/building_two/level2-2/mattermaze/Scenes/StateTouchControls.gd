@@ -6,6 +6,8 @@ extends CanvasLayer
 ## and exit confirmation dialog to return safely to Building Two.
 
 const BACK_ICON_PATH := "res://assets/back.png"
+const ATOM_LABEL_SETTINGS_PATH := "res://games/chapter_one/hometown/building_one/Level1/atom.tres"
+const GRAY_BUTTON_PATH := "res://games/chapter_one/hometown/building_one/Level1/imgs/gray.png"
 const FONT_PATH := "res://assets/LilitaOne-Regular.ttf"
 const ROBOTO_FONT_PATH := "res://assets/Roboto-BoldCondensed.ttf"
 const BUTTON_SIZE := Vector2(80.0, 72.0)
@@ -16,7 +18,7 @@ var _root: Control
 var _movement: HBoxContainer
 var _actions: HBoxContainer
 var _back_button: Button
-var _back_modal: Control
+var _back_modal: Panel
 var _pressed_actions: Dictionary = {}
 var _service: Node
 
@@ -70,153 +72,164 @@ func _build_controls() -> void:
 
 func _build_back_button() -> void:
 	_back_button = Button.new()
-	_back_button.name = "BackButton"
+	_back_button.name = "Back"
 	_back_button.focus_mode = Control.FOCUS_NONE
 	_back_button.flat = true
 	_back_button.mouse_filter = Control.MOUSE_FILTER_STOP
-	_back_button.custom_minimum_size = Vector2(170.0, 52.0)
-
-	var hbox := HBoxContainer.new()
-	hbox.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	hbox.anchors_preset = Control.PRESET_FULL_RECT
-	hbox.anchor_right = 1.0
-	hbox.anchor_bottom = 1.0
-	hbox.add_theme_constant_override("separation", 10)
-	_back_button.add_child(hbox)
+	_back_button.custom_minimum_size = Vector2(210.0, 55.0)
+	_back_button.size = Vector2(210.0, 55.0)
 
 	var icon_rect := TextureRect.new()
+	icon_rect.name = "TextureRect"
 	if ResourceLoader.exists(BACK_ICON_PATH):
 		icon_rect.texture = load(BACK_ICON_PATH)
-	icon_rect.custom_minimum_size = Vector2(40.0, 40.0)
-	icon_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	icon_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	icon_rect.set_anchors_preset(Control.PRESET_CENTER_LEFT)
+	icon_rect.anchor_top = 0.5
+	icon_rect.anchor_bottom = 0.5
+	icon_rect.offset_top = -32.0
+	icon_rect.offset_right = 64.0
+	icon_rect.offset_bottom = 32.0
+	icon_rect.grow_vertical = Control.GROW_DIRECTION_BOTH
+	icon_rect.scale = Vector2(0.9, 0.9)
 	icon_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	hbox.add_child(icon_rect)
+	_back_button.add_child(icon_rect)
 
 	var label := Label.new()
+	label.name = "Label"
 	label.text = "BACK"
-	if ResourceLoader.exists(FONT_PATH):
-		label.add_theme_font_override("font", load(FONT_PATH))
-	label.add_theme_font_size_override("font_size", 30)
-	label.add_theme_color_override("font_color", Color.WHITE)
-	label.add_theme_color_override("font_outline_color", Color.BLACK)
-	label.add_theme_constant_override("outline_size", 5)
+	if ResourceLoader.exists(ATOM_LABEL_SETTINGS_PATH):
+		label.label_settings = load(ATOM_LABEL_SETTINGS_PATH)
+	elif ResourceLoader.exists(FONT_PATH):
+		var ls := LabelSettings.new()
+		ls.font = load(FONT_PATH)
+		ls.font_size = 50
+		ls.outline_size = 5
+		ls.outline_color = Color(0, 0, 0, 1)
+		label.label_settings = ls
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.set_anchors_preset(Control.PRESET_CENTER_RIGHT)
+	label.anchor_left = 1.0
+	label.anchor_right = 1.0
+	label.anchor_top = 0.5
+	label.anchor_bottom = 0.5
+	label.offset_left = -173.0
+	label.offset_top = -33.0
+	label.offset_bottom = 33.0
+	label.grow_horizontal = Control.GROW_DIRECTION_BEGIN
+	label.grow_vertical = Control.GROW_DIRECTION_BOTH
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	hbox.add_child(label)
+	_back_button.add_child(label)
 
 	_back_button.pressed.connect(_on_back_pressed)
 	_root.add_child(_back_button)
 
 
 func _build_back_modal() -> void:
-	_back_modal = Control.new()
-	_back_modal.name = "BackModal"
+	_back_modal = Panel.new()
+	_back_modal.name = "BackPanel"
 	_back_modal.visible = false
 	_back_modal.mouse_filter = Control.MOUSE_FILTER_STOP
 	_back_modal.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_back_modal.anchor_right = 1.0
+	_back_modal.anchor_bottom = 1.0
+	_back_modal.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	_back_modal.grow_vertical = Control.GROW_DIRECTION_BOTH
 	add_child(_back_modal)
 
-	var dim := ColorRect.new()
-	dim.name = "DimBackdrop"
-	dim.color = Color(0.0, 0.0, 0.0, 0.65)
-	dim.mouse_filter = Control.MOUSE_FILTER_STOP
-	dim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	_back_modal.add_child(dim)
-
-	var card := PanelContainer.new()
-	card.name = "ModalCard"
-	card.custom_minimum_size = Vector2(420.0, 200.0)
-	card.anchors_preset = Control.PRESET_CENTER
-	card.anchor_left = 0.5
-	card.anchor_top = 0.5
-	card.anchor_right = 0.5
-	card.anchor_bottom = 0.5
-	card.offset_left = -210.0
-	card.offset_top = -100.0
-	card.offset_right = 210.0
-	card.offset_bottom = 100.0
-
-	var card_style := StyleBoxFlat.new()
-	card_style.bg_color = Color(0.1, 0.1, 0.12, 0.96)
-	card_style.set_corner_radius_all(14)
-	card_style.border_color = Color(0.32, 0.35, 0.42, 0.85)
-	card_style.set_border_width_all(2)
-	card_style.content_margin_left = 28
-	card_style.content_margin_right = 28
-	card_style.content_margin_top = 22
-	card_style.content_margin_bottom = 22
-	card.add_theme_stylebox_override("panel", card_style)
-	_back_modal.add_child(card)
-
-	var vbox := VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 12)
-	vbox.alignment = BoxContainer.ALIGNMENT_CENTER
-	card.add_child(vbox)
-
 	var title_lbl := Label.new()
-	title_lbl.text = "EXIT PUZZLE?"
-	if ResourceLoader.exists(FONT_PATH):
-		title_lbl.add_theme_font_override("font", load(FONT_PATH))
-	title_lbl.add_theme_font_size_override("font_size", 24)
-	title_lbl.add_theme_color_override("font_color", Color.WHITE)
+	title_lbl.name = "Label"
+	title_lbl.text = "Are you sure?"
+	if ResourceLoader.exists(ATOM_LABEL_SETTINGS_PATH):
+		title_lbl.label_settings = load(ATOM_LABEL_SETTINGS_PATH)
+	elif ResourceLoader.exists(FONT_PATH):
+		var ls := LabelSettings.new()
+		ls.font = load(FONT_PATH)
+		ls.font_size = 50
+		ls.outline_size = 5
+		ls.outline_color = Color(0, 0, 0, 1)
+		title_lbl.label_settings = ls
 	title_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	vbox.add_child(title_lbl)
+	title_lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	title_lbl.set_anchors_preset(Control.PRESET_CENTER)
+	title_lbl.anchor_left = 0.5
+	title_lbl.anchor_top = 0.5
+	title_lbl.anchor_right = 0.5
+	title_lbl.anchor_bottom = 0.5
+	title_lbl.offset_left = -149.0
+	title_lbl.offset_top = -121.0
+	title_lbl.offset_right = 149.0
+	title_lbl.offset_bottom = -63.0
+	title_lbl.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	title_lbl.grow_vertical = Control.GROW_DIRECTION_BOTH
+	_back_modal.add_child(title_lbl)
 
-	var desc_lbl := Label.new()
-	desc_lbl.text = "Return to Building Two?\nYour progress in this room will be reset."
+	var hbox := HBoxContainer.new()
+	hbox.name = "HBoxContainer"
+	hbox.set_anchors_preset(Control.PRESET_CENTER)
+	hbox.anchor_left = 0.5
+	hbox.anchor_top = 0.5
+	hbox.anchor_right = 0.5
+	hbox.anchor_bottom = 0.5
+	hbox.offset_left = -182.0
+	hbox.offset_top = -45.5
+	hbox.offset_right = 182.0
+	hbox.offset_bottom = 10.0
+	hbox.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	hbox.grow_vertical = Control.GROW_DIRECTION_BOTH
+	hbox.add_theme_constant_override("separation", 20)
+	_back_modal.add_child(hbox)
+
+	var btn_label_settings := LabelSettings.new()
 	if ResourceLoader.exists(ROBOTO_FONT_PATH):
-		desc_lbl.add_theme_font_override("font", load(ROBOTO_FONT_PATH))
-	desc_lbl.add_theme_font_size_override("font_size", 15)
-	desc_lbl.add_theme_color_override("font_color", Color(0.8, 0.82, 0.88))
-	desc_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	desc_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	vbox.add_child(desc_lbl)
+		btn_label_settings.font = load(ROBOTO_FONT_PATH)
+	btn_label_settings.font_size = 30
+	btn_label_settings.outline_color = Color(0, 0, 0, 1)
 
-	var spacer := Control.new()
-	spacer.custom_minimum_size = Vector2(0.0, 6.0)
-	vbox.add_child(spacer)
-
-	var btn_hbox := HBoxContainer.new()
-	btn_hbox.add_theme_constant_override("separation", 20)
-	btn_hbox.alignment = BoxContainer.ALIGNMENT_CENTER
-	vbox.add_child(btn_hbox)
-
-	var no_btn := Button.new()
-	no_btn.text = "NO"
-	no_btn.custom_minimum_size = Vector2(130.0, 44.0)
-	no_btn.focus_mode = Control.FOCUS_NONE
-	if ResourceLoader.exists(FONT_PATH):
-		no_btn.add_theme_font_override("font", load(FONT_PATH))
-	no_btn.add_theme_font_size_override("font_size", 18)
-	var no_style := StyleBoxFlat.new()
-	no_style.bg_color = Color(0.24, 0.25, 0.3, 0.95)
-	no_style.set_corner_radius_all(8)
-	no_btn.add_theme_stylebox_override("normal", no_style)
-	var no_hover := StyleBoxFlat.new()
-	no_hover.bg_color = Color(0.32, 0.34, 0.4, 1.0)
-	no_hover.set_corner_radius_all(8)
-	no_btn.add_theme_stylebox_override("hover", no_hover)
-	no_btn.pressed.connect(_on_no_pressed)
-	btn_hbox.add_child(no_btn)
-
-	var yes_btn := Button.new()
-	yes_btn.text = "YES"
-	yes_btn.custom_minimum_size = Vector2(130.0, 44.0)
-	yes_btn.focus_mode = Control.FOCUS_NONE
-	if ResourceLoader.exists(FONT_PATH):
-		yes_btn.add_theme_font_override("font", load(FONT_PATH))
-	yes_btn.add_theme_font_size_override("font_size", 18)
-	var yes_style := StyleBoxFlat.new()
-	yes_style.bg_color = Color(0.78, 0.22, 0.22, 0.95)
-	yes_style.set_corner_radius_all(8)
-	yes_btn.add_theme_stylebox_override("normal", yes_style)
-	var yes_hover := StyleBoxFlat.new()
-	yes_hover.bg_color = Color(0.92, 0.28, 0.28, 1.0)
-	yes_hover.set_corner_radius_all(8)
-	yes_btn.add_theme_stylebox_override("hover", yes_hover)
+	var yes_btn := _create_modal_button("Yes", btn_label_settings)
+	yes_btn.name = "Yes"
 	yes_btn.pressed.connect(_on_yes_pressed)
-	btn_hbox.add_child(yes_btn)
+	hbox.add_child(yes_btn)
+
+	var no_btn := _create_modal_button("No", btn_label_settings)
+	no_btn.name = "No"
+	no_btn.pressed.connect(_on_no_pressed)
+	hbox.add_child(no_btn)
+
+
+func _create_modal_button(btn_text: String, lbl_settings: LabelSettings) -> Button:
+	var btn := Button.new()
+	btn.custom_minimum_size = Vector2(180.0, 0.0)
+	btn.focus_mode = Control.FOCUS_NONE
+	btn.flat = true
+
+	var tex_rect := TextureRect.new()
+	tex_rect.name = "TextureRect"
+	if ResourceLoader.exists(GRAY_BUTTON_PATH):
+		tex_rect.texture = load(GRAY_BUTTON_PATH)
+	tex_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	tex_rect.anchor_right = 1.0
+	tex_rect.anchor_bottom = 1.0
+	tex_rect.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	tex_rect.grow_vertical = Control.GROW_DIRECTION_BOTH
+	tex_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	btn.add_child(tex_rect)
+
+	var lbl := Label.new()
+	lbl.name = "Label"
+	lbl.text = btn_text
+	lbl.label_settings = lbl_settings
+	lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	lbl.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	lbl.anchor_right = 1.0
+	lbl.anchor_bottom = 1.0
+	lbl.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	lbl.grow_vertical = Control.GROW_DIRECTION_BOTH
+	lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	tex_rect.add_child(lbl)
+
+	return btn
 
 
 func _on_back_pressed() -> void:
@@ -242,8 +255,14 @@ func _on_yes_pressed() -> void:
 		var mm := get_node("/root/MusicManager")
 		if mm != null and mm.has_method("stop_music"):
 			mm.stop_music()
-	SpawnManager.set_spawn("game_spawn")
-	await FadeManager.fade_and_change("res://games/chapter_one/hometown/building_two/building_two.tscn")
+	if has_node("/root/SpawnManager"):
+		var sm := get_node("/root/SpawnManager")
+		if sm != null and sm.has_method("set_spawn"):
+			sm.set_spawn("game_spawn")
+	if has_node("/root/FadeManager"):
+		var fm := get_node("/root/FadeManager")
+		if fm != null and fm.has_method("fade_and_change"):
+			await fm.fade_and_change("res://games/chapter_one/hometown/building_two/building_two.tscn")
 
 
 func _pause_player(paused: bool) -> void:
@@ -307,6 +326,8 @@ func _on_layout_changed(_viewport_size: Vector2, _safe_rect: Rect2) -> void:
 
 func _layout_controls() -> void:
 	if _root == null or _movement == null or _actions == null:
+		return
+	if get_viewport() == null:
 		return
 	var viewport_size := get_viewport().get_visible_rect().size
 	if viewport_size.x <= 0.0 or viewport_size.y <= 0.0:
