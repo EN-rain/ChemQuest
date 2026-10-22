@@ -178,8 +178,7 @@ func is_puzzle_unlocked(puzzle_id: String) -> bool:
 				or QuestManager.is_quest_completed("after_book3")
 		"separation":
 			return QuestManager.is_quest_completed("separation_methods") \
-				or QuestManager.is_quest_completed("separation_methods_after") \
-				or (has_node("/root/Level3Manager") and Level3Manager.is_completed)
+				or QuestManager.is_quest_completed("separation_methods_after")
 		"accuracy":
 			return QuestManager.is_quest_completed("accuracy_vs_precision") \
 				or QuestManager.is_quest_completed("after_accuracy_vs_precision")
