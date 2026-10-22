@@ -73,7 +73,7 @@ const PUZZLE_DEFINITIONS := [
 		"name": "States of Matter",
 		"category": "Building 2 • Matter Maze",
 		"scene": "res://games/chapter_one/hometown/building_two/level2-2/mattermaze/Scenes/main.tscn",
-		"preview": "res://games/chapter_one/hometown/building_two/imgs/b2.png",
+		"preview": "res://games/review/assets/states_level_one.png",
 		"hint": "Complete the Matter Maze in Building Two"
 	}
 ]

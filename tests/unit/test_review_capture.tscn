@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://reviewcapt003"]
+
+[ext_resource type="Script" path="res://tests/unit/test_review_capture.gd" id="1_capt"]
+
+[node name="TestReviewCapture" type="Node"]
+script = ExtResource("1_capt")
