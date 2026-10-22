@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnd1q1kgm1qnt"]
+[gd_scene load_steps=7 format=3 uid="uid://bnd1q1kgm1qnt"]
 
 [ext_resource type="Script" uid="uid://by1d6lfsw5x2x" path="res://games/achievements/achievements.gd" id="1_xc3xd"]
 [ext_resource type="Texture2D" uid="uid://b667yn0ou5sxj" path="res://assets/back.png" id="2_q1uyp"]
@@ -6,49 +6,10 @@
 [ext_resource type="FontFile" uid="uid://dbn2eqhxy00rr" path="res://assets/Roboto-BoldCondensed.ttf" id="4_roboto"]
 [ext_resource type="Script" path="res://games/global/ResponsiveSafeArea.gd" id="5_resp_safe"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_norm"]
-bg_color = Color(0.09, 0.09, 0.09, 0.95)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.3, 0.3, 0.3, 0.8)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
-bg_color = Color(0.2, 0.2, 0.2, 0.95)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.8, 0.8, 0.8, 0.9)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
-bg_color = Color(0.9, 0.9, 0.9, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_back"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pill"]
 bg_color = Color(0.08, 0.08, 0.08, 0.9)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.28, 0.28, 0.28, 0.8)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -57,22 +18,6 @@ content_margin_left = 18.0
 content_margin_top = 5.0
 content_margin_right = 18.0
 content_margin_bottom = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_base"]
-bg_color = Color(0.06, 0.06, 0.06, 0.9)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.25, 0.25, 0.25, 0.6)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-content_margin_left = 22.0
-content_margin_top = 14.0
-content_margin_right = 22.0
-content_margin_bottom = 14.0
 
 [node name="Achievements" type="Node2D"]
 script = ExtResource("1_xc3xd")
@@ -103,41 +48,45 @@ mouse_filter = 2
 [node name="BackButton" type="Button" parent="CanvasLayer/MarginContainer/Control"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 150.0
-offset_bottom = 64.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
-theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 180.0
+offset_bottom = 76.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_back")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_back")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_back")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_back")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/Control/BackButton"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/BackButton"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = 32.0
 grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="Icon" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/BackButton/HBoxContainer"]
-custom_minimum_size = Vector2(22, 22)
-layout_mode = 2
-size_flags_vertical = 4
-mouse_filter = 2
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("2_q1uyp")
-expand_mode = 1
-stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/BackButton/HBoxContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/BackButton"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_lilita")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 22
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "BACK"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Kicker" type="Label" parent="CanvasLayer/MarginContainer/Control"]
@@ -198,111 +147,22 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -440.0
+offset_left = -560.0
 offset_top = 144.0
-offset_right = 440.0
+offset_right = 560.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/Control/ScrollContainer"]
+[node name="CardsGrid" type="GridContainer" parent="CanvasLayer/MarginContainer/Control/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 12
-
-[node name="Label1" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_lilita")
-theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_card_base")
-text = "Achievement 1"
-autowrap_mode = 3
-
-[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_lilita")
-theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_card_base")
-text = "Achievement 2"
-autowrap_mode = 3
-
-[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_lilita")
-theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_card_base")
-text = "Achievement 3"
-autowrap_mode = 3
-
-[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_lilita")
-theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_card_base")
-text = "Achievement 4"
-autowrap_mode = 3
-
-[node name="Label5" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_lilita")
-theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_card_base")
-text = "Achievement 5"
-autowrap_mode = 3
-
-[node name="Label6" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_lilita")
-theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_card_base")
-text = "Achievement 6"
-autowrap_mode = 3
-
-[node name="Label7" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_lilita")
-theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_card_base")
-text = "Achievement 7"
-autowrap_mode = 3
-
-[node name="Label8" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_lilita")
-theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_card_base")
-text = "Achievement 8"
-autowrap_mode = 3
-
-[node name="Label9" type="Label" parent="CanvasLayer/MarginContainer/Control/ScrollContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_lilita")
-theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_card_base")
-text = "Achievement 9"
-autowrap_mode = 3
+columns = 3
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
 
 [node name="FadeSfx" type="ColorRect" parent="CanvasLayer/MarginContainer/Control"]
 unique_name_in_owner = true

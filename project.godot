@@ -18,10 +18,7 @@ config/name="CHEMQuest"
 run/main_scene="uid://c4ucke4bxdkjy"
 config/features=PackedStringArray("4.6", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://icon.png"
-boot_splash/fullsize=false
-boot_splash/use_filter=true
-config/icon="res://icon.svg"
+boot_splash/stretch_mode=0
 
 [autoload]
 
@@ -123,7 +120,6 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
-
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
