@@ -17,7 +17,7 @@ const PUZZLE_DEFINITIONS := [
 		"name": "Book I: Elements",
 		"category": "Building 1 • Lesson 1",
 		"scene": "res://games/chapter_one/hometown/building_one/Level1/Lesson1/lesson_one.tscn",
-		"preview": "res://games/chapter_one/hometown/building_one/imgs/III (1).png",
+		"preview": "res://games/review/assets/lesson_one.png",
 		"hint": "Complete Book I with the Wizard in Building One"
 	},
 	{
@@ -25,7 +25,7 @@ const PUZZLE_DEFINITIONS := [
 		"name": "Book II: Compounds",
 		"category": "Building 1 • Lesson 2",
 		"scene": "res://games/chapter_one/hometown/building_one/Level1/Lesson2/lesson_two.tscn",
-		"preview": "res://games/chapter_one/hometown/building_one/imgs/III.png",
+		"preview": "res://games/review/assets/lesson_two.png",
 		"hint": "Complete Book II with the Wizard in Building One"
 	},
 	{
@@ -41,7 +41,7 @@ const PUZZLE_DEFINITIONS := [
 		"name": "Book III: Mixtures",
 		"category": "Building 1 • Lesson 3",
 		"scene": "res://games/chapter_one/hometown/building_one/Level1/Lesson3/Lesson3.tscn",
-		"preview": "res://games/chapter_one/hometown/building_one/imgs/III (3).png",
+		"preview": "res://games/review/assets/lesson_three.png",
 		"hint": "Complete Book III with the Wizard in Building One"
 	},
 	{
@@ -65,7 +65,7 @@ const PUZZLE_DEFINITIONS := [
 		"name": "Density Measurement",
 		"category": "Building 2 • Arcade",
 		"scene": "res://games/chapter_one/hometown/building_two/Level2-1/Level2-1/Scenes/level 1/level_1.tscn",
-		"preview": "res://games/chapter_one/hometown/building_two/imgs/game.png",
+		"preview": "res://games/review/assets/density_level_one.png",
 		"hint": "Pass Density Measurement in Building Two"
 	},
 	{

@@ -59,34 +59,20 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.04, 0.05, 0.08, 0.88)
 
-[node name="MainLayout" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = 20.0
-offset_right = -32.0
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 16
-
-[node name="TopBar" type="HBoxContainer" parent="MainLayout"]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="BackButton" type="Button" parent="MainLayout/TopBar"]
+[node name="BackButton" type="Button" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(210, 60)
-layout_mode = 2
+layout_mode = 0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 240.0
+offset_bottom = 76.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_back")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_back")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_back")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_back")
 
-[node name="Label" type="Label" parent="MainLayout/TopBar/BackButton"]
+[node name="Label" type="Label" parent="BackButton"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -103,7 +89,7 @@ label_settings = ExtResource("3_atom_label")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MainLayout/TopBar/BackButton"]
+[node name="TextureRect" type="TextureRect" parent="BackButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -115,36 +101,17 @@ grow_vertical = 2
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("4_back_icon")
 
-[node name="SpacerLeft" type="Control" parent="MainLayout/TopBar"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="TitleBox" type="VBoxContainer" parent="MainLayout/TopBar"]
-layout_mode = 2
-theme_override_constants/separation = 2
-alignment = 1
-
-[node name="Title" type="Label" parent="MainLayout/TopBar/TitleBox"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_lilita")
-theme_override_font_sizes/font_size = 28
-text = "PUZZLE REVIEW"
-horizontal_alignment = 1
-
-[node name="Subtitle" type="Label" parent="MainLayout/TopBar/TitleBox"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.65, 0.72, 0.8, 1)
-theme_override_fonts/font = ExtResource("6_roboto")
-theme_override_font_sizes/font_size = 14
-text = "Replay completed puzzles or inspect locked challenges from Chapter One"
-horizontal_alignment = 1
-
-[node name="SpacerRight" type="Control" parent="MainLayout/TopBar"]
-custom_minimum_size = Vector2(210, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
+[node name="MainLayout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 88.0
+offset_right = -32.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ScrollArea" type="ScrollContainer" parent="MainLayout"]
 layout_mode = 2
