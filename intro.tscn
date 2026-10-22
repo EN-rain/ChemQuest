@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4ucke4bxdkjy"]
+[gd_scene load_steps=14 format=3 uid="uid://c4ucke4bxdkjy"]
 
 [ext_resource type="Script" uid="uid://duo3kaqapni22" path="res://intro.gd" id="1_s2ta7"]
 [ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="2_ayt76"]
-[ext_resource type="Texture2D" uid="uid://cx7p3mqn9zt18" path="res://assets/icon_transparent.png" id="3_icon"]
+[ext_resource type="Texture2D" uid="uid://dt58n5jv05djj" path="res://icon.png" id="3_icon"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ufi4"]
 
