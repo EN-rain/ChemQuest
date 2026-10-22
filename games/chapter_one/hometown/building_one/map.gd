@@ -21,6 +21,15 @@ func _ready() -> void:
 		QuestManager.quest_added.connect(_on_quest_changed)
 	if not QuestManager.quest_completed.is_connected(_on_quest_changed):
 		QuestManager.quest_completed.connect(_on_quest_changed)
+	# Deferred check: if player spawns inside this area, body_entered never fires
+	call_deferred("_deferred_check_overlap")
+
+func _deferred_check_overlap() -> void:
+	for body in get_overlapping_bodies():
+		if body.is_in_group("Player"):
+			player_in_range = true
+			refresh_interaction_prompt()
+			break
 
 func _on_quest_changed(_quest: Quest) -> void:
 	_update_indicator_state()

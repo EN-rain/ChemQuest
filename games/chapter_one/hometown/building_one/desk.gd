@@ -22,9 +22,20 @@ func _ready() -> void:
 	QuestManager.quest_completed.connect(_update_interactable)
 	QuestManager.quest_added.connect(_on_quest_changed)
 	QuestManager.quest_completed.connect(_on_quest_changed)
+	# Deferred check: if player spawns inside this area, body_entered never fires
+	call_deferred("_deferred_check_overlap")
+
+func _deferred_check_overlap() -> void:
+	for body in get_overlapping_bodies():
+		if body.is_in_group("Player"):
+			player_in_range = true
+			refresh_interaction_prompt()
+			break
 
 func _on_quest_changed(_quest: Quest) -> void:
 	_update_indicator_state()
+	# If player is already inside when quest unlocks, show the button immediately
+	refresh_interaction_prompt()
 
 func _update_indicator_state() -> void:
 	var latest_quest := QuestManager.get_latest_incomplete_quest()
@@ -76,6 +87,9 @@ func _update_interactable(_quest: Quest = null) -> void:
 			interact_button.hide()
 
 func refresh_interaction_prompt() -> void:
+	# Re-scan overlapping bodies to update player_in_range (don't blindly reset to false
+	# since body_exited may not have fired yet during a same-frame physics step)
+	var was_in_range := player_in_range
 	player_in_range = false
 	for body in get_overlapping_bodies():
 		if body.is_in_group("Player"):
