@@ -41,19 +41,19 @@ var _steps_data := [
 	{
 		"badge": "STEP 2 OF 4",
 		"headline": "Lift & Inspect Barrels",
-		"text": "• Walk up to any barrel and press the B (PICK) button or key to lift it.\n• You can jump and navigate platforms with the barrel, or press C (DROP) to set it down.",
+		"text": "• Walk up to any barrel and tap the A (PICK) button or press E to lift it.\n• Jump across platforms with the barrel, or tap B (DROP) / press Q to set it down.",
 		"target": "pick"
 	},
 	{
 		"badge": "STEP 3 OF 4",
 		"headline": "Measure & Calculate",
-		"text": "• While holding a barrel, read its physical measurements in the DATA panel on the left.\n• Apply the formula: Density = Mass / Volume (Mass = Density × Volume) to check if it matches the Goal!",
+		"text": "• While holding a barrel, read its physical measurements in the DATA panel on the left.\n• Apply the formula to match the Goal:\n   Density = Mass / Volume\n   Mass = Density × Volume  |  Volume = Mass / Density",
 		"target": "data"
 	},
 	{
 		"badge": "STEP 4 OF 4",
 		"headline": "Deliver to Exit Gate",
-		"text": "• Carry the matching barrel to the Finish Gate on the far right to unlock the next level!\n• Tap HINT or the Guide button anytime to review these instructions.",
+		"text": "• Carry the matching barrel to the Finish Gate on the far right to unlock the next level!\n• Tap HINT at the bottom or the ? button anytime to review these instructions.",
 		"target": "gate"
 	}
 ]
@@ -385,9 +385,15 @@ func _show_step_index(idx: int, immediate: bool = false) -> void:
 	_headline_label.text = data["headline"]
 	_body_label.text = data["text"]
 
+	if _prompt_label != null:
+		if idx == _total_steps - 1:
+			_prompt_label.text = "▶ Tap anywhere to finish"
+		else:
+			_prompt_label.text = "▶ Tap anywhere to continue"
+
 	var vp_size := get_viewport_rect().size
 	var target_box := _calculate_target_box(data["target"], vp_size)
-	var card_target_pos := _calculate_card_position(data["target"], vp_size)
+	var card_target_pos := _calculate_card_position(data["target"], vp_size, target_box)
 
 	if immediate:
 		_current_spot_rect = target_box
@@ -417,7 +423,7 @@ func _on_viewport_size_changed() -> void:
 	var vp_size := get_viewport_rect().size
 	var data: Dictionary = _steps_data[_current_step]
 	var target_box := _calculate_target_box(data["target"], vp_size)
-	var card_pos := _calculate_card_position(data["target"], vp_size)
+	var card_pos := _calculate_card_position(data["target"], vp_size, target_box)
 	_current_spot_rect = target_box
 	if _spotlight_material != null:
 		_spotlight_material.set_shader_parameter("target_rect", target_box)
@@ -456,9 +462,9 @@ func _calculate_target_box(target_type: String, vp_size: Vector2) -> Vector4:
 			if get_tree() != null and get_tree().current_scene != null:
 				panel2 = get_tree().current_scene.find_child("Panel2", true, false) as Control
 			if panel2 != null:
-				var r := panel2.get_global_rect().grow(14.0)
+				var r := panel2.get_global_rect().grow(12.0)
 				return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
-			var fallback_d := Rect2(Vector2(16.0, vp_size.y * 0.5 - 100.0), Vector2(230.0, 200.0)).grow(14.0)
+			var fallback_d := Rect2(Vector2(16.0, vp_size.y * 0.5 - 100.0), Vector2(230.0, 200.0)).grow(12.0)
 			return Vector4(fallback_d.position.x, fallback_d.position.y, fallback_d.size.x, fallback_d.size.y)
 
 		"gate":
@@ -467,20 +473,20 @@ func _calculate_target_box(target_type: String, vp_size: Vector2) -> Vector4:
 				gate = get_tree().current_scene.find_child("DensityGatetoNextLvL", true, false) as Node2D
 			if gate != null and get_viewport() != null:
 				var screen_pos := get_viewport().get_canvas_transform() * gate.global_position
-				var r := Rect2(screen_pos - Vector2(50.0, 90.0), Vector2(100.0, 180.0)).grow(16.0)
-				var clamped_x := clampf(r.position.x, 20.0, vp_size.x - r.size.x - 20.0)
-				var clamped_y := clampf(r.position.y, 20.0, vp_size.y - r.size.y - 20.0)
-				return Vector4(clamped_x, clamped_y, r.size.x, r.size.y)
-			var fallback_gate := Rect2(Vector2(vp_size.x - 220.0, vp_size.y * 0.5 - 90.0), Vector2(120.0, 180.0)).grow(16.0)
-			return Vector4(fallback_gate.position.x, fallback_gate.position.y, fallback_gate.size.x, fallback_gate.size.y)
+				# Only spotlight the exit gate if it is actually within the visible screen
+				if get_viewport_rect().grow(-50.0).has_point(screen_pos):
+					var r := Rect2(screen_pos - Vector2(50.0, 90.0), Vector2(100.0, 180.0)).grow(16.0)
+					return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
+			# Exit gate is off-screen on the right; return ZERO for clean full dimming
+			return Vector4.ZERO
 
 	return Vector4(0, 0, 0, 0)
 
 
-func _calculate_card_position(target_type: String, vp_size: Vector2) -> Vector2:
-	var card_sz := _card.size if _card != null else Vector2(490, 205)
+func _calculate_card_position(target_type: String, vp_size: Vector2, target_box: Vector4 = Vector4.ZERO) -> Vector2:
+	var card_sz := _card.size if _card != null else Vector2(500, 215)
 	if card_sz.x <= 0 or card_sz.y <= 0:
-		card_sz = Vector2(490, 205)
+		card_sz = Vector2(500, 215)
 
 	match target_type:
 		"goal":
@@ -496,16 +502,18 @@ func _calculate_card_position(target_type: String, vp_size: Vector2) -> Vector2:
 			return Vector2(x, y)
 
 		"data":
-			# Target is DATA panel on left; place card right center
-			var x := clampf(vp_size.x * 0.45, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf((vp_size.y - card_sz.y) * 0.5, 30.0, vp_size.y - card_sz.y - 30.0)
+			# Target is DATA panel on left; place card in upper right so player in center remains visible
+			var x := clampf(vp_size.x - card_sz.x - 36.0, 20.0, vp_size.x - card_sz.x - 20.0)
+			var y := clampf(vp_size.y * 0.22, 30.0, vp_size.y - card_sz.y - 30.0)
 			return Vector2(x, y)
 
 		"gate":
-			# Target is exit gate on right; place card left center
-			var x := clampf(vp_size.x * 0.08, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf((vp_size.y - card_sz.y) * 0.5, 30.0, vp_size.y - card_sz.y - 30.0)
-			return Vector2(x, y)
+			# If gate is on screen, card is left center; if off screen (target_box == ZERO), center the card
+			if target_box.z > 1.0:
+				var x := clampf(vp_size.x * 0.08, 20.0, vp_size.x - card_sz.x - 20.0)
+				var y := clampf((vp_size.y - card_sz.y) * 0.5, 30.0, vp_size.y - card_sz.y - 30.0)
+				return Vector2(x, y)
+			return (vp_size - card_sz) * 0.5
 
 	return (vp_size - card_sz) * 0.5
 

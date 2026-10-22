@@ -373,9 +373,15 @@ func _show_step_index(idx: int, immediate: bool = false) -> void:
 	_headline_label.text = data["headline"]
 	_body_label.text = data["text"]
 
+	if _prompt_label != null:
+		if idx == _total_steps - 1:
+			_prompt_label.text = "▶ Tap anywhere to finish"
+		else:
+			_prompt_label.text = "▶ Tap anywhere to continue"
+
 	var vp_size := get_viewport_rect().size
 	var target_box := _calculate_target_box(data["target"], vp_size)
-	var card_target_pos := _calculate_card_position(data["target"], vp_size)
+	var card_target_pos := _calculate_card_position(data["target"], vp_size, target_box)
 
 	if immediate:
 		_current_spot_rect = target_box
@@ -405,7 +411,7 @@ func _on_viewport_size_changed() -> void:
 	var vp_size := get_viewport_rect().size
 	var data: Dictionary = _steps_data[_current_step]
 	var target_box := _calculate_target_box(data["target"], vp_size)
-	var card_pos := _calculate_card_position(data["target"], vp_size)
+	var card_pos := _calculate_card_position(data["target"], vp_size, target_box)
 	_current_spot_rect = target_box
 	if _spotlight_material != null:
 		_spotlight_material.set_shader_parameter("target_rect", target_box)
@@ -448,12 +454,10 @@ func _calculate_target_box(target_type: String, vp_size: Vector2) -> Vector4:
 					gate = get_tree().current_scene.find_child("Liquid", true, false) as Node2D
 			if gate != null and get_viewport() != null:
 				var screen_pos := get_viewport().get_canvas_transform() * gate.global_position
-				var r := Rect2(screen_pos - Vector2(40.0, 50.0), Vector2(80.0, 100.0)).grow(16.0)
-				var clamped_x := clampf(r.position.x, 20.0, vp_size.x - r.size.x - 20.0)
-				var clamped_y := clampf(r.position.y, 20.0, vp_size.y - r.size.y - 20.0)
-				return Vector4(clamped_x, clamped_y, r.size.x, r.size.y)
-			var fallback_g := Rect2(Vector2(vp_size.x * 0.45, vp_size.y * 0.35), Vector2(90.0, 120.0)).grow(16.0)
-			return Vector4(fallback_g.position.x, fallback_g.position.y, fallback_g.size.x, fallback_g.size.y)
+				if get_viewport_rect().grow(-50.0).has_point(screen_pos):
+					var r := Rect2(screen_pos - Vector2(40.0, 50.0), Vector2(80.0, 100.0)).grow(16.0)
+					return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
+			return Vector4.ZERO
 
 		"checkpoint":
 			var flag: Node2D = null
@@ -461,17 +465,15 @@ func _calculate_target_box(target_type: String, vp_size: Vector2) -> Vector4:
 				flag = get_tree().current_scene.find_child("LVLGate", true, false) as Node2D
 			if flag != null and get_viewport() != null:
 				var screen_pos := get_viewport().get_canvas_transform() * flag.global_position
-				var r := Rect2(screen_pos - Vector2(40.0, 50.0), Vector2(80.0, 100.0)).grow(16.0)
-				var clamped_x := clampf(r.position.x, 20.0, vp_size.x - r.size.x - 20.0)
-				var clamped_y := clampf(r.position.y, 20.0, vp_size.y - r.size.y - 20.0)
-				return Vector4(clamped_x, clamped_y, r.size.x, r.size.y)
-			var fallback_f := Rect2(Vector2(vp_size.x * 0.75, vp_size.y * 0.4), Vector2(90.0, 120.0)).grow(16.0)
-			return Vector4(fallback_f.position.x, fallback_f.position.y, fallback_f.size.x, fallback_f.size.y)
+				if get_viewport_rect().grow(-50.0).has_point(screen_pos):
+					var r := Rect2(screen_pos - Vector2(40.0, 50.0), Vector2(80.0, 100.0)).grow(16.0)
+					return Vector4(r.position.x, r.position.y, r.size.x, r.size.y)
+			return Vector4.ZERO
 
 	return Vector4(0, 0, 0, 0)
 
 
-func _calculate_card_position(target_type: String, vp_size: Vector2) -> Vector2:
+func _calculate_card_position(target_type: String, vp_size: Vector2, target_box: Vector4 = Vector4.ZERO) -> Vector2:
 	var card_sz := _card.size if _card != null else Vector2(490, 205)
 	if card_sz.x <= 0 or card_sz.y <= 0:
 		card_sz = Vector2(490, 205)
@@ -490,16 +492,18 @@ func _calculate_card_position(target_type: String, vp_size: Vector2) -> Vector2:
 			return Vector2(x, y)
 
 		"gates":
-			# Target is gate obstacle in center; place card lower center or left
-			var x := clampf((vp_size.x - card_sz.x) * 0.5, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf(vp_size.y * 0.55, 30.0, vp_size.y - card_sz.y - 30.0)
-			return Vector2(x, y)
+			if target_box.z > 1.0:
+				var x := clampf((vp_size.x - card_sz.x) * 0.5, 20.0, vp_size.x - card_sz.x - 20.0)
+				var y := clampf(vp_size.y * 0.55, 30.0, vp_size.y - card_sz.y - 30.0)
+				return Vector2(x, y)
+			return (vp_size - card_sz) * 0.5
 
 		"checkpoint":
-			# Target is checkpoint flag on right; place card left center
-			var x := clampf(vp_size.x * 0.08, 20.0, vp_size.x - card_sz.x - 20.0)
-			var y := clampf((vp_size.y - card_sz.y) * 0.5, 30.0, vp_size.y - card_sz.y - 30.0)
-			return Vector2(x, y)
+			if target_box.z > 1.0:
+				var x := clampf(vp_size.x * 0.08, 20.0, vp_size.x - card_sz.x - 20.0)
+				var y := clampf((vp_size.y - card_sz.y) * 0.5, 30.0, vp_size.y - card_sz.y - 30.0)
+				return Vector2(x, y)
+			return (vp_size - card_sz) * 0.5
 
 	return (vp_size - card_sz) * 0.5
 
