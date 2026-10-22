@@ -89,7 +89,7 @@ func start_review() -> void:
 			player = cur_scene.find_child("player", true, false) as Node2D
 		if player != null:
 			return_player_position = player.global_position
-			print("📸 [ReviewManager] Captured player position: ", return_player_position)
+			print("[ReviewManager] Captured player position: ", return_player_position)
 		else:
 			return_player_position = Vector2.ZERO
 	else:
@@ -103,7 +103,7 @@ func start_review() -> void:
 	else:
 		return_spawn_point = "default"
 
-	print("📚 [ReviewManager] start_review -> return_scene: ", return_scene_path, " spawn: ", return_spawn_point)
+	print("[ReviewManager] start_review -> return_scene: ", return_scene_path, " spawn: ", return_spawn_point)
 	is_in_review = false
 
 	if has_node("/root/FadeManager"):
@@ -113,7 +113,7 @@ func start_review() -> void:
 
 
 func launch_puzzle(puzzle_scene: String) -> void:
-	print("🚀 [ReviewManager] Launching puzzle in review mode: ", puzzle_scene)
+	print("[ReviewManager] Launching puzzle in review mode: ", puzzle_scene)
 	is_in_review = true
 	if has_node("/root/FadeManager"):
 		await FadeManager.fade_and_change(puzzle_scene)
@@ -122,7 +122,7 @@ func launch_puzzle(puzzle_scene: String) -> void:
 
 
 func exit_review_to_game() -> void:
-	print("🏠 [ReviewManager] Exiting review back to game: ", return_scene_path, " spawn: ", return_spawn_point, " pos: ", return_player_position)
+	print("[ReviewManager] Exiting review back to game: ", return_scene_path, " spawn: ", return_spawn_point, " pos: ", return_player_position)
 	var scene_to_load := return_scene_path
 	if scene_to_load.is_empty() or not ResourceLoader.exists(scene_to_load, "PackedScene"):
 		if has_node("/root/SaveManager") and not SaveManager.current_scene_path.is_empty():
@@ -156,7 +156,7 @@ func _apply_restored_player_position(pos: Vector2) -> void:
 		player = cur.find_child("player", true, false) as Node2D
 	if player != null:
 		player.global_position = pos
-		print("🎯 [ReviewManager] Restored exact player position: ", pos)
+		print("[ReviewManager] Restored exact player position: ", pos)
 
 
 func is_puzzle_unlocked(puzzle_id: String) -> bool:

@@ -12,7 +12,6 @@ const BACK_ICON_PATH := "res://assets/back.png"
 
 @onready var back_button: Button = %BackButton
 @onready var cards_grid: GridContainer = %CardsGrid
-@onready var stats_label: Label = %StatsLabel
 @onready var toast_panel: PanelContainer = %ToastPanel
 @onready var toast_label: Label = %ToastLabel
 
@@ -61,25 +60,14 @@ func _populate_cards() -> void:
 		child.queue_free()
 
 	var definitions: Array = ReviewManager.PUZZLE_DEFINITIONS if has_node("/root/ReviewManager") else []
-	var unlocked_count: int = 0
-	var total_count: int = definitions.size()
 
 	for def in definitions:
 		var is_unlocked: bool = false
 		if has_node("/root/ReviewManager"):
 			is_unlocked = ReviewManager.is_puzzle_unlocked(def.id)
-		if is_unlocked:
-			unlocked_count += 1
 
 		var card := _create_card(def, is_unlocked)
 		cards_grid.add_child(card)
-
-	if stats_label != null:
-		stats_label.text = "UNLOCKED: %d / %d" % [unlocked_count, total_count]
-		if unlocked_count == total_count:
-			stats_label.add_theme_color_override("font_color", Color(0.2, 0.9, 0.5))
-		else:
-			stats_label.add_theme_color_override("font_color", Color(0.3, 0.8, 1.0))
 
 
 func _create_card(def: Dictionary, is_unlocked: bool) -> Control:
@@ -196,7 +184,7 @@ func _create_card(def: Dictionary, is_unlocked: bool) -> Control:
 		center.add_child(lock_pill)
 
 		var lock_lbl := Label.new()
-		lock_lbl.text = "🔒 LOCKED"
+		lock_lbl.text = "LOCKED"
 		if _font_roboto != null:
 			lock_lbl.add_theme_font_override("font", _font_roboto)
 		lock_lbl.add_theme_font_size_override("font_size", 13)
@@ -230,7 +218,7 @@ func _create_card(def: Dictionary, is_unlocked: bool) -> Control:
 		badge_box.add_child(badge_pill)
 
 		var badge_lbl := Label.new()
-		badge_lbl.text = "✓ UNLOCKED"
+		badge_lbl.text = "UNLOCKED"
 		if _font_roboto != null:
 			badge_lbl.add_theme_font_override("font", _font_roboto)
 		badge_lbl.add_theme_font_size_override("font_size", 11)
@@ -297,7 +285,7 @@ func _on_card_pressed(def: Dictionary, is_unlocked: bool, card_btn: Button) -> v
 		# Locked feedback: shake card and show hint toast
 		_shake_card(card_btn)
 		var hint_text: String = def.get("hint", "Complete this puzzle in Chapter One to unlock review mode!")
-		_show_toast("🔒 %s: %s" % [def.get("name", "Puzzle"), hint_text])
+		_show_toast("%s: %s" % [def.get("name", "Puzzle"), hint_text])
 
 
 func _shake_card(node: Control) -> void:
