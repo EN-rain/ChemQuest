@@ -41,6 +41,7 @@ GuideManager="*res://games/global/GuideManager.gd"
 PlayerFeedbackManager="*res://games/global/PlayerFeedbackManager.gd"
 ChallengeManager="*res://games/global/DensityChallengeManager.gd"
 Level3Manager="*res://games/chapter_one/hometown/building_one/Level3/Level3Manager.gd"
+ReviewManager="*res://games/global/ReviewManager.gd"
 
 [display]
 

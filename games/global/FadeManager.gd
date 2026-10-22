@@ -51,6 +51,13 @@ func setup(_legacy_rect: ColorRect) -> void:
 
 
 func fade_and_change(scene_path: String, duration: float = 1.0) -> bool:
+	if has_node("/root/ReviewManager"):
+		var rm = get_node("/root/ReviewManager")
+		if rm != null and rm.is_in_review:
+			if scene_path == "res://games/chapter_one/hometown/building_one/building_one.tscn" \
+			or scene_path == "res://games/chapter_one/hometown/building_two/building_two.tscn":
+				print("🔄 [FadeManager] Review mode active: redirecting return to review.tscn")
+				scene_path = "res://games/review/review.tscn"
 	_ensure_overlay()
 	if not scene_path.begins_with("res://") or not ResourceLoader.exists(scene_path, "PackedScene"):
 		var invalid_message := "FadeManager: refusing to change to missing scene: " + scene_path

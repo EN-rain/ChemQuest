@@ -122,4 +122,3 @@ func _apply_control_scheme(scheme: String) -> void:
 	if joystick != null:
 		joystick.visible = not is_arrows
 	print("🎮 [BuildingTwo] _apply_control_scheme: scheme=", scheme, " buttons.visible=", buttons.visible if buttons else "null", " joystick.visible=", joystick.visible if joystick else "null")
-

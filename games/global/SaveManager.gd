@@ -294,6 +294,8 @@ func has_continue_checkpoint() -> bool:
 ## back to the menu (or visiting a glossary/reward screen) preserves the
 ## previously saved scene, including any progress made before navigating away.
 func save_before_transition(destination: String) -> void:
+	if has_node("/root/ReviewManager") and ReviewManager.is_in_review:
+		return
 	if is_gameplay_scene(destination):
 		save_now(destination)
 	elif get_tree().current_scene and is_gameplay_scene(get_tree().current_scene.scene_file_path):

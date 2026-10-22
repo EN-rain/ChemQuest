@@ -392,6 +392,10 @@ func _on_main_menu_pressed() -> void:
 
 
 func _on_review_pressed() -> void:
-	# "leave the review button for now"
 	if MusicManager.has_method("play_sfx"):
 		MusicManager.play_sfx("button")
+	if visible:
+		close()
+		await closed
+	if has_node("/root/ReviewManager"):
+		ReviewManager.start_review()

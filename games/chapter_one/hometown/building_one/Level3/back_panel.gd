@@ -9,6 +9,9 @@ func _ready() -> void:
 	FadeManager.setup(fade_sfx)
 
 func _on_yes_pressed() -> void:
+	if has_node("/root/ReviewManager") and ReviewManager.is_in_review:
+		await FadeManager.fade_and_change("res://games/review/review.tscn")
+		return
 	SpawnManager.set_spawn("separation_spawn")
 	await FadeManager.fade_and_change("res://games/chapter_one/hometown/building_one/building_one.tscn")
 

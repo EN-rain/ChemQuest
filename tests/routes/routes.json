@@ -27,7 +27,8 @@
     {"id":"glossary_element_info","path":"res://games/glossary/element_info.tscn","role":"glossary"},
     {"id":"glossary_about","path":"res://games/glossary/about.tscn","role":"about"},
     {"id":"achievements","path":"res://games/achievements/achievements.tscn","role":"achievements"},
-    {"id":"reward","path":"res://games/achievements/reward/Reward.tscn","role":"reward"}
+    {"id":"reward","path":"res://games/achievements/reward/Reward.tscn","role":"reward"},
+    {"id":"review","path":"res://games/review/review.tscn","role":"review"}
   ],
   "routes": [
     {"id":"intro_start","start_scene":"intro","required_quest_state":{},"required_progress_state":{},"spawn":"","driver":"button:START","expected_scene":"main_menu","expected_spawn":"","expected_quest_changes":[],"expected_progress_changes":{},"supported_inputs":["mouse","touch"]},
@@ -107,6 +108,9 @@
     {"id":"christofe_after_states","start_scene":"building_two","required_quest_state":{"states_of_matter":"completed","after_states_of_matter":"active"},"required_progress_state":{"states":3},"spawn":"game_spawn","driver":"interaction:Christofe>dialogue","expected_scene":"building_two","expected_spawn":"game_spawn","expected_quest_changes":[{"id":"after_states_of_matter","state":"completed"}],"expected_progress_changes":{"states":3},"supported_inputs":["keyboard","touch"]},
     {"id":"reward_redirect","start_scene":"hometown","required_quest_state":{"after_states_of_matter":"completed"},"required_progress_state":{"states":3},"spawn":"from_building_two","driver":"enter:hometown","expected_scene":"reward","expected_spawn":"from_building_two","expected_quest_changes":[],"expected_progress_changes":{},"supported_inputs":["keyboard","touch"]},
     {"id":"save_reload_hub","start_scene":"building_two","required_quest_state":{"states_of_matter":"active"},"required_progress_state":{"states":2},"spawn":"game_spawn","driver":"lifecycle:force-close-relaunch","expected_scene":"building_two","expected_spawn":"game_spawn","expected_quest_changes":[],"expected_progress_changes":{"states":2},"supported_inputs":["keyboard","touch"]},
-    {"id":"route_portrait_guard","start_scene":"hometown","required_quest_state":{},"required_progress_state":{},"spawn":"default","driver":"viewport:720x1280","expected_scene":"hometown","expected_spawn":"default","expected_quest_changes":[],"expected_progress_changes":{"rotation_overlay":true},"supported_inputs":["keyboard","touch"]}
+    {"id":"route_portrait_guard","start_scene":"hometown","required_quest_state":{},"required_progress_state":{},"spawn":"default","driver":"viewport:720x1280","expected_scene":"hometown","expected_spawn":"default","expected_quest_changes":[],"expected_progress_changes":{"rotation_overlay":true},"supported_inputs":["keyboard","touch"]},
+    {"id":"review_open_from_building_one","start_scene":"building_one","required_quest_state":{"finish_book1":"completed"},"required_progress_state":{},"spawn":"default","driver":"button:ReviewBtn","expected_scene":"review","expected_spawn":"default","expected_quest_changes":[],"expected_progress_changes":{},"supported_inputs":["mouse","touch"]},
+    {"id":"review_open_from_building_two","start_scene":"building_two","required_quest_state":{"density_measurement":"completed"},"required_progress_state":{"density":1},"spawn":"game_spawn","driver":"button:ReviewBtn","expected_scene":"review","expected_spawn":"game_spawn","expected_quest_changes":[],"expected_progress_changes":{},"supported_inputs":["mouse","touch"]},
+    {"id":"review_back_to_game","start_scene":"review","required_quest_state":{},"required_progress_state":{},"spawn":"","driver":"button:BackButton","expected_scene":"building_one","expected_spawn":"default","expected_quest_changes":[],"expected_progress_changes":{},"supported_inputs":["mouse","touch"]}
   ]
 }

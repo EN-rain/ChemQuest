@@ -255,6 +255,12 @@ func _on_yes_pressed() -> void:
 		var mm := get_node("/root/MusicManager")
 		if mm != null and mm.has_method("stop_music"):
 			mm.stop_music()
+	if has_node("/root/ReviewManager") and ReviewManager.is_in_review:
+		if has_node("/root/FadeManager"):
+			var fm := get_node("/root/FadeManager")
+			if fm != null and fm.has_method("fade_and_change"):
+				await fm.fade_and_change("res://games/review/review.tscn")
+				return
 	if has_node("/root/SpawnManager"):
 		var sm := get_node("/root/SpawnManager")
 		if sm != null and sm.has_method("set_spawn"):
