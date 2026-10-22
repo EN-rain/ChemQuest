@@ -92,15 +92,15 @@ func _create_card(def: Dictionary, is_unlocked: bool) -> Control:
 	style_hover.content_margin_bottom = 10
 
 	if is_unlocked:
-		style_norm.bg_color = Color(0.12, 0.14, 0.20, 0.95)
-		style_norm.border_color = Color(0.25, 0.55, 0.85, 0.6)
+		style_norm.bg_color = Color(0.08, 0.08, 0.10, 0.95)
+		style_norm.border_color = Color(0.32, 0.32, 0.36, 0.7)
 		style_norm.set_border_width_all(2)
 
-		style_hover.bg_color = Color(0.16, 0.20, 0.30, 0.98)
-		style_hover.border_color = Color(0.35, 0.80, 1.0, 1.0)
+		style_hover.bg_color = Color(0.14, 0.14, 0.17, 0.98)
+		style_hover.border_color = Color(0.55, 0.55, 0.60, 0.9)
 		style_hover.set_border_width_all(2)
-		style_hover.shadow_color = Color(0.1, 0.4, 0.7, 0.4)
-		style_hover.shadow_size = 8
+		style_hover.shadow_color = Color(0, 0, 0, 0.4)
+		style_hover.shadow_size = 6
 	else:
 		style_norm.bg_color = Color(0.09, 0.09, 0.11, 0.9)
 		style_norm.border_color = Color(0.22, 0.22, 0.26, 0.5)
@@ -190,41 +190,6 @@ func _create_card(def: Dictionary, is_unlocked: bool) -> Control:
 		lock_lbl.add_theme_font_size_override("font_size", 13)
 		lock_lbl.add_theme_color_override("font_color", Color(1.0, 0.45, 0.50))
 		lock_pill.add_child(lock_lbl)
-	else:
-		# Small UNLOCKED badge in top-right
-		var badge_margin := MarginContainer.new()
-		badge_margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-		badge_margin.add_theme_constant_override("margin_top", 6)
-		badge_margin.add_theme_constant_override("margin_right", 6)
-		badge_margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		preview_panel.add_child(badge_margin)
-
-		var badge_box := HBoxContainer.new()
-		badge_box.alignment = BoxContainer.ALIGNMENT_END
-		badge_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		badge_margin.add_child(badge_box)
-
-		var badge_pill := PanelContainer.new()
-		var badge_style := StyleBoxFlat.new()
-		badge_style.set_corner_radius_all(8)
-		badge_style.bg_color = Color(0.08, 0.25, 0.15, 0.85)
-		badge_style.border_color = Color(0.2, 0.8, 0.4, 0.7)
-		badge_style.set_border_width_all(1)
-		badge_style.content_margin_left = 8
-		badge_style.content_margin_right = 8
-		badge_style.content_margin_top = 2
-		badge_style.content_margin_bottom = 2
-		badge_pill.add_theme_stylebox_override("panel", badge_style)
-		badge_box.add_child(badge_pill)
-
-		var badge_lbl := Label.new()
-		badge_lbl.text = "UNLOCKED"
-		if _font_roboto != null:
-			badge_lbl.add_theme_font_override("font", _font_roboto)
-		badge_lbl.add_theme_font_size_override("font_size", 11)
-		badge_lbl.add_theme_color_override("font_color", Color(0.4, 1.0, 0.6))
-		badge_pill.add_child(badge_lbl)
-
 	# 3. Puzzle Name Below
 	var name_lbl := Label.new()
 	name_lbl.text = def.get("name", "Puzzle")
@@ -242,8 +207,8 @@ func _create_card(def: Dictionary, is_unlocked: bool) -> Control:
 	# 4. Category / Action Info
 	var sub_lbl := Label.new()
 	if is_unlocked:
-		sub_lbl.text = def.get("category", "") + " • TAP TO PLAY ▶"
-		sub_lbl.add_theme_color_override("font_color", Color(0.4, 0.8, 1.0))
+		sub_lbl.text = def.get("category", "") + " • TAP TO PLAY"
+		sub_lbl.add_theme_color_override("font_color", Color(0.75, 0.75, 0.80))
 	else:
 		sub_lbl.text = "Story puzzle • Locked"
 		sub_lbl.add_theme_color_override("font_color", Color(0.45, 0.45, 0.50))

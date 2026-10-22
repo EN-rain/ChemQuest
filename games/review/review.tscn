@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cb5xq8jkw5p0n"]
+[gd_scene load_steps=8 format=3 uid="uid://cb5xq8jkw5p0n"]
 
 [ext_resource type="Script" path="res://games/review/review.gd" id="1_review_script"]
 [ext_resource type="Texture2D" uid="uid://u300cismahhn" path="res://assets/mainbgx.png" id="2_bg_tex"]
-[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="4_lilita"]
-[ext_resource type="FontFile" uid="uid://dbn2eqhxy00rr" path="res://assets/Roboto-BoldCondensed.ttf" id="5_roboto"]
+[ext_resource type="LabelSettings" uid="uid://mf7oh2pkahx6" path="res://games/chapter_one/hometown/building_one/Level1/atom.tres" id="3_atom_label"]
+[ext_resource type="Texture2D" uid="uid://b667yn0ou5sxj" path="res://assets/back.png" id="4_back_icon"]
+[ext_resource type="FontFile" uid="uid://do71bftfj4pwn" path="res://assets/LilitaOne-Regular.ttf" id="5_lilita"]
+[ext_resource type="FontFile" uid="uid://dbn2eqhxy00rr" path="res://assets/Roboto-BoldCondensed.ttf" id="6_roboto"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_back"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_toast"]
 bg_color = Color(0.12, 0.08, 0.1, 0.96)
@@ -71,32 +75,76 @@ theme_override_constants/separation = 16
 [node name="TopBar" type="HBoxContainer" parent="MainLayout"]
 layout_mode = 2
 theme_override_constants/separation = 16
-alignment = 1
 
 [node name="BackButton" type="Button" parent="MainLayout/TopBar"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(210, 60)
 layout_mode = 2
 focus_mode = 0
-text = "< Back"
-theme_override_fonts/font = ExtResource("5_roboto")
-theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_back")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_back")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_back")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_back")
+
+[node name="Label" type="Label" parent="MainLayout/TopBar/BackButton"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -33.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "BACK"
+label_settings = ExtResource("3_atom_label")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainLayout/TopBar/BackButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = 32.0
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_back_icon")
+
+[node name="SpacerLeft" type="Control" parent="MainLayout/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="TitleBox" type="VBoxContainer" parent="MainLayout/TopBar"]
 layout_mode = 2
 theme_override_constants/separation = 2
+alignment = 1
 
 [node name="Title" type="Label" parent="MainLayout/TopBar/TitleBox"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_lilita")
+theme_override_fonts/font = ExtResource("5_lilita")
 theme_override_font_sizes/font_size = 28
 text = "PUZZLE REVIEW"
+horizontal_alignment = 1
 
 [node name="Subtitle" type="Label" parent="MainLayout/TopBar/TitleBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.65, 0.72, 0.8, 1)
-theme_override_fonts/font = ExtResource("5_roboto")
+theme_override_fonts/font = ExtResource("6_roboto")
 theme_override_font_sizes/font_size = 14
 text = "Replay completed puzzles or inspect locked challenges from Chapter One"
+horizontal_alignment = 1
+
+[node name="SpacerRight" type="Control" parent="MainLayout/TopBar"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="ScrollArea" type="ScrollContainer" parent="MainLayout"]
 layout_mode = 2
@@ -138,6 +186,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_toast")
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.85, 0.85, 1)
-theme_override_fonts/font = ExtResource("5_roboto")
+theme_override_fonts/font = ExtResource("6_roboto")
 theme_override_font_sizes/font_size = 14
 text = "Locked notification message"
