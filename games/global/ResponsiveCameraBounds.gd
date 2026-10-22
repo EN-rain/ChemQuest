@@ -10,9 +10,20 @@ extends Camera2D
 
 func _ready() -> void:
 	_apply_bounds()
+	_apply_saved_fov()
 	var service := get_node_or_null("/root/ResponsiveLayout")
 	if service != null and not service.layout_changed.is_connected(_on_layout_changed):
 		service.layout_changed.connect(_on_layout_changed)
+
+
+func _apply_saved_fov() -> void:
+	var config := ConfigFile.new()
+	if config.load("user://settings.cfg") != OK:
+		return
+	var fov_val: float = clampf(float(config.get_value("display", "fov", 50.0)), 0.0, 100.0)
+	var target_zoom := lerpf(0.8, 0.4, fov_val / 100.0)
+	zoom = Vector2(target_zoom, target_zoom)
+
 
 
 func _exit_tree() -> void:

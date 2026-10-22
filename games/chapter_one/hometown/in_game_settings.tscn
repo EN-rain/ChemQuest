@@ -97,7 +97,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Card" type="PanelContainer" parent="CenterContainer"]
-custom_minimum_size = Vector2(560, 460)
+custom_minimum_size = Vector2(560, 580)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_card")
 
@@ -208,6 +208,49 @@ theme_override_styles/slider = SubResource("StyleBoxFlat_slider_bg")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_slider_fill")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_slider_fill")
 value = 80.0
+
+[node name="FovSection" type="VBoxContainer" parent="CenterContainer/Card/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="FovHeader" type="HBoxContainer" parent="CenterContainer/Card/Margin/VBox/FovSection"]
+layout_mode = 2
+
+[node name="FovTitle" type="Label" parent="CenterContainer/Card/Margin/VBox/FovSection/FovHeader"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_lilita")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+text = "VIEW DISTANCE"
+
+[node name="Spacer" type="Control" parent="CenterContainer/Card/Margin/VBox/FovSection/FovHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FovPercent" type="Label" parent="CenterContainer/Card/Margin/VBox/FovSection/FovHeader"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_lilita")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+text = "50%"
+
+[node name="FovSlider" type="HSlider" parent="CenterContainer/Card/Margin/VBox/FovSection"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_slider_bg")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_slider_fill")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_slider_fill")
+value = 50.0
+
+[node name="FovHint" type="Label" parent="CenterContainer/Card/Margin/VBox/FovSection"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_roboto")
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+text = "Narrow  ◄─────────────────►  Wide"
+horizontal_alignment = 1
 
 [node name="Divider3" type="ColorRect" parent="CenterContainer/Card/Margin/VBox"]
 custom_minimum_size = Vector2(0, 1)

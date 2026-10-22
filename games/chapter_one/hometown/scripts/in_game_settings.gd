@@ -13,13 +13,21 @@ const ROBOTO_FONT_PATH := "res://assets/Roboto-BoldCondensed.ttf"
 @onready var joystick_btn: Button = %JoystickBtn
 @onready var sound_slider: HSlider = %SoundSlider
 @onready var sound_percent: Label = %SoundPercent
+@onready var fov_slider: HSlider = %FovSlider
+@onready var fov_percent: Label = %FovPercent
 @onready var review_btn: Button = %ReviewBtn
 @onready var main_menu_btn: Button = %MainMenuBtn
 @onready var resume_btn: Button = %ResumeBtn
 
+# Zoom range: slider 0 = narrow (zoomed in), 100 = wide (zoomed out)
+const FOV_ZOOM_NARROW := 0.8
+const FOV_ZOOM_WIDE   := 0.4
+const FOV_DEFAULT     := 50.0
+
 var _card_active: StyleBoxFlat
 var _card_inactive: StyleBoxFlat
 var _card_hover: StyleBoxFlat
+var _card_panel_style: StyleBoxFlat  # dynamic copy so we can tween its bg alpha
 var _active_scheme: String = "arrows"
 
 
@@ -38,6 +46,10 @@ func _ready() -> void:
 		joystick_btn.pressed.connect(func(): _select_control_scheme("joystick"))
 	if sound_slider != null:
 		sound_slider.value_changed.connect(_on_sound_slider_changed)
+	if fov_slider != null:
+		fov_slider.value_changed.connect(_on_fov_slider_changed)
+		fov_slider.drag_started.connect(_on_fov_drag_started)
+		fov_slider.drag_ended.connect(_on_fov_drag_ended)
 	if main_menu_btn != null:
 		main_menu_btn.pressed.connect(_on_main_menu_pressed)
 	if review_btn != null:
@@ -91,6 +103,15 @@ func _init_card_styles() -> void:
 	_card_hover.border_color = Color(0.6, 0.6, 0.6, 0.8)
 	_card_hover.set_border_width_all(1)
 	_card_hover.set_corner_radius_all(14)
+
+	# Dynamic card background so we can tween only its alpha during FOV drag
+	_card_panel_style = StyleBoxFlat.new()
+	_card_panel_style.bg_color = Color(0.08, 0.08, 0.08, 0.96)
+	_card_panel_style.border_color = Color(0.25, 0.25, 0.25, 0.8)
+	_card_panel_style.set_border_width_all(1)
+	_card_panel_style.set_corner_radius_all(16)
+	if card != null:
+		card.add_theme_stylebox_override("panel", _card_panel_style)
 
 
 func _build_control_previews() -> void:
@@ -311,6 +332,14 @@ func _load_settings() -> void:
 	if sound_slider != null:
 		sound_slider.value = sound_vol
 	_apply_sound_volume(sound_vol, false)
+
+	# Load FOV
+	var fov_val: float = float(config.get_value("display", "fov", FOV_DEFAULT)) if err == OK else FOV_DEFAULT
+	fov_val = clampf(fov_val, 0.0, 100.0)
+	if fov_slider != null:
+		fov_slider.value = fov_val
+	_update_fov_label(fov_val)
+
 	_update_control_ui(ctrl_type)
 
 
@@ -362,6 +391,99 @@ func _update_control_ui(scheme: String) -> void:
 
 func _on_sound_slider_changed(value: float) -> void:
 	_apply_sound_volume(value, true)
+
+
+func _on_fov_slider_changed(value: float) -> void:
+	_update_fov_label(value)
+	_apply_fov_to_camera(value)
+	# Save immediately
+	var config := ConfigFile.new()
+	config.load("user://settings.cfg")
+	config.set_value("display", "fov", value)
+	config.save("user://settings.cfg")
+
+
+func _on_fov_drag_started() -> void:
+	# Fade everything EXCEPT FovSection — the slider stays fully visible
+	var tw := create_tween().set_parallel(true)
+	# Fade the card's panel background AND border by tweening both colors to alpha 0
+	if _card_panel_style != null:
+		var from_bg := _card_panel_style.bg_color
+		var to_bg := Color(from_bg.r, from_bg.g, from_bg.b, 0.0)
+		tw.tween_method(func(c: Color): _card_panel_style.bg_color = c, from_bg, to_bg, 0.18)
+		var from_border := _card_panel_style.border_color
+		var to_border := Color(from_border.r, from_border.g, from_border.b, 0.0)
+		tw.tween_method(func(c: Color): _card_panel_style.border_color = c, from_border, to_border, 0.18)
+	# Fade backdrop
+	if backdrop != null:
+		tw.tween_property(backdrop, "modulate:a", 0.0, 0.18)
+	# Fade every VBox sibling except FovSection
+	var vbox := get_node_or_null("CenterContainer/Card/Margin/VBox") as Control
+	if vbox != null:
+		for child in vbox.get_children():
+			if child.name != "FovSection":
+				tw.tween_property(child, "modulate:a", 0.0, 0.18)\
+					.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+
+
+func _on_fov_drag_ended(_value_changed: bool) -> void:
+	# Restore everything
+	var tw := create_tween().set_parallel(true)
+	# Restore card panel bg AND border
+	if _card_panel_style != null:
+		var from_bg := _card_panel_style.bg_color
+		var to_bg := Color(from_bg.r, from_bg.g, from_bg.b, 0.96)
+		tw.tween_method(func(c: Color): _card_panel_style.bg_color = c, from_bg, to_bg, 0.22)
+		var from_border := _card_panel_style.border_color
+		var to_border := Color(from_border.r, from_border.g, from_border.b, 0.8)
+		tw.tween_method(func(c: Color): _card_panel_style.border_color = c, from_border, to_border, 0.22)
+	# Restore backdrop
+	if backdrop != null:
+		tw.tween_property(backdrop, "modulate:a", 1.0, 0.22)
+	# Restore all VBox siblings
+	var vbox := get_node_or_null("CenterContainer/Card/Margin/VBox") as Control
+	if vbox != null:
+		for child in vbox.get_children():
+			if child.name != "FovSection":
+				tw.tween_property(child, "modulate:a", 1.0, 0.22)\
+					.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+
+
+func _update_fov_label(value: float) -> void:
+	if fov_percent != null:
+		fov_percent.text = "%d%%" % int(value)
+
+
+func _apply_fov_to_camera(value: float, tween_it: bool = true) -> void:
+	var target_zoom := _fov_to_zoom(value)
+	var camera := _find_active_camera()
+	if camera == null:
+		return
+	if tween_it:
+		var tw := create_tween()
+		tw.tween_property(camera, "zoom", Vector2(target_zoom, target_zoom), 0.12)\
+			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	else:
+		camera.zoom = Vector2(target_zoom, target_zoom)
+
+
+func _fov_to_zoom(value: float) -> float:
+	# value 0 = narrow (high zoom number), 100 = wide (low zoom number)
+	return lerpf(FOV_ZOOM_NARROW, FOV_ZOOM_WIDE, value / 100.0)
+
+
+func _find_active_camera() -> Camera2D:
+	# Try via Player group first (works for hometown & building scenes)
+	var players := get_tree().get_nodes_in_group("Player")
+	for p in players:
+		var cam := p.get_node_or_null("Camera2D") as Camera2D
+		if cam != null:
+			return cam
+	# Fallback: find any current Camera2D
+	var vp := get_viewport()
+	if vp != null:
+		return vp.get_camera_2d()
+	return null
 
 
 func _apply_sound_volume(value: float, save: bool = true) -> void:
