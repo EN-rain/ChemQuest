@@ -166,19 +166,16 @@ func is_puzzle_unlocked(puzzle_id: String) -> bool:
 	match puzzle_id:
 		"book1":
 			return QuestManager.is_quest_completed("finish_book1") \
-				or QuestManager.is_quest_completed("after_book1") \
-				or (has_node("/root/LessonManager") and LessonManager.is_lesson_completed(1))
+				or QuestManager.is_quest_completed("after_book1")
 		"book2":
 			return QuestManager.is_quest_completed("finish_book2") \
-				or QuestManager.is_quest_completed("after_book2") \
-				or (has_node("/root/LessonManager") and LessonManager.is_lesson_completed(2))
+				or QuestManager.is_quest_completed("after_book2")
 		"desk_quiz":
 			return QuestManager.is_quest_completed("desk_quiz") \
 				or QuestManager.is_quest_completed("after_desk_quiz")
 		"book3":
 			return QuestManager.is_quest_completed("finish_book3") \
-				or QuestManager.is_quest_completed("after_book3") \
-				or (has_node("/root/LessonManager") and LessonManager.is_lesson_completed(3))
+				or QuestManager.is_quest_completed("after_book3")
 		"separation":
 			return QuestManager.is_quest_completed("separation_methods") \
 				or QuestManager.is_quest_completed("separation_methods_after") \
