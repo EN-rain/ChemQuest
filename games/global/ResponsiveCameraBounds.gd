@@ -21,7 +21,7 @@ func _apply_saved_fov() -> void:
 	if config.load("user://settings.cfg") != OK:
 		return
 	var fov_val: float = clampf(float(config.get_value("display", "fov", 50.0)), 0.0, 100.0)
-	var target_zoom := lerpf(0.8, 0.4, fov_val / 100.0)
+	var target_zoom := lerpf(1.2, 0.4, fov_val / 100.0)
 	zoom = Vector2(target_zoom, target_zoom)
 
 

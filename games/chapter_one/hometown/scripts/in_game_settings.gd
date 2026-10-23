@@ -20,7 +20,7 @@ const ROBOTO_FONT_PATH := "res://assets/Roboto-BoldCondensed.ttf"
 @onready var resume_btn: Button = %ResumeBtn
 
 # Zoom range: slider 0 = narrow (zoomed in), 100 = wide (zoomed out)
-const FOV_ZOOM_NARROW := 0.8
+const FOV_ZOOM_NARROW := 1.2
 const FOV_ZOOM_WIDE   := 0.4
 const FOV_DEFAULT     := 50.0
 
